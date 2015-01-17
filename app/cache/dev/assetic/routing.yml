@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Users/karlpineau/Sites/player_manager/app/config/routing_dev.yml
