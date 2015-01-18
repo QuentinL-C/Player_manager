@@ -1,6 +1,6 @@
 {# src/PM/UserBundle/Resources/views/User/listeUsers.html.twig #}
  
-{% extends "PMUserBundle::layoutAdministration.html.twig" %}
+{% extends "PMUserBundle::layout.html.twig" %}
  
 {% block title %}
   Liste - {{ parent() }}
@@ -8,30 +8,30 @@
 
 {% block PMUser_body %}
 <div class="row">
-    <section id="content" class="offset2 span8">
-        <h1>Liste des utilisateurs inscrits :</h1>
+    <section id="content" class="col-md-6">
+        <h1>Liste des utilisateurs :</h1>
         
         {% for flashMessage in app.session.flashbag.get('notice') %}
-            <div class="alert span6 alert-success">
+            <div class="alert col-md-6 alert-success">
                 {{ flashMessage }}
             </div>
         {% endfor %}
         	
         <br />
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped">
             <tr>
-                <th style="width: 10px;">N°</th>
-                <th style="text-align: center;">Nom</th>
-                <th style="text-align: center;">Adresse mail</th>
+                <th style="max-width: 30px; text-align: left;">#</th>
+                <th style="text-align: left;">Nom</th>
+                <th style="text-align: left;">Adresse mail</th>
             </tr>
-            {% for utilisateur in listeUtilisateurs %}
+            {% for user in usersList %}
                 <tr>
                     <td style="text-align: left;">{{ loop.index }}</td>
-                    <td style="text-align: left;"><a href="{{ path('pm_user_view', { 'id_utilisateur' : utilisateur.id} ) }}">{{ utilisateur.name | upper}} {{ utilisateur.firstname }}</a></td>
-                    <td style="text-align: left;"><a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></td>
+                    <td style="text-align: left;"><a href="{{ path('pm_user_view', { 'user_id' : user.id} ) }}">{{ user.name | upper}} {{ user.firstname }}</a></td>
+                    <td style="text-align: left;"><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
                 </tr>
             {% endfor %}
-            {% if listeUtilisateurs is empty %}
+            {% if usersList is empty %}
                 <tr>
                     <td colspan="5" style="text-align: center; font-weight: bold;">Aucun utilisateur connu.</td>
                 </tr>

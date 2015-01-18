@@ -1,6 +1,6 @@
 <?php
 
-/* PMUserBundle:Profile:show.html.twig */
+/* FOSUserBundle:Profile:show.html.twig */
 class __TwigTemplate_65d2ad5eee71b4ef6b8087106e77a9395c009ec4fdbcdd8019ab362358ce68db extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -119,7 +119,7 @@ class __TwigTemplate_65d2ad5eee71b4ef6b8087106e77a9395c009ec4fdbcdd8019ab362358c
 
     public function getTemplateName()
     {
-        return "PMUserBundle:Profile:show.html.twig";
+        return "FOSUserBundle:Profile:show.html.twig";
     }
 
     public function isTraitable()

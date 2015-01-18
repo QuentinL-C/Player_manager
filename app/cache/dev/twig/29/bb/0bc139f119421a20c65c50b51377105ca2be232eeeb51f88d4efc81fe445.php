@@ -9,7 +9,7 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
 
         // line 3
         try {
-            $this->parent = $this->env->loadTemplate("PMUserBundle::layoutAdministration.html.twig");
+            $this->parent = $this->env->loadTemplate("PMUserBundle::layout.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(3);
@@ -25,7 +25,7 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
 
     protected function doGetParent(array $context)
     {
-        return "PMUserBundle::layoutAdministration.html.twig";
+        return "PMUserBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -48,8 +48,8 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
     {
         // line 10
         echo "<div class=\"row\">
-    <section id=\"content\" class=\"offset2 span8\">
-        <h1>Liste des utilisateurs inscrits :</h1>
+    <section id=\"content\" class=\"col-md-6\">
+        <h1>Liste des utilisateurs :</h1>
         
         ";
         // line 14
@@ -57,7 +57,7 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
             // line 15
-            echo "            <div class=\"alert span6 alert-success\">
+            echo "            <div class=\"alert col-md-6 alert-success\">
                 ";
             // line 16
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
@@ -71,16 +71,16 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
         // line 19
         echo "        \t
         <br />
-        <table class=\"table table-bordered table-striped\">
+        <table class=\"table table-striped\">
             <tr>
-                <th style=\"width: 10px;\">N°</th>
-                <th style=\"text-align: center;\">Nom</th>
-                <th style=\"text-align: center;\">Adresse mail</th>
+                <th style=\"max-width: 30px; text-align: left;\">#</th>
+                <th style=\"text-align: left;\">Nom</th>
+                <th style=\"text-align: left;\">Adresse mail</th>
             </tr>
             ";
         // line 27
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listeUtilisateurs"]) ? $context["listeUtilisateurs"] : $this->getContext($context, "listeUtilisateurs")));
+        $context['_seq'] = twig_ensure_traversable((isset($context["usersList"]) ? $context["usersList"] : $this->getContext($context, "usersList")));
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -94,7 +94,7 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
             $context['loop']['length'] = $length;
             $context['loop']['last'] = 1 === $length;
         }
-        foreach ($context['_seq'] as $context["_key"] => $context["utilisateur"]) {
+        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
             // line 28
             echo "                <tr>
                     <td style=\"text-align: left;\">";
@@ -103,17 +103,17 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
             echo "</td>
                     <td style=\"text-align: left;\"><a href=\"";
             // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("id_utilisateur" => $this->getAttribute($context["utilisateur"], "id", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($context["user"], "id", array()))), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($context["utilisateur"], "name", array())), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($context["user"], "name", array())), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["utilisateur"], "firstname", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "firstname", array()), "html", null, true);
             echo "</a></td>
                     <td style=\"text-align: left;\"><a href=\"mailto:";
             // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($context["utilisateur"], "email", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "email", array()), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["utilisateur"], "email", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "email", array()), "html", null, true);
             echo "</a></td>
                 </tr>
             ";
@@ -127,11 +127,11 @@ class __TwigTemplate_29bb0bc139f119421a20c65c50b51377105ca2be232eeeb51f88d4efc81
             }
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['utilisateur'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 34
         echo "            ";
-        if (twig_test_empty((isset($context["listeUtilisateurs"]) ? $context["listeUtilisateurs"] : $this->getContext($context, "listeUtilisateurs")))) {
+        if (twig_test_empty((isset($context["usersList"]) ? $context["usersList"] : $this->getContext($context, "usersList")))) {
             // line 35
             echo "                <tr>
                     <td colspan=\"5\" style=\"text-align: center; font-weight: bold;\">Aucun utilisateur connu.</td>

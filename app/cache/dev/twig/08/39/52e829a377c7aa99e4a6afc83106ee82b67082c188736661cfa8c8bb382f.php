@@ -1,6 +1,6 @@
 <?php
 
-/* PMUserBundle:Security:login.html.twig */
+/* FOSUserBundle:Security:login.html.twig */
 class __TwigTemplate_083952e829a377c7aa99e4a6afc83106ee82b67082c188736661cfa8c8bb382f extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -9,7 +9,7 @@ class __TwigTemplate_083952e829a377c7aa99e4a6afc83106ee82b67082c188736661cfa8c8b
 
         // line 3
         try {
-            $this->parent = $this->env->loadTemplate("FOSUserBundle::layout.html.twig");
+            $this->parent = $this->env->loadTemplate("PMUserBundle::layout.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(3);
@@ -28,7 +28,7 @@ class __TwigTemplate_083952e829a377c7aa99e4a6afc83106ee82b67082c188736661cfa8c8b
 
     protected function doGetParent(array $context)
     {
-        return "FOSUserBundle::layout.html.twig";
+        return "PMUserBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -155,7 +155,7 @@ class __TwigTemplate_083952e829a377c7aa99e4a6afc83106ee82b67082c188736661cfa8c8b
 
     public function getTemplateName()
     {
-        return "PMUserBundle:Security:login.html.twig";
+        return "FOSUserBundle:Security:login.html.twig";
     }
 
     public function isTraitable()

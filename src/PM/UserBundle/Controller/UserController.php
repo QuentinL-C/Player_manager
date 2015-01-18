@@ -24,13 +24,13 @@ class UserController extends Controller
                             ));
     }
     
-    public function viewAction($id_user)
+    public function viewAction($user_id)
     {
         $repository = $this->getDoctrine()
                            ->getManager()
                            ->getRepository('PMUserBundle:User');
  
-        $user = $repository->find($id_user);
+        $user = $repository->find($user_id);
         
         return $this->render('PMUserBundle:User:view.html.twig', array(
                              'user' => $user

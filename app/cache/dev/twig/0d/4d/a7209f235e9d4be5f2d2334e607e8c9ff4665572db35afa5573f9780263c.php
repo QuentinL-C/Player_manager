@@ -25,7 +25,7 @@ class __TwigTemplate_0d4da7209f235e9d4be5f2d2334e607e8c9ff4665572db35afa5573f978
             <dt>Nom :</dt>
             <dd>";
         // line 9
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "CompleteName", array()), "html", null, true);
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "Firstname", array()) . " ") . $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "Name", array())), "html", null, true);
         echo "</dd>
         </dl>
         <dl class=\"dl-horizontal\">

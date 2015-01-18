@@ -27,15 +27,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/js/0649fc5')) {
-            // _assetic_0649fc5
-            if ($pathinfo === '/js/0649fc5.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '0649fc5',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_0649fc5',);
+        if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/72a19d5')) {
+                // _assetic_72a19d5
+                if ($pathinfo === '/js/72a19d5.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '72a19d5',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_72a19d5',);
+                }
+
+                // _assetic_72a19d5_0
+                if ($pathinfo === '/js/72a19d5_edit_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '72a19d5',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_72a19d5_0',);
+                }
+
             }
 
-            // _assetic_0649fc5_0
-            if ($pathinfo === '/js/0649fc5_register_1.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '0649fc5',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_0649fc5_0',);
+            if (0 === strpos($pathinfo, '/js/0649fc5')) {
+                // _assetic_0649fc5
+                if ($pathinfo === '/js/0649fc5.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0649fc5',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_0649fc5',);
+                }
+
+                // _assetic_0649fc5_0
+                if ($pathinfo === '/js/0649fc5_register_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0649fc5',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_0649fc5_0',);
+                }
+
             }
 
         }
@@ -188,7 +204,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // pm_user_view
-            if (0 === strpos($pathinfo, '/utilisateur/user') && preg_match('#^/utilisateur/user/(?P<id_utilisateur>\\d+)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/utilisateur/user') && preg_match('#^/utilisateur/user/(?P<user_id>\\d+)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
             }
 

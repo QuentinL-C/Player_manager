@@ -8,10 +8,10 @@ pm_user_list:
     defaults: { _controller: PMUserBundle:User:UsersList }
     
 pm_user_view:
-    pattern:  /user/{id_utilisateur}
+    pattern:  /user/{user_id}
     defaults: { _controller: PMUserBundle:User:View}
     requirements:
-        id_utilisateur:  \d+
+        user_id:  \d+
         
 pm_user_ajax_password:
     pattern:  /1234-password

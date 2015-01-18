@@ -1,6 +1,6 @@
 <?php
 
-/* PMUserBundle:Registration:confirmed.html.twig */
+/* FOSUserBundle:Registration:confirmed.html.twig */
 class __TwigTemplate_205f3b307c43e8edf70fa6dac71224326cafbae7728c94679e9d78d944159c2e extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -9,7 +9,7 @@ class __TwigTemplate_205f3b307c43e8edf70fa6dac71224326cafbae7728c94679e9d78d9441
 
         // line 1
         try {
-            $this->parent = $this->env->loadTemplate("PMUserBundle::layoutAdmin.html.twig");
+            $this->parent = $this->env->loadTemplate("PMUserBundle::layout.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(1);
@@ -28,7 +28,7 @@ class __TwigTemplate_205f3b307c43e8edf70fa6dac71224326cafbae7728c94679e9d78d9441
 
     protected function doGetParent(array $context)
     {
-        return "PMUserBundle::layoutAdmin.html.twig";
+        return "PMUserBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -101,7 +101,7 @@ class __TwigTemplate_205f3b307c43e8edf70fa6dac71224326cafbae7728c94679e9d78d9441
 
     public function getTemplateName()
     {
-        return "PMUserBundle:Registration:confirmed.html.twig";
+        return "FOSUserBundle:Registration:confirmed.html.twig";
     }
 
     public function isTraitable()

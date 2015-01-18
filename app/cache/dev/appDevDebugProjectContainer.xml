@@ -459,6 +459,7 @@
       <parameter>PMUserBundle</parameter>
       <parameter>PMGameBundle</parameter>
       <parameter>PMCharacterBundle</parameter>
+      <parameter>FOSUserBundle</parameter>
     </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -1912,7 +1913,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54bbd0572d847</argument>
+            <argument>54bc19bdd812c</argument>
           </service>
         </argument>
       </argument>
@@ -2230,7 +2231,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54bbd0572d847</argument>
+            <argument>54bc19bdd812c</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2424,6 +2425,7 @@
               <argument>PMUserBundle</argument>
               <argument>PMGameBundle</argument>
               <argument>PMCharacterBundle</argument>
+              <argument>FOSUserBundle</argument>
             </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
@@ -2652,6 +2654,33 @@
                   <argument type="service" id="templating.loader"/>
                   <argument>PMCharacterBundle</argument>
                   <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSUserBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/app/Resources/FOSUserBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSUserBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>

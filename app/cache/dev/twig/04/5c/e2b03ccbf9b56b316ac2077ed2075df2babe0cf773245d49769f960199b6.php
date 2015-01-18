@@ -1,6 +1,6 @@
 <?php
 
-/* PMUserBundle:Registration:email.txt.twig */
+/* FOSUserBundle:Registration:email.txt.twig */
 class __TwigTemplate_045ce2b03ccbf9b56b316ac2077ed2075df2babe0cf773245d49769f960199b6 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -51,7 +51,7 @@ class __TwigTemplate_045ce2b03ccbf9b56b316ac2077ed2075df2babe0cf773245d49769f960
 
     public function getTemplateName()
     {
-        return "PMUserBundle:Registration:email.txt.twig";
+        return "FOSUserBundle:Registration:email.txt.twig";
     }
 
     public function getDebugInfo()

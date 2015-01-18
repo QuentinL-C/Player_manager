@@ -130,9 +130,11 @@ class RegistrationController extends BaseController
     public function confirmedAction()
     {
         $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
+        
+        //Désactivation de la condition qui fait que seul un utilisateur peut s'inscrire lui-même
+        /*if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
-        }
+        }*/
 
         return $this->render('PMUserBundle:Registration:confirmed.html.twig', array(
             'user' => $user,

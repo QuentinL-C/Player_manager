@@ -1,6 +1,6 @@
 <?php
 
-/* PMUserBundle:Registration:checkEmail.html.twig */
+/* FOSUserBundle:Registration:checkEmail.html.twig */
 class __TwigTemplate_fb30597fce968f734e8a269ae55baf9a5a8468c77f5851af5c721e9ff3b01a28 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -44,7 +44,7 @@ class __TwigTemplate_fb30597fce968f734e8a269ae55baf9a5a8468c77f5851af5c721e9ff3b
 
     public function getTemplateName()
     {
-        return "PMUserBundle:Registration:checkEmail.html.twig";
+        return "FOSUserBundle:Registration:checkEmail.html.twig";
     }
 
     public function isTraitable()
