@@ -1,2 +1,23 @@
-{# empty Twig template #}
-Accueil de l'administration
+{# src/PM/WelcomeBundle/Resources/views/Administration/index.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+ 
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %} 
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li>Administration</li>
+{% endblock %}
+
+{% block h1 %}
+    Administration
+{% endblock %}
+
+{% block PM_body %}
+    Accueil de l'administration
+{% endblock %}
+    
+{% block javascripts_block %}
+{% endblock %}
