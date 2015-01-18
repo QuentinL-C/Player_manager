@@ -8,7 +8,7 @@
 
 {% block breadcrumb %}
     {{ parent() }}
-    <li>Administration</li>
+    <li class="active">Accueil</li>
 {% endblock %}
 
 {% block h1 %}
@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block PM_body %}
-    Accueil de l'administration
+    <a href="{{path('pm_user_homepage')}}">Gestion Utilisateurs</a>
 {% endblock %}
     
 {% block javascripts_block %}

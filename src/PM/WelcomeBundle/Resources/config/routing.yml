@@ -1,3 +1,7 @@
+pm_welcome_index:
+    path:     /
+    defaults: { _controller: PMWelcomeBundle:Homepage:index }
+
 pm_welcome_homepage:
     path:     /accueil
     defaults: { _controller: PMWelcomeBundle:Homepage:index }

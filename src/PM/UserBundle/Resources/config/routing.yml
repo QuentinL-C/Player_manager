@@ -12,3 +12,12 @@ pm_user_view:
     defaults: { _controller: PMUserBundle:User:View}
     requirements:
         id_utilisateur:  \d+
+        
+pm_user_ajax_password:
+    pattern:  /1234-password
+    defaults: { _controller: PMUserBundle:Registration:AjaxPassword }
+    requirements:
+        _method: POST
+    options:
+        expose: true
+        

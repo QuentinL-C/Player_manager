@@ -1912,7 +1912,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54bbb09acbcc4</argument>
+            <argument>54bbd0572d847</argument>
           </service>
         </argument>
       </argument>
@@ -2230,7 +2230,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54bbb09acbcc4</argument>
+            <argument>54bbd0572d847</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3080,6 +3080,7 @@
       <argument type="service" id="router"/>
       <argument>86400</argument>
     </service>
+    <service id="pm_user.genere_password" class="PM\UserBundle\Services\PMUserPasswordGenere"/>
     <service id="stof_doctrine_extensions.uploadable.manager" class="Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager">
       <argument type="service">
         <service class="Gedmo\Uploadable\UploadableListener" public="false">
@@ -3463,7 +3464,7 @@
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
       <argument type="collection">
-        <argument key="AssoProject\UserBundle\Entity\User" type="collection">
+        <argument key="PM\UserBundle\Entity\User" type="collection">
           <argument key="class">%security.encoder.digest.class%</argument>
           <argument key="arguments" type="collection">
             <argument>sha512</argument>

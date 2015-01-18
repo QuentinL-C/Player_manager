@@ -95,9 +95,7 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
                             <a class=\"btn btn-default navbar-btn\" href=\"";
             // line 51
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
-            echo "\">Connexion</a> <a class=\"btn btn-default navbar-btn\" href=\"";
-            echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
-            echo "\">Inscription</a>
+            echo "\">Connexion</a>
                         </div>
                     ";
         }
@@ -107,40 +105,29 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
         </header>
             
         <div class=\"container\">
-            ";
-        // line 59
-        if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "get", array(0 => "_route"), "method") != "pm_welcome_homepage")) {
-            // line 60
-            echo "                <br /><br />
-                <div class=\"page-header\">
-                    <div class=\"pull-right\">";
-            // line 62
-            $this->displayBlock('h1_extend', $context, $blocks);
-            echo "</div>
-                    <h1>";
-            // line 63
-            $this->displayBlock('h1', $context, $blocks);
-            echo "</h1>
-                </div>
+            <br /><br />
+            <div class=\"page-header\">
+                <div class=\"pull-right\">";
+        // line 61
+        $this->displayBlock('h1_extend', $context, $blocks);
+        echo "</div>
+                <h1>";
+        // line 62
+        $this->displayBlock('h1', $context, $blocks);
+        echo "</h1>
+            </div>
 
-                <ol class=\"breadcrumb\">
-                ";
-            // line 67
-            $this->displayBlock('breadcrumb', $context, $blocks);
-            // line 70
-            echo "                </ol>
+            <ol class=\"breadcrumb\">
             ";
-        } else {
-            // line 72
-            echo "                <br /><br /><br />
+        // line 66
+        $this->displayBlock('breadcrumb', $context, $blocks);
+        // line 69
+        echo "            </ol>
+        
             ";
-        }
-        // line 74
-        echo "        
-            ";
-        // line 75
+        // line 71
         $this->displayBlock('body', $context, $blocks);
-        // line 77
+        // line 73
         echo "        </div>
         <br />
         <hr />
@@ -153,27 +140,27 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
         <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\"></script>
         
         <script src=\"";
-        // line 88
+        // line 84
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 89
+        // line 85
         echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
         echo "\"></script>
         
         <script type=\"text/javascript\" src=\"";
-        // line 91
+        // line 87
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
         echo "\"></script>
         <script type=\"text/javascript\" src=\"";
-        // line 92
+        // line 88
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
         
         ";
-        // line 94
+        // line 90
         $this->displayBlock('javascripts_block', $context, $blocks);
-        // line 95
+        // line 91
         echo "    </body>
 </html>";
     }
@@ -212,34 +199,40 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
         ";
     }
 
-    // line 62
+    // line 61
     public function block_h1_extend($context, array $blocks = array())
     {
     }
 
-    // line 63
+    // line 62
     public function block_h1($context, array $blocks = array())
     {
     }
 
-    // line 67
+    // line 66
     public function block_breadcrumb($context, array $blocks = array())
     {
-        // line 68
-        echo "                    <li><a href=\"";
-        echo $this->env->getExtension('routing')->getPath("pm_welcome_homepage");
-        echo "\">Accueil</a></li>
-                ";
+        // line 67
+        echo "                <li>";
+        if ((($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "get", array(0 => "_route"), "method") != "pm_welcome_homepage") && ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "get", array(0 => "_route"), "method") != "pm_welcome_index"))) {
+            echo "<a href=\"";
+            echo $this->env->getExtension('routing')->getPath("pm_welcome_homepage");
+            echo "\">Accueil</a>";
+        } else {
+            echo "Accueil";
+        }
+        echo "</li>
+            ";
     }
 
-    // line 75
+    // line 71
     public function block_body($context, array $blocks = array())
     {
-        // line 76
+        // line 72
         echo "            ";
     }
 
-    // line 94
+    // line 90
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -256,6 +249,6 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
 
     public function getDebugInfo()
     {
-        return array (  243 => 94,  239 => 76,  236 => 75,  229 => 68,  226 => 67,  221 => 63,  216 => 62,  206 => 18,  201 => 16,  196 => 15,  193 => 14,  188 => 9,  182 => 8,  177 => 95,  175 => 94,  170 => 92,  166 => 91,  161 => 89,  157 => 88,  144 => 77,  142 => 75,  139 => 74,  135 => 72,  131 => 70,  129 => 67,  122 => 63,  118 => 62,  114 => 60,  112 => 59,  105 => 54,  97 => 51,  94 => 50,  86 => 45,  82 => 44,  77 => 42,  73 => 40,  71 => 39,  63 => 36,  49 => 24,  47 => 14,  41 => 10,  39 => 9,  35 => 8,  27 => 2,);
+        return array (  236 => 90,  232 => 72,  229 => 71,  216 => 67,  213 => 66,  208 => 62,  203 => 61,  193 => 18,  188 => 16,  183 => 15,  180 => 14,  175 => 9,  169 => 8,  164 => 91,  162 => 90,  157 => 88,  153 => 87,  148 => 85,  144 => 84,  131 => 73,  129 => 71,  125 => 69,  123 => 66,  116 => 62,  112 => 61,  103 => 54,  97 => 51,  94 => 50,  86 => 45,  82 => 44,  77 => 42,  73 => 40,  71 => 39,  63 => 36,  49 => 24,  47 => 14,  41 => 10,  39 => 9,  35 => 8,  27 => 2,);
     }
 }

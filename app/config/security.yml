@@ -1,6 +1,6 @@
 security:
     encoders:
-        AssoProject\UserBundle\Entity\User: sha512
+        PM\UserBundle\Entity\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

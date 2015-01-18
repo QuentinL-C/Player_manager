@@ -140,6 +140,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // pm_welcome_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'pm_welcome_index');
+            }
+
+            return array (  '_controller' => 'PM\\WelcomeBundle\\Controller\\HomepageController::indexAction',  '_route' => 'pm_welcome_index',);
+        }
+
         if (0 === strpos($pathinfo, '/a')) {
             // pm_welcome_homepage
             if ($pathinfo === '/accueil') {
@@ -182,6 +191,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             if (0 === strpos($pathinfo, '/utilisateur/user') && preg_match('#^/utilisateur/user/(?P<id_utilisateur>\\d+)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
             }
+
+            // pm_user_ajax_password
+            if ($pathinfo === '/utilisateur/1234-password') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_pm_user_ajax_password;
+                }
+
+                return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::AjaxPasswordAction',  '_route' => 'pm_user_ajax_password',);
+            }
+            not_pm_user_ajax_password:
 
         }
 

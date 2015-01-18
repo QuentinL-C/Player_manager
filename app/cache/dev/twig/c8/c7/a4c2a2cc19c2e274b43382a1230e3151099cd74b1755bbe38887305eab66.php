@@ -20,6 +20,7 @@ class __TwigTemplate_c8c7a4c2a2cc19c2e274b43382a1230e3151099cd74b1755bbe38887305
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'follow' => array($this, 'block_follow'),
+            'breadcrumb' => array($this, 'block_breadcrumb'),
             'body' => array($this, 'block_body'),
             'PM_body' => array($this, 'block_PM_body'),
         );
@@ -54,16 +55,30 @@ class __TwigTemplate_c8c7a4c2a2cc19c2e274b43382a1230e3151099cd74b1755bbe38887305
     }
 
     // line 13
-    public function block_body($context, array $blocks = array())
+    public function block_breadcrumb($context, array $blocks = array())
     {
         // line 14
+        echo "    ";
+        $this->displayParentBlock("breadcrumb", $context, $blocks);
+        echo "
+    <li><a href=\"";
+        // line 15
+        echo $this->env->getExtension('routing')->getPath("pm_administration_homepage");
+        echo "\">Administration</a></li>
+";
+    }
+
+    // line 18
+    public function block_body($context, array $blocks = array())
+    {
+        // line 19
         echo "    ";
         $this->displayBlock('PM_body', $context, $blocks);
     }
 
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 15
+        // line 20
         echo "    ";
     }
 
@@ -79,6 +94,6 @@ class __TwigTemplate_c8c7a4c2a2cc19c2e274b43382a1230e3151099cd74b1755bbe38887305
 
     public function getDebugInfo()
     {
-        return array (  67 => 15,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  82 => 20,  75 => 19,  72 => 18,  66 => 15,  61 => 14,  58 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

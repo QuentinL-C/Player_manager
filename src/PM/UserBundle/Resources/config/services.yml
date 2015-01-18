@@ -1,4 +1,6 @@
 parameters:
 #    asso_project_user.example.class: AssoProject\UserBundle\Example
         
-    
+services :
+    pm_user.genere_password:
+        class: PM\UserBundle\Services\PMUserPasswordGenere

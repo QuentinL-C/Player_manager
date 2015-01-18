@@ -9,6 +9,11 @@
 {% block follow %}
     <meta name="robots" content="noindex,nofollow" />
 {% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_administration_homepage') }}">Administration</a></li>
+{% endblock %}
 
 {% block body %}
     {% block PM_body %}
