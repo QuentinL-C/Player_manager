@@ -29,12 +29,14 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        project_name: "Player Manager"
 
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [PMWelcomeBundle, PMUserBundle, PMGameBundle, PMCharacterBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -71,3 +73,25 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# FOS\UserBundle configuration
+fos_user:
+    db_driver:              orm
+    firewall_name:          main
+    user_class:             PM\UserBundle\Entity\User
+    use_listener:           true
+    use_username_form_type: false
+    registration:
+        form:
+            type: pm_user_registration
+    profile:
+        form:
+            type: pm_user_profile
+
+# Stof\DoctrineExtensionBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            timestampable: true
+    

@@ -1,0 +1,24 @@
+{% extends "PMUserBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Confirmation - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    Confirmation :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Confirmation</li>
+{% endblock %} 
+
+{% block PMUser_body %}
+    {% block fos_user_content %}
+        <p class="alert alert-success">Félicitations, l'utilisateur a bien été inséré.</p>
+        {% if app.session is not empty %}
+            {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+            {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+        {% endif %}
+    {% endblock fos_user_content %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{# src/PM/WelcomeBundle/Resources/views/layoutPublic.html.twig #}
+ 
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="index,follow" />
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

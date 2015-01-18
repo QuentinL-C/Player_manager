@@ -1,0 +1,22 @@
+{# src/PM/WelcomeBundle/Resources/views/Homepage/index.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutPublic.html.twig" %}
+ 
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %} 
+
+{% block breadcrumb %}
+    {{ parent() }}
+{% endblock %}
+
+{% block h1 %}
+    Bienvenue sur {{project_name}}
+{% endblock %}
+
+{% block PM_body %}
+    Ah que coucou !
+{% endblock %}
+    
+{% block javascripts_block %}
+{% endblock %}

@@ -1,0 +1,3 @@
+pm_character_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PMCharacterBundle:Default:index }

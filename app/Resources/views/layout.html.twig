@@ -1,0 +1,96 @@
+{# app/Resources/views/layout.html.twig #}
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+        <title>{% block title %}{{ project_name }}{% endblock %}</title>
+        {% block follow %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+            <!-- Le fav and touch icons -->
+            <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+            <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+            <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+            -->
+        {% endblock %}
+    </head>
+ 
+    <body>
+        <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <nav class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('pm_welcome_homepage') }}">{{ project_name }}</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenue {{ app.user.firstname | title }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <div class="navbar-right">
+                            <a class="btn btn-default navbar-btn" href="{{ path('fos_user_security_login') }}">Connexion</a> <a class="btn btn-default navbar-btn" href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+            
+        <div class="container">
+            {% if app.request.get('_route') != 'pm_welcome_homepage' %}
+                <br /><br />
+                <div class="page-header">
+                    <div class="pull-right">{% block h1_extend %}{% endblock %}</div>
+                    <h1>{% block h1 %}{% endblock %}</h1>
+                </div>
+
+                <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    <li><a href="{{ path('pm_welcome_homepage') }}">Accueil</a></li>
+                {% endblock %}
+                </ol>
+            {% else %}
+                <br /><br /><br />
+            {% endif %}
+        
+            {% block body %}
+            {% endblock %}
+        </div>
+        <br />
+        <hr />
+        <footer class="footer">
+            <div class="container">
+                <p class="pull-right"><a href="#">Top</a></p>
+            </div>
+        </footer>
+            
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        
+        <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        
+        {% block javascripts_block %}{% endblock %}
+    </body>
+</html>

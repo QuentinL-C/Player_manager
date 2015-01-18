@@ -1,0 +1,19 @@
+{# src/PM/InstalBundle/Resources/views/layout.html.twig #}
+ 
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    Utilisateur - {{ parent() }}
+{% endblock %} 
+    
+{% block breadcrumb %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% block follow %}
+        <meta name="robots" content="index,follow" />
+    {% endblock %}
+        
+    {% block PMUser_body %}{% block fos_user_content %}{% endblock %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{# src/PM/WelcomeBundle/Resources/views/layoutAdmin.html.twig #}
+ 
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    Administration - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

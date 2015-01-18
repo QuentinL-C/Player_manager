@@ -1,0 +1,60 @@
+{# src/PM/UserBundle/Resources/views/User/ajouter.html.twig #}
+ 
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.name) }}
+        {{ form_errors(form.firstname) }}
+        {{ form_errors(form.email) }}
+        {{ form_errors(form.username) }}
+        {{ form_errors(form.plainPassword.first) }}
+        {{ form_errors(form.plainPassword.second) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Utilisateur :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.name, "Nom, Prénom :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de l\'utilisateur', 'class': 'form-control'}}) }}
+            </div>
+            <div class="col-sm-4">
+                {{ form_widget(form.firstname, {'attr': {'placeholder': 'Prénom', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email, "Adresse mail :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.email, {'attr': {'placeholder': 'mail@exemple.com', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group main-hide-div">
+            {{ form_label(form.username, "Nom d'utilisateur :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.username, {'attr': {'placeholder': 'Votre email : mail@exemple.com', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group main-hide-div">
+            {{ form_label(form.plainPassword.first, "Mot de passe :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Mot de Passe', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group main-hide-div">
+            {{ form_label(form.plainPassword.second, "Vérification :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Mot de Passe', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset> 
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

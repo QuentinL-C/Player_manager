@@ -1,0 +1,56 @@
+{# src/PM/UserBundle/Resources/views/User/voir.html.twig #}
+ 
+{% extends "PMUserBundle::layout.html.twig" %}
+ 
+{% block title %}
+    {{ user.firstname ~ " " ~ user.name|title}} - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    {{ user.firstname ~ " " ~ user.name|title}}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_user_list') }}">Liste des Utilisateurs</a></li>    
+    <li class="active">Voir</li>
+{% endblock %}    
+    
+{% block PMUser_body %}
+<div class="row">
+    <!-- Nav tab -->
+    <div class="col-lg-2">
+        <ul id="UserTab" class="nav nav-stacked">
+            <li class="dropdown">
+                <a id="User_BlocUser" hef="#" class="dropdown-toggle" data-toggle="dropdown" >Utilisateur <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="User_BlocUser" role="menu">
+                    <li><a href="#User_User" data-toggle="tab" tabindex="-1" >Informations</a></li>
+                    <li><a href="#User_Edit" data-toggle="tab" tabindex="-1" >Editer</a></li>
+                </ul>
+            </li>
+            <li><a href="#User_Settings" data-toggle="tab">Paramètres</a></li>
+        </ul>
+    </div>
+    
+    <div class="col-lg-10 well">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert col-lg-10 alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+    
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="User_User">
+                {% include "PMUserBundle:User:view_user_user.html.twig" %}
+            </div>
+            <div class="tab-pane" id="User_Edit">
+                {% include "PMUserBundle:User:view_user_edit.html.twig" %}
+            </div>
+            <div class="tab-pane" id="User_Settings">
+                {% include "PMUserBundle:User:view_user_settings.html.twig" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

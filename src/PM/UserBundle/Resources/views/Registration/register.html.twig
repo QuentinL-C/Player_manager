@@ -1,0 +1,38 @@
+{% extends "PMUserBundle::layout.html.twig" %}
+
+{% block title %}
+    Ajouter - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    Ajouter un utilisateur :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Ajouter</li>
+{% endblock %}    
+    
+{% block PMUser_body %}
+    {% block fos_user_content %}
+        <div class="row">
+            <section class="col-lg-12">
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert col-lg-7 alert-success">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+
+                <div class="well">
+                    {% include "PMUserBundle:Registration:register_content.html.twig" %}
+                </div>
+            </section>
+        </div>
+    {% endblock fos_user_content %}
+{% endblock %}
+    
+{% block javascripts_block %}
+    {% javascripts  '@PMUserBundle/Resources/public/js/register.js'  %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
