@@ -71,15 +71,10 @@ class __TwigTemplate_7eb4990a38c8fef8991b2ad789c3d00fdd9b74996ee88c330544a72748b
     {
         // line 18
         echo "    Ah que coucou !
-    <br />
-    <a href=\"";
-        // line 20
-        echo $this->env->getExtension('routing')->getPath("pm_administration_homepage");
-        echo "\">Lien Admin</a>
 ";
     }
 
-    // line 23
+    // line 21
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -96,6 +91,6 @@ class __TwigTemplate_7eb4990a38c8fef8991b2ad789c3d00fdd9b74996ee88c330544a72748b
 
     public function getDebugInfo()
     {
-        return array (  83 => 23,  77 => 20,  73 => 18,  70 => 17,  63 => 14,  60 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  78 => 21,  73 => 18,  70 => 17,  63 => 14,  60 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }
