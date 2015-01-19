@@ -1758,6 +1758,14 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument>pm_welcome.connection.listener</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -1913,7 +1921,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54bc19bdd812c</argument>
+            <argument>54bd8b8555eb0</argument>
           </service>
         </argument>
       </argument>
@@ -2231,7 +2239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54bc19bdd812c</argument>
+            <argument>54bd8b8555eb0</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3125,6 +3133,15 @@
         </service>
       </argument>
       <argument>Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</argument>
+    </service>
+    <service id="pm_welcome.connection.redirect" class="PM\WelcomeBundle\Connection\ConnectionRedirect">
+      <argument type="service" id="router"/>
+    </service>
+    <service id="pm_welcome.connection.listener" class="PM\WelcomeBundle\Connection\ConnectionListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="onKernelRequest"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="pm_welcome.connection.redirect"/>
     </service>
     <service id="fos_js_routing.extractor" class="FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor">
       <argument type="service" id="router"/>

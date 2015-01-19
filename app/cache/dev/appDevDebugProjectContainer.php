@@ -167,6 +167,8 @@ class appDevDebugProjectContainer extends Container
             'pm_user.genere_password' => 'getPmUser_GenerePasswordService',
             'pm_user.profile.form.type' => 'getPmUser_Profile_Form_TypeService',
             'pm_user.registration.form.type' => 'getPmUser_Registration_Form_TypeService',
+            'pm_welcome.connection.listener' => 'getPmWelcome_Connection_ListenerService',
+            'pm_welcome.connection.redirect' => 'getPmWelcome_Connection_RedirectService',
             'profiler' => 'getProfilerService',
             'profiler_listener' => 'getProfilerListenerService',
             'property_accessor' => 'getPropertyAccessorService',
@@ -554,6 +556,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->addListenerService('kernel.controller', array(0 => 'data_collector.router', 1 => 'onKernelController'), 0);
         $instance->addListenerService('kernel.request', array(0 => 'assetic.request_listener', 1 => 'onKernelRequest'), 0);
+        $instance->addListenerService('kernel.response', array(0 => 'pm_welcome.connection.listener', 1 => 'onKernelRequest'), 0);
         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
         $instance->addSubscriberService('locale_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\LocaleListener');
@@ -2122,6 +2125,32 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'pm_welcome.connection.listener' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\WelcomeBundle\Connection\ConnectionListener A PM\WelcomeBundle\Connection\ConnectionListener instance.
+     */
+    protected function getPmWelcome_Connection_ListenerService()
+    {
+        return $this->services['pm_welcome.connection.listener'] = new \PM\WelcomeBundle\Connection\ConnectionListener($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'), $this->get('pm_welcome.connection.redirect'));
+    }
+
+    /**
+     * Gets the 'pm_welcome.connection.redirect' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\WelcomeBundle\Connection\ConnectionRedirect A PM\WelcomeBundle\Connection\ConnectionRedirect instance.
+     */
+    protected function getPmWelcome_Connection_RedirectService()
+    {
+        return $this->services['pm_welcome.connection.redirect'] = new \PM\WelcomeBundle\Connection\ConnectionRedirect($this->get('router'));
+    }
+
+    /**
      * Gets the 'profiler' service.
      *
      * This service is shared.
@@ -2414,7 +2443,7 @@ class appDevDebugProjectContainer extends Container
         $n = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $i, 'main', $l, $m, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, NULL);
         $n->setRememberMeServices($j);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $n, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54bc19bdd812c', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $n, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54bd8b8555eb0', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3914,7 +3943,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54bc19bdd812c')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54bd8b8555eb0')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

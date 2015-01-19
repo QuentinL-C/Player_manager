@@ -93,17 +93,8 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
                             </li>
                         </ul>
                     ";
-        } else {
-            // line 51
-            echo "                        <div class=\"navbar-right\">
-                            <a class=\"btn btn-default navbar-btn\" href=\"";
-            // line 52
-            echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
-            echo "\">Connexion</a>
-                        </div>
-                    ";
         }
-        // line 55
+        // line 51
         echo "                </div>
             </nav>
         </header>
@@ -112,26 +103,26 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
             <br /><br />
             <div class=\"page-header\">
                 <div class=\"pull-right\">";
-        // line 62
+        // line 58
         $this->displayBlock('h1_extend', $context, $blocks);
         echo "</div>
                 <h1>";
-        // line 63
+        // line 59
         $this->displayBlock('h1', $context, $blocks);
         echo "</h1>
             </div>
 
             <ol class=\"breadcrumb\">
             ";
-        // line 67
+        // line 63
         $this->displayBlock('breadcrumb', $context, $blocks);
-        // line 70
+        // line 66
         echo "            </ol>
         
             ";
-        // line 72
+        // line 68
         $this->displayBlock('body', $context, $blocks);
-        // line 74
+        // line 70
         echo "        </div>
         <br />
         <hr />
@@ -144,27 +135,27 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
         <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\"></script>
         
         <script src=\"";
-        // line 85
+        // line 81
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 86
+        // line 82
         echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
         echo "\"></script>
         
         <script type=\"text/javascript\" src=\"";
-        // line 88
+        // line 84
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
         echo "\"></script>
         <script type=\"text/javascript\" src=\"";
-        // line 89
+        // line 85
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
         
         ";
-        // line 91
+        // line 87
         $this->displayBlock('javascripts_block', $context, $blocks);
-        // line 92
+        // line 88
         echo "    </body>
 </html>";
     }
@@ -203,20 +194,20 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
         ";
     }
 
-    // line 62
+    // line 58
     public function block_h1_extend($context, array $blocks = array())
     {
     }
 
-    // line 63
+    // line 59
     public function block_h1($context, array $blocks = array())
     {
     }
 
-    // line 67
+    // line 63
     public function block_breadcrumb($context, array $blocks = array())
     {
-        // line 68
+        // line 64
         echo "                <li>";
         if ((($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "get", array(0 => "_route"), "method") != "pm_welcome_homepage") && ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "get", array(0 => "_route"), "method") != "pm_welcome_index"))) {
             echo "<a href=\"";
@@ -229,14 +220,14 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
             ";
     }
 
-    // line 72
+    // line 68
     public function block_body($context, array $blocks = array())
     {
-        // line 73
+        // line 69
         echo "            ";
     }
 
-    // line 91
+    // line 87
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -253,6 +244,6 @@ class __TwigTemplate_5390081b7f44ced3510729e4d7c3c94b4b8569628e10e32fc6a15311a18
 
     public function getDebugInfo()
     {
-        return array (  240 => 91,  236 => 73,  233 => 72,  220 => 68,  217 => 67,  212 => 63,  207 => 62,  197 => 18,  192 => 16,  187 => 15,  184 => 14,  179 => 9,  173 => 8,  168 => 92,  166 => 91,  161 => 89,  157 => 88,  152 => 86,  148 => 85,  135 => 74,  133 => 72,  129 => 70,  127 => 67,  120 => 63,  116 => 62,  107 => 55,  101 => 52,  98 => 51,  90 => 46,  86 => 45,  81 => 43,  76 => 41,  73 => 40,  71 => 39,  63 => 36,  49 => 24,  47 => 14,  41 => 10,  39 => 9,  35 => 8,  27 => 2,);
+        return array (  231 => 87,  227 => 69,  224 => 68,  211 => 64,  208 => 63,  203 => 59,  198 => 58,  188 => 18,  183 => 16,  178 => 15,  175 => 14,  170 => 9,  164 => 8,  159 => 88,  157 => 87,  152 => 85,  148 => 84,  143 => 82,  139 => 81,  126 => 70,  124 => 68,  120 => 66,  118 => 63,  111 => 59,  107 => 58,  98 => 51,  90 => 46,  86 => 45,  81 => 43,  76 => 41,  73 => 40,  71 => 39,  63 => 36,  49 => 24,  47 => 14,  41 => 10,  39 => 9,  35 => 8,  27 => 2,);
     }
 }
