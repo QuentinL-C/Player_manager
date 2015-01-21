@@ -1,0 +1,21 @@
+{# src/PM/WelcomeBundle/Resources/views/Race/layoutAdmin.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Classe - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_race_homepage') }}">Races</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

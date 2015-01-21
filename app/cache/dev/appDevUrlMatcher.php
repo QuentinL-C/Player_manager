@@ -240,6 +240,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/character/race')) {
+                // pm_race_homepage
+                if ($pathinfo === '/character/race') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::indexAction',  '_route' => 'pm_race_homepage',);
+                }
+
+                // pm_race_insert
+                if ($pathinfo === '/character/race/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::registerAction',  '_route' => 'pm_race_insert',);
+                }
+
+                // pm_race_list
+                if ($pathinfo === '/character/race/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::listAction',  '_route' => 'pm_race_list',);
+                }
+
+                // pm_race_view
+                if (0 === strpos($pathinfo, '/character/race/vue') && preg_match('#^/character/race/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::viewAction',));
+                }
+
+                // pm_race_edit
+                if (0 === strpos($pathinfo, '/character/race/editer') && preg_match('#^/character/race/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::editAction',));
+                }
+
+            }
+
         }
 
         // pm_game_homepage

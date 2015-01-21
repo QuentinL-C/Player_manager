@@ -25,10 +25,32 @@ class Race
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "150",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="name", type="string", length=45)
      */
     private $name;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private $slug;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -216,5 +238,51 @@ class Race
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Race
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Race
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
