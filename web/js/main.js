@@ -4,5 +4,8 @@
  * and open the template in the editor.
  */
 
-
-$('.main-hide-div').hide();
+$(function () {
+    $('[data-toggle="popover"]').popover();
+    
+    $('.main-hide-div').hide();
+})
