@@ -7,6 +7,7 @@
         {{ form_errors(form) }}
         {{ form_errors(form.name) }}
         {{ form_errors(form.description) }}
+        {{ form_errors(form.size) }}
         {{ form_errors(form.updateComment) }}
     </div>
     <br />
@@ -29,6 +30,16 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                {{ form_label(form.size, "Taille :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>

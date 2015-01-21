@@ -53,6 +53,13 @@ class Race
     private $slug;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="value", type="smallint")
+     */
+    private $size;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -284,5 +291,28 @@ class Race
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set size
+     *
+     * @param integer $size
+     * @return Race
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return integer 
+     */
+    public function getSize()
+    {
+        return $this->size;
     }
 }

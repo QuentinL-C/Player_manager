@@ -17,6 +17,7 @@ class RaceRegisterType extends AbstractType
         $builder
             ->add('name',           'text',     array('required' => true))
             ->add('description',    'textarea', array('required' => false))
+            ->add('size',           'integer',  array('required' => false))
         ;
     }
     

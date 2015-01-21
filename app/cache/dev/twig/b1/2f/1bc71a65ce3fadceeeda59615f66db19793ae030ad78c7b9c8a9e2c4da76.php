@@ -104,24 +104,40 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 30
         echo "        
-        ";
-        // line 31
-        if ( !twig_test_empty($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "description", array()))) {
-            // line 32
-            echo "            <div class=\"well\">
+        <div class=\"row\">
+            <div class=\"col-md-6\">
+                <h2>Informations sur la Race</h2>
+                
+                <ul>
+                    <li>Taille : ";
+        // line 36
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "size", array()), "html", null, true);
+        echo "</li>
+                </ul>
+            </div>
+            <div class=\"col-md-6\">
+                <h2>Texte descriptif</h2>
                 ";
-            // line 33
+        // line 41
+        if ( !twig_test_empty($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "description", array()))) {
+            // line 42
+            echo "                    <div class=\"well\">
+                        ";
+            // line 43
             echo $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "description", array());
             echo "
-            </div>
-        ";
+                    </div>
+                ";
         } else {
-            // line 36
-            echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cette race.</div>
-        ";
+            // line 46
+            echo "                    <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cette race.</div>
+                ";
         }
-        // line 38
-        echo "    </section>
+        // line 48
+        echo "                
+            </div>
+        </div>
+    </section>
 </div>
 ";
     }
@@ -138,6 +154,6 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
 
     public function getDebugInfo()
     {
-        return array (  124 => 38,  120 => 36,  114 => 33,  111 => 32,  109 => 31,  106 => 30,  97 => 27,  94 => 26,  90 => 25,  86 => 23,  83 => 22,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  137 => 48,  133 => 46,  127 => 43,  124 => 42,  122 => 41,  114 => 36,  106 => 30,  97 => 27,  94 => 26,  90 => 25,  86 => 23,  83 => 22,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

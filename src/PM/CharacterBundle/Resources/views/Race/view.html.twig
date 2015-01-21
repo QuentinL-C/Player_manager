@@ -28,13 +28,26 @@
             </div>
         {% endfor %}
         
-        {% if race.description is not empty %}
-            <div class="well">
-                {{ race.description|raw }}
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Informations sur la Race</h2>
+                
+                <ul>
+                    <li>Taille : {{race.size}}</li>
+                </ul>
             </div>
-        {% else %}
-            <div class="alert alert-warning" role="alert">Aucune description fournie pour cette race.</div>
-        {% endif %}
+            <div class="col-md-6">
+                <h2>Texte descriptif</h2>
+                {% if race.description is not empty %}
+                    <div class="well">
+                        {{ race.description|raw }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning" role="alert">Aucune description fournie pour cette race.</div>
+                {% endif %}
+                
+            </div>
+        </div>
     </section>
 </div>
 {% endblock %}
