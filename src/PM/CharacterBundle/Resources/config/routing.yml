@@ -72,3 +72,28 @@ pm_race_edit:
     defaults: { _controller: PMCharacterBundle:Race:edit }
     requirements:
         slug:  \S{0,255}
+
+# -- Language -- #
+pm_language_homepage:
+    path:     /langue
+    defaults: { _controller: PMCharacterBundle:Language:index }
+
+pm_language_insert:
+    path:     /langue/insertion
+    defaults: { _controller: PMCharacterBundle:Language:register }
+
+pm_language_list:
+    path:     /langue/liste
+    defaults: { _controller: PMCharacterBundle:Language:list }
+    
+pm_language_view:
+    path:     /langue/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:Language:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_language_edit:
+    path:     /langue/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:Language:edit }
+    requirements:
+        slug:  \S{0,255}

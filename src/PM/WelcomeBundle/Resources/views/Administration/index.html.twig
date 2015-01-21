@@ -16,10 +16,23 @@
 {% endblock %}
 
 {% block PM_body %}
-    <a href="{{path('pm_user_homepage')}}">Gestion Utilisateurs</a><br />
-    <a href="{{path('pm_alignment_homepage')}}">Gestion des Alignements</a><br />
-    <a href="{{path('pm_classDnD_homepage')}}">Gestion des Classes</a><br />
-    <a href="{{path('pm_race_homepage')}}">Gestion des Races</a>
+    <div class="well">
+        <h2>Utilisateurs :</h2>
+        
+        <a href="{{path('pm_user_homepage')}}">Gestion Utilisateurs</a>
+    </div>
+    <div class="well">
+        <h2>Personnages :</h2>
+        
+        <a href="{{path('pm_alignment_homepage')}}">Gestion des Alignements</a><br />
+        <a href="{{path('pm_classDnD_homepage')}}">Gestion des Classes</a><br />
+        <a href="{{path('pm_race_homepage')}}">Gestion des Races</a><br />
+        <a href="{{path('pm_language_homepage')}}">Gestion des Langues</a>
+    </div>
+    <div class="well">
+        <h2>Parties :</h2>
+        A venir.
+    </div>
 {% endblock %}
     
 {% block javascripts_block %}

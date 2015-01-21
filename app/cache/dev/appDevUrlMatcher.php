@@ -268,6 +268,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/character/langue')) {
+                // pm_language_homepage
+                if ($pathinfo === '/character/langue') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::indexAction',  '_route' => 'pm_language_homepage',);
+                }
+
+                // pm_language_insert
+                if ($pathinfo === '/character/langue/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::registerAction',  '_route' => 'pm_language_insert',);
+                }
+
+                // pm_language_list
+                if ($pathinfo === '/character/langue/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::listAction',  '_route' => 'pm_language_list',);
+                }
+
+                // pm_language_view
+                if (0 === strpos($pathinfo, '/character/langue/vue') && preg_match('#^/character/langue/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::viewAction',));
+                }
+
+                // pm_language_edit
+                if (0 === strpos($pathinfo, '/character/langue/editer') && preg_match('#^/character/langue/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::editAction',));
+                }
+
+            }
+
         }
 
         // pm_game_homepage
