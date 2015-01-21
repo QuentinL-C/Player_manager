@@ -75,11 +75,15 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
     <a href=\"";
         // line 20
         echo $this->env->getExtension('routing')->getPath("pm_alignment_homepage");
-        echo "\">Gestion des Alignements</a>
+        echo "\">Gestion des Alignements</a><br />
+    <a href=\"";
+        // line 21
+        echo $this->env->getExtension('routing')->getPath("pm_classDnD_homepage");
+        echo "\">Gestion des Classes</a>
 ";
     }
 
-    // line 23
+    // line 24
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -96,6 +100,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  83 => 23,  77 => 20,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  87 => 24,  81 => 21,  77 => 20,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

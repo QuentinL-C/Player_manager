@@ -183,30 +183,61 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/character/alignement')) {
-            // pm_alignment_homepage
-            if ($pathinfo === '/character/alignement') {
-                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::indexAction',  '_route' => 'pm_alignment_homepage',);
+        if (0 === strpos($pathinfo, '/character')) {
+            if (0 === strpos($pathinfo, '/character/alignement')) {
+                // pm_alignment_homepage
+                if ($pathinfo === '/character/alignement') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::indexAction',  '_route' => 'pm_alignment_homepage',);
+                }
+
+                // pm_alignment_insert
+                if ($pathinfo === '/character/alignement/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::registerAction',  '_route' => 'pm_alignment_insert',);
+                }
+
+                // pm_alignment_list
+                if ($pathinfo === '/character/alignement/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::listAction',  '_route' => 'pm_alignment_list',);
+                }
+
+                // pm_alignment_view
+                if (0 === strpos($pathinfo, '/character/alignement/vue') && preg_match('#^/character/alignement/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::viewAction',));
+                }
+
+                // pm_alignment_edit
+                if (0 === strpos($pathinfo, '/character/alignement/editer') && preg_match('#^/character/alignement/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::editAction',));
+                }
+
             }
 
-            // pm_alignment_insert
-            if ($pathinfo === '/character/alignement/insertion') {
-                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::registerAction',  '_route' => 'pm_alignment_insert',);
-            }
+            if (0 === strpos($pathinfo, '/character/classe')) {
+                // pm_classDnD_homepage
+                if ($pathinfo === '/character/classe') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::indexAction',  '_route' => 'pm_classDnD_homepage',);
+                }
 
-            // pm_alignment_list
-            if ($pathinfo === '/character/alignement/liste') {
-                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::listAction',  '_route' => 'pm_alignment_list',);
-            }
+                // pm_classDnD_insert
+                if ($pathinfo === '/character/classe/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::registerAction',  '_route' => 'pm_classDnD_insert',);
+                }
 
-            // pm_alignment_view
-            if (0 === strpos($pathinfo, '/character/alignement/vue') && preg_match('#^/character/alignement/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::viewAction',));
-            }
+                // pm_classDnD_list
+                if ($pathinfo === '/character/classe/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::listAction',  '_route' => 'pm_classDnD_list',);
+                }
 
-            // pm_alignment_edit
-            if (0 === strpos($pathinfo, '/character/alignement/editer') && preg_match('#^/character/alignement/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::editAction',));
+                // pm_classDnD_view
+                if (0 === strpos($pathinfo, '/character/classe/vue') && preg_match('#^/character/classe/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classDnD_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::viewAction',));
+                }
+
+                // pm_classDnD_edit
+                if (0 === strpos($pathinfo, '/character/classe/editer') && preg_match('#^/character/classe/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classDnD_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editAction',));
+                }
+
             }
 
         }

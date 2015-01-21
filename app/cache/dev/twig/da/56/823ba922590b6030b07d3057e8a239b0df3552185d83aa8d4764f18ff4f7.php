@@ -117,7 +117,7 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
         ";
         } else {
             // line 36
-            echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cet alignement</div>
+            echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cet alignement.</div>
         ";
         }
         // line 38

@@ -90,7 +90,7 @@ class __TwigTemplate_682f6588c11be3017c640d9d84f2148ae618e894992feb8a7a4db2773e8
         // line 26
         echo "        
         <div class=\"well\">
-            <h2>Gestion Utilisateurs</h2>
+            <h2>Gestion des Alignements</h2>
             <ul>
                 <li><a href=\"";
         // line 30

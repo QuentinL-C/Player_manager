@@ -1,3 +1,4 @@
+# -- Alignment -- #
 pm_alignment_homepage:
     path:     /alignement
     defaults: { _controller: PMCharacterBundle:Alignment:index }
@@ -19,5 +20,30 @@ pm_alignment_view:
 pm_alignment_edit:
     path:     /alignement/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Alignment:edit }
+    requirements:
+        slug:  \S{0,255}
+
+# -- ClassDnD -- #
+pm_classDnD_homepage:
+    path:     /classe
+    defaults: { _controller: PMCharacterBundle:ClassDnD:index }
+
+pm_classDnD_insert:
+    path:     /classe/insertion
+    defaults: { _controller: PMCharacterBundle:ClassDnD:register }
+
+pm_classDnD_list:
+    path:     /classe/liste
+    defaults: { _controller: PMCharacterBundle:ClassDnD:list }
+    
+pm_classDnD_view:
+    path:     /classe/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:ClassDnD:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_classDnD_edit:
+    path:     /classe/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:ClassDnD:edit }
     requirements:
         slug:  \S{0,255}

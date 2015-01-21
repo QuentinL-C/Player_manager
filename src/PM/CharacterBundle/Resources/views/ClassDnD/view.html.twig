@@ -1,0 +1,40 @@
+{# src/PM/CharacterBundle/Resources/views/ClassDnD/view.html.twig #}
+ 
+{% extends "PMCharacterBundle:ClassDnD:layoutAdmin.html.twig" %}
+
+{% block title %}
+    {{ classDnD.name }} - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    {{ classDnD.name }} :
+{% endblock %}
+    
+{% block h1_extend %}
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_classDnD_edit', {'slug': classDnD.slug}) }}" >Modifier</a>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Voir</li>
+{% endblock %} 
+
+{% block PM_body %}
+<div class="row">
+    <section id="content" class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        {% if classDnD.description is not empty %}
+            <div class="well">
+                {{ classDnD.description|raw }}
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">Aucune description fournie pour cette classe.</div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
