@@ -32,7 +32,7 @@ class LanguageController extends Controller
                     
                     $em->flush();
                     
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la Language a bien été créé.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la langue a bien été créée.' );
            
                     return $this->redirect($this->generateUrl('pm_language_view', array('slug' => $language->getSlug())));
                 }
@@ -77,7 +77,7 @@ class LanguageController extends Controller
                     $em->persist($language);
                     $em->flush();
 
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre Language a bien été édité.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre langue a bien été éditée.' );
            
                     return $this->redirect($this->generateUrl('pm_language_view', array('slug' => $language->getSlug())));
                 }

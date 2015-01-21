@@ -12,6 +12,7 @@
 
 {% block breadcrumb %}
     {{ parent() }}
+    <li><a href="{{ path('pm_alignment_view', {'slug': alignment.slug}) }}">{{alignment.name}}</a></li>
     <li class="active">Edition</li>
 {% endblock %} 
 

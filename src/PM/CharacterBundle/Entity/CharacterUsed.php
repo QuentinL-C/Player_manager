@@ -25,41 +25,81 @@ class CharacterUsed
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "45",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères.",
+     *      maxMessage = "Votre nom ne doit pas dépasser {{ limit }} caractères."
+     * )
      *
      * @ORM\Column(name="name", type="string", length=45)
      */
     private $name;
 
     /**
-     * @var integer
+     * @var string
      *
+     * @Gedmo\Slug(fields={"name", "createDate"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private $slug;
+    
+    /**
+     * @var string
+     * @Assert\Length(
+     *      max = "10000",
+     *      maxMessage = "Votre histoire ne doit pas dépasser {{ limit }} caractères."
+     * )
+     *
+     * @ORM\Column(name="story", type="text")
+     */
+    private $story;
+
+    /**
+     * @var integer
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre personnage ne peut pas avoir un âge négatif ou nul."
+     * )
+     * 
      * @ORM\Column(name="age", type="smallint")
      */
     private $age;
 
     /**
      * @var boolean
+     * @Assert\Choice(choices = {"Homme", "Femme"}, message = "Choisissez un genre valide.")
      *
      * @ORM\Column(name="gender", type="boolean")
      */
     private $gender;
 
     /**
-     * @var string
+     * @var integer
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre personnage ne peut pas avoir une taille négative ou nulle."
+     * )
      *
-     * @ORM\Column(name="height", type="decimal")
+     * @ORM\Column(name="height", type="smallint")
      */
     private $height;
 
     /**
-     * @var string
+     * @var integer
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre personnage ne peut pas avoir un poids négatif ou nul."
+     * )
      *
-     * @ORM\Column(name="weight", type="decimal")
+     * @ORM\Column(name="weight", type="smallint")
      */
     private $weight;
 
     /**
      * @var integer
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="hpMax", type="smallint")
      */
@@ -67,10 +107,22 @@ class CharacterUsed
 
     /**
      * @var integer
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="hpCurrent", type="smallint")
      */
     private $hpCurrent;
+
+    /**
+     * @var integer
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre personnage ne peut pas avoir un niveau négatif."
+     * )
+     * 
+     * @ORM\Column(name="level", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $level;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Alignment")
@@ -91,10 +143,16 @@ class CharacterUsed
     private $race;
 
     /**
-     * @ORM\OneToOne(targetEntity="PM\CharacterBundle\Entity\CharacterWealth", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="PM\CharacterBundle\Entity\CharacterWealth", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $wealth;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -170,6 +228,29 @@ class CharacterUsed
     }
 
     /**
+     * Set story
+     *
+     * @param string $story
+     * @return CharacterUsed
+     */
+    public function setStory($story)
+    {
+        $this->story = $story;
+
+        return $this;
+    }
+
+    /**
+     * Get story
+     *
+     * @return string 
+     */
+    public function getStory()
+    {
+        return $this->story;
+    }
+
+    /**
      * Set age
      *
      * @param integer $age
@@ -218,7 +299,7 @@ class CharacterUsed
     /**
      * Set height
      *
-     * @param string $height
+     * @param integer $height
      * @return CharacterUsed
      */
     public function setHeight($height)
@@ -231,7 +312,7 @@ class CharacterUsed
     /**
      * Get height
      *
-     * @return string 
+     * @return integer 
      */
     public function getHeight()
     {
@@ -241,7 +322,7 @@ class CharacterUsed
     /**
      * Set weight
      *
-     * @param string $weight
+     * @param integer $weight
      * @return CharacterUsed
      */
     public function setWeight($weight)
@@ -254,7 +335,7 @@ class CharacterUsed
     /**
      * Get weight
      *
-     * @return string 
+     * @return integer 
      */
     public function getWeight()
     {
@@ -512,5 +593,74 @@ class CharacterUsed
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return CharacterUsed
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \PM\UserBundle\Entity\User $user
+     * @return CharacterUsed
+     */
+    public function setUser(\PM\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \PM\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     * @return CharacterUsed
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer 
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 }

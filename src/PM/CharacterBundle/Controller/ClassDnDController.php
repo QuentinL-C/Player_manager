@@ -32,7 +32,7 @@ class ClassDnDController extends Controller
                     
                     $em->flush();
                     
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la Classe a bien été créé.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été créée.' );
            
                     return $this->redirect($this->generateUrl('pm_classDnD_view', array('slug' => $classDnD->getSlug())));
                 }
@@ -77,7 +77,7 @@ class ClassDnDController extends Controller
                     $em->persist($classDnD);
                     $em->flush();
 
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre classe a bien été édité.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre classe a bien été éditée.' );
            
                     return $this->redirect($this->generateUrl('pm_classDnD_view', array('slug' => $classDnD->getSlug())));
                 }

@@ -97,3 +97,28 @@ pm_language_edit:
     defaults: { _controller: PMCharacterBundle:Language:edit }
     requirements:
         slug:  \S{0,255}
+
+# -- CharacterUsed -- #
+pm_characterused_homepage:
+    path:     /personnage
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:index }
+
+pm_characterused_insert:
+    path:     /personnage/insertion
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:register }
+
+pm_characterused_list:
+    path:     /personnage/liste
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:list }
+    
+pm_characterused_view:
+    path:     /personnage/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_characterused_edit:
+    path:     /personnage/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:edit }
+    requirements:
+        slug:  \S{0,255}

@@ -26,21 +26,21 @@ class CharacterWealth
     /**
      * @var integer
      *
-     * @ORM\Column(name="po", type="integer")
+     * @ORM\Column(name="po", type="integer", options={"default" = 0}, nullable=false)
      */
     private $po;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pa", type="integer")
+     * @ORM\Column(name="pa", type="integer", options={"default" = 0}, nullable=false)
      */
     private $pa;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pc", type="integer")
+     * @ORM\Column(name="pc", type="integer", options={"default" = 0}, nullable=false)
      */
     private $pc;
 

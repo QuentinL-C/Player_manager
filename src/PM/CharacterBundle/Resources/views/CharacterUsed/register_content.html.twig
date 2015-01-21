@@ -1,0 +1,136 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.user) }}
+        {{ form_errors(form.name) }}
+        {{ form_errors(form.level) }}
+        {{ form_errors(form.story) }}
+        {{ form_errors(form.age) }}
+        {{ form_errors(form.gender) }}
+        {{ form_errors(form.height) }}
+        {{ form_errors(form.weight) }}
+        {{ form_errors(form.alignment) }}
+        {{ form_errors(form.classDnD) }}
+        {{ form_errors(form.race) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Utilisateur :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.user, "Propriétaire :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+            
+    <fieldset>
+        <legend>Personnage :</legend>
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">
+                {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-5">
+                        {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre personnage', 'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-md-4 control-label">
+                        {{ form_label(form.level, "Niveau de départ :", {'label_attr': {'class': 'control-label'}}) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">
+                {{ form_label(form.classDnD, "Classe :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_widget(form.classDnD, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="col-md-4 control-label">
+                        {{ form_label(form.race, "Race :", {'label_attr': {'class': 'control-label'}}) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(form.race, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+                   
+        <div class="form-group">
+            <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Sa vie, son oeuvre. D'où vient-il ? Quelles sont ses motivations ? C'est ici que ça se passe." data-toggle="popover" data-container="body" data-original-title="Histoire" ></span>
+                {{ form_label(form.story, "Histoire :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.story, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'Age de votre personnage est le plus souvent facteur de son niveau de départ. Un personnage niveau 1 aura entre 15 et 20 ans quand un niveau 15, une cinquantaine d'année." data-toggle="popover" data-container="body" data-original-title="Age" ></span>
+                {{ form_label(form.age, "Age :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="col-md-4 control-label">
+                        {{ form_label(form.gender, "Genre :", {'label_attr': {'class': 'control-label'}}) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">
+                {{ form_label(form.height, "Taille :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_widget(form.height, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="col-md-4 control-label">
+                        {{ form_label(form.weight, "Poids :", {'label_attr': {'class': 'control-label'}}) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(form.weight, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.alignment, "Alignement :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.alignment, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

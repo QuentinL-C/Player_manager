@@ -296,6 +296,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/character/personnage')) {
+                // pm_characterused_homepage
+                if ($pathinfo === '/character/personnage') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::indexAction',  '_route' => 'pm_characterused_homepage',);
+                }
+
+                // pm_characterused_insert
+                if ($pathinfo === '/character/personnage/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAction',  '_route' => 'pm_characterused_insert',);
+                }
+
+                // pm_characterused_list
+                if ($pathinfo === '/character/personnage/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::listAction',  '_route' => 'pm_characterused_list',);
+                }
+
+                // pm_characterused_view
+                if (0 === strpos($pathinfo, '/character/personnage/vue') && preg_match('#^/character/personnage/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::viewAction',));
+                }
+
+                // pm_characterused_edit
+                if (0 === strpos($pathinfo, '/character/personnage/editer') && preg_match('#^/character/personnage/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::editAction',));
+                }
+
+            }
+
         }
 
         // pm_game_homepage

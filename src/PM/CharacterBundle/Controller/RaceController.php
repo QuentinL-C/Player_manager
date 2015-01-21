@@ -32,7 +32,7 @@ class RaceController extends Controller
                     
                     $em->flush();
                     
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la Race a bien été créé.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la race a bien été créée.' );
            
                     return $this->redirect($this->generateUrl('pm_race_view', array('slug' => $race->getSlug())));
                 }
@@ -77,7 +77,7 @@ class RaceController extends Controller
                     $em->persist($race);
                     $em->flush();
 
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre Race a bien été édité.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre race a bien été éditée.' );
            
                     return $this->redirect($this->generateUrl('pm_race_view', array('slug' => $race->getSlug())));
                 }

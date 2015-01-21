@@ -28,7 +28,7 @@ class Language
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = "1",
-     *      max = "150",
+     *      max = "45",
      *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
      *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
      * )
