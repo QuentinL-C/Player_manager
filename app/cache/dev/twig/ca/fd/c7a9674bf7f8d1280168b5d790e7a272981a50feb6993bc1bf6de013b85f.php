@@ -94,11 +94,11 @@ class __TwigTemplate_cafdc7a9674bf7f8d1280168b5d790e7a272981a50feb6993bc1bf6de01
             <ul>
                 <li><a href=\"";
         // line 30
-        echo $this->env->getExtension('routing')->getPath("pm_classDnD_insert");
+        echo $this->env->getExtension('routing')->getPath("pm_classdnd_administration_insert");
         echo "\">Ajouter une classe</a></li>
                 <li><a href=\"";
         // line 31
-        echo $this->env->getExtension('routing')->getPath("pm_classDnD_list");
+        echo $this->env->getExtension('routing')->getPath("pm_classdnd_administration_list");
         echo "\">Liste des classes</a></li>
             </ul>
         </div>

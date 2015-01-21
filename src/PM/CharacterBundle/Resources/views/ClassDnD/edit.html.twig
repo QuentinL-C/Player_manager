@@ -12,7 +12,7 @@
 
 {% block breadcrumb %}
     {{ parent() }}
-    <li><a href="{{ path('pm_classDnD_view', {'slug': classDnD.slug}) }}">{{classDnD.name}}</a></li>
+    <li><a href="{{ path('pm_classdnd_administration_view', {'slug': classDnD.slug}) }}">{{classDnD.name}}</a></li>
     <li class="active">Edition</li>
 {% endblock %} 
 

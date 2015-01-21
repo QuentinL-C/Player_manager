@@ -34,7 +34,7 @@ class AlignmentController extends Controller
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, l\'Alignement a bien été créé.' );
            
-                    return $this->redirect($this->generateUrl('pm_alignment_view', array('slug' => $alignment->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_alignment_administration_view', array('slug' => $alignment->getSlug())));
                 }
             }
         return $this->render('PMCharacterBundle:Alignment:register.html.twig', array(
@@ -79,7 +79,7 @@ class AlignmentController extends Controller
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre alignement a bien été édité.' );
            
-                    return $this->redirect($this->generateUrl('pm_alignment_view', array('slug' => $alignment->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_alignment_administration_view', array('slug' => $alignment->getSlug())));
                 }
             }
         

@@ -34,7 +34,7 @@ class RaceController extends Controller
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la race a bien été créée.' );
            
-                    return $this->redirect($this->generateUrl('pm_race_view', array('slug' => $race->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_race_administration_view', array('slug' => $race->getSlug())));
                 }
             }
         return $this->render('PMCharacterBundle:race:register.html.twig', array(
@@ -79,7 +79,7 @@ class RaceController extends Controller
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre race a bien été éditée.' );
            
-                    return $this->redirect($this->generateUrl('pm_race_view', array('slug' => $race->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_race_administration_view', array('slug' => $race->getSlug())));
                 }
             }
         

@@ -34,7 +34,7 @@ class LanguageController extends Controller
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la langue a bien été créée.' );
            
-                    return $this->redirect($this->generateUrl('pm_language_view', array('slug' => $language->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_language_administration_view', array('slug' => $language->getSlug())));
                 }
             }
         return $this->render('PMCharacterBundle:language:register.html.twig', array(
@@ -79,7 +79,7 @@ class LanguageController extends Controller
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre langue a bien été éditée.' );
            
-                    return $this->redirect($this->generateUrl('pm_language_view', array('slug' => $language->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_language_administration_view', array('slug' => $language->getSlug())));
                 }
             }
         

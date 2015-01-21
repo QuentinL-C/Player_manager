@@ -1,123 +1,123 @@
 # -- Alignment -- #
-pm_alignment_homepage:
+pm_alignment_administration_homepage:
     path:     /alignement
     defaults: { _controller: PMCharacterBundle:Alignment:index }
 
-pm_alignment_insert:
+pm_alignment_administration_insert:
     path:     /alignement/insertion
     defaults: { _controller: PMCharacterBundle:Alignment:register }
 
-pm_alignment_list:
+pm_alignment_administration_list:
     path:     /alignement/liste
     defaults: { _controller: PMCharacterBundle:Alignment:list }
     
-pm_alignment_view:
+pm_alignment_administration_view:
     path:     /alignement/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Alignment:view }
     requirements:
         slug:  \S{0,255}
     
-pm_alignment_edit:
+pm_alignment_administration_edit:
     path:     /alignement/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Alignment:edit }
     requirements:
         slug:  \S{0,255}
 
 # -- ClassDnD -- #
-pm_classDnD_homepage:
+pm_classdnd_administration_homepage:
     path:     /classe
     defaults: { _controller: PMCharacterBundle:ClassDnD:index }
 
-pm_classDnD_insert:
+pm_classdnd_administration_insert:
     path:     /classe/insertion
     defaults: { _controller: PMCharacterBundle:ClassDnD:register }
 
-pm_classDnD_list:
+pm_classdnd_administration_list:
     path:     /classe/liste
     defaults: { _controller: PMCharacterBundle:ClassDnD:list }
     
-pm_classDnD_view:
+pm_classdnd_administration_view:
     path:     /classe/vue/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:view }
     requirements:
         slug:  \S{0,255}
     
-pm_classDnD_edit:
+pm_classdnd_administration_edit:
     path:     /classe/editer/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:edit }
     requirements:
         slug:  \S{0,255}
 
 # -- Race -- #
-pm_race_homepage:
+pm_race_administration_homepage:
     path:     /race
     defaults: { _controller: PMCharacterBundle:Race:index }
 
-pm_race_insert:
+pm_race_administration_insert:
     path:     /race/insertion
     defaults: { _controller: PMCharacterBundle:Race:register }
 
-pm_race_list:
+pm_race_administration_list:
     path:     /race/liste
     defaults: { _controller: PMCharacterBundle:Race:list }
     
-pm_race_view:
+pm_race_administration_view:
     path:     /race/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Race:view }
     requirements:
         slug:  \S{0,255}
     
-pm_race_edit:
+pm_race_administration_edit:
     path:     /race/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Race:edit }
     requirements:
         slug:  \S{0,255}
 
 # -- Language -- #
-pm_language_homepage:
+pm_language_administration_homepage:
     path:     /langue
     defaults: { _controller: PMCharacterBundle:Language:index }
 
-pm_language_insert:
+pm_language_administration_insert:
     path:     /langue/insertion
     defaults: { _controller: PMCharacterBundle:Language:register }
 
-pm_language_list:
+pm_language_administration_list:
     path:     /langue/liste
     defaults: { _controller: PMCharacterBundle:Language:list }
     
-pm_language_view:
+pm_language_administration_view:
     path:     /langue/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Language:view }
     requirements:
         slug:  \S{0,255}
     
-pm_language_edit:
+pm_language_administration_edit:
     path:     /langue/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Language:edit }
     requirements:
         slug:  \S{0,255}
 
 # -- CharacterUsed -- #
-pm_characterused_homepage:
+pm_characterused_administration_homepage:
     path:     /personnage
     defaults: { _controller: PMCharacterBundle:CharacterUsed:index }
 
-pm_characterused_insert:
+pm_characterused_administration_insert:
     path:     /personnage/insertion
     defaults: { _controller: PMCharacterBundle:CharacterUsed:register }
 
-pm_characterused_list:
+pm_characterused_administration_list:
     path:     /personnage/liste
     defaults: { _controller: PMCharacterBundle:CharacterUsed:list }
     
-pm_characterused_view:
+pm_characterused_administration_view:
     path:     /personnage/vue/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:view }
     requirements:
         slug:  \S{0,255}
     
-pm_characterused_edit:
+pm_characterused_administration_edit:
     path:     /personnage/editer/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:edit }
     requirements:

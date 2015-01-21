@@ -46,7 +46,7 @@ class CharacterUsedController extends Controller
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, le personnage a bien été créé.' );
            
-                    return $this->redirect($this->generateUrl('pm_characterused_view', array('slug' => $characterUsed->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_characterused_administration_view', array('slug' => $characterUsed->getSlug())));
                 }
             }
         return $this->render('PMCharacterBundle:CharacterUsed:register.html.twig', array(
@@ -91,7 +91,7 @@ class CharacterUsedController extends Controller
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre personnage a bien été édité.' );
            
-                    return $this->redirect($this->generateUrl('pm_characterused_view', array('slug' => $characterUsed->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_characterused_administration_view', array('slug' => $characterUsed->getSlug())));
                 }
             }
         

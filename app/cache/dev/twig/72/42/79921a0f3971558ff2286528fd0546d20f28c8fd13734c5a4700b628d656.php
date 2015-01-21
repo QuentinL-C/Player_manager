@@ -49,7 +49,7 @@ class __TwigTemplate_724279921a0f3971558ff2286528fd0546d20f28c8fd13734c5a4700b62
     public function block_h1($context, array $blocks = array())
     {
         // line 10
-        echo "    Liste des Langues :
+        echo "    Liste des Personnages :
 ";
     }
 
@@ -120,7 +120,7 @@ class __TwigTemplate_724279921a0f3971558ff2286528fd0546d20f28c8fd13734c5a4700b62
             echo "</td>
                     <td style=\"text-align: left;\"><a href=\"";
             // line 35
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_view", array("slug" => $this->getAttribute($context["characterused"], "slug", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_administration_view", array("slug" => $this->getAttribute($context["characterused"], "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["characterused"], "name", array()), "html", null, true);
             echo "</a></td>

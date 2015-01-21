@@ -120,7 +120,7 @@ class __TwigTemplate_aff1b220777e93dbfd34bd2ec096a3561f10795dc6a9b6d8f0f145aaf6c
             echo "</td>
                     <td style=\"text-align: left;\"><a href=\"";
             // line 35
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_classDnD_view", array("slug" => $this->getAttribute($context["classDnD"], "slug", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_classdnd_administration_view", array("slug" => $this->getAttribute($context["classDnD"], "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["classDnD"], "name", array()), "html", null, true);
             echo "</a></td>

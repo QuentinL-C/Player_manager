@@ -94,11 +94,11 @@ class __TwigTemplate_aee1a056bd98f241fdda3a50848f979ded36afeaed124197d014fed9881
             <ul>
                 <li><a href=\"";
         // line 30
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_insert");
+        echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_insert");
         echo "\">Ajouter un Personnage</a></li>
                 <li><a href=\"";
         // line 31
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_list");
+        echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_list");
         echo "\">Liste de Personnage</a></li>
             </ul>
         </div>

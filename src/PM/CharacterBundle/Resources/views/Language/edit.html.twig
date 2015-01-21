@@ -12,7 +12,7 @@
 
 {% block breadcrumb %}
     {{ parent() }}
-    <li><a href="{{ path('pm_language_view', {'slug': language.slug}) }}">{{language.name}}</a></li>
+    <li><a href="{{ path('pm_language_administration_view', {'slug': language.slug}) }}">{{language.name}}</a></li>
     <li class="active">Edition</li>
 {% endblock %} 
 

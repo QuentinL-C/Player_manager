@@ -63,7 +63,7 @@ class __TwigTemplate_dd8696251e15208d6b687c2727a5343e0e8219d4628c2b90ee2283e493c
         echo "
     <li><a href=\"";
         // line 15
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_homepage");
         echo "\">Personnage</a></li>
 ";
     }

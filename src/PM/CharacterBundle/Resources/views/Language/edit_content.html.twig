@@ -1,6 +1,6 @@
 {# src/PM/CharacterBundle/Resources/views/Language/register_content.html.twig #}
 
-<form class="form-horizontal" method="post" action="{{ path('pm_language_edit', {'slug': language.slug}) }}" {{ form_enctype(form) }} role="form">
+<form class="form-horizontal" method="post" action="{{ path('pm_language_administration_edit', {'slug': language.slug}) }}" {{ form_enctype(form) }} role="form">
     {% if not form.vars.valid %}
     <div class="alert alert-error">
         <strong>Votre formulaire contient les erreurs suivantes :</strong>

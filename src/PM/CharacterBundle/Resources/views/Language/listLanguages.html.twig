@@ -32,7 +32,7 @@
             {% for language in listLanguages %}
                 <tr>
                     <td style="text-align: left;">{{ loop.index }}</td>
-                    <td style="text-align: left;"><a href="{{ path('pm_language_view', { 'slug' : language.slug} ) }}">{{ language.name }}</a></td>
+                    <td style="text-align: left;"><a href="{{ path('pm_language_administration_view', { 'slug' : language.slug} ) }}">{{ language.name }}</a></td>
                 </tr>
             {% endfor %}
             {% if listLanguages is empty %}

@@ -82,23 +82,23 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         
         <a href=\"";
         // line 27
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_homepage");
         echo "\">Gestion des Personnages</a><br />
         <a href=\"";
         // line 28
-        echo $this->env->getExtension('routing')->getPath("pm_alignment_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_alignment_administration_homepage");
         echo "\">Gestion des Alignements</a><br />
         <a href=\"";
         // line 29
-        echo $this->env->getExtension('routing')->getPath("pm_classDnD_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_classdnd_administration_homepage");
         echo "\">Gestion des Classes</a><br />
         <a href=\"";
         // line 30
-        echo $this->env->getExtension('routing')->getPath("pm_race_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_race_administration_homepage");
         echo "\">Gestion des Races</a><br />
         <a href=\"";
         // line 31
-        echo $this->env->getExtension('routing')->getPath("pm_language_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_language_administration_homepage");
         echo "\">Gestion des Langues</a>
     </div>
     <div class=\"well\">

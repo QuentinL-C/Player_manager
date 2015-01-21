@@ -34,7 +34,7 @@ class ClassDnDController extends Controller
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été créée.' );
            
-                    return $this->redirect($this->generateUrl('pm_classDnD_view', array('slug' => $classDnD->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
                 }
             }
         return $this->render('PMCharacterBundle:classDnD:register.html.twig', array(
@@ -79,7 +79,7 @@ class ClassDnDController extends Controller
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre classe a bien été éditée.' );
            
-                    return $this->redirect($this->generateUrl('pm_classDnD_view', array('slug' => $classDnD->getSlug())));
+                    return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
                 }
             }
         

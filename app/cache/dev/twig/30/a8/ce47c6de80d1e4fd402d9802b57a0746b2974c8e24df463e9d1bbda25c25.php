@@ -63,7 +63,7 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
     {
         // line 14
         echo "    <a class=\"btn btn-lg btn-primary\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_edit", array("slug" => $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "slug", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_administration_edit", array("slug" => $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "slug", array()))), "html", null, true);
         echo "\" >Modifier</a>
 ";
     }
