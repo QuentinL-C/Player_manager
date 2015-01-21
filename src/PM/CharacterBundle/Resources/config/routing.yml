@@ -1,3 +1,23 @@
-pm_character_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: PMCharacterBundle:Default:index }
+pm_alignment_homepage:
+    path:     /alignement
+    defaults: { _controller: PMCharacterBundle:Alignment:index }
+
+pm_alignment_insert:
+    path:     /alignement/insertion
+    defaults: { _controller: PMCharacterBundle:Alignment:register }
+
+pm_alignment_list:
+    path:     /alignement/liste
+    defaults: { _controller: PMCharacterBundle:Alignment:list }
+    
+pm_alignment_view:
+    path:     /alignement/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:Alignment:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_alignment_edit:
+    path:     /alignement/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:Alignment:edit }
+    requirements:
+        slug:  \S{0,255}

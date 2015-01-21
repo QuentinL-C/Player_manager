@@ -54,6 +54,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // _assetic_1f60180
+            if ($pathinfo === '/js/1f60180.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_1f60180',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/_')) {
@@ -178,9 +183,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // pm_character_homepage
-        if (0 === strpos($pathinfo, '/character/hello') && preg_match('#^/character/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_character_homepage')), array (  '_controller' => 'PMCharacterBundle:Default:index',));
+        if (0 === strpos($pathinfo, '/character/alignement')) {
+            // pm_alignment_homepage
+            if ($pathinfo === '/character/alignement') {
+                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::indexAction',  '_route' => 'pm_alignment_homepage',);
+            }
+
+            // pm_alignment_insert
+            if ($pathinfo === '/character/alignement/insertion') {
+                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::registerAction',  '_route' => 'pm_alignment_insert',);
+            }
+
+            // pm_alignment_list
+            if ($pathinfo === '/character/alignement/liste') {
+                return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::listAction',  '_route' => 'pm_alignment_list',);
+            }
+
+            // pm_alignment_view
+            if (0 === strpos($pathinfo, '/character/alignement/vue') && preg_match('#^/character/alignement/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::viewAction',));
+            }
+
+            // pm_alignment_edit
+            if (0 === strpos($pathinfo, '/character/alignement/editer') && preg_match('#^/character/alignement/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::editAction',));
+            }
+
         }
 
         // pm_game_homepage

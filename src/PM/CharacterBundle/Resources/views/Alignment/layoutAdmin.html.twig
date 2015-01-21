@@ -1,0 +1,21 @@
+{# src/PM/WelcomeBundle/Resources/views/layoutAdmin.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Alignement - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_alignment_homepage') }}">Alignement</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}
