@@ -22,7 +22,7 @@ class CharacterUsedRegisterType extends AbstractType
                 
             ->add('name',       'text',     array('required' => true,
                                                   'max_length' => 45))
-            ->add('level',        'integer',  array('required' => true))
+            ->add('level',      'integer',  array('required' => true))
             ->add('story',      'textarea', array('required' => false,
                                                   'max_length' => 10000))
             ->add('age',        'integer',  array('required' => false))

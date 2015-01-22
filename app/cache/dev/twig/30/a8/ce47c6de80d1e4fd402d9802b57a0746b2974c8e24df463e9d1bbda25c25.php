@@ -105,7 +105,157 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
         // line 30
         echo "        
         <div class=\"row\">
-            <p>Futur blabla</p>
+            <div class=\"col-md-6\">
+                <h2>Informations sur le Personnage</h2>
+                
+                <ul>
+                    <li>Nom : ";
+        // line 36
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "name", array()), "html", null, true);
+        echo "</li>
+                    <li>Age : ";
+        // line 37
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "age", array()))) {
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "age", array()), "html", null, true);
+        } else {
+            echo "Aucun âge";
+        }
+        echo "</li>
+                    <li>Sexe : ";
+        // line 38
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "gender", array()))) {
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "gender", array()), "html", null, true);
+        } else {
+            echo "Aucun genre";
+        }
+        echo "</li>
+                    <li>Taille : ";
+        // line 39
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "height", array()))) {
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "height", array()), "html", null, true);
+        } else {
+            echo "Aucune taille";
+        }
+        echo "</li>
+                    <li>Poids : ";
+        // line 40
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "weight", array()))) {
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "weight", array()), "html", null, true);
+        } else {
+            echo "Aucun poids";
+        }
+        echo "</li>
+                    <li>PV : ";
+        // line 41
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "hpCurrent", array()), "html", null, true);
+        echo "/";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "hpMax", array()), "html", null, true);
+        echo "</li>
+                    <li>Level : ";
+        // line 42
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "level", array()), "html", null, true);
+        echo "</li>
+                    <li>Alignement : ";
+        // line 43
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "alignment", array()))) {
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "alignment", array()), "name", array()), "html", null, true);
+        } else {
+            echo "Aucun alignement";
+        }
+        echo "</li>
+                    <li>Classe : ";
+        // line 44
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "classDnD", array()), "name", array()), "html", null, true);
+        echo "</li>
+                    <li>Race : ";
+        // line 45
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "race", array()), "name", array()), "html", null, true);
+        echo "</li>
+                    <li>Richesse : ";
+        // line 46
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "wealth", array()), "po", array()), "html", null, true);
+        echo "</li>
+                    <li>Proprio : ";
+        // line 47
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "username", array()), "html", null, true);
+        echo "</li>
+                    <li>Charactéristiques :</li>
+                    <ul>
+                        ";
+        // line 50
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["abilities"]) ? $context["abilities"] : $this->getContext($context, "abilities")));
+        foreach ($context['_seq'] as $context["_key"] => $context["ability"]) {
+            // line 51
+            echo "                            ";
+            if (($this->getAttribute($context["ability"], "type", array()) == 1)) {
+                echo "<li>Force : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            } elseif (($this->getAttribute($context["ability"], "type", array()) == 2)) {
+                // line 52
+                echo "<li>Dexterité : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            } elseif (($this->getAttribute($context["ability"], "type", array()) == 3)) {
+                // line 53
+                echo "<li>Constitution : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            } elseif (($this->getAttribute($context["ability"], "type", array()) == 4)) {
+                // line 54
+                echo "<li>Intelligence : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            } elseif (($this->getAttribute($context["ability"], "type", array()) == 5)) {
+                // line 55
+                echo "<li>Sagesse : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            } elseif (($this->getAttribute($context["ability"], "type", array()) == 6)) {
+                // line 56
+                echo "<li>Charisme : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ability"], "value", array()), "html", null, true);
+                echo "</li>
+                            ";
+            }
+            // line 58
+            echo "                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ability'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 59
+        echo "                    </ul>
+                    <li>Compétences :</li>
+                </ul>
+            </div>
+            <div class=\"col-md-6\">
+                <h2>Histoire</h2>
+                ";
+        // line 65
+        if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "story", array()))) {
+            // line 66
+            echo "                    <div class=\"well\">
+                        ";
+            // line 67
+            echo $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "story", array());
+            echo "
+                    </div>
+                ";
+        } else {
+            // line 70
+            echo "                    <div class=\"alert alert-warning\" role=\"alert\">Aucune histoire fournie pour ce personnage.</div>
+                ";
+        }
+        // line 72
+        echo "                
+            </div>
         </div>
     </section>
 </div>
@@ -124,6 +274,6 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
 
     public function getDebugInfo()
     {
-        return array (  106 => 30,  97 => 27,  94 => 26,  90 => 25,  86 => 23,  83 => 22,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  257 => 72,  253 => 70,  247 => 67,  244 => 66,  242 => 65,  234 => 59,  228 => 58,  222 => 56,  216 => 55,  210 => 54,  204 => 53,  198 => 52,  190 => 51,  186 => 50,  180 => 47,  176 => 46,  172 => 45,  168 => 44,  160 => 43,  156 => 42,  150 => 41,  142 => 40,  134 => 39,  126 => 38,  118 => 37,  114 => 36,  106 => 30,  97 => 27,  94 => 26,  90 => 25,  86 => 23,  83 => 22,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

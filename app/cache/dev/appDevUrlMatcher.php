@@ -302,9 +302,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::indexAction',  '_route' => 'pm_characterused_administration_homepage',);
                 }
 
-                // pm_characterused_administration_insert
-                if ($pathinfo === '/character/personnage/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAction',  '_route' => 'pm_characterused_administration_insert',);
+                if (0 === strpos($pathinfo, '/character/personnage/insertion')) {
+                    // pm_characterused_administration_insert
+                    if ($pathinfo === '/character/personnage/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAction',  '_route' => 'pm_characterused_administration_insert',);
+                    }
+
+                    // pm_characterused_administration_insert_abilities
+                    if (0 === strpos($pathinfo, '/character/personnage/insertion/caracteristiques') && preg_match('#^/character/personnage/insertion/caracteristiques/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_insert_abilities')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAbilitiesAction',));
+                    }
+
                 }
 
                 // pm_characterused_administration_list

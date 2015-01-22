@@ -1,0 +1,65 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.strength) }}
+        {{ form_errors(form.dexterity) }}
+        {{ form_errors(form.constitution) }}
+        {{ form_errors(form.intelligence) }}
+        {{ form_errors(form.wisdom) }}
+        {{ form_errors(form.charisma) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Caractéristiques de {{characterUsed.name}} :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.strength, "Force :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.strength, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.dexterity, "Dextérité :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.dexterity, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.constitution, "Constitution :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.constitution, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.intelligence, "Intellegience :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.intelligence, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.wisdom, "Sagesse :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.wisdom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.charisma, "Charisme :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(form.charisma, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

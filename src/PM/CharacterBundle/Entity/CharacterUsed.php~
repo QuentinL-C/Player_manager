@@ -52,7 +52,7 @@ class CharacterUsed
      *      maxMessage = "Votre histoire ne doit pas dépasser {{ limit }} caractères."
      * )
      *
-     * @ORM\Column(name="story", type="text")
+     * @ORM\Column(name="story", type="text", nullable=true)
      */
     private $story;
 
@@ -63,7 +63,7 @@ class CharacterUsed
      *      minMessage = "Votre personnage ne peut pas avoir un âge négatif ou nul."
      * )
      * 
-     * @ORM\Column(name="age", type="smallint")
+     * @ORM\Column(name="age", type="smallint", nullable=true)
      */
     private $age;
 
@@ -71,7 +71,7 @@ class CharacterUsed
      * @var boolean
      * @Assert\Choice(choices = {"Homme", "Femme"}, message = "Choisissez un genre valide.")
      *
-     * @ORM\Column(name="gender", type="boolean")
+     * @ORM\Column(name="gender", type="boolean", nullable=true)
      */
     private $gender;
 
@@ -82,7 +82,7 @@ class CharacterUsed
      *      minMessage = "Votre personnage ne peut pas avoir une taille négative ou nulle."
      * )
      *
-     * @ORM\Column(name="height", type="smallint")
+     * @ORM\Column(name="height", type="smallint", nullable=true)
      */
     private $height;
 
@@ -93,7 +93,7 @@ class CharacterUsed
      *      minMessage = "Votre personnage ne peut pas avoir un poids négatif ou nul."
      * )
      *
-     * @ORM\Column(name="weight", type="smallint")
+     * @ORM\Column(name="weight", type="smallint", nullable=true)
      */
     private $weight;
 
@@ -101,7 +101,7 @@ class CharacterUsed
      * @var integer
      * @Assert\NotBlank()
      *
-     * @ORM\Column(name="hpMax", type="smallint")
+     * @ORM\Column(name="hpMax", type="smallint", options={"default" = 0}, nullable=false)
      */
     private $hpMax;
 
@@ -109,7 +109,7 @@ class CharacterUsed
      * @var integer
      * @Assert\NotBlank()
      *
-     * @ORM\Column(name="hpCurrent", type="smallint")
+     * @ORM\Column(name="hpCurrent", type="smallint", options={"default" = 0}, nullable=false)
      */
     private $hpCurrent;
 
@@ -639,5 +639,28 @@ class CharacterUsed
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     * @return CharacterUsed
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer 
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 }

@@ -107,6 +107,12 @@ pm_characterused_administration_insert:
     path:     /personnage/insertion
     defaults: { _controller: PMCharacterBundle:CharacterUsed:register }
 
+pm_characterused_administration_insert_abilities:
+    path:     /personnage/insertion/caracteristiques/{slug}
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:registerAbilities }
+    requirements:
+        slug:  \S{0,255}
+
 pm_characterused_administration_list:
     path:     /personnage/liste
     defaults: { _controller: PMCharacterBundle:CharacterUsed:list }

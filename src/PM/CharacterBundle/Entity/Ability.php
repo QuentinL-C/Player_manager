@@ -7,12 +7,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * ability
+ * Ability
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\abilityRepository")
+ * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\AbilityRepository")
  */
-class ability
+class Ability
 {
     /**
      * @var integer
