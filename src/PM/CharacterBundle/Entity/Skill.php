@@ -29,6 +29,14 @@ class Skill
      * @ORM\Column(name="name", type="string", length=45)
      */
     private $name;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private $slug;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -216,5 +224,28 @@ class Skill
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Skill
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

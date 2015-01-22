@@ -332,6 +332,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/character/competence')) {
+                // pm_skill_administration_homepage
+                if ($pathinfo === '/character/competence') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::indexAction',  '_route' => 'pm_skill_administration_homepage',);
+                }
+
+                // pm_skill_administration_insert
+                if ($pathinfo === '/character/competence/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::registerAction',  '_route' => 'pm_skill_administration_insert',);
+                }
+
+                // pm_skill_administration_list
+                if ($pathinfo === '/character/competence/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::listAction',  '_route' => 'pm_skill_administration_list',);
+                }
+
+                // pm_skill_administration_view
+                if (0 === strpos($pathinfo, '/character/competence/vue') && preg_match('#^/character/competence/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::viewAction',));
+                }
+
+                // pm_skill_administration_edit
+                if (0 === strpos($pathinfo, '/character/competence/editer') && preg_match('#^/character/competence/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::editAction',));
+                }
+
+            }
+
         }
 
         // pm_game_homepage

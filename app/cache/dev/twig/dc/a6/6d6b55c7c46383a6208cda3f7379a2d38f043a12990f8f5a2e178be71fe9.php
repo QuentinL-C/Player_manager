@@ -99,7 +99,11 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         <a href=\"";
         // line 31
         echo $this->env->getExtension('routing')->getPath("pm_language_administration_homepage");
-        echo "\">Gestion des Langues</a>
+        echo "\">Gestion des Langues</a><br />
+        <a href=\"";
+        // line 32
+        echo $this->env->getExtension('routing')->getPath("pm_skill_administration_homepage");
+        echo "\">Gestion des Compétences</a>
     </div>
     <div class=\"well\">
         <h2>Parties :</h2>
@@ -108,7 +112,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 ";
     }
 
-    // line 39
+    // line 40
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -125,6 +129,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  112 => 39,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  116 => 40,  105 => 32,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

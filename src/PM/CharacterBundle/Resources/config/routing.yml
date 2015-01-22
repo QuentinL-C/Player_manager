@@ -128,3 +128,28 @@ pm_characterused_administration_edit:
     defaults: { _controller: PMCharacterBundle:CharacterUsed:edit }
     requirements:
         slug:  \S{0,255}
+
+# -- Skill -- #
+pm_skill_administration_homepage:
+    path:     /competence
+    defaults: { _controller: PMCharacterBundle:Skill:index }
+
+pm_skill_administration_insert:
+    path:     /competence/insertion
+    defaults: { _controller: PMCharacterBundle:Skill:register }
+
+pm_skill_administration_list:
+    path:     /competence/liste
+    defaults: { _controller: PMCharacterBundle:Skill:list }
+    
+pm_skill_administration_view:
+    path:     /competence/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:Skill:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_skill_administration_edit:
+    path:     /competence/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:Skill:edit }
+    requirements:
+        slug:  \S{0,255}
