@@ -36,9 +36,10 @@ class ConnectionListener
             }
         }
         
-        if($event->getRequest()->get('_route') == "fos_user_security_login") {
+        if($event->getRequest()->get('_route') == "fos_user_security_login" OR !preg_match("#^/js/.#", $event->getRequest()->getPathInfo()) OR !preg_match("#^/_wdt/.#", $event->getRequest()->getPathInfo())) {
             return;
         }
+
             
         $response = $this->connectionRedirect->redirect();
         $event->setResponse($response);
