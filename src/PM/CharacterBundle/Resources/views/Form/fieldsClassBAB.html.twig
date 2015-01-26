@@ -1,0 +1,15 @@
+{# src/PM/CharacterBundle/Resources/views/Form/fieldsClassBAB.html.twig #}
+{% block _pm_characterbundle_classBAB_Edit_babs_row %}
+    {% spaceless %}
+        <table class="table table-condensed" {{ block('widget_container_attributes') }}>
+            {% for babs in form %}
+            <tr>
+                <td>{{ form_widget(babs.lvl) }}</td>
+                <td>{{ form_widget(babs.attackNb) }}</td>
+                <td>{{ form_widget(babs.value) }}</td>
+                <td>{{ form_widget(babs.classDnD) }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endspaceless %}
+{% endblock _pm_characterbundle_classBAB_Edit_babs_row %}

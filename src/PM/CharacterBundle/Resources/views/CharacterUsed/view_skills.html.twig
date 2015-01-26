@@ -1,0 +1,13 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_skill.html.twig #}
+<table class="table table-bordered">
+    <caption>Compétences :</caption>
+    {% for skill in skills %}
+        {% if skill.type == 1 %}<tr><th>Force</th><td>{{ability.value}}</td></tr>
+        {% elseif skill.type == 2 %}<tr><th>Dexterité</th><td>{{ability.value}}</td></tr>
+        {% elseif skill.type == 3 %}<tr><th>Constitution</th><td>{{ability.value}}</td></tr>
+        {% elseif skill.type == 4 %}<tr><th>Intelligence</th><td>{{ability.value}}</td></tr>
+        {% elseif skill.type == 5 %}<tr><th>Sagesse</th><td>{{ability.value}}</td></tr>
+        {% elseif skill.type == 6 %}<tr><th>Charisme</th><td>{{ability.value}}</td></tr>
+        {% endif%}
+    {% endfor %}
+</table>

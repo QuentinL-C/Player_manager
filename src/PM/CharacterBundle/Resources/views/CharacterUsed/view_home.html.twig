@@ -1,0 +1,13 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_home.html.twig #}
+<table class="table table-bordered">
+    <caption>Caractéristiques :</caption>
+    {% for ability in abilities %}
+        {% if ability.type == 1 %}<tr><th>Force</th><td>{{ability.value}}</td></tr>
+        {% elseif ability.type == 2 %}<tr><th>Dexterité</th><td>{{ability.value}}</td></tr>
+        {% elseif ability.type == 3 %}<tr><th>Constitution</th><td>{{ability.value}}</td></tr>
+        {% elseif ability.type == 4 %}<tr><th>Intelligence</th><td>{{ability.value}}</td></tr>
+        {% elseif ability.type == 5 %}<tr><th>Sagesse</th><td>{{ability.value}}</td></tr>
+        {% elseif ability.type == 6 %}<tr><th>Charisme</th><td>{{ability.value}}</td></tr>
+        {% endif%}
+    {% endfor %}
+</table>
