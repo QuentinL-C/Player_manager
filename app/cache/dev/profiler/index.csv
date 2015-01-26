@@ -1,0 +1,6 @@
+b9a119,127.0.0.1,GET,http://localhost:8888/player_manager/web/app_dev.php/accueil,1422303817,
+2b0c74,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422303817,
+8361e0,127.0.0.1,GET,http://localhost:8888/player_manager/web/app_dev.php/administration,1422303820,
+bc521b,127.0.0.1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422303821,
+a49298,127.0.0.1,GET,http://localhost:8888/player_manager/web/app_dev.php/accueil,1422303822,
+448485,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422303823,
