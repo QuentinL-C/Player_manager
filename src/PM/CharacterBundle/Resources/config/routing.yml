@@ -42,6 +42,12 @@ pm_classdnd_administration_view:
     requirements:
         slug:  \S{0,255}
     
+pm_classdnd_administration_edit_bab:
+    path:     /classe/editer/bab/{slug}
+    defaults: { _controller: PMCharacterBundle:ClassDnD:editBAB }
+    requirements:
+        slug:  \S{0,255}
+    
 pm_classdnd_administration_edit:
     path:     /classe/editer/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:edit }
@@ -110,6 +116,12 @@ pm_characterused_administration_insert:
 pm_characterused_administration_insert_abilities:
     path:     /personnage/insertion/caracteristiques/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:registerAbilities }
+    requirements:
+        slug:  \S{0,255}
+
+pm_characterused_administration_insert_skills:
+    path:     /personnage/insertion/competences/{slug}
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:registerSkills }
     requirements:
         slug:  \S{0,255}
 

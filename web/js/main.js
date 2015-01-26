@@ -8,4 +8,9 @@ $(function () {
     $('[data-toggle="popover"]').popover();
     
     $('.main-hide-div').hide();
-})
+    
+    $('#UserTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+});

@@ -3,6 +3,7 @@
 namespace PM\CharacterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -51,6 +52,11 @@ class ClassDnD
      * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
      */
     private $slug;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassBAB", mappedBy="classDnD")
+     */
+    private $babs;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -101,13 +107,19 @@ class ClassDnD
     {
         return $this->id;
     }
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->babs = ArrayCollection();
+    }
 
     /**
      * Set name
      *
      * @param string $name
-     * @return classDnD
+     * @return ClassDnD
      */
     public function setName($name)
     {
@@ -124,121 +136,6 @@ class ClassDnD
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set createDate
-     *
-     * @param \DateTime $createDate
-     * @return classDnD
-     */
-    public function setCreateDate($createDate)
-    {
-        $this->createDate = $createDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createDate
-     *
-     * @return \DateTime 
-     */
-    public function getCreateDate()
-    {
-        return $this->createDate;
-    }
-
-    /**
-     * Set updateDate
-     *
-     * @param \DateTime $updateDate
-     * @return classDnD
-     */
-    public function setUpdateDate($updateDate)
-    {
-        $this->updateDate = $updateDate;
-
-        return $this;
-    }
-
-    /**
-     * Get updateDate
-     *
-     * @return \DateTime 
-     */
-    public function getUpdateDate()
-    {
-        return $this->updateDate;
-    }
-
-    /**
-     * Set updateComment
-     *
-     * @param string $updateComment
-     * @return classDnD
-     */
-    public function setUpdateComment($updateComment)
-    {
-        $this->updateComment = $updateComment;
-
-        return $this;
-    }
-
-    /**
-     * Get updateComment
-     *
-     * @return string 
-     */
-    public function getUpdateComment()
-    {
-        return $this->updateComment;
-    }
-
-    /**
-     * Set createUser
-     *
-     * @param \PM\UserBundle\Entity\User $createUser
-     * @return classDnD
-     */
-    public function setCreateUser(\PM\UserBundle\Entity\User $createUser)
-    {
-        $this->createUser = $createUser;
-
-        return $this;
-    }
-
-    /**
-     * Get createUser
-     *
-     * @return \PM\UserBundle\Entity\User 
-     */
-    public function getCreateUser()
-    {
-        return $this->createUser;
-    }
-
-    /**
-     * Set updateUser
-     *
-     * @param \PM\UserBundle\Entity\User $updateUser
-     * @return classDnD
-     */
-    public function setUpdateUser(\PM\UserBundle\Entity\User $updateUser = null)
-    {
-        $this->updateUser = $updateUser;
-
-        return $this;
-    }
-
-    /**
-     * Get updateUser
-     *
-     * @return \PM\UserBundle\Entity\User 
-     */
-    public function getUpdateUser()
-    {
-        return $this->updateUser;
     }
 
     /**
@@ -285,5 +182,154 @@ class ClassDnD
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set createDate
+     *
+     * @param \DateTime $createDate
+     * @return ClassDnD
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+
+    /**
+     * Set updateDate
+     *
+     * @param \DateTime $updateDate
+     * @return ClassDnD
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updateDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateDate()
+    {
+        return $this->updateDate;
+    }
+
+    /**
+     * Set updateComment
+     *
+     * @param string $updateComment
+     * @return ClassDnD
+     */
+    public function setUpdateComment($updateComment)
+    {
+        $this->updateComment = $updateComment;
+
+        return $this;
+    }
+
+    /**
+     * Get updateComment
+     *
+     * @return string 
+     */
+    public function getUpdateComment()
+    {
+        return $this->updateComment;
+    }
+
+    /**
+     * Add babs
+     *
+     * @param \PM\CharacterBundle\Entity\ClassBAB $bab
+     * @return ClassDnD
+     */
+    public function addBab(\PM\CharacterBundle\Entity\ClassBAB $bab)
+    {
+        $this->babs[] = $bab;
+        $bab->setClassDnD($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove babs
+     *
+     * @param \PM\CharacterBundle\Entity\ClassBAB $bab
+     */
+    public function removeBab(\PM\CharacterBundle\Entity\ClassBAB $bab)
+    {
+        $this->babs->removeElement($bab);
+    }
+
+    /**
+     * Get babs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBabs()
+    {
+        return $this->babs;
+    }
+
+    /**
+     * Set createUser
+     *
+     * @param \PM\UserBundle\Entity\User $createUser
+     * @return ClassDnD
+     */
+    public function setCreateUser(\PM\UserBundle\Entity\User $createUser)
+    {
+        $this->createUser = $createUser;
+
+        return $this;
+    }
+
+    /**
+     * Get createUser
+     *
+     * @return \PM\UserBundle\Entity\User 
+     */
+    public function getCreateUser()
+    {
+        return $this->createUser;
+    }
+
+    /**
+     * Set updateUser
+     *
+     * @param \PM\UserBundle\Entity\User $updateUser
+     * @return ClassDnD
+     */
+    public function setUpdateUser(\PM\UserBundle\Entity\User $updateUser = null)
+    {
+        $this->updateUser = $updateUser;
+
+        return $this;
+    }
+
+    /**
+     * Get updateUser
+     *
+     * @return \PM\UserBundle\Entity\User 
+     */
+    public function getUpdateUser()
+    {
+        return $this->updateUser;
     }
 }

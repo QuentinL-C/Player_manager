@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * classDnD
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\classDnDRepository")
+ * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\ClassDnDRepository")
  */
 class ClassDnD
 {
@@ -28,7 +28,7 @@ class ClassDnD
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = "1",
-     *      max = "150",
+     *      max = "45",
      *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
      *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
      * )
@@ -51,6 +51,11 @@ class ClassDnD
      * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
      */
     private $slug;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassBAB", mappedBy="classDnD")
+     */
+    private $babs;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -100,144 +105,5 @@ class ClassDnD
     public function getId()
     {
         return $this->id;
-    }
-
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return classDnD
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set createDate
-     *
-     * @param \DateTime $createDate
-     * @return classDnD
-     */
-    public function setCreateDate($createDate)
-    {
-        $this->createDate = $createDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createDate
-     *
-     * @return \DateTime 
-     */
-    public function getCreateDate()
-    {
-        return $this->createDate;
-    }
-
-    /**
-     * Set updateDate
-     *
-     * @param \DateTime $updateDate
-     * @return classDnD
-     */
-    public function setUpdateDate($updateDate)
-    {
-        $this->updateDate = $updateDate;
-
-        return $this;
-    }
-
-    /**
-     * Get updateDate
-     *
-     * @return \DateTime 
-     */
-    public function getUpdateDate()
-    {
-        return $this->updateDate;
-    }
-
-    /**
-     * Set updateComment
-     *
-     * @param string $updateComment
-     * @return classDnD
-     */
-    public function setUpdateComment($updateComment)
-    {
-        $this->updateComment = $updateComment;
-
-        return $this;
-    }
-
-    /**
-     * Get updateComment
-     *
-     * @return string 
-     */
-    public function getUpdateComment()
-    {
-        return $this->updateComment;
-    }
-
-    /**
-     * Set createUser
-     *
-     * @param \PM\UserBundle\Entity\User $createUser
-     * @return classDnD
-     */
-    public function setCreateUser(\PM\UserBundle\Entity\User $createUser)
-    {
-        $this->createUser = $createUser;
-
-        return $this;
-    }
-
-    /**
-     * Get createUser
-     *
-     * @return \PM\UserBundle\Entity\User 
-     */
-    public function getCreateUser()
-    {
-        return $this->createUser;
-    }
-
-    /**
-     * Set updateUser
-     *
-     * @param \PM\UserBundle\Entity\User $updateUser
-     * @return classDnD
-     */
-    public function setUpdateUser(\PM\UserBundle\Entity\User $updateUser = null)
-    {
-        $this->updateUser = $updateUser;
-
-        return $this;
-    }
-
-    /**
-     * Get updateUser
-     *
-     * @return \PM\UserBundle\Entity\User 
-     */
-    public function getUpdateUser()
-    {
-        return $this->updateUser;
     }
 }

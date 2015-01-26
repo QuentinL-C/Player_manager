@@ -2,8 +2,8 @@
 
 namespace Gedmo\Translatable\Mapping\Driver;
 
-use Gedmo\Mapping\Driver\AbstractAnnotationDriver,
-    Gedmo\Exception\InvalidMappingException;
+use Gedmo\Mapping\Driver\AbstractAnnotationDriver;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is an annotation mapping driver for Translatable
@@ -73,13 +73,13 @@ class Annotation extends AbstractAnnotationDriver
                 }
             }
             // locale property
-            if ($locale = $this->reader->getPropertyAnnotation($property, self::LOCALE)) {
+            if ($this->reader->getPropertyAnnotation($property, self::LOCALE)) {
                 $field = $property->getName();
                 if ($meta->hasField($field)) {
                     throw new InvalidMappingException("Locale field [{$field}] should not be mapped as column property in entity - {$meta->name}, since it makes no sense");
                 }
                 $config['locale'] = $field;
-            } elseif ($language = $this->reader->getPropertyAnnotation($property, self::LANGUAGE)) {
+            } elseif ($this->reader->getPropertyAnnotation($property, self::LANGUAGE)) {
                 $field = $property->getName();
                 if ($meta->hasField($field)) {
                     throw new InvalidMappingException("Language field [{$field}] should not be mapped as column property in entity - {$meta->name}, since it makes no sense");

@@ -24,7 +24,7 @@ class ClassBAB
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD", inversedBy="babs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $classDnD;

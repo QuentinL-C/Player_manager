@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PM\CharacterBundle\Entity\ClassDnD;
 use PM\CharacterBundle\Form\ClassDnDRegisterType;
 use PM\CharacterBundle\Form\ClassDnDEditType;
+use PM\CharacterBundle\Form\ClassBABEditType;
 
 class ClassDnDController extends Controller
 {
@@ -99,6 +100,39 @@ class ClassDnDController extends Controller
 
         return $this->render('PMCharacterBundle:ClassDnD:listClassesDnD.html.twig', array(
                                 'listClassesDnD' => $listClassesDnD,
+                            ));
+    }
+    
+    public function editBABAction($slug)
+    {
+        $current_user = $this->getUser();
+        $repository = $this->getDoctrine()
+                           ->getManager()
+                           ->getRepository('PMCharacterBundle:ClassDnD');
+ 
+        $classDnD = $repository->findOneBySlug($slug);
+        
+        $form = $this->createForm(new ClassBABEditType);
+        $classDnD->setUpdateUser($current_user);
+ 
+        $request = $this->get('request');
+            if ($request->getMethod() == 'POST') {
+                $form->bind($request);
+                
+                if ($form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($classDnD);
+                    
+                    $em->flush();
+                    
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été mise à jour.' );
+           
+                    return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
+                }
+            }
+        return $this->render('PMCharacterBundle:classDnD:editBAB.html.twig', array(
+                                'classDnD' => $classDnD,
+                                'form' => $form->createView(),
                             ));
     }
 }

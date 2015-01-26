@@ -1,0 +1,29 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form.skills) }}
+        {% for skillFields in form.skills %}
+            {{ form_errors(skillFields) }}
+        {% endfor %}  
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Compétences de {{characterUsed.name}} :</legend>
+
+        {% for skillFields in form.skills %}
+        <div class="form-group">
+            {{ form_label(skillFields, skillFields.name, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-3">
+                {{ form_widget(skillFields, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {% endfor %}    
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>
