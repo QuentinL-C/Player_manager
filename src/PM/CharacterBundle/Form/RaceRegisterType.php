@@ -25,6 +25,13 @@ class RaceRegisterType extends AbstractType
                                                           'required' => false,
                                                           'empty_value' => 'Classes de Prédilection',
                                                           'empty_data'  => null))
+            ->add('languages',          'entity',   array('class' => 'PMCharacterBundle:Language',
+                                                          'property'    => 'name',
+                                                          'expanded' => false,
+                                                          'multiple' => true,
+                                                          'required' => false,
+                                                          'empty_value' => 'Langues',
+                                                          'empty_data'  => null))
         ;
     }
     

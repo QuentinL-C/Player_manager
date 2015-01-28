@@ -38,6 +38,14 @@
                     <li>Vitesse : {{race.speed}}</li>
                     <li>Classe de Prédilection : {% if race.predilectionClass is not null %}<a href="{{path('pm_classdnd_administration_view', {'slug': race.predilectionClass.slug})}}">{{ race.predilectionClass.name }}</a>{% else %}Pas de classe de prédilection renseignée.{% endif %}</li>
                     <li>Modificateur de Points de Compétences : {{race.skillModifier}}</li>
+                    <li>Langues :</li>
+                    <ul>
+                        {%for language in race.languages %}
+                            <li><a href="{{path('pm_language_administration_view', {'slug': language.slug})}}">{{language.name}}</a></li>
+                        {% else %}
+                            <li>Aucune langue parlée</li>
+                        {% endfor %}
+                    </ul>
                 </ul>
             </div>
             <div class="col-md-6">

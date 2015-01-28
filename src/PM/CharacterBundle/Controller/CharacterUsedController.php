@@ -54,7 +54,7 @@ class CharacterUsedController extends Controller
                     
                     $em->flush();
                     
-                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, le personnage a bien été créé.' );
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre personnage a bien été créé.' );
                     //Renvoie vers la page de gestion des Caractéristiques :
                     return $this->redirect($this->generateUrl('pm_characterused_administration_insert_abilities', array('slug' => $characterUsed->getSlug())));
                 }

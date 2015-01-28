@@ -137,27 +137,54 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
         // line 40
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "skillModifier", array()), "html", null, true);
         echo "</li>
+                    <li>Langues :</li>
+                    <ul>
+                        ";
+        // line 43
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "languages", array()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["language"]) {
+            // line 44
+            echo "                            <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_language_administration_view", array("slug" => $this->getAttribute($context["language"], "slug", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["language"], "name", array()), "html", null, true);
+            echo "</a></li>
+                        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 46
+            echo "                            <li>Aucune langue parlée</li>
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['language'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 48
+        echo "                    </ul>
                 </ul>
             </div>
             <div class=\"col-md-6\">
                 <h2>Texte descriptif</h2>
                 ";
-        // line 45
+        // line 53
         if ( !twig_test_empty($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "description", array()))) {
-            // line 46
+            // line 54
             echo "                    <div class=\"well\">
                         ";
-            // line 47
+            // line 55
             echo $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "description", array());
             echo "
                     </div>
                 ";
         } else {
-            // line 50
+            // line 58
             echo "                    <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cette race.</div>
                 ";
         }
-        // line 52
+        // line 60
         echo "                
             </div>
         </div>
@@ -178,6 +205,6 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
 
     public function getDebugInfo()
     {
-        return array (  161 => 52,  157 => 50,  151 => 47,  148 => 46,  146 => 45,  138 => 40,  126 => 39,  122 => 38,  118 => 37,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  188 => 60,  184 => 58,  178 => 55,  175 => 54,  173 => 53,  166 => 48,  159 => 46,  149 => 44,  144 => 43,  138 => 40,  126 => 39,  122 => 38,  118 => 37,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

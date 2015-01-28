@@ -93,6 +93,12 @@ class Race
      * @ORM\JoinColumn(nullable=true)
      */
     protected $predilectionClass;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="PM\CharacterBundle\Entity\Language")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $languages;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -139,6 +145,7 @@ class Race
     public function __construct()
     {
         $this->predilectionClass = New ArrayCollection();
+        $this->languages = New ArrayCollection();
     }
 
 
@@ -426,5 +433,41 @@ class Race
     public function getSpeed()
     {
         return $this->speed;
+    }
+    
+    /**
+     * Add languages
+     *
+     * @param \PM\CharacterBundle\Entity\Language $language
+     * @return Race
+     */
+    public function addLanguage(\PM\CharacterBundle\Entity\Skill $language)
+    {
+        $this->languages[] = $language;
+        $language->setRace($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove languages
+     *
+     * @param \PM\CharacterBundle\Entity\Language $language
+     */
+    public function removeLanguage(\PM\CharacterBundle\Entity\Language $language)
+    {
+        $this->languages->removeElement($language);
+        
+        $language->setRace(null);
+    }
+
+    /**
+     * Get languages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
     }
 }
