@@ -7,6 +7,7 @@
         {{ form_errors(form) }}
         {{ form_errors(form.name) }}
         {{ form_errors(form.description) }}
+        {{ form_errors(form.skills) }}
     </div>
     <br />
     {% endif %}
@@ -28,6 +29,13 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.skills, "Compétences de classe :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.skills, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>

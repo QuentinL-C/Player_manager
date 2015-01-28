@@ -60,9 +60,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_1f60180',);
                 }
 
-                // _assetic_1f60180_0
-                if ($pathinfo === '/js/1f60180_part_1_editBAB_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
+                if (0 === strpos($pathinfo, '/js/1f60180_part_1_edit')) {
+                    // _assetic_1f60180_0
+                    if ($pathinfo === '/js/1f60180_part_1_editBAB_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
+                    }
+
+                    // _assetic_1f60180_1
+                    if ($pathinfo === '/js/1f60180_part_1_editST_2.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_1f60180_1',);
+                    }
+
                 }
 
             }
@@ -76,6 +84,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _assetic_29a071e_0
                 if ($pathinfo === '/js/29a071e_editBAB_1.js') {
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '29a071e',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_29a071e_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/js/068af72')) {
+                // _assetic_068af72
+                if ($pathinfo === '/js/068af72.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '068af72',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_068af72',);
+                }
+
+                // _assetic_068af72_0
+                if ($pathinfo === '/js/068af72_editST_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '068af72',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_068af72_0',);
                 }
 
             }
@@ -258,6 +279,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     // pm_classdnd_administration_edit_bab
                     if (0 === strpos($pathinfo, '/character/classe/editer/bab') && preg_match('#^/character/classe/editer/bab/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
                         return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_bab')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editBABAction',));
+                    }
+
+                    // pm_classdnd_administration_edit_st
+                    if (0 === strpos($pathinfo, '/character/classe/editer/st') && preg_match('#^/character/classe/editer/st/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_st')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editSTAction',));
                     }
 
                     // pm_classdnd_administration_edit

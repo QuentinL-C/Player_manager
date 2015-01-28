@@ -3,14 +3,18 @@
 namespace PM\CharacterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Race
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\RaceRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Une race semble déjà portée ce nom ...")
  */
 class Race
 {
@@ -54,10 +58,41 @@ class Race
 
     /**
      * @var integer
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre race ne peut pas avoir une taille négative ou nulle."
+     * )
      *
-     * @ORM\Column(name="value", type="smallint")
+     * @ORM\Column(name="size", type="smallint")
      */
     private $size;
+
+    /**
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre race ne peut pas avoir une vitesse négative ou nulle."
+     * )
+     *
+     * @ORM\Column(name="speed", type="float")
+     */
+    private $speed;
+
+    /**
+     * @var integer
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre race ne peut pas avoir un modificateur de Points de Compétences négatif ou nul."
+     * )
+     *
+     * @ORM\Column(name="skillModifier", type="smallint")
+     */
+    private $skillModifier;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $predilectionClass;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -98,6 +133,14 @@ class Race
      */
     protected $updateComment;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->predilectionClass = New ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -130,6 +173,98 @@ class Race
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Race
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Race
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set size
+     *
+     * @param integer $size
+     * @return Race
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return integer 
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * Set skillModifier
+     *
+     * @param integer $skillModifier
+     * @return Race
+     */
+    public function setSkillModifier($skillModifier)
+    {
+        $this->skillModifier = $skillModifier;
+
+        return $this;
+    }
+
+    /**
+     * Get skillModifier
+     *
+     * @return integer 
+     */
+    public function getSkillModifier()
+    {
+        return $this->skillModifier;
     }
 
     /**
@@ -202,6 +337,29 @@ class Race
     }
 
     /**
+     * Set predilectionClass
+     *
+     * @param \PM\CharacterBundle\Entity\ClassDnD $predilectionClass
+     * @return Race
+     */
+    public function setPredilectionClass(\PM\CharacterBundle\Entity\ClassDnD $predilectionClass = null)
+    {
+        $this->predilectionClass = $predilectionClass;
+
+        return $this;
+    }
+
+    /**
+     * Get predilectionClass
+     *
+     * @return \PM\CharacterBundle\Entity\ClassDnD 
+     */
+    public function getPredilectionClass()
+    {
+        return $this->predilectionClass;
+    }
+
+    /**
      * Set createUser
      *
      * @param \PM\UserBundle\Entity\User $createUser
@@ -248,71 +406,25 @@ class Race
     }
 
     /**
-     * Set description
+     * Set speed
      *
-     * @param string $description
+     * @param string $speed
      * @return Race
      */
-    public function setDescription($description)
+    public function setSpeed($speed)
     {
-        $this->description = $description;
+        $this->speed = $speed;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get speed
      *
      * @return string 
      */
-    public function getDescription()
+    public function getSpeed()
     {
-        return $this->description;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Race
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set size
-     *
-     * @param integer $size
-     * @return Race
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return integer 
-     */
-    public function getSize()
-    {
-        return $this->size;
+        return $this->speed;
     }
 }

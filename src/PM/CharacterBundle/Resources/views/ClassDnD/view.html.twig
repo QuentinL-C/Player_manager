@@ -11,7 +11,9 @@
 {% endblock %}
     
 {% block h1_extend %}
-    <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit_bab', {'slug': classDnD.slug}) }}" >BAB</a> <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit', {'slug': classDnD.slug}) }}" >Modifier</a>
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit_st', {'slug': classDnD.slug}) }}" >ST</a> 
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit_bab', {'slug': classDnD.slug}) }}" >BAB</a> 
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit', {'slug': classDnD.slug}) }}" >Modifier</a>
 {% endblock %}
 
 {% block breadcrumb %}
@@ -28,13 +30,85 @@
             </div>
         {% endfor %}
         
-        {% if classDnD.description is not empty %}
-            <div class="well">
-                {{ classDnD.description|raw }}
+        <div class="row">
+            <div class="col-md-6">
+                {% if classDnD.description is not empty %}
+                    <div class="well">
+                        <h2>Description :</h2>
+                        {{ classDnD.description|raw }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning" role="alert">Aucune description fournie pour cette classe.</div>
+                {% endif %}
             </div>
-        {% else %}
-            <div class="alert alert-warning" role="alert">Aucune description fournie pour cette classe.</div>
-        {% endif %}
+        
+            <div class="col-md-6">
+                <h2>Compétences de Classe :</h2>
+                <ul>
+                {% for skill in classDnD.skills %}
+                    <li><a href="{{path('pm_skill_administration_view', {'slug': skill.slug})}}">{{skill.name}}</a></li>
+                {% else %}
+                    <li>Aucune compétence connue</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Tableau des valeurs :</h2>
+        <table class="table table-bordered table-condensed table-striped">
+            <caption>Valeurs de base</caption>
+            <tr>
+                <th>#</th>
+                <th>BBA</th>
+                <th>Reflex</th>
+                <th>Vigueur</th>
+                <th>Volonté</th>
+            </tr>
+            
+            {% set MaxBabs = 0 %}
+            {% for bab in babs %}
+                {% if loop.last %}
+                    {% set MaxBabs = bab.lvl %}
+                {% endif %}
+            {% endfor %}
+            {% set MaxSts = sts|length %}
+            {% if MaxBabs >=  MaxSts %}
+                {% set MaxLoop = MaxBabs %}
+            {% elseif MaxSts >  MaxBabs %}
+                {% set MaxLoop = MaxSts %}
+            {% endif %}
+            
+            {% if MaxLoop != 0 %}
+                {% for i in 1..MaxLoop %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td>
+                            {% for bab in babs if bab.lvl == i %}
+                                {% if not loop.first %}
+                                    /
+                                {% endif %}
+                                    {% if bab.value >= 0 %}+{% endif %}{{ bab.value }}
+                            {% else %}
+                                -
+                            {% endfor %}
+                        </td>
+                        {% for st in sts if st.lvl == i %}
+                            <td>{% if st.fortitude >= 0 %}+{% endif %}{{ st.fortitude }}</td>
+                            <td>{% if st.reflex >= 0 %}+{% endif %}{{ st.reflex }}</td>
+                            <td>{% if st.will >= 0 %}+{% endif %}{{ st.will }}</td>
+                        {% else %}
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5"><em>Aucune information connue.</em></td>
+                </tr>
+            {% endif %}
+        </table>
     </section>
 </div>
 {% endblock %}

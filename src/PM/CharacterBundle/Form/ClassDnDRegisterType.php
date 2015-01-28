@@ -17,6 +17,13 @@ class ClassDnDRegisterType extends AbstractType
         $builder
             ->add('name',           'text',     array('required' => true))
             ->add('description',    'textarea', array('required' => false))
+            ->add('skills',         'entity',   array('class' => 'PMCharacterBundle:Skill',
+                                                      'property'    => 'name',
+                                                      'expanded' => false,
+                                                      'multiple' => true,
+                                                      'required' => false,
+                                                      'empty_value' => 'Compétences de Classe',
+                                                      'empty_data'  => null))
         ;
     }
     

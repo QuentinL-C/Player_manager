@@ -15,9 +15,16 @@ class RaceRegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',           'text',     array('required' => true))
-            ->add('description',    'textarea', array('required' => false))
-            ->add('size',           'integer',  array('required' => false))
+            ->add('name',               'text',     array('required' => true))
+            ->add('description',        'textarea', array('required' => false))
+            ->add('size',               'integer',  array('required' => false))
+            ->add('speed',              'number',   array('required' => false, 'precision' => '1'))
+            ->add('skillModifier',      'integer',  array('required' => false))
+            ->add('predilectionClass',  'entity',   array('class' => 'PMCharacterBundle:ClassDnD',
+                                                          'property'    => 'name',
+                                                          'required' => false,
+                                                          'empty_value' => 'Classes de Prédilection',
+                                                          'empty_data'  => null))
         ;
     }
     

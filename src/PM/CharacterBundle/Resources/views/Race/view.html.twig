@@ -16,6 +16,7 @@
 
 {% block breadcrumb %}
     {{ parent() }}
+    <li class="active">{{race.name}}</li>
     <li class="active">Voir</li>
 {% endblock %} 
 
@@ -34,6 +35,9 @@
                 
                 <ul>
                     <li>Taille : {{race.size}}</li>
+                    <li>Vitesse : {{race.speed}}</li>
+                    <li>Classe de Prédilection : {% if race.predilectionClass is not null %}<a href="{{path('pm_classdnd_administration_view', {'slug': race.predilectionClass.slug})}}">{{ race.predilectionClass.name }}</a>{% else %}Pas de classe de prédilection renseignée.{% endif %}</li>
+                    <li>Modificateur de Points de Compétences : {{race.skillModifier}}</li>
                 </ul>
             </div>
             <div class="col-md-6">

@@ -1,0 +1,16 @@
+{# src/PM/CharacterBundle/Resources/views/ClassDnD/registerST_content.html.twig #}
+
+<form class="form-horizontal" method="post" action="{{ path('pm_classdnd_administration_edit_st', {'slug': classDnD.slug}) }}" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+    </div>
+    <br />
+    {% endif %}
+    
+    {# form_theme form 'PMCharacterBundle:Form:fieldsClassBAB.html.twig' #}
+    {{ form_row(form.sts)}}
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

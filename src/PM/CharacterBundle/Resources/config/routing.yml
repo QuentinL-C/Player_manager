@@ -48,6 +48,12 @@ pm_classdnd_administration_edit_bab:
     requirements:
         slug:  \S{0,255}
     
+pm_classdnd_administration_edit_st:
+    path:     /classe/editer/st/{slug}
+    defaults: { _controller: PMCharacterBundle:ClassDnD:editST }
+    requirements:
+        slug:  \S{0,255}
+    
 pm_classdnd_administration_edit:
     path:     /classe/editer/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:edit }

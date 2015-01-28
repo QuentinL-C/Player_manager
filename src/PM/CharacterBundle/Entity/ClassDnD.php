@@ -6,12 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * classDnD
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\ClassDnDRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Une classe semble déjà portée ce nom ...")
  */
 class ClassDnD
 {
@@ -55,8 +58,15 @@ class ClassDnD
     
     /**
      * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassBAB", mappedBy="classDnD")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $babs;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $skills;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -97,7 +107,15 @@ class ClassDnD
      */
     protected $updateComment;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->babs = New ArrayCollection();
+        $this->skills = New ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -106,13 +124,6 @@ class ClassDnD
     public function getId()
     {
         return $this->id;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->babs = ArrayCollection();
     }
 
     /**
@@ -275,6 +286,8 @@ class ClassDnD
     public function removeBab(\PM\CharacterBundle\Entity\ClassBAB $bab)
     {
         $this->babs->removeElement($bab);
+        
+        $bab->setClassDnD(null);
     }
 
     /**
@@ -285,6 +298,42 @@ class ClassDnD
     public function getBabs()
     {
         return $this->babs;
+    }
+
+    /**
+     * Add skills
+     *
+     * @param \PM\CharacterBundle\Entity\Skill $skill
+     * @return ClassDnD
+     */
+    public function addSkill(\PM\CharacterBundle\Entity\Skill $skill)
+    {
+        $this->skills[] = $skill;
+        $skill->setClassDnD($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove skills
+     *
+     * @param \PM\CharacterBundle\Entity\Skill $skill
+     */
+    public function removeSkill(\PM\CharacterBundle\Entity\Skill $skill)
+    {
+        $this->skills->removeElement($skill);
+        
+        $skill->setClassDnD(null);
+    }
+
+    /**
+     * Get skills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkills()
+    {
+        return $this->skills;
     }
 
     /**

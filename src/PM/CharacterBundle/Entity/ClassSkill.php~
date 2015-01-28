@@ -15,14 +15,21 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ClassSkill
 {
     /**
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+  
+    /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $classDnD;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $skill;
 

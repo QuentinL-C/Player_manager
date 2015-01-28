@@ -42,4 +42,24 @@ return array (
       ),
     ),
   ),
+  '068af72' => 
+  array (
+    0 => 
+    array (
+      0 => '@PMCharacterBundle/Resources/public/js/editST.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/068af72.js',
+      'name' => '068af72',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
 );

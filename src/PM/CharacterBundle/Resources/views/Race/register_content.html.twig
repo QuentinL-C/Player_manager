@@ -8,6 +8,9 @@
         {{ form_errors(form.name) }}
         {{ form_errors(form.description) }}
         {{ form_errors(form.size) }}
+        {{ form_errors(form.speed) }}
+        {{ form_errors(form.skillModifier) }}
+        {{ form_errors(form.predilectionClass) }}
     </div>
     <br />
     {% endif %}
@@ -39,6 +42,36 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                {{ form_label(form.speed, "Vitesse :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.speed, {'Vitesse': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                {{ form_label(form.skillModifier, "Modificateur de Points de Compétences :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.skillModifier, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                {{ form_label(form.predilectionClass, "Classes de Prédilection :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.predilectionClass, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>
