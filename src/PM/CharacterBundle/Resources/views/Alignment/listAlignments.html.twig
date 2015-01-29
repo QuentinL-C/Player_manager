@@ -34,12 +34,11 @@
                     <td style="text-align: left;">{{ loop.index }}</td>
                     <td style="text-align: left;"><a href="{{ path('pm_alignment_administration_view', { 'slug' : alignment.slug} ) }}">{{ alignment.name }}</a></td>
                 </tr>
-            {% endfor %}
-            {% if listAlignments is empty %}
+            {% else %}
                 <tr>
                     <td colspan="5" style="text-align: center; font-weight: bold;">Aucun alignement connu.</td>
                 </tr>
-            {% endif %}
+            {% endfor %}
         </table>
     </section>
 </div>

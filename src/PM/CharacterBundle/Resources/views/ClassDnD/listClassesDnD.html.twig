@@ -34,12 +34,11 @@
                     <td style="text-align: left;">{{ loop.index }}</td>
                     <td style="text-align: left;"><a href="{{ path('pm_classdnd_administration_view', { 'slug' : classDnD.slug} ) }}">{{ classDnD.name }}</a></td>
                 </tr>
-            {% endfor %}
-            {% if listClassesDnD is empty %}
+            {% else %}
                 <tr>
                     <td colspan="5" style="text-align: center; font-weight: bold;">Aucune classe connue.</td>
                 </tr>
-            {% endif %}
+            {% endfor %}
         </table>
     </section>
 </div>

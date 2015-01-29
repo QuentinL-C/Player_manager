@@ -171,3 +171,28 @@ pm_skill_administration_edit:
     defaults: { _controller: PMCharacterBundle:Skill:edit }
     requirements:
         slug:  \S{0,255}
+
+# -- Size -- #
+pm_size_administration_homepage:
+    path:     /taille
+    defaults: { _controller: PMCharacterBundle:Size:index }
+
+pm_size_administration_insert:
+    path:     /taille/insertion
+    defaults: { _controller: PMCharacterBundle:Size:register }
+
+pm_size_administration_list:
+    path:     /taille/liste
+    defaults: { _controller: PMCharacterBundle:Size:list }
+    
+pm_size_administration_view:
+    path:     /taille/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:Size:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_size_administration_edit:
+    path:     /taille/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:Size:edit }
+    requirements:
+        slug:  \S{0,255}

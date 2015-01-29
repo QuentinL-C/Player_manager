@@ -34,12 +34,11 @@
                     <td style="text-align: left;">{{ loop.index }}</td>
                     <td style="text-align: left;"><a href="{{ path('pm_characterused_administration_view', { 'slug' : characterused.slug} ) }}">{{ characterused.name }}</a></td>
                 </tr>
-            {% endfor %}
-            {% if listCharactersUsed is empty %}
+            {% else %}
                 <tr>
                     <td colspan="5" style="text-align: center; font-weight: bold;">Aucun Personnage connu.</td>
                 </tr>
-            {% endif %}
+            {% endfor %}
         </table>
     </section>
 </div>

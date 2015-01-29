@@ -1,0 +1,25 @@
+{# src/PM/CharacterBundle/Resources/views/Size/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.name) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Taille :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre taille', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

@@ -1,13 +1,13 @@
-{# src/PM/CharacterBundle/Resources/views/CharacterUsed/register.html.twig #}
+{# src/PM/CharacterBundle/Resources/views/Language/register.html.twig #}
  
-{% extends "PMCharacterBundle:CharacterUsed:layoutAdmin.html.twig" %}
+{% extends "PMCharacterBundle:Language:layoutAdmin.html.twig" %}
 
 {% block title %}
     Insertion - {{ parent() }}
 {% endblock %}
     
 {% block h1 %}
-    Nouveau Personnage :
+    Nouvelle Langue :
 {% endblock %}
 
 {% block breadcrumb %}
@@ -25,7 +25,7 @@
         {% endfor %}
         
         <div class="well">
-            {% include "PMCharacterBundle:CharacterUsed:register_content.html.twig" %}
+            {% include "PMCharacterBundle:Language:register_content.html.twig" %}
         </div>
     </section>
     <aside class="col-lg-4">

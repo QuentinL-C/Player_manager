@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\RaceRepository")
  * 
- * @UniqueEntity(fields="name", message="Une race semble déjà portée ce nom ...")
+ * @UniqueEntity(fields="name", message="Une race semble déjà porter ce nom ...")
  */
 class Race
 {

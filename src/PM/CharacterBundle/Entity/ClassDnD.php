@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\ClassDnDRepository")
  * 
- * @UniqueEntity(fields="name", message="Une classe semble déjà portée ce nom ...")
+ * @UniqueEntity(fields="name", message="Une classe semble déjà porter ce nom ...")
  */
 class ClassDnD
 {

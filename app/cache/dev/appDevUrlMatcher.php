@@ -423,6 +423,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/character/taille')) {
+                // pm_size_administration_homepage
+                if ($pathinfo === '/character/taille') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::indexAction',  '_route' => 'pm_size_administration_homepage',);
+                }
+
+                // pm_size_administration_insert
+                if ($pathinfo === '/character/taille/insertion') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::registerAction',  '_route' => 'pm_size_administration_insert',);
+                }
+
+                // pm_size_administration_list
+                if ($pathinfo === '/character/taille/liste') {
+                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::listAction',  '_route' => 'pm_size_administration_list',);
+                }
+
+                // pm_size_administration_view
+                if (0 === strpos($pathinfo, '/character/taille/vue') && preg_match('#^/character/taille/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::viewAction',));
+                }
+
+                // pm_size_administration_edit
+                if (0 === strpos($pathinfo, '/character/taille/editer') && preg_match('#^/character/taille/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::editAction',));
+                }
+
+            }
+
         }
 
         // pm_game_homepage

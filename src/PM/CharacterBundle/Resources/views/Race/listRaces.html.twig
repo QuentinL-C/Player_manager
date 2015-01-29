@@ -34,12 +34,11 @@
                     <td style="text-align: left;">{{ loop.index }}</td>
                     <td style="text-align: left;"><a href="{{ path('pm_race_administration_view', { 'slug' : race.slug} ) }}">{{ race.name }}</a></td>
                 </tr>
-            {% endfor %}
-            {% if listRaces is empty %}
+            {% else %}
                 <tr>
                     <td colspan="5" style="text-align: center; font-weight: bold;">Aucune race connue.</td>
                 </tr>
-            {% endif %}
+            {% endfor %}
         </table>
     </section>
 </div>
