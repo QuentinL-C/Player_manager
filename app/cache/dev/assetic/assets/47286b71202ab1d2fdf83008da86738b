@@ -1,0 +1,24 @@
+$(document).ready(function() {
+    //Merci OC pour le code ^^:
+    var $container = $('div#pm_characterbundle_characterused_register_classDnDInstance'); //-> Changer div en table pour mettre en place le theme
+    
+    var index = $container.find(':input').length;
+    if (index == 0) {
+        addBab($container);
+    } else {
+        $container.children('div').each(function() {
+            addDeleteLink($(this));
+        });
+    }
+
+    function addBab($container) {
+        var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Classe n°' + (index+1))
+            .replace(/__name__/g, index));
+        $container.append($prototype);
+        $('div#pm_characterbundle_characterused_register_classDnDInstance_' + index).prev().hide();
+        index++;
+        
+    }
+    
+    $('div#pm_characterbundle_characterused_register_classDnDInstance').prev().hide();
+});

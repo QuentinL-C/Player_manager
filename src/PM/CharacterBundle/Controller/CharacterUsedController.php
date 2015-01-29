@@ -23,16 +23,16 @@ class CharacterUsedController extends Controller
     {
         $current_user = $this->getUser();
         
-        //Gestion de la richesse du personnage
+        // -- Gestion de la richesse du personnage :
         $characterWealth = new CharacterWealth;
         $characterWealth->setCreateUser($current_user); $characterWealth->setPo(0); $characterWealth->setPa(0); $characterWealth->setPc(0);
         
-        //Création du personnage :
+        // -- Création du personnage :
         $characterUsed = new CharacterUsed;
         $characterUsed->setCreateUser($current_user);
         $characterUsed->setHpCurrent(0); $characterUsed->setHpMax(0); $characterUsed->setWealth($characterWealth);
         
-        //Gestion des Caractéristiques du personnage
+        // -- Gestion des Caractéristiques du personnage :
         $strength = new Ability;        $strength->setCreateUser($current_user);    $strength->setType(1);      $strength->setValue(0);     $strength->setCharacterUsed($characterUsed);
         $dexterity = new Ability;       $dexterity->setCreateUser($current_user);   $dexterity->setType(2);     $dexterity->setValue(0);    $dexterity->setCharacterUsed($characterUsed);
         $constitution = new Ability;    $constitution->setCreateUser($current_user); $constitution->setType(3); $constitution->setValue(0); $constitution->setCharacterUsed($characterUsed);
@@ -40,14 +40,24 @@ class CharacterUsedController extends Controller
         $wisdom = new Ability;          $wisdom->setCreateUser($current_user);      $wisdom->setType(5);        $wisdom->setValue(0);       $wisdom->setCharacterUsed($characterUsed);
         $charisma = new Ability;        $charisma->setCreateUser($current_user);    $charisma->setType(6);      $charisma->setValue(0);     $charisma->setCharacterUsed($characterUsed);
         
+        // -- Création du formulaire :
         $form = $this->createForm(new CharacterUsedRegisterType, $characterUsed);
  
+        // -- Validation du formulaire :
         $request = $this->get('request');
             if ($request->getMethod() == 'POST') {
                 $form->bind($request);
                 
                 if ($form->isValid()) {
                     $em = $this->getDoctrine()->getManager();
+                    // -- Gestion de la race
+                    $classDnDInstances = $characterUsed->getClassDnDInstances();
+                    foreach ($classDnDInstances as $classDnDInstance) {
+                        $classDnDInstance->setCreateUser($current_user);
+                        $characterUsed->addClassDnDInstance($classDnDInstance);
+                        $em->persist($classDnDInstance);
+                    }
+                    // -- Autres paramètres :
                     $em->persist($characterUsed);
                     $em->persist($characterWealth);
                     $em->persist($strength); $em->persist($dexterity); $em->persist($constitution); $em->persist($intelligence); $em->persist($wisdom); $em->persist($charisma);

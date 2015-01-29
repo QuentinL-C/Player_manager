@@ -15,38 +15,36 @@ class CharacterUsedRegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user',       'entity',   array('class' => 'PMUserBundle:User',
-                                                  'property' => 'username',
-                                                  'required' => true,
-                                                  'empty_value' => 'Choisissez un propriétaire',))
+            ->add('user',               'entity',   array(  'class' => 'PMUserBundle:User',
+                                                            'property' => 'username',
+                                                            'required' => true,
+                                                            'empty_value' => 'Choisissez un propriétaire',))
                 
-            ->add('name',       'text',     array('required' => true,
-                                                  'max_length' => 45))
-            ->add('level',      'integer',  array('required' => true))
-            ->add('story',      'textarea', array('required' => false,
-                                                  'max_length' => 10000))
-            ->add('age',        'integer',  array('required' => false))
-            ->add('gender',     'choice',   array('choices'   => array('Homme' => 'Homme', 'Femme' => 'Femme'),
-                                                  'required'  => false,
-                                                  'empty_value' => 'Choisissez une option',
-                                                  'empty_data'  => null))
-            ->add('height',     'integer',  array('required' => false,
-                                                  'precision' => 2))
-            ->add('weight',     'integer',  array('required' => false,
-                                                  'precision' => 2))
-            ->add('alignment',  'entity',   array('class' => 'PMCharacterBundle:Alignment',
-                                                  'property' => 'name',
-                                                  'required' => false,
-                                                  'empty_value' => 'Choisissez un alignement',
-                                                  'empty_data'  => null))
-            ->add('classDnD',   'entity',   array('class' => 'PMCharacterBundle:ClassDnD',
-                                                  'property' => 'name',
-                                                  'required' => true,
-                                                  'empty_value' => 'Choisissez une classe',))
-            ->add('race',       'entity',   array('class' => 'PMCharacterBundle:Race',
-                                                  'property' => 'name',
-                                                  'required' => true,
-                                                  'empty_value' => 'Choisissez une race',))
+            ->add('name',               'text',     array(  'required' => true,
+                                                            'max_length' => 45))
+            ->add('story',              'textarea', array(  'required' => false,
+                                                            'max_length' => 10000))
+            ->add('age',                'integer',  array(  'required' => false))
+            ->add('gender',             'choice',   array(  'choices'   => array('Homme' => 'Homme', 'Femme' => 'Femme'),
+                                                            'required'  => false,
+                                                            'empty_value' => 'Choisissez une option',
+                                                            'empty_data'  => null))
+            ->add('height',             'integer',  array(  'required' => false,
+                                                            'precision' => 2))
+            ->add('weight',             'integer',  array(  'required' => false,
+                                                            'precision' => 2))
+            ->add('alignment',          'entity',   array(  'class' => 'PMCharacterBundle:Alignment',
+                                                            'property' => 'name',
+                                                            'required' => false,
+                                                            'empty_value' => 'Choisissez un alignement',
+                                                            'empty_data'  => null))
+            ->add('classDnDInstances',  'collection',array( 'type' => new ClassDnDInstanceType(),
+                                                            'allow_add'    => true,
+                                                            'allow_delete' => true))
+            ->add('race',               'entity',   array(  'class' => 'PMCharacterBundle:Race',
+                                                            'property' => 'name',
+                                                            'required' => true,
+                                                            'empty_value' => 'Choisissez une race',))
         ;
     }
     

@@ -3,6 +3,7 @@
 namespace PM\CharacterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -68,10 +69,10 @@ class CharacterUsed
     private $age;
 
     /**
-     * @var boolean
+     * @var string
      * @Assert\Choice(choices = {"Homme", "Femme"}, message = "Choisissez un genre valide.")
      *
-     * @ORM\Column(name="gender", type="boolean", nullable=true)
+     * @ORM\Column(name="gender", type="string", length=10, nullable=true)
      */
     private $gender;
 
@@ -100,6 +101,10 @@ class CharacterUsed
     /**
      * @var integer
      * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre personnage ne peut pas avoir un nombre de PV maximum négatif."
+     * )
      *
      * @ORM\Column(name="hpMax", type="smallint", options={"default" = 0}, nullable=false)
      */
@@ -114,27 +119,16 @@ class CharacterUsed
     private $hpCurrent;
 
     /**
-     * @var integer
-     * @Assert\Range(
-     *      min = "0",
-     *      minMessage = "Votre personnage ne peut pas avoir un niveau négatif."
-     * )
-     * 
-     * @ORM\Column(name="level", type="smallint", options={"default" = 0}, nullable=false)
-     */
-    private $level;
-
-    /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Alignment")
      * @ORM\JoinColumn(nullable=true)
      */
     private $alignment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD")
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassDnDInstance", mappedBy="characterUsed")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $classDnD;
+    private $classDnDInstances;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Race")
@@ -192,6 +186,14 @@ class CharacterUsed
      * )
      */
     protected $updateComment;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->classDnDInstances = New ArrayCollection();
+    }
 
 
     /**
@@ -276,7 +278,7 @@ class CharacterUsed
     /**
      * Set gender
      *
-     * @param boolean $gender
+     * @param string $gender
      * @return CharacterUsed
      */
     public function setGender($gender)
@@ -289,7 +291,7 @@ class CharacterUsed
     /**
      * Get gender
      *
-     * @return boolean 
+     * @return string 
      */
     public function getGender()
     {
@@ -481,29 +483,6 @@ class CharacterUsed
     }
 
     /**
-     * Set classDnD
-     *
-     * @param \PM\CharacterBundle\Entity\ClassDnD $classDnD
-     * @return CharacterUsed
-     */
-    public function setClassDnD(\PM\CharacterBundle\Entity\ClassDnD $classDnD)
-    {
-        $this->classDnD = $classDnD;
-
-        return $this;
-    }
-
-    /**
-     * Get classDnD
-     *
-     * @return \PM\CharacterBundle\Entity\ClassDnD 
-     */
-    public function getClassDnD()
-    {
-        return $this->classDnD;
-    }
-
-    /**
      * Set race
      *
      * @param \PM\CharacterBundle\Entity\Race $race
@@ -642,25 +621,36 @@ class CharacterUsed
     }
 
     /**
-     * Set level
+     * Add classDnDInstances
      *
-     * @param integer $level
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
      * @return CharacterUsed
      */
-    public function setLevel($level)
+    public function addClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
     {
-        $this->level = $level;
+        $this->classDnDInstances[] = $classDnDInstance;
+        $classDnDInstance->setCharacterUsed($this);
 
         return $this;
     }
 
     /**
-     * Get level
+     * Remove classDnDInstances
      *
-     * @return integer 
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
      */
-    public function getLevel()
+    public function removeSkill(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
     {
-        return $this->level;
+        $this->classDnDInstances->removeElement($classDnDInstance);
+    }
+
+    /**
+     * Get classDnDInstances
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClassDnDInstances()
+    {
+        return $this->classDnDInstances;
     }
 }

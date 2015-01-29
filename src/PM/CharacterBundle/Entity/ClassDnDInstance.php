@@ -24,7 +24,7 @@ class ClassDnDInstance
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed", inversedBy="ClassDnDInstances")
      * @ORM\JoinColumn(nullable=false)
      */
     private $characterUsed;

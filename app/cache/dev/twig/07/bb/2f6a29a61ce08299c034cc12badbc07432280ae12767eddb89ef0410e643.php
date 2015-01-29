@@ -43,61 +43,57 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
             echo "
         ";
             // line 10
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level", array()), 'errors');
-            echo "
-        ";
-            // line 11
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "story", array()), 'errors');
             echo "
         ";
-            // line 12
+            // line 11
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "age", array()), 'errors');
             echo "
         ";
-            // line 13
+            // line 12
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "gender", array()), 'errors');
             echo "
         ";
-            // line 14
+            // line 13
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "height", array()), 'errors');
             echo "
         ";
-            // line 15
+            // line 14
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "weight", array()), 'errors');
             echo "
         ";
-            // line 16
+            // line 15
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "alignment", array()), 'errors');
             echo "
         ";
-            // line 17
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "classDnD", array()), 'errors');
-            echo "
-        ";
-            // line 18
+            // line 16
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "race", array()), 'errors');
             echo "
         ";
-            // line 19
+            // line 17
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'errors');
+            echo "
+        ";
+            // line 18
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "classDnDInstances", array()), 'errors');
             echo "
     </div>
     <br />
     ";
         }
-        // line 23
+        // line 22
         echo "
     <fieldset>
         <legend>Utilisateur :</legend>
 
         <div class=\"form-group\">
             ";
-        // line 28
+        // line 27
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Propriétaire :"));
         echo "
             <div class=\"col-md-9\">
                 ";
-        // line 30
+        // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -110,7 +106,7 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
         <div class=\"form-group\">
             <div class=\"col-md-3 control-label\">
                 ";
-        // line 40
+        // line 39
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Nom :"));
         echo "
             </div>
@@ -118,69 +114,44 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
                 <div class=\"row\">
                     <div class=\"col-md-5\">
                         ";
-        // line 45
+        // line 44
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'widget', array("attr" => array("placeholder" => "Nom de votre personnage", "class" => "form-control")));
         echo "
                     </div>
-                    <div class=\"col-md-4 control-label\">
+                    <div class=\"col-md-3 control-label\">
                         ";
-        // line 48
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Niveau de départ :"));
-        echo "
-                    </div>
-                    <div class=\"col-md-3\">
-                        ";
-        // line 51
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-                    </div>
-                </div>
-                </div>
-        </div>
-
-        <div class=\"form-group\">
-            <div class=\"col-md-3 control-label\">
-                ";
-        // line 59
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "classDnD", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Classe :"));
-        echo "
-            </div>
-            <div class=\"col-md-9\">
-                <div class=\"row\">
-                    <div class=\"col-md-4\">
-                        ";
-        // line 64
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "classDnD", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-                    </div>
-
-                    <div class=\"col-md-4 control-label\">
-                        ";
-        // line 68
+        // line 47
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "race", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Race :"));
         echo "
                     </div>
                     <div class=\"col-md-4\">
                         ";
-        // line 71
+        // line 50
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "race", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     </div>
                 </div>
             </div>
+         </div>
+
+        <div class=\"form-group\">
+            ";
+        // line 57
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "classDnDInstances", array()), 'row');
+        echo "
         </div>
                    
         <div class=\"form-group\">
             <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"Sa vie, son oeuvre. D'où vient-il ? Quelles sont ses motivations ? C'est ici que ça se passe.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Histoire\" ></span>
                 ";
-        // line 80
+        // line 63
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "story", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Histoire :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 83
+        // line 66
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "story", array()), 'widget', array("attr" => array("class" => "form-control", "rows" => "9")));
         echo "
             </div>
@@ -190,7 +161,7 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
             <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"L'Age de votre personnage est le plus souvent facteur de son niveau de départ. Un personnage niveau 1 aura entre 15 et 20 ans quand un niveau 15, une cinquantaine d'année.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Age\" ></span>
                 ";
-        // line 90
+        // line 73
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "age", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Age :"));
         echo "
             </div>
@@ -198,20 +169,20 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
                 <div class=\"row\">
                     <div class=\"col-md-4\">
                         ";
-        // line 95
+        // line 78
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "age", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     </div>
 
                     <div class=\"col-md-4 control-label\">
                         ";
-        // line 99
+        // line 82
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "gender", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Genre :"));
         echo "
                     </div>
                     <div class=\"col-md-4\">
                         ";
-        // line 102
+        // line 85
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "gender", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     </div>
@@ -222,7 +193,7 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
         <div class=\"form-group\">
             <div class=\"col-md-3 control-label\">
                 ";
-        // line 110
+        // line 93
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "height", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Taille :"));
         echo "
             </div>
@@ -230,20 +201,20 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
                 <div class=\"row\">
                     <div class=\"col-md-4\">
                         ";
-        // line 115
+        // line 98
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "height", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     </div>
 
                     <div class=\"col-md-4 control-label\">
                         ";
-        // line 119
+        // line 102
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "weight", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Poids :"));
         echo "
                     </div>
                     <div class=\"col-md-4\">
                         ";
-        // line 122
+        // line 105
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "weight", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     </div>
@@ -253,12 +224,12 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
             
         <div class=\"form-group\">
             ";
-        // line 129
+        // line 112
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "alignment", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Alignement :"));
         echo "
             <div class=\"col-md-3\">
                 ";
-        // line 131
+        // line 114
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "alignment", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -267,19 +238,19 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
         <hr />
     <div class=\"form-group\">
         ";
-        // line 137
+        // line 120
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Commentaire :"));
         echo "
         <div class=\"col-md-9\">
             ";
-        // line 139
+        // line 122
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'widget', array("attr" => array("placeholder" => "A propos de l'édition", "class" => "form-control")));
         echo "
         </div>
     </div>
         <br />
     ";
-        // line 143
+        // line 126
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
     <center><input type=\"submit\" class=\"btn btn-default\" /></center>
@@ -298,6 +269,6 @@ class __TwigTemplate_07bb2f6a29a61ce08299c034cc12badbc07432280ae12767eddb89ef041
 
     public function getDebugInfo()
     {
-        return array (  283 => 143,  276 => 139,  271 => 137,  262 => 131,  257 => 129,  247 => 122,  241 => 119,  234 => 115,  226 => 110,  215 => 102,  209 => 99,  202 => 95,  194 => 90,  184 => 83,  178 => 80,  166 => 71,  160 => 68,  153 => 64,  145 => 59,  134 => 51,  128 => 48,  122 => 45,  114 => 40,  101 => 30,  96 => 28,  89 => 23,  82 => 19,  78 => 18,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
+        return array (  254 => 126,  247 => 122,  242 => 120,  233 => 114,  228 => 112,  218 => 105,  212 => 102,  205 => 98,  197 => 93,  186 => 85,  180 => 82,  173 => 78,  165 => 73,  155 => 66,  149 => 63,  140 => 57,  130 => 50,  124 => 47,  118 => 44,  110 => 39,  97 => 29,  92 => 27,  85 => 22,  78 => 18,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
     }
 }

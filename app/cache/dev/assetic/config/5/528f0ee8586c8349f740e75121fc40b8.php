@@ -22,4 +22,24 @@ return array (
       ),
     ),
   ),
+  '4a1cdb1' => 
+  array (
+    0 => 
+    array (
+      0 => '@PMCharacterBundle/Resources/public/js/registerCharacterUsed.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/4a1cdb1.js',
+      'name' => '4a1cdb1',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
 );

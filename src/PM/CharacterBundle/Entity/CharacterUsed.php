@@ -3,6 +3,7 @@
 namespace PM\CharacterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -68,10 +69,10 @@ class CharacterUsed
     private $age;
 
     /**
-     * @var boolean
+     * @var string
      * @Assert\Choice(choices = {"Homme", "Femme"}, message = "Choisissez un genre valide.")
      *
-     * @ORM\Column(name="gender", type="boolean", nullable=true)
+     * @ORM\Column(name="gender", type="string", length=10, nullable=true)
      */
     private $gender;
 
@@ -124,10 +125,10 @@ class CharacterUsed
     private $alignment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnDInstance")
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassDnDInstance", mappedBy="characterUsed")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $classDnDInstance;
+    private $classDnDInstances;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Race")
@@ -185,6 +186,14 @@ class CharacterUsed
      * )
      */
     protected $updateComment;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->classDnDInstances = New ArrayCollection();
+    }
 
 
     /**
@@ -269,7 +278,7 @@ class CharacterUsed
     /**
      * Set gender
      *
-     * @param boolean $gender
+     * @param string $gender
      * @return CharacterUsed
      */
     public function setGender($gender)
@@ -282,7 +291,7 @@ class CharacterUsed
     /**
      * Get gender
      *
-     * @return boolean 
+     * @return string 
      */
     public function getGender()
     {
@@ -474,29 +483,6 @@ class CharacterUsed
     }
 
     /**
-     * Set classDnDInstance
-     *
-     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
-     * @return CharacterUsed
-     */
-    public function setClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
-    {
-        $this->classDnDInstance = $classDnDInstance;
-
-        return $this;
-    }
-
-    /**
-     * Get classDnDInstance
-     *
-     * @return \PM\CharacterBundle\Entity\ClassDnDInstance 
-     */
-    public function getClassDnDInstance()
-    {
-        return $this->classDnDInstance;
-    }
-
-    /**
      * Set race
      *
      * @param \PM\CharacterBundle\Entity\Race $race
@@ -632,5 +618,49 @@ class CharacterUsed
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add classDnDInstances
+     *
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
+     * @return CharacterUsed
+     */
+    public function addClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
+    {
+        $this->classDnDInstances[] = $classDnDInstance;
+        $classDnDInstance->setCharacterUsed($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove classDnDInstances
+     *
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
+     */
+    public function removeSkill(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
+    {
+        $this->classDnDInstances->removeElement($classDnDInstance);
+    }
+
+    /**
+     * Get classDnDInstances
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClassDnDInstances()
+    {
+        return $this->classDnDInstances;
+    }
+
+    /**
+     * Remove classDnDInstances
+     *
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstances
+     */
+    public function removeClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstances)
+    {
+        $this->classDnDInstances->removeElement($classDnDInstances);
     }
 }

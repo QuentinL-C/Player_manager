@@ -124,6 +124,12 @@ class __TwigTemplate_00518e96423ff05dd97c330b6f370c55cbe5c2f1df449681844d15c2906
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
+            // asset "1f60180_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_registerCharacterUsed_3.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
         } else {
             // asset "1f60180"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180.js");

@@ -1,0 +1,57 @@
+$(document).ready(function() {
+    //Merci OC pour le code ^^:
+    var $container = $('div#pm_characterbundle_characterused_register_classDnDInstance'); //-> Changer div en table pour mettre en place le theme
+                     $('div#pm_characterbundle_characterused_register_classDnDInstance').prev().hide();
+    
+    var index = $container.find(':input').length;
+    if (index == 0) {
+        addBab($container);
+    } else {
+        $container.children('div').each(function() {
+            addDeleteLink($(this));
+        });
+    }
+
+    function addBab($container) {
+        var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Classe n°' + (index+1))
+            .replace(/__name__/g, index));
+        $container.append($prototype);
+        
+        var $new_container = '',
+            $div_classdndinstance_X = $('div#pm_characterbundle_characterused_register_classDnDInstance_' + index),
+            $label_class = $('[for="pm_characterbundle_characterused_register_classDnDInstance_' + index + '_classDnD"]'),
+            $select_class = $('select#pm_characterbundle_characterused_register_classDnDInstance_' + index + '_classDnD'),
+            $label_level = $('[for="pm_characterbundle_characterused_register_classDnDInstance_' + index + '_level"]'),
+            $input_level = $('input#pm_characterbundle_characterused_register_classDnDInstance_' + index + '_level');
+        
+        $new_container = '\n\
+            <div class="col-md-3 control-label">\n\
+                ' + $label_class.html() + '\n\
+            </div>\n\
+            <div class="col-md-9">\n\
+                <div class="row">\n\
+                    <div class="col-md-5">\n\
+                        ' + $select_class.html() + '\n\
+                    </div>\n\
+                    <div class="col-md-3 control-label">\n\
+                        ' + $label_level.html() + '\n\
+                    </div>\n\
+                    <div class="col-md-4">\n\
+                        ' + $input_level.html() + '\n\
+                    </div>\n\
+                </div>\n\
+            </div>';
+        
+        $div_classdndinstance_X.html($new_container);
+        $('div#pm_characterbundle_characterused_register_classDnDInstance_' + index).prev().hide();
+        
+        //$('[for="pm_characterbundle_characterused_register_classDnDInstance_' + index + '_classDnD"]').wrap('<div class="col-md-3 control_label"></div>');
+        //$('select#pm_characterbundle_characterused_register_classDnDInstance_' + index + '_classDnD').wrap('<div class="col-md-9"></div>');
+        
+        //$('[for="pm_characterbundle_characterused_register_classDnDInstance_' + index + '_level"]').wrap('<div class="col-md-3 control_label"></div>');
+        //$('input#pm_characterbundle_characterused_register_classDnDInstance_' + index + '_level').wrap('<div class="col-md-9"></div>');
+        
+        
+        index++;
+    }   
+});
