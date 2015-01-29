@@ -481,3 +481,5 @@ feb103,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?c
 8d5d39,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422537018,
 fda8a8,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/character/race/vue/nain,1422537019,
 12de04,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422537019,
+cae87c,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/character/race/editer/nain,1422537119,
+726f15,::1,GET,http://localhost:8888/player_manager/web/app_dev.php/js/routing?callback=fos.Router.setData,1422537119,

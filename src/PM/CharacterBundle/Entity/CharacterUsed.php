@@ -118,27 +118,16 @@ class CharacterUsed
     private $hpCurrent;
 
     /**
-     * @var integer
-     * @Assert\Range(
-     *      min = "0",
-     *      minMessage = "Votre personnage ne peut pas avoir un niveau négatif."
-     * )
-     * 
-     * @ORM\Column(name="level", type="smallint", options={"default" = 0}, nullable=false)
-     */
-    private $level;
-
-    /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Alignment")
      * @ORM\JoinColumn(nullable=true)
      */
     private $alignment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnD")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\ClassDnDInstance")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $classDnD;
+    private $classDnDInstance;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Race")
@@ -485,26 +474,26 @@ class CharacterUsed
     }
 
     /**
-     * Set classDnD
+     * Set classDnDInstance
      *
-     * @param \PM\CharacterBundle\Entity\ClassDnD $classDnD
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
      * @return CharacterUsed
      */
-    public function setClassDnD(\PM\CharacterBundle\Entity\ClassDnD $classDnD)
+    public function setClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
     {
-        $this->classDnD = $classDnD;
+        $this->classDnDInstance = $classDnDInstance;
 
         return $this;
     }
 
     /**
-     * Get classDnD
+     * Get classDnDInstance
      *
-     * @return \PM\CharacterBundle\Entity\ClassDnD 
+     * @return \PM\CharacterBundle\Entity\ClassDnDInstance 
      */
-    public function getClassDnD()
+    public function getClassDnDInstance()
     {
-        return $this->classDnD;
+        return $this->classDnDInstance;
     }
 
     /**
@@ -643,28 +632,5 @@ class CharacterUsed
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set level
-     *
-     * @param integer $level
-     * @return CharacterUsed
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return integer 
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 }
