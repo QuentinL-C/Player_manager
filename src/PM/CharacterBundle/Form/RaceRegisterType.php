@@ -17,9 +17,10 @@ class RaceRegisterType extends AbstractType
         $builder
             ->add('name',               'text',     array('required' => true))
             ->add('description',        'textarea', array('required' => false))
-            ->add('size',               'integer',  array('required' => false))
-            ->add('speed',              'number',   array('required' => false, 'precision' => '1'))
-            ->add('skillModifier',      'integer',  array('required' => false))
+            ->add('size',               'integer',  array('required' => true))
+            ->add('hpModifier',         'integer',  array('required' => true))
+            ->add('speed',              'number',   array('required' => true, 'precision' => '1'))
+            ->add('skillModifier',      'integer',  array('required' => true))
             ->add('predilectionClass',  'entity',   array('class' => 'PMCharacterBundle:ClassDnD',
                                                           'property'    => 'name',
                                                           'required' => false,

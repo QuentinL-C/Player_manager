@@ -38,6 +38,7 @@
                     <li>Vitesse : {{race.speed}}</li>
                     <li>Classe de Prédilection : {% if race.predilectionClass is not null %}<a href="{{path('pm_classdnd_administration_view', {'slug': race.predilectionClass.slug})}}">{{ race.predilectionClass.name }}</a>{% else %}Pas de classe de prédilection renseignée.{% endif %}</li>
                     <li>Modificateur de Points de Compétences : {{race.skillModifier}}</li>
+                    <li>Modificateur de Points de Vie : {{race.hpModifier}}</li>
                     <li>Langues :</li>
                     <ul>
                         {%for language in race.languages %}

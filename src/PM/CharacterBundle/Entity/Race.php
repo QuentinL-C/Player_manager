@@ -58,6 +58,7 @@ class Race
 
     /**
      * @var integer
+     * @Assert\NotBlank()
      * @Assert\Range(
      *      min = "1",
      *      minMessage = "Votre race ne peut pas avoir une taille négative ou nulle."
@@ -68,6 +69,7 @@ class Race
     private $size;
 
     /**
+     * @Assert\NotBlank()
      * @Assert\Range(
      *      min = "1",
      *      minMessage = "Votre race ne peut pas avoir une vitesse négative ou nulle."
@@ -79,6 +81,7 @@ class Race
 
     /**
      * @var integer
+     * @Assert\NotBlank()
      * @Assert\Range(
      *      min = "1",
      *      minMessage = "Votre race ne peut pas avoir un modificateur de Points de Compétences négatif ou nul."
@@ -99,6 +102,18 @@ class Race
      * @ORM\JoinColumn(nullable=true)
      */
     private $languages;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre race ne peut pas avoir un modificateur du nombre de PV négatif."
+     * )
+     *
+     * @ORM\Column(name="hpMdifier", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $hpModifier;
 
     /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -469,5 +484,28 @@ class Race
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * Set hpModifier
+     *
+     * @param integer $hpModifier
+     * @return Race
+     */
+    public function setHpModifier($hpModifier)
+    {
+        $this->hpModifier = $hpModifier;
+
+        return $this;
+    }
+
+    /**
+     * Get hpModifier
+     *
+     * @return integer 
+     */
+    public function getHpModifier()
+    {
+        return $this->hpModifier;
     }
 }

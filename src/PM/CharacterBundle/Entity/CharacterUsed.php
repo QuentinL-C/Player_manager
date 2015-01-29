@@ -100,6 +100,10 @@ class CharacterUsed
     /**
      * @var integer
      * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre personnage ne peut pas avoir un nombre de PV maximum négatif."
+     * )
      *
      * @ORM\Column(name="hpMax", type="smallint", options={"default" = 0}, nullable=false)
      */
