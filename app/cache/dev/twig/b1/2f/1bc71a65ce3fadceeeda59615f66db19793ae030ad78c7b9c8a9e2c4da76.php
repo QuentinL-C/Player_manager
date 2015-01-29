@@ -113,10 +113,12 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
                 <h2>Informations sur la Race</h2>
                 
                 <ul>
-                    <li>Taille : ";
+                    <li>Taille : <a href=\"";
         // line 37
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "size", array()), "html", null, true);
-        echo "</li>
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_size_administration_view", array("slug" => $this->getAttribute($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "size", array()), "slug", array()))), "html", null, true);
+        echo "\">";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "size", array()), "name", array()), "html", null, true);
+        echo "</a></li>
                     <li>Vitesse : ";
         // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["race"]) ? $context["race"] : $this->getContext($context, "race")), "speed", array()), "html", null, true);
@@ -209,6 +211,6 @@ class __TwigTemplate_b12f1bc71a65ce3fadceeeda59615f66db19793ae030ad78c7b9c8a9e2c
 
     public function getDebugInfo()
     {
-        return array (  192 => 61,  188 => 59,  182 => 56,  179 => 55,  177 => 54,  170 => 49,  163 => 47,  153 => 45,  148 => 44,  142 => 41,  138 => 40,  126 => 39,  122 => 38,  118 => 37,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  194 => 61,  190 => 59,  184 => 56,  181 => 55,  179 => 54,  172 => 49,  165 => 47,  155 => 45,  150 => 44,  144 => 41,  140 => 40,  128 => 39,  124 => 38,  118 => 37,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

@@ -34,7 +34,7 @@
                 <h2>Informations sur la Race</h2>
                 
                 <ul>
-                    <li>Taille : {{race.size}}</li>
+                    <li>Taille : <a href="{{path('pm_size_administration_view', {'slug': race.size.slug})}}">{{race.size.name}}</a></li>
                     <li>Vitesse : {{race.speed}}</li>
                     <li>Classe de Prédilection : {% if race.predilectionClass is not null %}<a href="{{path('pm_classdnd_administration_view', {'slug': race.predilectionClass.slug})}}">{{ race.predilectionClass.name }}</a>{% else %}Pas de classe de prédilection renseignée.{% endif %}</li>
                     <li>Modificateur de Points de Compétences : {{race.skillModifier}}</li>

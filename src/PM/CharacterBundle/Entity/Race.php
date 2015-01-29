@@ -57,14 +57,8 @@ class Race
     private $slug;
 
     /**
-     * @var integer
-     * @Assert\NotBlank()
-     * @Assert\Range(
-     *      min = "1",
-     *      minMessage = "Votre race ne peut pas avoir une taille négative ou nulle."
-     * )
-     *
-     * @ORM\Column(name="size", type="smallint")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Size")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $size;
 
@@ -246,10 +240,10 @@ class Race
     /**
      * Set size
      *
-     * @param integer $size
+     * @param \PM\CharacterBundle\Entity\Size $size
      * @return Race
      */
-    public function setSize($size)
+    public function setSize(\PM\CharacterBundle\Entity\Size $size = null)
     {
         $this->size = $size;
 
@@ -259,7 +253,7 @@ class Race
     /**
      * Get size
      *
-     * @return integer 
+     * @return \PM\CharacterBundle\Entity\Size
      */
     public function getSize()
     {
