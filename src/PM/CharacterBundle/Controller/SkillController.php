@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PM\CharacterBundle\Entity\Skill;
 use PM\CharacterBundle\Form\SkillRegisterType;
 use PM\CharacterBundle\Form\SkillEditType;
+use PM\CharacterBundle\Entity\CharacterSkill;
 
 class SkillController extends Controller
 {
@@ -28,6 +29,17 @@ class SkillController extends Controller
                 
                 if ($form->isValid()) {
                     $em = $this->getDoctrine()->getManager();
+                    // -- On crée un CharacterSkill pour chaque Personnage
+                    $repositorySkill = $em->getRepository('PMCharacterBundle:CharacterUsed');
+                    $characterUseds = $repositorySkill->findAll();
+                    foreach ($characterUseds as $characterUsed) {
+                        $characterSkill = new CharacterSkill;
+                        $characterSkill->setCreateUser($current_user);
+                        $characterSkill->setCharacterUsed($characterUsed);
+                        $characterSkill->setSkill($skill);
+                        $characterSkill->setRanks(0);
+                        $em->persist($characterSkill);
+                    }
                     $em->persist($skill);
                     
                     $em->flush();

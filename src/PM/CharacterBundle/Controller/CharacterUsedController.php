@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PM\CharacterBundle\Entity\CharacterUsed;
 use PM\CharacterBundle\Entity\CharacterWealth;
-use PM\CharacterBundle\Entity\Skill;
 use PM\CharacterBundle\Entity\CharacterSkill;
 use PM\CharacterBundle\Entity\Ability;
 use PM\CharacterBundle\Form\CharacterUsedRegisterType;

@@ -98,6 +98,7 @@ class __TwigTemplate_153ff09e654a82b1441531b96f2d63b4738aaf594c23cdfe92693a9a02d
         // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listSkills"]) ? $context["listSkills"] : $this->getContext($context, "listSkills")));
+        $context['_iterated'] = false;
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -126,6 +127,7 @@ class __TwigTemplate_153ff09e654a82b1441531b96f2d63b4738aaf594c23cdfe92693a9a02d
             echo "</a></td>
                 </tr>
             ";
+            $context['_iterated'] = true;
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -135,19 +137,17 @@ class __TwigTemplate_153ff09e654a82b1441531b96f2d63b4738aaf594c23cdfe92693a9a02d
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['skill'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
-        echo "            ";
-        if (twig_test_empty((isset($context["listSkills"]) ? $context["listSkills"] : $this->getContext($context, "listSkills")))) {
-            // line 39
+        if (!$context['_iterated']) {
+            // line 38
             echo "                <tr>
                     <td colspan=\"5\" style=\"text-align: center; font-weight: bold;\">Aucune compétence connue.</td>
                 </tr>
             ";
         }
-        // line 43
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['skill'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 42
         echo "        </table>
     </section>
 </div>
@@ -166,6 +166,6 @@ class __TwigTemplate_153ff09e654a82b1441531b96f2d63b4738aaf594c23cdfe92693a9a02d
 
     public function getDebugInfo()
     {
-        return array (  151 => 43,  145 => 39,  142 => 38,  123 => 35,  119 => 34,  116 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  151 => 42,  142 => 38,  124 => 35,  120 => 34,  117 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
     }
 }
