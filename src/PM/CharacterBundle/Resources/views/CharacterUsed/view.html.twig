@@ -30,11 +30,10 @@
         {% endfor %}
         
         <div class="jumbotron">
-            <h2>Présentation</h2>
+            <h2>{{characterUsed.name}}</h2>
             <div class="row">
                 <div class="col-md-3">
-                    {{characterUsed.name}}<br />
-                    <small>({{characterUsed.user.username}})</small>
+                    <small><a href="{{path('pm_user_view', { 'user_id' : characterUsed.user.id})}}">{{characterUsed.user.username}}</a></small>
                 </div>
                 <div class="col-md-3">
                     Race : <a href="{{path('pm_race_administration_view', {'slug': characterUsed.race.slug})}}">{{characterUsed.race.name}}</a><br />
@@ -69,7 +68,7 @@
                     {% include 'PMCharacterBundle:CharacterUsed:view_rp.html.twig' %}
                 </div>
                 <div role="tabpanel" class="tab-pane" id="skills">
-                    {% include 'PMCharacterBundle:CharacterUsed:view_rp.html.twig' %}
+                    {% include 'PMCharacterBundle:CharacterUsed:view_skills.html.twig' %}
                 </div>
             </div>
         </div>

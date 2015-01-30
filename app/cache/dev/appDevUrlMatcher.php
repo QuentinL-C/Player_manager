@@ -61,27 +61,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 if (0 === strpos($pathinfo, '/js/1f60180_part_1_')) {
-                    if (0 === strpos($pathinfo, '/js/1f60180_part_1_edit')) {
-                        // _assetic_1f60180_0
-                        if ($pathinfo === '/js/1f60180_part_1_editBAB_1.js') {
-                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
-                        }
+                    // _assetic_1f60180_0
+                    if ($pathinfo === '/js/1f60180_part_1_characterUsedAddSkill_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
+                    }
 
+                    if (0 === strpos($pathinfo, '/js/1f60180_part_1_edit')) {
                         // _assetic_1f60180_1
-                        if ($pathinfo === '/js/1f60180_part_1_editCharacterUsed_2.js') {
+                        if ($pathinfo === '/js/1f60180_part_1_editBAB_2.js') {
                             return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_1f60180_1',);
                         }
 
                         // _assetic_1f60180_2
-                        if ($pathinfo === '/js/1f60180_part_1_editST_3.js') {
+                        if ($pathinfo === '/js/1f60180_part_1_editCharacterUsed_3.js') {
                             return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_1f60180_2',);
+                        }
+
+                        // _assetic_1f60180_3
+                        if ($pathinfo === '/js/1f60180_part_1_editST_4.js') {
+                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 3,  '_format' => 'js',  '_route' => '_assetic_1f60180_3',);
                         }
 
                     }
 
-                    // _assetic_1f60180_3
-                    if ($pathinfo === '/js/1f60180_part_1_registerCharacterUsed_4.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 3,  '_format' => 'js',  '_route' => '_assetic_1f60180_3',);
+                    // _assetic_1f60180_4
+                    if ($pathinfo === '/js/1f60180_part_1_registerCharacterUsed_5.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 4,  '_format' => 'js',  '_route' => '_assetic_1f60180_4',);
                     }
 
                 }
@@ -110,6 +115,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _assetic_4a1cdb1_0
                 if ($pathinfo === '/js/4a1cdb1_registerCharacterUsed_1.js') {
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '4a1cdb1',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_4a1cdb1_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/js/9897cd7')) {
+                // _assetic_9897cd7
+                if ($pathinfo === '/js/9897cd7.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '9897cd7',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_9897cd7',);
+                }
+
+                // _assetic_9897cd7_0
+                if ($pathinfo === '/js/9897cd7_characterUsedAddSkill_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '9897cd7',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_9897cd7_0',);
                 }
 
             }

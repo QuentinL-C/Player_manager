@@ -16,16 +16,25 @@ class CharacterSkill
 {
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $skill;
+    private $id;
 
     /**
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed", inversedBy="CharacterUsed")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $characterUsed;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $skill;
 
     /**
      * @var integer
@@ -72,5 +81,4 @@ class CharacterSkill
      * )
      */
     protected $updateComment;
-
 }

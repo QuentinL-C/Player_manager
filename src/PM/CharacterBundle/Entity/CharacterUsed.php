@@ -131,6 +131,12 @@ class CharacterUsed
     private $classDnDInstances;
 
     /**
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\CharacterSkill", mappedBy="characterUsed")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $skills;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Race")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -635,16 +641,6 @@ class CharacterUsed
     }
 
     /**
-     * Remove classDnDInstances
-     *
-     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
-     */
-    public function removeSkill(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
-    {
-        $this->classDnDInstances->removeElement($classDnDInstance);
-    }
-
-    /**
      * Get classDnDInstances
      *
      * @return \Doctrine\Common\Collections\Collection 
@@ -655,12 +651,46 @@ class CharacterUsed
     }
 
     /**
-     * Remove classDnDInstances
+     * Remove classDnDInstance
      *
-     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstances
+     * @param \PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance
      */
-    public function removeClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstances)
+    public function removeClassDnDInstance(\PM\CharacterBundle\Entity\ClassDnDInstance $classDnDInstance)
     {
-        $this->classDnDInstances->removeElement($classDnDInstances);
+        $this->classDnDInstances->removeElement($classDnDInstance);
+    }
+
+    /**
+     * Add skills
+     *
+     * @param \PM\CharacterBundle\Entity\CharacterSkill $skill
+     * @return CharacterUsed
+     */
+    public function addSkillInstance(\PM\CharacterBundle\Entity\CharacterSkill $skill)
+    {
+        $this->skills[] = $skill;
+        $skill->setCharacterUsed($this);
+
+        return $this;
+    }
+
+    /**
+     * Get skills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
+
+    /**
+     * Remove skill
+     *
+     * @param \PM\CharacterBundle\Entity\CharacterSkill $skill
+     */
+    public function removeSkill(\PM\CharacterBundle\Entity\CharacterSkill $skill)
+    {
+        $this->skills->removeElement($skill);
     }
 }

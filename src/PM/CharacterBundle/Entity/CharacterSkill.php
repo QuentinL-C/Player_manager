@@ -16,16 +16,25 @@ class CharacterSkill
 {
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $skill;
+    private $id;
 
     /**
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed", inversedBy="CharacterUsed")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $characterUsed;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Skill")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $skill;
 
     /**
      * @var integer
@@ -73,6 +82,15 @@ class CharacterSkill
      */
     protected $updateComment;
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set ranks
@@ -167,29 +185,6 @@ class CharacterSkill
     }
 
     /**
-     * Set skill
-     *
-     * @param \PM\CharacterBundle\Entity\Skill $skill
-     * @return CharacterSkill
-     */
-    public function setSkill(\PM\CharacterBundle\Entity\Skill $skill)
-    {
-        $this->skill = $skill;
-
-        return $this;
-    }
-
-    /**
-     * Get skill
-     *
-     * @return \PM\CharacterBundle\Entity\Skill 
-     */
-    public function getSkill()
-    {
-        return $this->skill;
-    }
-
-    /**
      * Set characterUsed
      *
      * @param \PM\CharacterBundle\Entity\CharacterUsed $characterUsed
@@ -210,6 +205,29 @@ class CharacterSkill
     public function getCharacterUsed()
     {
         return $this->characterUsed;
+    }
+
+    /**
+     * Set skill
+     *
+     * @param \PM\CharacterBundle\Entity\Skill $skill
+     * @return CharacterSkill
+     */
+    public function setSkill(\PM\CharacterBundle\Entity\Skill $skill)
+    {
+        $this->skill = $skill;
+
+        return $this;
+    }
+
+    /**
+     * Get skill
+     *
+     * @return \PM\CharacterBundle\Entity\Skill 
+     */
+    public function getSkill()
+    {
+        return $this->skill;
     }
 
     /**

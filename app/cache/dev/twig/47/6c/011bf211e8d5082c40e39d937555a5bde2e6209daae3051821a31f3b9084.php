@@ -61,32 +61,11 @@ class __TwigTemplate_476c011bf211e8d5082c40e39d937555a5bde2e6209daae3051821a31f3
 
         ";
         // line 18
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "skills", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["skillFields"]) {
-            // line 19
-            echo "        <div class=\"form-group\">
-            ";
-            // line 20
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["skillFields"], 'label', array("label_attr" => array("class" => "col-md-3 control-label")) + (twig_test_empty($_label_ = $this->getAttribute($context["skillFields"], "name", array())) ? array() : array("label" => $_label_)));
-            echo "
-            <div class=\"col-md-3\">
-                ";
-            // line 22
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["skillFields"], 'widget', array("attr" => array("class" => "form-control")));
-            echo "
-            </div>
-        </div>
-        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['skillFields'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
-        echo "    
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "skills", array()), 'row');
+        echo " 
     </fieldset>
     ";
-        // line 27
+        // line 20
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
     <center><input type=\"submit\" class=\"btn btn-default\" /></center>
@@ -105,6 +84,6 @@ class __TwigTemplate_476c011bf211e8d5082c40e39d937555a5bde2e6209daae3051821a31f3
 
     public function getDebugInfo()
     {
-        return array (  90 => 27,  86 => 25,  76 => 22,  71 => 20,  68 => 19,  64 => 18,  59 => 16,  55 => 14,  49 => 10,  40 => 9,  36 => 8,  32 => 7,  28 => 5,  26 => 4,  22 => 3,  19 => 2,);
+        return array (  69 => 20,  64 => 18,  59 => 16,  55 => 14,  49 => 10,  40 => 9,  36 => 8,  32 => 7,  28 => 5,  26 => 4,  22 => 3,  19 => 2,);
     }
 }

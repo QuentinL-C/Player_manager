@@ -11,6 +11,7 @@ use PM\CharacterBundle\Entity\CharacterSkill;
 use PM\CharacterBundle\Entity\Ability;
 use PM\CharacterBundle\Form\CharacterUsedRegisterType;
 use PM\CharacterBundle\Form\CharacterUsedEditType;
+use PM\CharacterBundle\Form\CharacterUsedAddSkillType;
 
 class CharacterUsedController extends Controller
 {
@@ -20,7 +21,9 @@ class CharacterUsedController extends Controller
     }
     
     public function registerAction()
-    {
+    {   
+        $em = $this->getDoctrine()
+                        ->getManager();
         $current_user = $this->getUser();
         
         // -- Gestion de la richesse du personnage :
@@ -49,13 +52,23 @@ class CharacterUsedController extends Controller
                 $form->bind($request);
                 
                 if ($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
                     // -- Gestion de la race
                     $classDnDInstances = $characterUsed->getClassDnDInstances();
                     foreach ($classDnDInstances as $classDnDInstance) {
                         $classDnDInstance->setCreateUser($current_user);
                         $characterUsed->addClassDnDInstance($classDnDInstance);
                         $em->persist($classDnDInstance);
+                    }
+                    // -- On crée un CharacterSkill pour chaque Skill
+                    $repositorySkill = $em->getRepository('PMCharacterBundle:Skill');
+                    $skills = $repositorySkill->findAll();
+                    foreach ($skills as $skill) {
+                        $characterSkill = new CharacterSkill;
+                        $characterSkill->setCreateUser($current_user);
+                        $characterSkill->setCharacterUsed($characterUsed);
+                        $characterSkill->setSkill($skill);
+                        $characterSkill->setRanks(0);
+                        $em->persist($characterSkill);
                     }
                     // -- Autres paramètres :
                     $em->persist($characterUsed);
@@ -128,51 +141,40 @@ class CharacterUsedController extends Controller
                             ));
     }
     
-    public function registerSkillsAction($slug, Request $request)
+    public function registerSkillsAction($slug)
     {
+        $em = $this->getDoctrine()->getManager();
         $current_user = $this->getUser();
         // -- Récupération du personnage et des compétences :
-        $manager = $this->getDoctrine()
-                           ->getManager();
-        $repositoryCharacterUsed = $manager->getRepository('PMCharacterBundle:CharacterUsed');
-        $repositorySkill = $manager->getRepository('PMCharacterBundle:Skill');
- 
+        $repositoryCharacterUsed = $em->getRepository('PMCharacterBundle:CharacterUsed');
         $characterUsed = $repositoryCharacterUsed->findOneBySlug($slug);
-        $skills = $repositorySkill->findAll();
         
-        // -- On crée un CharacterSkill pour chaque Skill
-        $em = $this->getDoctrine()->getManager();
-        foreach ($skills as $skill) {
-            $skill = new Skill;
-            $characterSkill = new CharacterSkill;
-            $characterSkill->setCreateUser($current_user);
-            $characterSkill->setCharacterUsed($characterUsed);
-            $characterSkill->setSkill($skill);
-            $characterSkill->getRanks(0);
-            $em->persist($characterSkill);
-        }
-        $em->flush();
-
-        // -- Génération du formulaire
-        $form = $this->createFormBuilder()
-            ->add('characterSkill', 'collection', array('type' => 'PMCharacterBundle:CharacterSkill'))
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        // -- Validation
-        if ($form->isValid()) {
-            $data = $form->getData();
-            $em->flush();
+        // -- Création du formulaire :
+        $form = $this->createForm(new CharacterUsedAddSkillType, $characterUsed);
+        
+        // -- Validation du formulaire :
+        $request = $this->get('request');
+            if ($request->getMethod() == 'POST') {
+                $form->bind($request);
+                
+                if ($form->isValid()) {
+                    // -- Gestion de la race
+                    $skills = $characterUsed->getSkills();
+                    foreach ($skills as $skill) {
+                        $skill->setUpdateUser($current_user);
+                        $em->persist($skill);
+                    }
+                    $em->persist($characterUsed);
+                    $em->flush();
                     
-            $this->get('session')->getFlashBag()->add('notice', 'Félicitations, les compétences de votre personnage ont bien été mmises à jour.' );
-            //Renvoie vers la page de gestion des Caractéristiques :
-            return $this->redirect($this->generateUrl('pm_characterused_administration_view', array('slug' => $characterUsed->getSlug())));
-        }
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre personnage a bien été édité.' );
+                    //Renvoie vers la page de gestion des Caractéristiques :
+                    return $this->redirect($this->generateUrl('pm_characterused_administration_view', array('slug' => $characterUsed->getSlug())));
+                }
+            }
         
         return $this->render('PMCharacterBundle:CharacterUsed:register_skills.html.twig', array(
                                 'characterUsed' => $characterUsed,
-                                'skills' => $skills,
                                 'form' => $form->createView(),
                             ));
     }

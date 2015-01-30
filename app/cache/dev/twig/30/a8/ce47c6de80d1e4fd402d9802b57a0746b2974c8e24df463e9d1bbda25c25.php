@@ -109,21 +109,22 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
         // line 31
         echo "        
         <div class=\"jumbotron\">
-            <h2>Présentation</h2>
+            <h2>";
+        // line 33
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "name", array()), "html", null, true);
+        echo "</h2>
             <div class=\"row\">
                 <div class=\"col-md-3\">
-                    ";
+                    <small><a href=\"";
         // line 36
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "name", array()), "html", null, true);
-        echo "<br />
-                    <small>(";
-        // line 37
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "id", array()))), "html", null, true);
+        echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "username", array()), "html", null, true);
-        echo ")</small>
+        echo "</a></small>
                 </div>
                 <div class=\"col-md-3\">
                     Race : <a href=\"";
-        // line 40
+        // line 39
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_race_administration_view", array("slug" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "race", array()), "slug", array()))), "html", null, true);
         echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "race", array()), "name", array()), "html", null, true);
@@ -131,18 +132,18 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
                 </div>
                 <div class=\"col-md-3\">
                     ";
-        // line 43
+        // line 42
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "classDnDInstances", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["instance"]) {
-            // line 44
+            // line 43
             echo "                        Classe : <a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_classdnd_administration_view", array("slug" => $this->getAttribute($this->getAttribute($context["instance"], "classDnD", array()), "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["instance"], "classDnD", array()), "name", array()), "html", null, true);
             echo "</a><br />
                         Niveau : ";
-            // line 45
+            // line 44
             echo twig_escape_filter($this->env, $this->getAttribute($context["instance"], "level", array()), "html", null, true);
             echo "<br />
                     ";
@@ -150,12 +151,12 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['instance'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 47
+        // line 46
         echo "                    Exp. : 0XP
                 </div>
                 <div class=\"col-md-3\">
                     PV : ";
-        // line 50
+        // line 49
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "hpCurrent", array()), "html", null, true);
         echo "/";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "hpMax", array()), "html", null, true);
@@ -176,21 +177,21 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
             <div class=\"tab-content\">
                 <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">
                     ";
-        // line 66
+        // line 65
         $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_home.html.twig")->display($context);
-        // line 67
+        // line 66
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"rp\">
                     ";
-        // line 69
+        // line 68
         $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
-        // line 70
+        // line 69
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"skills\">
                     ";
+        // line 71
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_skills.html.twig")->display($context);
         // line 72
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
-        // line 73
         echo "                </div>
             </div>
         </div>
@@ -211,6 +212,6 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
 
     public function getDebugInfo()
     {
-        return array (  194 => 73,  192 => 72,  188 => 70,  186 => 69,  182 => 67,  180 => 66,  159 => 50,  154 => 47,  146 => 45,  139 => 44,  135 => 43,  127 => 40,  121 => 37,  117 => 36,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  195 => 72,  193 => 71,  189 => 69,  187 => 68,  183 => 66,  181 => 65,  160 => 49,  155 => 46,  147 => 44,  140 => 43,  136 => 42,  128 => 39,  120 => 36,  114 => 33,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }
