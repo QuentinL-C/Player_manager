@@ -36,7 +36,6 @@ class ClassDnDController extends Controller
                     $em->flush();
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été créée.' );
-           
                     return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
                 }
             }
@@ -47,13 +46,17 @@ class ClassDnDController extends Controller
     
     public function viewAction($slug)
     {
-        $manager = $this->getDoctrine()
-                           ->getManager();
+        $manager = $this->getDoctrine()->getManager();
         $repositoryClassDnD = $manager->getRepository('PMCharacterBundle:ClassDnD');
         $repositoryClassBAB = $manager->getRepository('PMCharacterBundle:ClassBAB');
         $repositoryClassST = $manager->getRepository('PMCharacterBundle:ClassST');
  
         $classDnD = $repositoryClassDnD->findOneBySlug($slug);
+        
+        if ($classDnD === null) {
+          throw $this->createNotFoundException('Classe : [slug='.$slug.'] inexistante.');
+        }
+        
         $babs = $repositoryClassBAB->findBy(array('classDnD' => $classDnD),
                                             array('lvl' => 'asc', 'attackNb' => 'asc'));
         $sts = $repositoryClassST->findBy(array('classDnD' => $classDnD),
@@ -68,12 +71,15 @@ class ClassDnDController extends Controller
     
     public function editAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:ClassDnD');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:ClassDnD');
  
         $classDnD = $repository->findOneBySlug($slug);
 
+        if ($classDnD === null) {
+          throw $this->createNotFoundException('Classe : [slug='.$slug.'] inexistante.');
+        }
+        
         $form = $this->createForm(new ClassDnDEditType, $classDnD);
         
         $current_user = $this->getUser();
@@ -84,12 +90,10 @@ class ClassDnDController extends Controller
                 $form->bind($request);
                 
                 if ($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
                     $em->persist($classDnD);
                     $em->flush();
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre classe a bien été éditée.' );
-           
                     return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
                 }
             }
@@ -102,8 +106,7 @@ class ClassDnDController extends Controller
     
     public function listAction()
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:ClassDnD');
  
         $listClassesDnD = $repository->findAll();
@@ -116,11 +119,15 @@ class ClassDnDController extends Controller
     public function editBABAction($slug, Request $request)
     {
         $current_user = $this->getUser();
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:ClassDnD');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:ClassDnD');
  
         $classDnD = $repository->findOneBySlug($slug);
+        
+        if ($classDnD === null) {
+          throw $this->createNotFoundException('Classe : [slug='.$slug.'] inexistante.');
+        }
+        
         $classDnD->setUpdateUser($current_user);
         $classDnD->setUpdateComment('Edition des BABs de la classe');
  
@@ -135,7 +142,6 @@ class ClassDnDController extends Controller
 
         if ($form->isValid()) {
             $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
             foreach ($data['babs'] as $bab) {
                 $bab->setCreateUser($current_user);
                 $em->persist($bab);
@@ -144,7 +150,6 @@ class ClassDnDController extends Controller
             $em->flush();
                     
             $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été mise à jour.' );
-            //Renvoie vers la page de gestion des Caractéristiques :
             return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
         }
         
@@ -157,11 +162,15 @@ class ClassDnDController extends Controller
     public function editSTAction($slug, Request $request)
     {
         $current_user = $this->getUser();
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:ClassDnD');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:ClassDnD');
  
         $classDnD = $repository->findOneBySlug($slug);
+        
+        if ($classDnD === null) {
+          throw $this->createNotFoundException('Classe : [slug='.$slug.'] inexistante.');
+        }
+        
         $classDnD->setUpdateUser($current_user);
         $classDnD->setUpdateComment('Edition des STs de la classe');
  
@@ -176,7 +185,6 @@ class ClassDnDController extends Controller
 
         if ($form->isValid()) {
             $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
             foreach ($data['sts'] as $st) {
                 $st->setCreateUser($current_user);
                 $em->persist($st);
@@ -185,7 +193,6 @@ class ClassDnDController extends Controller
             $em->flush();
                     
             $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la classe a bien été mise à jour.' );
-            //Renvoie vers la page de gestion des Caractéristiques :
             return $this->redirect($this->generateUrl('pm_classdnd_administration_view', array('slug' => $classDnD->getSlug())));
         }
         
@@ -193,5 +200,22 @@ class ClassDnDController extends Controller
                                 'classDnD' => $classDnD,
                                 'form' => $form->createView(),
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:ClassDnD');
+        $classDnD = $repository->findOneBySlug($slug);
+        
+        if ($classDnD === null) {
+          throw $this->createNotFoundException('Classe : [slug='.$slug.'] inexistante.');
+        }
+        
+        $deleteClassDnD = $this->container->get('pm_character.deleteclassdnd');
+        $deleteClassDnD->deleteClassDnD($classDnD);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre classe a bien été supprimée.' );
+        return $this->forward('PMCharacterBundle:ClassDnD:list');
     }
 }

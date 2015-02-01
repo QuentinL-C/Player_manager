@@ -12,6 +12,7 @@
     
 {% block h1_extend %}
     <a class="btn btn-lg btn-primary" href="{{ path('pm_characterused_administration_edit', {'slug': characterUsed.slug}) }}" >Modifier</a>
+    <a class="btn btn-lg btn-danger main-JS-delete" href="{{ path('pm_characterused_administration_delete', {'slug': characterUsed.slug}) }}" >Supprimer</a>
 {% endblock %}
 
 {% block breadcrumb %}

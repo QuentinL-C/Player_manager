@@ -99,7 +99,7 @@ class __TwigTemplate_aee1a056bd98f241fdda3a50848f979ded36afeaed124197d014fed9881
                 <li><a href=\"";
         // line 31
         echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_list");
-        echo "\">Liste de Personnage</a></li>
+        echo "\">Liste des Personnages</a></li>
             </ul>
         </div>
     </section>

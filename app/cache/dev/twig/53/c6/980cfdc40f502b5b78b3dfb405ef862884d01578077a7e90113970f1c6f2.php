@@ -98,6 +98,7 @@ class __TwigTemplate_53c6980cfdc40f502b5b78b3dfb405ef862884d01578077a7e90113970f
         // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listLanguages"]) ? $context["listLanguages"] : $this->getContext($context, "listLanguages")));
+        $context['_iterated'] = false;
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -126,6 +127,7 @@ class __TwigTemplate_53c6980cfdc40f502b5b78b3dfb405ef862884d01578077a7e90113970f
             echo "</a></td>
                 </tr>
             ";
+            $context['_iterated'] = true;
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -135,19 +137,17 @@ class __TwigTemplate_53c6980cfdc40f502b5b78b3dfb405ef862884d01578077a7e90113970f
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['language'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
-        echo "            ";
-        if (twig_test_empty((isset($context["listLanguages"]) ? $context["listLanguages"] : $this->getContext($context, "listLanguages")))) {
-            // line 39
+        if (!$context['_iterated']) {
+            // line 38
             echo "                <tr>
                     <td colspan=\"5\" style=\"text-align: center; font-weight: bold;\">Aucune langue connue.</td>
                 </tr>
             ";
         }
-        // line 43
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['language'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 42
         echo "        </table>
     </section>
 </div>
@@ -166,6 +166,6 @@ class __TwigTemplate_53c6980cfdc40f502b5b78b3dfb405ef862884d01578077a7e90113970f
 
     public function getDebugInfo()
     {
-        return array (  151 => 43,  145 => 39,  142 => 38,  123 => 35,  119 => 34,  116 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  151 => 42,  142 => 38,  124 => 35,  120 => 34,  117 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
     }
 }

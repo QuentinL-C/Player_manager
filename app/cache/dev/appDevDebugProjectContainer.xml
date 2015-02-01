@@ -1921,7 +1921,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54ca2fc8411e7</argument>
+            <argument>54cdfc6d8c2e4</argument>
           </service>
         </argument>
       </argument>
@@ -2239,7 +2239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54ca2fc8411e7</argument>
+            <argument>54cdfc6d8c2e4</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3033,6 +3033,34 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+    </service>
+    <service id="pm_character.deletecharacterused" class="PM\CharacterBundle\Service\deleteCharacterUsed">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deletealignment" class="PM\CharacterBundle\Service\deleteAlignment">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deleteclassdnd" class="PM\CharacterBundle\Service\deleteClassDnD">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deletelanguage" class="PM\CharacterBundle\Service\deleteLanguage">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deleterace" class="PM\CharacterBundle\Service\deleteRace">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deleteskill" class="PM\CharacterBundle\Service\deleteSkill">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deletesize" class="PM\CharacterBundle\Service\deleteSize">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
     </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>

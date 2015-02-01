@@ -1,4 +1,28 @@
 services:
-#    pm_character.example:
-#        class: PM\CharacterBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    pm_character.deletecharacterused:
+        class: PM\CharacterBundle\Service\deleteCharacterUsed
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deletealignment:
+        class: PM\CharacterBundle\Service\deleteAlignment
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deleteclassdnd:
+        class: PM\CharacterBundle\Service\deleteClassDnD
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deletelanguage:
+        class: PM\CharacterBundle\Service\deleteLanguage
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deleterace:
+        class: PM\CharacterBundle\Service\deleteRace
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deleteskill:
+        class: PM\CharacterBundle\Service\deleteSkill
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deletesize:
+        class: PM\CharacterBundle\Service\deleteSize
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

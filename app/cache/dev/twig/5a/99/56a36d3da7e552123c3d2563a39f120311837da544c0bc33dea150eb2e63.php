@@ -98,6 +98,7 @@ class __TwigTemplate_5a9956a36d3da7e552123c3d2563a39f120311837da544c0bc33dea150e
         // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listAlignments"]) ? $context["listAlignments"] : $this->getContext($context, "listAlignments")));
+        $context['_iterated'] = false;
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -126,6 +127,7 @@ class __TwigTemplate_5a9956a36d3da7e552123c3d2563a39f120311837da544c0bc33dea150e
             echo "</a></td>
                 </tr>
             ";
+            $context['_iterated'] = true;
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -135,19 +137,17 @@ class __TwigTemplate_5a9956a36d3da7e552123c3d2563a39f120311837da544c0bc33dea150e
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['alignment'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
-        echo "            ";
-        if (twig_test_empty((isset($context["listAlignments"]) ? $context["listAlignments"] : $this->getContext($context, "listAlignments")))) {
-            // line 39
+        if (!$context['_iterated']) {
+            // line 38
             echo "                <tr>
                     <td colspan=\"5\" style=\"text-align: center; font-weight: bold;\">Aucun alignement connu.</td>
                 </tr>
             ";
         }
-        // line 43
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['alignment'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 42
         echo "        </table>
     </section>
 </div>
@@ -166,6 +166,6 @@ class __TwigTemplate_5a9956a36d3da7e552123c3d2563a39f120311837da544c0bc33dea150e
 
     public function getDebugInfo()
     {
-        return array (  151 => 43,  145 => 39,  142 => 38,  123 => 35,  119 => 34,  116 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  151 => 42,  142 => 38,  124 => 35,  120 => 34,  117 => 33,  99 => 32,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
     }
 }

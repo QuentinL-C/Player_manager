@@ -65,13 +65,17 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
         echo "    <a class=\"btn btn-lg btn-primary\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_alignment_administration_edit", array("slug" => $this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "slug", array()))), "html", null, true);
         echo "\" >Modifier</a>
+    <a class=\"btn btn-lg btn-danger main-JS-delete\" href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_alignment_administration_delete", array("slug" => $this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "slug", array()))), "html", null, true);
+        echo "\" >Supprimer</a>
 ";
     }
 
-    // line 17
+    // line 18
     public function block_breadcrumb($context, array $blocks = array())
     {
-        // line 18
+        // line 19
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
@@ -79,21 +83,21 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
 ";
     }
 
-    // line 22
+    // line 23
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 23
+        // line 24
         echo "<div class=\"row\">
     <section id=\"content\" class=\"col-lg-12\">
         ";
-        // line 25
+        // line 26
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 26
+            // line 27
             echo "            <div class=\"alert alert-success\">
                 ";
-            // line 27
+            // line 28
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -102,25 +106,25 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
+        // line 31
         echo "        
         ";
-        // line 31
+        // line 32
         if ( !twig_test_empty($this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "description", array()))) {
-            // line 32
+            // line 33
             echo "            <div class=\"well\">
                 ";
-            // line 33
+            // line 34
             echo $this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "description", array());
             echo "
             </div>
         ";
         } else {
-            // line 36
+            // line 37
             echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cet alignement.</div>
         ";
         }
-        // line 38
+        // line 39
         echo "    </section>
 </div>
 ";
@@ -138,6 +142,6 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
 
     public function getDebugInfo()
     {
-        return array (  124 => 38,  120 => 36,  114 => 33,  111 => 32,  109 => 31,  106 => 30,  97 => 27,  94 => 26,  90 => 25,  86 => 23,  83 => 22,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  128 => 39,  124 => 37,  118 => 34,  115 => 33,  113 => 32,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

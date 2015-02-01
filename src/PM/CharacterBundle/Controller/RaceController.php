@@ -44,11 +44,14 @@ class RaceController extends Controller
     
     public function viewAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Race');
  
         $race = $repository->findOneBySlug($slug);
+        
+        if ($race === null) {
+          throw $this->createNotFoundException('Race : [slug='.$slug.'] inexistante.');
+        }
 
         return $this->render('PMCharacterBundle:Race:view.html.twig', array(
                                 'race' => $race,
@@ -57,12 +60,15 @@ class RaceController extends Controller
     
     public function editAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:Race');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:Race');
  
         $race = $repository->findOneBySlug($slug);
 
+        if ($race === null) {
+          throw $this->createNotFoundException('Race : [slug='.$slug.'] inexistante.');
+        }
+        
         $form = $this->createForm(new RaceEditType, $race);
         
         $current_user = $this->getUser();
@@ -73,12 +79,10 @@ class RaceController extends Controller
                 $form->bind($request);
                 
                 if ($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
                     $em->persist($race);
                     $em->flush();
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre race a bien été éditée.' );
-           
                     return $this->redirect($this->generateUrl('pm_race_administration_view', array('slug' => $race->getSlug())));
                 }
             }
@@ -91,8 +95,7 @@ class RaceController extends Controller
     
     public function listAction()
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Race');
  
         $listRaces = $repository->findAll();
@@ -100,5 +103,22 @@ class RaceController extends Controller
         return $this->render('PMCharacterBundle:Race:listRaces.html.twig', array(
                                 'listRaces' => $listRaces,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:Race');
+        $race = $repository->findOneBySlug($slug);
+        
+        if ($race === null) {
+          throw $this->createNotFoundException('Race : [slug='.$slug.'] inexistante.');
+        }
+        
+        $deleteRace = $this->container->get('pm_character.deleterace');
+        $deleteRace->deleteRace($race);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre race a bien été supprimée.' );
+        return $this->forward('PMCharacterBundle:Race:list');
     }
 }

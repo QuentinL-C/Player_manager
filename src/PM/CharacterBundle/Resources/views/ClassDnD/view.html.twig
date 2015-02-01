@@ -14,6 +14,7 @@
     <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit_st', {'slug': classDnD.slug}) }}" >ST</a> 
     <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit_bab', {'slug': classDnD.slug}) }}" >BAB</a> 
     <a class="btn btn-lg btn-primary" href="{{ path('pm_classdnd_administration_edit', {'slug': classDnD.slug}) }}" >Modifier</a>
+    <a class="btn btn-lg btn-danger main-JS-delete" href="{{ path('pm_classdnd_administration_delete', {'slug': classDnD.slug}) }}" >Supprimer</a>
 {% endblock %}
 
 {% block breadcrumb %}

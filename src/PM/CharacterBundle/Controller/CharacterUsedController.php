@@ -180,12 +180,16 @@ class CharacterUsedController extends Controller
     
     public function viewAction($slug)
     {
-        $manager = $this->getDoctrine()
-                           ->getManager();
+        $manager = $this->getDoctrine()->getManager();
         $repositoryCharacterUsed = $manager->getRepository('PMCharacterBundle:CharacterUsed');
         $repositoryAbility = $manager->getRepository('PMCharacterBundle:Ability');
  
         $characterUsed = $repositoryCharacterUsed->findOneBySlug($slug);
+        
+        if ($characterUsed === null) {
+          throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
+        }
+        
         $abilities = $repositoryAbility->findBy(array('characterUsed' => $characterUsed));
 
         return $this->render('PMCharacterBundle:CharacterUsed:view.html.twig', array(
@@ -202,6 +206,10 @@ class CharacterUsedController extends Controller
  
         $characterUsed = $repository->findOneBySlug($slug);
 
+        if ($characterUsed === null) {
+          throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
+        }
+        
         $form = $this->createForm(new CharacterUsedEditType, $characterUsed);
         
         $current_user = $this->getUser();
@@ -239,5 +247,22 @@ class CharacterUsedController extends Controller
         return $this->render('PMCharacterBundle:CharacterUsed:listCharactersUsed.html.twig', array(
                                 'listCharactersUsed' => $listCharactersUsed,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:CharacterUsed');
+        $characterUsed = $repository->findOneBySlug($slug);
+        
+        if ($characterUsed === null) {
+          throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
+        }
+        
+        $deleteCharacterUsed = $this->container->get('pm_character.deletecharacterused');
+        $deleteCharacterUsed->deleteCharacterUsed($characterUsed);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Le personnage a bien été supprimé.' );
+        return $this->forward('PMCharacterBundle:CharacterUsed:list');
     }
 }

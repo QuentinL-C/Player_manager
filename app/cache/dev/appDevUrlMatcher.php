@@ -275,235 +275,270 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'PM\\WelcomeBundle\\Controller\\HomepageController::indexAction',  '_route' => 'pm_welcome_homepage',);
             }
 
-            // pm_administration_homepage
-            if ($pathinfo === '/administration') {
-                return array (  '_controller' => 'PM\\WelcomeBundle\\Controller\\AdministrationController::indexAction',  '_route' => 'pm_administration_homepage',);
-            }
-
-        }
-
-        if (0 === strpos($pathinfo, '/character')) {
-            if (0 === strpos($pathinfo, '/character/alignement')) {
-                // pm_alignment_administration_homepage
-                if ($pathinfo === '/character/alignement') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::indexAction',  '_route' => 'pm_alignment_administration_homepage',);
+            if (0 === strpos($pathinfo, '/administration')) {
+                // pm_administration_homepage
+                if ($pathinfo === '/administration') {
+                    return array (  '_controller' => 'PM\\WelcomeBundle\\Controller\\AdministrationController::indexAction',  '_route' => 'pm_administration_homepage',);
                 }
 
-                // pm_alignment_administration_insert
-                if ($pathinfo === '/character/alignement/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::registerAction',  '_route' => 'pm_alignment_administration_insert',);
-                }
-
-                // pm_alignment_administration_list
-                if ($pathinfo === '/character/alignement/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::listAction',  '_route' => 'pm_alignment_administration_list',);
-                }
-
-                // pm_alignment_administration_view
-                if (0 === strpos($pathinfo, '/character/alignement/vue') && preg_match('#^/character/alignement/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::viewAction',));
-                }
-
-                // pm_alignment_administration_edit
-                if (0 === strpos($pathinfo, '/character/alignement/editer') && preg_match('#^/character/alignement/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::editAction',));
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/character/classe')) {
-                // pm_classdnd_administration_homepage
-                if ($pathinfo === '/character/classe') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::indexAction',  '_route' => 'pm_classdnd_administration_homepage',);
-                }
-
-                // pm_classdnd_administration_insert
-                if ($pathinfo === '/character/classe/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::registerAction',  '_route' => 'pm_classdnd_administration_insert',);
-                }
-
-                // pm_classdnd_administration_list
-                if ($pathinfo === '/character/classe/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::listAction',  '_route' => 'pm_classdnd_administration_list',);
-                }
-
-                // pm_classdnd_administration_view
-                if (0 === strpos($pathinfo, '/character/classe/vue') && preg_match('#^/character/classe/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::viewAction',));
-                }
-
-                if (0 === strpos($pathinfo, '/character/classe/editer')) {
-                    // pm_classdnd_administration_edit_bab
-                    if (0 === strpos($pathinfo, '/character/classe/editer/bab') && preg_match('#^/character/classe/editer/bab/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_bab')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editBABAction',));
+                if (0 === strpos($pathinfo, '/administration/alignement')) {
+                    // pm_alignment_administration_homepage
+                    if ($pathinfo === '/administration/alignement') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::indexAction',  '_route' => 'pm_alignment_administration_homepage',);
                     }
 
-                    // pm_classdnd_administration_edit_st
-                    if (0 === strpos($pathinfo, '/character/classe/editer/st') && preg_match('#^/character/classe/editer/st/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_st')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editSTAction',));
+                    // pm_alignment_administration_insert
+                    if ($pathinfo === '/administration/alignement/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::registerAction',  '_route' => 'pm_alignment_administration_insert',);
                     }
 
-                    // pm_classdnd_administration_edit
-                    if (preg_match('#^/character/classe/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editAction',));
+                    // pm_alignment_administration_list
+                    if ($pathinfo === '/administration/alignement/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::listAction',  '_route' => 'pm_alignment_administration_list',);
+                    }
+
+                    // pm_alignment_administration_view
+                    if (0 === strpos($pathinfo, '/administration/alignement/vue') && preg_match('#^/administration/alignement/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::viewAction',));
+                    }
+
+                    // pm_alignment_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/alignement/editer') && preg_match('#^/administration/alignement/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::editAction',));
+                    }
+
+                    // pm_alignment_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/alignement/supprimer') && preg_match('#^/administration/alignement/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_alignment_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AlignmentController::deleteAction',));
                     }
 
                 }
 
-            }
-
-            if (0 === strpos($pathinfo, '/character/race')) {
-                // pm_race_administration_homepage
-                if ($pathinfo === '/character/race') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::indexAction',  '_route' => 'pm_race_administration_homepage',);
-                }
-
-                // pm_race_administration_insert
-                if ($pathinfo === '/character/race/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::registerAction',  '_route' => 'pm_race_administration_insert',);
-                }
-
-                // pm_race_administration_list
-                if ($pathinfo === '/character/race/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::listAction',  '_route' => 'pm_race_administration_list',);
-                }
-
-                // pm_race_administration_view
-                if (0 === strpos($pathinfo, '/character/race/vue') && preg_match('#^/character/race/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::viewAction',));
-                }
-
-                // pm_race_administration_edit
-                if (0 === strpos($pathinfo, '/character/race/editer') && preg_match('#^/character/race/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::editAction',));
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/character/langue')) {
-                // pm_language_administration_homepage
-                if ($pathinfo === '/character/langue') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::indexAction',  '_route' => 'pm_language_administration_homepage',);
-                }
-
-                // pm_language_administration_insert
-                if ($pathinfo === '/character/langue/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::registerAction',  '_route' => 'pm_language_administration_insert',);
-                }
-
-                // pm_language_administration_list
-                if ($pathinfo === '/character/langue/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::listAction',  '_route' => 'pm_language_administration_list',);
-                }
-
-                // pm_language_administration_view
-                if (0 === strpos($pathinfo, '/character/langue/vue') && preg_match('#^/character/langue/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::viewAction',));
-                }
-
-                // pm_language_administration_edit
-                if (0 === strpos($pathinfo, '/character/langue/editer') && preg_match('#^/character/langue/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::editAction',));
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/character/personnage')) {
-                // pm_characterused_administration_homepage
-                if ($pathinfo === '/character/personnage') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::indexAction',  '_route' => 'pm_characterused_administration_homepage',);
-                }
-
-                if (0 === strpos($pathinfo, '/character/personnage/insertion')) {
-                    // pm_characterused_administration_insert
-                    if ($pathinfo === '/character/personnage/insertion') {
-                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAction',  '_route' => 'pm_characterused_administration_insert',);
+                if (0 === strpos($pathinfo, '/administration/classe')) {
+                    // pm_classdnd_administration_homepage
+                    if ($pathinfo === '/administration/classe') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::indexAction',  '_route' => 'pm_classdnd_administration_homepage',);
                     }
 
-                    if (0 === strpos($pathinfo, '/character/personnage/insertion/c')) {
-                        // pm_characterused_administration_insert_abilities
-                        if (0 === strpos($pathinfo, '/character/personnage/insertion/caracteristiques') && preg_match('#^/character/personnage/insertion/caracteristiques/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_insert_abilities')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAbilitiesAction',));
+                    // pm_classdnd_administration_insert
+                    if ($pathinfo === '/administration/classe/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::registerAction',  '_route' => 'pm_classdnd_administration_insert',);
+                    }
+
+                    // pm_classdnd_administration_list
+                    if ($pathinfo === '/administration/classe/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::listAction',  '_route' => 'pm_classdnd_administration_list',);
+                    }
+
+                    // pm_classdnd_administration_view
+                    if (0 === strpos($pathinfo, '/administration/classe/vue') && preg_match('#^/administration/classe/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::viewAction',));
+                    }
+
+                    if (0 === strpos($pathinfo, '/administration/classe/editer')) {
+                        // pm_classdnd_administration_edit_bab
+                        if (0 === strpos($pathinfo, '/administration/classe/editer/bab') && preg_match('#^/administration/classe/editer/bab/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_bab')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editBABAction',));
                         }
 
-                        // pm_characterused_administration_insert_skills
-                        if (0 === strpos($pathinfo, '/character/personnage/insertion/competences') && preg_match('#^/character/personnage/insertion/competences/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_insert_skills')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerSkillsAction',));
+                        // pm_classdnd_administration_edit_st
+                        if (0 === strpos($pathinfo, '/administration/classe/editer/st') && preg_match('#^/administration/classe/editer/st/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit_st')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editSTAction',));
+                        }
+
+                        // pm_classdnd_administration_edit
+                        if (preg_match('#^/administration/classe/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::editAction',));
                         }
 
                     }
 
+                    // pm_classdnd_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/classe/supprimer') && preg_match('#^/administration/classe/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_classdnd_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\ClassDnDController::deleteAction',));
+                    }
+
                 }
 
-                // pm_characterused_administration_list
-                if ($pathinfo === '/character/personnage/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::listAction',  '_route' => 'pm_characterused_administration_list',);
+                if (0 === strpos($pathinfo, '/administration/race')) {
+                    // pm_race_administration_homepage
+                    if ($pathinfo === '/administration/race') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::indexAction',  '_route' => 'pm_race_administration_homepage',);
+                    }
+
+                    // pm_race_administration_insert
+                    if ($pathinfo === '/administration/race/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::registerAction',  '_route' => 'pm_race_administration_insert',);
+                    }
+
+                    // pm_race_administration_list
+                    if ($pathinfo === '/administration/race/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::listAction',  '_route' => 'pm_race_administration_list',);
+                    }
+
+                    // pm_race_administration_view
+                    if (0 === strpos($pathinfo, '/administration/race/vue') && preg_match('#^/administration/race/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::viewAction',));
+                    }
+
+                    // pm_race_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/race/editer') && preg_match('#^/administration/race/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::editAction',));
+                    }
+
+                    // pm_race_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/race/supprimer') && preg_match('#^/administration/race/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_race_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\RaceController::deleteAction',));
+                    }
+
                 }
 
-                // pm_characterused_administration_view
-                if (0 === strpos($pathinfo, '/character/personnage/vue') && preg_match('#^/character/personnage/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::viewAction',));
+                if (0 === strpos($pathinfo, '/administration/langue')) {
+                    // pm_language_administration_homepage
+                    if ($pathinfo === '/administration/langue') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::indexAction',  '_route' => 'pm_language_administration_homepage',);
+                    }
+
+                    // pm_language_administration_insert
+                    if ($pathinfo === '/administration/langue/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::registerAction',  '_route' => 'pm_language_administration_insert',);
+                    }
+
+                    // pm_language_administration_list
+                    if ($pathinfo === '/administration/langue/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::listAction',  '_route' => 'pm_language_administration_list',);
+                    }
+
+                    // pm_language_administration_view
+                    if (0 === strpos($pathinfo, '/administration/langue/vue') && preg_match('#^/administration/langue/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::viewAction',));
+                    }
+
+                    // pm_language_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/langue/editer') && preg_match('#^/administration/langue/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::editAction',));
+                    }
+
+                    // pm_language_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/langue/supprimer') && preg_match('#^/administration/langue/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_language_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LanguageController::deleteAction',));
+                    }
+
                 }
 
-                // pm_characterused_administration_edit
-                if (0 === strpos($pathinfo, '/character/personnage/editer') && preg_match('#^/character/personnage/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::editAction',));
+                if (0 === strpos($pathinfo, '/administration/personnage')) {
+                    // pm_characterused_administration_homepage
+                    if ($pathinfo === '/administration/personnage') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::indexAction',  '_route' => 'pm_characterused_administration_homepage',);
+                    }
+
+                    if (0 === strpos($pathinfo, '/administration/personnage/insertion')) {
+                        // pm_characterused_administration_insert
+                        if ($pathinfo === '/administration/personnage/insertion') {
+                            return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAction',  '_route' => 'pm_characterused_administration_insert',);
+                        }
+
+                        if (0 === strpos($pathinfo, '/administration/personnage/insertion/c')) {
+                            // pm_characterused_administration_insert_abilities
+                            if (0 === strpos($pathinfo, '/administration/personnage/insertion/caracteristiques') && preg_match('#^/administration/personnage/insertion/caracteristiques/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_insert_abilities')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerAbilitiesAction',));
+                            }
+
+                            // pm_characterused_administration_insert_skills
+                            if (0 === strpos($pathinfo, '/administration/personnage/insertion/competences') && preg_match('#^/administration/personnage/insertion/competences/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_insert_skills')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::registerSkillsAction',));
+                            }
+
+                        }
+
+                    }
+
+                    // pm_characterused_administration_list
+                    if ($pathinfo === '/administration/personnage/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::listAction',  '_route' => 'pm_characterused_administration_list',);
+                    }
+
+                    // pm_characterused_administration_view
+                    if (0 === strpos($pathinfo, '/administration/personnage/vue') && preg_match('#^/administration/personnage/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::viewAction',));
+                    }
+
+                    // pm_characterused_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/personnage/editer') && preg_match('#^/administration/personnage/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::editAction',));
+                    }
+
+                    // pm_characterused_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/personnage/supprimer') && preg_match('#^/administration/personnage/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_characterused_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\CharacterUsedController::deleteAction',));
+                    }
+
                 }
 
-            }
+                if (0 === strpos($pathinfo, '/administration/competence')) {
+                    // pm_skill_administration_homepage
+                    if ($pathinfo === '/administration/competence') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::indexAction',  '_route' => 'pm_skill_administration_homepage',);
+                    }
 
-            if (0 === strpos($pathinfo, '/character/competence')) {
-                // pm_skill_administration_homepage
-                if ($pathinfo === '/character/competence') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::indexAction',  '_route' => 'pm_skill_administration_homepage',);
+                    // pm_skill_administration_insert
+                    if ($pathinfo === '/administration/competence/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::registerAction',  '_route' => 'pm_skill_administration_insert',);
+                    }
+
+                    // pm_skill_administration_list
+                    if ($pathinfo === '/administration/competence/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::listAction',  '_route' => 'pm_skill_administration_list',);
+                    }
+
+                    // pm_skill_administration_view
+                    if (0 === strpos($pathinfo, '/administration/competence/vue') && preg_match('#^/administration/competence/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::viewAction',));
+                    }
+
+                    // pm_skill_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/competence/editer') && preg_match('#^/administration/competence/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::editAction',));
+                    }
+
+                    // pm_skill_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/competence/supprimer') && preg_match('#^/administration/competence/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::deleteAction',));
+                    }
+
                 }
 
-                // pm_skill_administration_insert
-                if ($pathinfo === '/character/competence/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::registerAction',  '_route' => 'pm_skill_administration_insert',);
-                }
+                if (0 === strpos($pathinfo, '/administration/taille')) {
+                    // pm_size_administration_homepage
+                    if ($pathinfo === '/administration/taille') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::indexAction',  '_route' => 'pm_size_administration_homepage',);
+                    }
 
-                // pm_skill_administration_list
-                if ($pathinfo === '/character/competence/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::listAction',  '_route' => 'pm_skill_administration_list',);
-                }
+                    // pm_size_administration_insert
+                    if ($pathinfo === '/administration/taille/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::registerAction',  '_route' => 'pm_size_administration_insert',);
+                    }
 
-                // pm_skill_administration_view
-                if (0 === strpos($pathinfo, '/character/competence/vue') && preg_match('#^/character/competence/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::viewAction',));
-                }
+                    // pm_size_administration_list
+                    if ($pathinfo === '/administration/taille/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::listAction',  '_route' => 'pm_size_administration_list',);
+                    }
 
-                // pm_skill_administration_edit
-                if (0 === strpos($pathinfo, '/character/competence/editer') && preg_match('#^/character/competence/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_skill_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SkillController::editAction',));
-                }
+                    // pm_size_administration_view
+                    if (0 === strpos($pathinfo, '/administration/taille/vue') && preg_match('#^/administration/taille/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::viewAction',));
+                    }
 
-            }
+                    // pm_size_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/taille/editer') && preg_match('#^/administration/taille/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::editAction',));
+                    }
 
-            if (0 === strpos($pathinfo, '/character/taille')) {
-                // pm_size_administration_homepage
-                if ($pathinfo === '/character/taille') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::indexAction',  '_route' => 'pm_size_administration_homepage',);
-                }
+                    // pm_size_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/taille/supprimer') && preg_match('#^/administration/taille/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::deleteAction',));
+                    }
 
-                // pm_size_administration_insert
-                if ($pathinfo === '/character/taille/insertion') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::registerAction',  '_route' => 'pm_size_administration_insert',);
-                }
-
-                // pm_size_administration_list
-                if ($pathinfo === '/character/taille/liste') {
-                    return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::listAction',  '_route' => 'pm_size_administration_list',);
-                }
-
-                // pm_size_administration_view
-                if (0 === strpos($pathinfo, '/character/taille/vue') && preg_match('#^/character/taille/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::viewAction',));
-                }
-
-                // pm_size_administration_edit
-                if (0 === strpos($pathinfo, '/character/taille/editer') && preg_match('#^/character/taille/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_size_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\SizeController::editAction',));
                 }
 
             }
@@ -511,46 +546,49 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // pm_game_homepage
-        if (0 === strpos($pathinfo, '/game/hello') && preg_match('#^/game/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_homepage')), array (  '_controller' => 'PM\\GameBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        if (0 === strpos($pathinfo, '/utilisateur')) {
-            // pm_user_homepage
-            if (rtrim($pathinfo, '/') === '/utilisateur') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'pm_user_homepage');
+        if (0 === strpos($pathinfo, '/a')) {
+            if (0 === strpos($pathinfo, '/administration/utilisateur')) {
+                // pm_user_homepage
+                if (rtrim($pathinfo, '/') === '/administration/utilisateur') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'pm_user_homepage');
+                    }
+
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::indexAction',  '_route' => 'pm_user_homepage',);
                 }
 
-                return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::indexAction',  '_route' => 'pm_user_homepage',);
-            }
-
-            // pm_user_list
-            if ($pathinfo === '/utilisateur/liste') {
-                return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::UsersListAction',  '_route' => 'pm_user_list',);
-            }
-
-            // pm_user_view
-            if (0 === strpos($pathinfo, '/utilisateur/user') && preg_match('#^/utilisateur/user/(?P<user_id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
-            }
-
-            // pm_user_ajax_password
-            if ($pathinfo === '/utilisateur/1234-password') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_pm_user_ajax_password;
+                // pm_user_list
+                if ($pathinfo === '/administration/utilisateur/liste') {
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::UsersListAction',  '_route' => 'pm_user_list',);
                 }
 
-                return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::AjaxPasswordAction',  '_route' => 'pm_user_ajax_password',);
+                // pm_user_view
+                if (0 === strpos($pathinfo, '/administration/utilisateur/user') && preg_match('#^/administration/utilisateur/user/(?P<user_id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
+                }
+
+                // pm_user_ajax_password
+                if ($pathinfo === '/administration/utilisateur/1234-password') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_pm_user_ajax_password;
+                    }
+
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::AjaxPasswordAction',  '_route' => 'pm_user_ajax_password',);
+                }
+                not_pm_user_ajax_password:
+
             }
-            not_pm_user_ajax_password:
 
-        }
+            // homepage
+            if ($pathinfo === '/app/example') {
+                return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+            }
 
-        // homepage
-        if ($pathinfo === '/app/example') {
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
         // fos_user_security_login
@@ -574,81 +612,81 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
         }
 
-        if (0 === strpos($pathinfo, '/utilisateur')) {
-            if (0 === strpos($pathinfo, '/utilisateur/profile')) {
-                // fos_user_profile_show
-                if (rtrim($pathinfo, '/') === '/utilisateur/profile') {
+        if (0 === strpos($pathinfo, '/utilisateur/profile')) {
+            // fos_user_profile_show
+            if (rtrim($pathinfo, '/') === '/utilisateur/profile') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_fos_user_profile_show;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'fos_user_profile_show');
+                }
+
+                return array (  '_controller' => 'PM\\UserBundle\\Controller\\ProfileController::showAction',  '_route' => 'fos_user_profile_show',);
+            }
+            not_fos_user_profile_show:
+
+            // fos_user_profile_edit
+            if ($pathinfo === '/utilisateur/profile/modifier') {
+                return array (  '_controller' => 'PM\\UserBundle\\Controller\\ProfileController::editAction',  '_route' => 'fos_user_profile_edit',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/administration/utilisateur/nouveau')) {
+            // fos_user_registration_register
+            if (rtrim($pathinfo, '/') === '/administration/utilisateur/nouveau') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'fos_user_registration_register');
+                }
+
+                return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::registerAction',  '_route' => 'fos_user_registration_register',);
+            }
+
+            if (0 === strpos($pathinfo, '/administration/utilisateur/nouveau/c')) {
+                // fos_user_registration_check_email
+                if ($pathinfo === '/administration/utilisateur/nouveau/check-email') {
                     if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                         $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_fos_user_profile_show;
+                        goto not_fos_user_registration_check_email;
                     }
 
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'fos_user_profile_show');
-                    }
-
-                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\ProfileController::showAction',  '_route' => 'fos_user_profile_show',);
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::checkEmailAction',  '_route' => 'fos_user_registration_check_email',);
                 }
-                not_fos_user_profile_show:
+                not_fos_user_registration_check_email:
 
-                // fos_user_profile_edit
-                if ($pathinfo === '/utilisateur/profile/modifier') {
-                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\ProfileController::editAction',  '_route' => 'fos_user_profile_edit',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/utilisateur/nouveau')) {
-                // fos_user_registration_register
-                if (rtrim($pathinfo, '/') === '/utilisateur/nouveau') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'fos_user_registration_register');
-                    }
-
-                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::registerAction',  '_route' => 'fos_user_registration_register',);
-                }
-
-                if (0 === strpos($pathinfo, '/utilisateur/nouveau/c')) {
-                    // fos_user_registration_check_email
-                    if ($pathinfo === '/utilisateur/nouveau/check-email') {
+                if (0 === strpos($pathinfo, '/administration/utilisateur/nouveau/confirm')) {
+                    // fos_user_registration_confirm
+                    if (preg_match('#^/administration/utilisateur/nouveau/confirm/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
                         if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                             $allow = array_merge($allow, array('GET', 'HEAD'));
-                            goto not_fos_user_registration_check_email;
+                            goto not_fos_user_registration_confirm;
                         }
 
-                        return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::checkEmailAction',  '_route' => 'fos_user_registration_check_email',);
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_registration_confirm')), array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::confirmAction',));
                     }
-                    not_fos_user_registration_check_email:
+                    not_fos_user_registration_confirm:
 
-                    if (0 === strpos($pathinfo, '/utilisateur/nouveau/confirm')) {
-                        // fos_user_registration_confirm
-                        if (preg_match('#^/utilisateur/nouveau/confirm/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                                $allow = array_merge($allow, array('GET', 'HEAD'));
-                                goto not_fos_user_registration_confirm;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_registration_confirm')), array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::confirmAction',));
+                    // fos_user_registration_confirmed
+                    if ($pathinfo === '/administration/utilisateur/nouveau/confirmed') {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_fos_user_registration_confirmed;
                         }
-                        not_fos_user_registration_confirm:
 
-                        // fos_user_registration_confirmed
-                        if ($pathinfo === '/utilisateur/nouveau/confirmed') {
-                            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                                $allow = array_merge($allow, array('GET', 'HEAD'));
-                                goto not_fos_user_registration_confirmed;
-                            }
-
-                            return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::confirmedAction',  '_route' => 'fos_user_registration_confirmed',);
-                        }
-                        not_fos_user_registration_confirmed:
-
+                        return array (  '_controller' => 'PM\\UserBundle\\Controller\\RegistrationController::confirmedAction',  '_route' => 'fos_user_registration_confirmed',);
                     }
+                    not_fos_user_registration_confirmed:
 
                 }
 
             }
 
+        }
+
+        if (0 === strpos($pathinfo, '/utilisateur')) {
             if (0 === strpos($pathinfo, '/utilisateur/resetting')) {
                 // fos_user_resetting_request
                 if ($pathinfo === '/utilisateur/resetting/request') {

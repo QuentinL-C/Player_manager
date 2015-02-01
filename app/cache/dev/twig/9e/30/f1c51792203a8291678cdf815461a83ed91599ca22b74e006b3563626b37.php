@@ -65,39 +65,43 @@ class __TwigTemplate_9e30f1c51792203a8291678cdf815461a83ed91599ca22b74e006b35636
         echo "    <a class=\"btn btn-lg btn-primary\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_language_administration_edit", array("slug" => $this->getAttribute((isset($context["language"]) ? $context["language"] : $this->getContext($context, "language")), "slug", array()))), "html", null, true);
         echo "\" >Modifier</a>
+    <a class=\"btn btn-lg btn-danger main-JS-delete\" href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_language_administration_delete", array("slug" => $this->getAttribute((isset($context["language"]) ? $context["language"] : $this->getContext($context, "language")), "slug", array()))), "html", null, true);
+        echo "\" >Supprimer</a>
 ";
     }
 
-    // line 17
+    // line 18
     public function block_breadcrumb($context, array $blocks = array())
     {
-        // line 18
+        // line 19
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
     <li class=\"active\">";
-        // line 19
+        // line 20
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["language"]) ? $context["language"] : $this->getContext($context, "language")), "name", array()), "html", null, true);
         echo "</li>
     <li class=\"active\">Voir</li>
 ";
     }
 
-    // line 23
+    // line 24
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 24
+        // line 25
         echo "<div class=\"row\">
     <section id=\"content\" class=\"col-lg-12\">
         ";
-        // line 26
+        // line 27
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 27
+            // line 28
             echo "            <div class=\"alert alert-success\">
                 ";
-            // line 28
+            // line 29
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -106,7 +110,7 @@ class __TwigTemplate_9e30f1c51792203a8291678cdf815461a83ed91599ca22b74e006b35636
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 32
         echo "        
         <div class=\"row\">
             <p>Futur blabla</p>
@@ -128,6 +132,6 @@ class __TwigTemplate_9e30f1c51792203a8291678cdf815461a83ed91599ca22b74e006b35636
 
     public function getDebugInfo()
     {
-        return array (  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

@@ -56,12 +56,15 @@ class SkillController extends Controller
     
     public function viewAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Skill');
  
         $skill = $repository->findOneBySlug($slug);
 
+        if ($skill === null) {
+          throw $this->createNotFoundException('Compétence : [slug='.$slug.'] inexistante.');
+        }
+        
         return $this->render('PMCharacterBundle:Skill:view.html.twig', array(
                                 'skill' => $skill,
                             ));
@@ -69,12 +72,15 @@ class SkillController extends Controller
     
     public function editAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:Skill');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:Skill');
  
         $skill = $repository->findOneBySlug($slug);
 
+        if ($skill === null) {
+          throw $this->createNotFoundException('Compétence : [slug='.$slug.'] inexistante.');
+        }
+        
         $form = $this->createForm(new SkillEditType, $skill);
         
         $current_user = $this->getUser();
@@ -85,12 +91,10 @@ class SkillController extends Controller
                 $form->bind($request);
                 
                 if ($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
                     $em->persist($skill);
                     $em->flush();
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la compétence a bien été éditée.' );
-           
                     return $this->redirect($this->generateUrl('pm_skill_administration_view', array('slug' => $skill->getSlug())));
                 }
             }
@@ -103,8 +107,7 @@ class SkillController extends Controller
     
     public function listAction()
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Skill');
  
         $listSkills = $repository->findAll();
@@ -112,5 +115,22 @@ class SkillController extends Controller
         return $this->render('PMCharacterBundle:Skill:listSkills.html.twig', array(
                                 'listSkills' => $listSkills,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:Skill');
+        $skill = $repository->findOneBySlug($slug);
+        
+        if ($skill === null) {
+          throw $this->createNotFoundException('Compétence : [slug='.$slug.'] inexistante.');
+        }
+        
+        $deleteSkill = $this->container->get('pm_character.deleteskill');
+        $deleteSkill->deleteSkill($skill);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre compétence a bien été supprimée.' );
+        return $this->forward('PMCharacterBundle:Skill:list');
     }
 }

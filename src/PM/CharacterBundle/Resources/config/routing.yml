@@ -1,198 +1,240 @@
 # -- Alignment -- #
 pm_alignment_administration_homepage:
-    path:     /alignement
+    path:     /administration/alignement
     defaults: { _controller: PMCharacterBundle:Alignment:index }
 
 pm_alignment_administration_insert:
-    path:     /alignement/insertion
+    path:     /administration/alignement/insertion
     defaults: { _controller: PMCharacterBundle:Alignment:register }
 
 pm_alignment_administration_list:
-    path:     /alignement/liste
+    path:     /administration/alignement/liste
     defaults: { _controller: PMCharacterBundle:Alignment:list }
     
 pm_alignment_administration_view:
-    path:     /alignement/vue/{slug}
+    path:     /administration/alignement/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Alignment:view }
     requirements:
         slug:  \S{0,255}
     
 pm_alignment_administration_edit:
-    path:     /alignement/editer/{slug}
+    path:     /administration/alignement/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Alignment:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_alignment_administration_delete:
+    path:     /administration/alignement/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Alignment:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- ClassDnD -- #
 pm_classdnd_administration_homepage:
-    path:     /classe
+    path:     /administration/classe
     defaults: { _controller: PMCharacterBundle:ClassDnD:index }
 
 pm_classdnd_administration_insert:
-    path:     /classe/insertion
+    path:     /administration/classe/insertion
     defaults: { _controller: PMCharacterBundle:ClassDnD:register }
 
 pm_classdnd_administration_list:
-    path:     /classe/liste
+    path:     /administration/classe/liste
     defaults: { _controller: PMCharacterBundle:ClassDnD:list }
     
 pm_classdnd_administration_view:
-    path:     /classe/vue/{slug}
+    path:     /administration/classe/vue/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:view }
     requirements:
         slug:  \S{0,255}
     
 pm_classdnd_administration_edit_bab:
-    path:     /classe/editer/bab/{slug}
+    path:     /administration/classe/editer/bab/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:editBAB }
     requirements:
         slug:  \S{0,255}
     
 pm_classdnd_administration_edit_st:
-    path:     /classe/editer/st/{slug}
+    path:     /administration/classe/editer/st/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:editST }
     requirements:
         slug:  \S{0,255}
     
 pm_classdnd_administration_edit:
-    path:     /classe/editer/{slug}
+    path:     /administration/classe/editer/{slug}
     defaults: { _controller: PMCharacterBundle:ClassDnD:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_classdnd_administration_delete:
+    path:     /administration/classe/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:ClassDnD:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- Race -- #
 pm_race_administration_homepage:
-    path:     /race
+    path:     /administration/race
     defaults: { _controller: PMCharacterBundle:Race:index }
 
 pm_race_administration_insert:
-    path:     /race/insertion
+    path:     /administration/race/insertion
     defaults: { _controller: PMCharacterBundle:Race:register }
 
 pm_race_administration_list:
-    path:     /race/liste
+    path:     /administration/race/liste
     defaults: { _controller: PMCharacterBundle:Race:list }
     
 pm_race_administration_view:
-    path:     /race/vue/{slug}
+    path:     /administration/race/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Race:view }
     requirements:
         slug:  \S{0,255}
     
 pm_race_administration_edit:
-    path:     /race/editer/{slug}
+    path:     /administration/race/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Race:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_race_administration_delete:
+    path:     /administration/race/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Race:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- Language -- #
 pm_language_administration_homepage:
-    path:     /langue
+    path:     /administration/langue
     defaults: { _controller: PMCharacterBundle:Language:index }
 
 pm_language_administration_insert:
-    path:     /langue/insertion
+    path:     /administration/langue/insertion
     defaults: { _controller: PMCharacterBundle:Language:register }
 
 pm_language_administration_list:
-    path:     /langue/liste
+    path:     /administration/langue/liste
     defaults: { _controller: PMCharacterBundle:Language:list }
     
 pm_language_administration_view:
-    path:     /langue/vue/{slug}
+    path:     /administration/langue/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Language:view }
     requirements:
         slug:  \S{0,255}
     
 pm_language_administration_edit:
-    path:     /langue/editer/{slug}
+    path:     /administration/langue/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Language:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_language_administration_delete:
+    path:     /administration/langue/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Language:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- CharacterUsed -- #
 pm_characterused_administration_homepage:
-    path:     /personnage
+    path:     /administration/personnage
     defaults: { _controller: PMCharacterBundle:CharacterUsed:index }
 
 pm_characterused_administration_insert:
-    path:     /personnage/insertion
+    path:     /administration/personnage/insertion
     defaults: { _controller: PMCharacterBundle:CharacterUsed:register }
 
 pm_characterused_administration_insert_abilities:
-    path:     /personnage/insertion/caracteristiques/{slug}
+    path:     /administration/personnage/insertion/caracteristiques/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:registerAbilities }
     requirements:
         slug:  \S{0,255}
 
 pm_characterused_administration_insert_skills:
-    path:     /personnage/insertion/competences/{slug}
+    path:     /administration/personnage/insertion/competences/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:registerSkills }
     requirements:
         slug:  \S{0,255}
 
 pm_characterused_administration_list:
-    path:     /personnage/liste
+    path:     /administration/personnage/liste
     defaults: { _controller: PMCharacterBundle:CharacterUsed:list }
     
 pm_characterused_administration_view:
-    path:     /personnage/vue/{slug}
+    path:     /administration/personnage/vue/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:view }
     requirements:
         slug:  \S{0,255}
     
 pm_characterused_administration_edit:
-    path:     /personnage/editer/{slug}
+    path:     /administration/personnage/editer/{slug}
     defaults: { _controller: PMCharacterBundle:CharacterUsed:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_characterused_administration_delete:
+    path:     /administration/personnage/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:CharacterUsed:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- Skill -- #
 pm_skill_administration_homepage:
-    path:     /competence
+    path:     /administration/competence
     defaults: { _controller: PMCharacterBundle:Skill:index }
 
 pm_skill_administration_insert:
-    path:     /competence/insertion
+    path:     /administration/competence/insertion
     defaults: { _controller: PMCharacterBundle:Skill:register }
 
 pm_skill_administration_list:
-    path:     /competence/liste
+    path:     /administration/competence/liste
     defaults: { _controller: PMCharacterBundle:Skill:list }
     
 pm_skill_administration_view:
-    path:     /competence/vue/{slug}
+    path:     /administration/competence/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Skill:view }
     requirements:
         slug:  \S{0,255}
     
 pm_skill_administration_edit:
-    path:     /competence/editer/{slug}
+    path:     /administration/competence/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Skill:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_skill_administration_delete:
+    path:     /administration/competence/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Skill:delete }
     requirements:
         slug:  \S{0,255}
 
 # -- Size -- #
 pm_size_administration_homepage:
-    path:     /taille
+    path:     /administration/taille
     defaults: { _controller: PMCharacterBundle:Size:index }
 
 pm_size_administration_insert:
-    path:     /taille/insertion
+    path:     /administration/taille/insertion
     defaults: { _controller: PMCharacterBundle:Size:register }
 
 pm_size_administration_list:
-    path:     /taille/liste
+    path:     /administration/taille/liste
     defaults: { _controller: PMCharacterBundle:Size:list }
     
 pm_size_administration_view:
-    path:     /taille/vue/{slug}
+    path:     /administration/taille/vue/{slug}
     defaults: { _controller: PMCharacterBundle:Size:view }
     requirements:
         slug:  \S{0,255}
     
 pm_size_administration_edit:
-    path:     /taille/editer/{slug}
+    path:     /administration/taille/editer/{slug}
     defaults: { _controller: PMCharacterBundle:Size:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_size_administration_delete:
+    path:     /administration/taille/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Size:delete }
     requirements:
         slug:  \S{0,255}

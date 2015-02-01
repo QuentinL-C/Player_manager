@@ -13,4 +13,10 @@ $(function () {
         e.preventDefault();
         $(this).tab('show');
     });
+    
+    $(document).on('click','[class*="main-JS-delete"]', function(){
+        if(!confirm('Etes-vous sûr de vouloir supprimer cet élément ?')) return false;
+    });
 });
+
+

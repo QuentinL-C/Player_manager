@@ -44,12 +44,15 @@ class LanguageController extends Controller
     
     public function viewAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Language');
  
         $language = $repository->findOneBySlug($slug);
 
+        if ($language === null) {
+          throw $this->createNotFoundException('Langue : [slug='.$slug.'] inexistante.');
+        }
+        
         return $this->render('PMCharacterBundle:Language:view.html.twig', array(
                                 'language' => $language,
                             ));
@@ -57,12 +60,15 @@ class LanguageController extends Controller
     
     public function editAction($slug)
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('PMCharacterBundle:Language');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('PMCharacterBundle:Language');
  
         $language = $repository->findOneBySlug($slug);
 
+        if ($language === null) {
+          throw $this->createNotFoundException('Langue : [slug='.$slug.'] inexistante.');
+        }
+        
         $form = $this->createForm(new LanguageEditType, $language);
         
         $current_user = $this->getUser();
@@ -73,12 +79,10 @@ class LanguageController extends Controller
                 $form->bind($request);
                 
                 if ($form->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
                     $em->persist($language);
                     $em->flush();
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre langue a bien été éditée.' );
-           
                     return $this->redirect($this->generateUrl('pm_language_administration_view', array('slug' => $language->getSlug())));
                 }
             }
@@ -91,8 +95,7 @@ class LanguageController extends Controller
     
     public function listAction()
     {
-        $repository = $this->getDoctrine()
-                           ->getManager()
+        $repository = $this->getDoctrine()->getManager()
                            ->getRepository('PMCharacterBundle:Language');
  
         $listLanguages = $repository->findAll();
@@ -100,5 +103,22 @@ class LanguageController extends Controller
         return $this->render('PMCharacterBundle:Language:listLanguages.html.twig', array(
                                 'listLanguages' => $listLanguages,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:Language');
+        $language = $repository->findOneBySlug($slug);
+        
+        if ($language === null) {
+          throw $this->createNotFoundException('Langue : [slug='.$slug.'] inexistante.');
+        }
+        
+        $deleteLanguage = $this->container->get('pm_character.deletelanguage');
+        $deleteLanguage->deleteLanguage($language);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre langue a bien été supprimée.' );
+        return $this->forward('PMCharacterBundle:Language:list');
     }
 }

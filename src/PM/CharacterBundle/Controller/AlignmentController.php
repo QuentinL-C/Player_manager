@@ -29,11 +29,9 @@ class AlignmentController extends Controller
                 if ($form->isValid()) {
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($alignment);
-                    
                     $em->flush();
                     
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, l\'Alignement a bien été créé.' );
-           
                     return $this->redirect($this->generateUrl('pm_alignment_administration_view', array('slug' => $alignment->getSlug())));
                 }
             }
@@ -50,6 +48,10 @@ class AlignmentController extends Controller
  
         $alignment = $repository->findOneBySlug($slug);
 
+        if ($alignment === null) {
+          throw $this->createNotFoundException('Alignement : [slug='.$slug.'] inexistant.');
+        }
+        
         return $this->render('PMCharacterBundle:Alignment:view.html.twig', array(
                                 'alignment' => $alignment,
                             ));
@@ -63,6 +65,10 @@ class AlignmentController extends Controller
  
         $alignment = $repository->findOneBySlug($slug);
 
+        if ($alignment === null) {
+          throw $this->createNotFoundException('Alignement : [slug='.$slug.'] inexistant.');
+        }
+        
         $form = $this->createForm(new AlignmentEditType, $alignment);
         
         $current_user = $this->getUser();
@@ -78,7 +84,6 @@ class AlignmentController extends Controller
                     $em->flush();
 
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre alignement a bien été édité.' );
-           
                     return $this->redirect($this->generateUrl('pm_alignment_administration_view', array('slug' => $alignment->getSlug())));
                 }
             }
@@ -100,5 +105,22 @@ class AlignmentController extends Controller
         return $this->render('PMCharacterBundle:Alignment:listAlignments.html.twig', array(
                                 'listAlignments' => $listAlignments,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMCharacterBundle:Alignment');
+        $alignment = $repository->findOneBySlug($slug);
+        
+        if ($alignment === null) {
+          throw $this->createNotFoundException('Alignement : [slug='.$slug.'] inexistant.');
+        }
+        
+        $deleteAlignment = $this->container->get('pm_character.deletealignment');
+        $deleteAlignment->deleteAlignment($alignment);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre alignement a bien été supprimé.' );
+        return $this->forward('PMCharacterBundle:Alignment:list');
     }
 }
