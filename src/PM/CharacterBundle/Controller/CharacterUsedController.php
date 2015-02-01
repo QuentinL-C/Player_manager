@@ -190,11 +190,49 @@ class CharacterUsedController extends Controller
           throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
         }
         
-        $abilities = $repositoryAbility->findBy(array('characterUsed' => $characterUsed));
+        $serviceCharacterUsed = $this->container->get('pm_character.characterused');
+        //Ability :
+        $strength = $serviceCharacterUsed->getStrength($characterUsed);
+        $strengthModifier = $serviceCharacterUsed->getStrengthModifier($characterUsed);
+        $dexterity = $serviceCharacterUsed->getDexterity($characterUsed);
+        $dexterityModifier = $serviceCharacterUsed->getDexterityModifier($characterUsed);
+        $constitution = $serviceCharacterUsed->getConstitution($characterUsed);
+        $constitutionModifier = $serviceCharacterUsed->getConstitutionModifier($characterUsed);
+        $intelligence = $serviceCharacterUsed->getIntelligence($characterUsed);
+        $intelligenceModifier = $serviceCharacterUsed->getIntelligenceModifier($characterUsed);
+        $wisdom = $serviceCharacterUsed->getWisdom($characterUsed);
+        $wisdomModifier = $serviceCharacterUsed->getWisdomModifier($characterUsed);
+        $charisma = $serviceCharacterUsed->getCharisma($characterUsed);
+        $charismaModifier = $serviceCharacterUsed->getCharismaModifier($characterUsed);
+        $babs = $serviceCharacterUsed->getBAB($characterUsed);
+        $grappleModifiers = $serviceCharacterUsed->getGrappleModifier($characterUsed);
+        $ac = $serviceCharacterUsed->getAC($characterUsed);
+        $touchAC = $serviceCharacterUsed->getTouchAC($characterUsed);
+        $fFAC = $serviceCharacterUsed->getFFAC($characterUsed);
+        $fortitude = $serviceCharacterUsed->getFortitude($characterUsed);
+        $reflex = $serviceCharacterUsed->getRefLex($characterUsed);
+        $will = $serviceCharacterUsed->getWill($characterUsed);
+        $speed = $serviceCharacterUsed->getSpeed($characterUsed);
+        $initiative = $serviceCharacterUsed->getInitiativeModifier($characterUsed);
 
         return $this->render('PMCharacterBundle:CharacterUsed:view.html.twig', array(
                                 'characterUsed' => $characterUsed,
-                                'abilities' => $abilities,
+                                'strength' => $strength, 'strengthModifier' => $strengthModifier,
+                                'dexterity' => $dexterity, 'dexterityModifier' => $dexterityModifier,
+                                'constitution' => $constitution, 'constitutionModifier' => $constitutionModifier,
+                                'intelligence' => $intelligence, 'intelligenceModifier' => $intelligenceModifier,
+                                'wisdom' => $wisdom, 'wisdomModifier' => $wisdomModifier,
+                                'charisma' => $charisma, 'charismaModifier' => $charismaModifier,
+                                'babs' => $babs,
+                                'grappleModifiers' => $grappleModifiers,
+                                'ac' => $ac,
+                                'touchAC' => $touchAC,
+                                'fFAC' => $fFAC,
+                                'fortitude' => $fortitude,
+                                'reflex' => $reflex,
+                                'will' => $will,
+                                'speed' => $speed,
+                                'initiative' => $initiative
                             ));
     }
     
@@ -259,8 +297,8 @@ class CharacterUsedController extends Controller
           throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
         }
         
-        $deleteCharacterUsed = $this->container->get('pm_character.deletecharacterused');
-        $deleteCharacterUsed->deleteCharacterUsed($characterUsed);
+        $serviceCharacterUsed = $this->container->get('pm_character.characterused');
+        $serviceCharacterUsed->deleteCharacterUsed($characterUsed);
              
         $this->get('session')->getFlashBag()->add('notice', 'Le personnage a bien été supprimé.' );
         return $this->forward('PMCharacterBundle:CharacterUsed:list');

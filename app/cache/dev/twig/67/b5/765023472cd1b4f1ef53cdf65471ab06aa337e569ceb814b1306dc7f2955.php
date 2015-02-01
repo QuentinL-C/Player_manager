@@ -39,26 +39,43 @@ class __TwigTemplate_67b5765023472cd1b4f1ef53cdf65471ab06aa337e569ceb814b1306dc7
             echo "
         ";
             // line 9
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "modifier", array()), 'errors');
+            echo "
+        ";
+            // line 10
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'errors');
             echo "
     </div>
     <br />
     ";
         }
-        // line 13
+        // line 14
         echo "
     <fieldset>
         <legend>Classe :</legend>
 
         <div class=\"form-group\">
             ";
-        // line 18
+        // line 19
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Nom :"));
         echo "
             <div class=\"col-md-9\">
                 ";
-        // line 20
+        // line 21
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'widget', array("attr" => array("placeholder" => "Nom de votre taille", "class" => "form-control")));
+        echo "
+            </div>
+        </div>
+            
+        <div class=\"form-group\">
+            ";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "modifier", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Modificateur :"));
+        echo "
+            <div class=\"col-md-9\">
+                ";
+        // line 28
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "modifier", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
         </div>
@@ -66,19 +83,19 @@ class __TwigTemplate_67b5765023472cd1b4f1ef53cdf65471ab06aa337e569ceb814b1306dc7
         <hr />
     <div class=\"form-group\">
         ";
-        // line 26
+        // line 34
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Commentaire :"));
         echo "
         <div class=\"col-md-9\">
             ";
-        // line 28
+        // line 36
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'widget', array("attr" => array("placeholder" => "A propos de l'édition", "class" => "form-control")));
         echo "
         </div>
     </div>
         <br />
     ";
-        // line 32
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
     <center><input type=\"submit\" class=\"btn btn-default\" /></center>
@@ -97,6 +114,6 @@ class __TwigTemplate_67b5765023472cd1b4f1ef53cdf65471ab06aa337e569ceb814b1306dc7
 
     public function getDebugInfo()
     {
-        return array (  82 => 32,  75 => 28,  70 => 26,  61 => 20,  56 => 18,  49 => 13,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
+        return array (  99 => 40,  92 => 36,  87 => 34,  78 => 28,  73 => 26,  65 => 21,  60 => 19,  53 => 14,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
     }
 }

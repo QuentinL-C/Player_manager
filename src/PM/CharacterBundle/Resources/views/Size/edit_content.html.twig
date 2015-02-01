@@ -6,6 +6,7 @@
         <strong>Votre formulaire contient les erreurs suivantes :</strong>
         {{ form_errors(form) }}
         {{ form_errors(form.name) }}
+        {{ form_errors(form.modifier) }}
         {{ form_errors(form.updateComment) }}
     </div>
     <br />
@@ -18,6 +19,13 @@
             {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
             <div class="col-md-9">
                 {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre taille', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.modifier, "Modificateur :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.modifier, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>

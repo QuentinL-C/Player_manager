@@ -16,6 +16,7 @@ class SizeRegisterType extends AbstractType
     {
         $builder
             ->add('name',           'text',     array('required' => true))
+            ->add('modifier',       'integer',  array('required' => true))
         ;
     }
     

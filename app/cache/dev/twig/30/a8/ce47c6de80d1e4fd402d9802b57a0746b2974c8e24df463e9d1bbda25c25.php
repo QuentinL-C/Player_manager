@@ -175,27 +175,34 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
                 <li role=\"presentation\" class=\"active\"><a href=\"#home\" aria-controls=\"home\" role=\"tab\" data-toggle=\"tab\">Présentation</a></li>
                 <li role=\"presentation\"><a href=\"#rp\" aria-controls=\"rp\" role=\"tab\" data-toggle=\"tab\">Role Play</a></li>
                 <li role=\"presentation\"><a href=\"#skills\" aria-controls=\"skills\" role=\"tab\" data-toggle=\"tab\">Compétences</a></li>
+                <li role=\"presentation\"><a href=\"#statistics\" aria-controls=\"statistics\" role=\"tab\" data-toggle=\"tab\">Statistiques</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class=\"tab-content\">
                 <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">
                     ";
-        // line 66
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_home.html.twig")->display($context);
         // line 67
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_home.html.twig")->display($context);
+        // line 68
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"rp\">
                     ";
-        // line 69
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
         // line 70
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
+        // line 71
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"skills\">
                     ";
-        // line 72
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_skills.html.twig")->display($context);
         // line 73
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_skills.html.twig")->display($context);
+        // line 74
+        echo "                </div>
+                <div role=\"tabpanel\" class=\"tab-pane\" id=\"statistics\">
+                    ";
+        // line 76
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_statistics.html.twig")->display($context);
+        // line 77
         echo "                </div>
             </div>
         </div>
@@ -216,6 +223,6 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
 
     public function getDebugInfo()
     {
-        return array (  199 => 73,  197 => 72,  193 => 70,  191 => 69,  187 => 67,  185 => 66,  164 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  206 => 77,  204 => 76,  200 => 74,  198 => 73,  194 => 71,  192 => 70,  188 => 68,  186 => 67,  164 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

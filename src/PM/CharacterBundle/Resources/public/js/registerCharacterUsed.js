@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    //Merci OC pour le code ^^:
-    var $container = $('div#pm_characterbundle_characterused_register_classDnDInstances'); //-> Changer div en table pour mettre en place le theme
+    var $container = $('div#pm_characterbundle_characterused_register_classDnDInstances');
                      $('div#pm_characterbundle_characterused_register_classDnDInstances').prev().hide();
     
     var index = $container.find(':input').length;

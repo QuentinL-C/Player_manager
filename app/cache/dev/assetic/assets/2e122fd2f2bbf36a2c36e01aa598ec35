@@ -1,0 +1,94 @@
+$(document).ready(function() {
+    var container = $('div#form_babs');
+                    $('div#form_babs').prev().hide();
+                    
+    var addLink = $('<div class="pull-right"><a href="#" id="add_babs" class="btn btn-default">Ajouter un BAB</a></div>');
+                    alert('coucou');
+    var addCaption = $('<caption>Tableau des Bonus de Base à l\'Attaque</caption>');
+    
+                    alert('coucou');
+    var addTh = $('\
+                    <tr>\n\
+                        <th>Classe</th>\n\
+                        <th>Niveau</th>\n\
+                        <th>N° Attaque</th>\n\
+                        <th>Valeur</th>\n\
+                    </tr>');
+    
+                    alert('coucou');
+
+    var containerId = container.attr('id'),
+        containerDataPrototype = container.attr('data-prototype');
+    
+    
+    container.replaceWith('<table id="' + containerId + '" data-prototype="' + containerDataPrototype + '" class="table">'+container.html()+'</table>');
+    container.append(addCaption);
+    addCaption.prepend(addLink);
+    container.append(addTh);
+    
+    addLink.click(function(e) {
+        addBab(container);
+        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        return false;
+    });
+
+    var index = container.find(':input').length;
+    if (index == 0) {
+        addBab(container);
+    } else {
+        container.children('div').each(function() {
+            addDeleteLink($(this));
+        });
+    }
+
+    function addBab(container) {
+        var prototype = $(container.attr('data-prototype').replace(/__name__label__/g, 'BAB n°' + (index+1))
+            .replace(/__name__/g, index));
+        container.append(prototype);
+        
+        var div_classdndinstances_X = $('div#form_babs_' + index),
+            select_class = $('select#form_babs_' + index + '_classDnD').html();
+        
+        var new_container = '\n\
+            <tr>\n\
+                <td>\n\
+                    <label class="required" for="form_babs_' + index + '_classDnD">Classe :</label>\n\
+                    <select id="form_bas_' + index + '_classDnD" required="required" name="form[babs][' + index + '][classDnD]">\n\
+                        ' + select_class + '\n\
+                    </select>\n\
+                </td>\n\
+                <td>\n\
+                    <label class="required" for="form_babs_' + index + '_lvl">Niveau :</label>\n\
+                    <input id="form_babs_' + index + '_lvl" required="required" name="form[babs][' + index + '][lvl]"></input>\n\
+                </td>\n\
+                <td>\n\
+                    <label class="required" for="form_babs_' + index + '_attackNb">Nb° Attaque :</label>\n\
+                    <input id="form_babs_' + index + '_attackNb" required="required" name="form[babs][' + index + '][attackNb]"></input>\n\
+                </td>\n\
+                <td>\n\
+                    <label class="required" for="form_babs_' + index + '_value">Valeur :</label>\n\
+                    <input id="form_babs_' + index + '_value" required="required" name="form[babs][' + index + '][value]"></input>\n\
+                </td>\n\
+                <td id="delete_link_' + index + '"></td>\n\
+            </tr>';
+        
+        div_classdndinstances_X.html(new_container);
+        $('div#form_babs_' + index).prev().hide();
+        
+        addDeleteLink(index, prototype);
+        index++;
+    }
+
+    function addDeleteLink(index, prototype) {
+        var deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+        
+        $('[id="delete_link_' + index + '"]').append(deleteLink);
+        
+        
+        deleteLink.click(function(e) {
+            prototype.remove();
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+            return false;
+        });
+    }
+});

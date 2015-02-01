@@ -1,13 +1,76 @@
 {# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_home.html.twig #}
-<table class="table table-bordered">
-    <caption>Caractéristiques :</caption>
-    {% for ability in abilities %}
-        {% if ability.type == 1 %}<tr><th>Force</th><td>{{ability.value}}</td></tr>
-        {% elseif ability.type == 2 %}<tr><th>Dexterité</th><td>{{ability.value}}</td></tr>
-        {% elseif ability.type == 3 %}<tr><th>Constitution</th><td>{{ability.value}}</td></tr>
-        {% elseif ability.type == 4 %}<tr><th>Intelligence</th><td>{{ability.value}}</td></tr>
-        {% elseif ability.type == 5 %}<tr><th>Sagesse</th><td>{{ability.value}}</td></tr>
-        {% elseif ability.type == 6 %}<tr><th>Charisme</th><td>{{ability.value}}</td></tr>
-        {% endif%}
-    {% endfor %}
-</table>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+            <caption>Caractéristiques :</caption>
+            <thead>
+                <tr>
+                    <th>Caractéristiques</th>
+                    <th>Mod.</th>
+                    <th>Détail</th>
+                </tr>
+            </thead>
+            <tr>
+                <th>Force : </th>
+                <td>{{strengthModifier}}</td>
+                <td>{{strength}}</td>
+            </tr>
+            <tr>
+                <th>Dextérité : </th>
+                <td>{{dexterityModifier}}</td>
+                <td>{{dexterity}}</td>
+            </tr>
+            <tr>
+                <th>Constitution : </th>
+                <td>{{constitutionModifier}}</td>
+                <td>{{constitution}}</td>
+            </tr>
+            <tr>
+                <th>Intelligence : </th>
+                <td>{{intelligenceModifier}}</td>
+                <td>{{intelligence}}</td>
+            </tr>
+            <tr>
+                <th>Sagesse : </th>
+                <td>{{wisdomModifier}}</td>
+                <td>{{wisdom}}</td>
+            </tr>
+            <tr>
+                <th>Charisme : </th>
+                <td>{{charismaModifier}}</td>
+                <td>{{charisma}}</td>
+            </tr>
+        </table>
+    </div>
+        
+    <div class="col-md-6">
+        BBA : 
+        {% for bab in babs %}
+            {{bab.value}}
+        {% endfor %}<br />
+        Mod. Lutte :
+        {% for grappleModifier in grappleModifiers %}
+            {{grappleModifier}}
+        {% endfor %}<br />
+        CA : {{ac}}<br />
+        CA de Contact : {{touchAC}}<br />
+        CA de pris au dépourvu : {{fFAC}}<br />
+        Vitesse : {{speed}}<br />
+        Initiative : {{initiative}}<br />
+        <table class="table table-bordered">
+            <caption>Jets de Sauvegarde</caption>
+            <tr>
+                <td>Réflex</td>
+                <td>{{fortitude}}</td>
+            </tr>
+            <tr>
+                <td>Vigueur</td>
+                <td>{{reflex}}</td>
+            </tr>
+            <tr>
+                <td>Volonté</td>
+                <td>{{will}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

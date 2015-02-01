@@ -64,10 +64,10 @@ class Size extends \PM\CharacterBundle\Entity\Size implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'modifier', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Size' . "\0" . 'modifier', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
     }
 
     /**
@@ -340,6 +340,28 @@ class Size extends \PM\CharacterBundle\Entity\Size implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
 
         return parent::getSlug();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setModifier($modifier)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setModifier', array($modifier));
+
+        return parent::setModifier($modifier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getModifier()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModifier', array());
+
+        return parent::getModifier();
     }
 
 }

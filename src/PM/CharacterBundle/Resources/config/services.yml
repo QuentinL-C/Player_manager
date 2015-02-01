@@ -1,7 +1,7 @@
 services:
-    pm_character.deletecharacterused:
-        class: PM\CharacterBundle\Service\deleteCharacterUsed
-        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+    pm_character.characterused:
+        class: PM\CharacterBundle\Service\characterUsed
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context", "@pm_character.modifier"]
         
     pm_character.deletealignment:
         class: PM\CharacterBundle\Service\deleteAlignment
@@ -25,4 +25,8 @@ services:
         
     pm_character.deletesize:
         class: PM\CharacterBundle\Service\deleteSize
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.modifier:
+        class: PM\CharacterBundle\Service\modifier
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

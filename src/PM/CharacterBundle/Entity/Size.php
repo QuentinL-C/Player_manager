@@ -49,6 +49,13 @@ class Size
     private $slug;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="modifier", type="smallint", nullable=false)
+     */
+    private $modifier;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -257,5 +264,28 @@ class Size
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set modifier
+     *
+     * @param integer $modifier
+     * @return Size
+     */
+    public function setModifier($modifier)
+    {
+        $this->modifier = $modifier;
+
+        return $this;
+    }
+
+    /**
+     * Get modifier
+     *
+     * @return integer 
+     */
+    public function getModifier()
+    {
+        return $this->modifier;
     }
 }

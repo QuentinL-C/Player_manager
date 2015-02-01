@@ -113,7 +113,12 @@ class __TwigTemplate_7ad1cd533e0ea0cd45156c17f854ace8a6060edece950c9593047de4aed
         // line 32
         echo "        
         <div class=\"row\">
-            <p>Futur blabla</p>
+            <ul>
+                <li>Modificateur de taille : ";
+        // line 35
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["size"]) ? $context["size"] : $this->getContext($context, "size")), "modifier", array()), "html", null, true);
+        echo "</li>
+            </ul>
         </div>
     </section>
 </div>
@@ -132,6 +137,6 @@ class __TwigTemplate_7ad1cd533e0ea0cd45156c17f854ace8a6060edece950c9593047de4aed
 
     public function getDebugInfo()
     {
-        return array (  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  119 => 35,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }
