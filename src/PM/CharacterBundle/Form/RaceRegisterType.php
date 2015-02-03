@@ -37,6 +37,12 @@ class RaceRegisterType extends AbstractType
                                                           'required' => false,
                                                           'empty_value' => 'Langues',
                                                           'empty_data'  => null))
+            ->add('strength',           'integer',  array('required' => true, 'mapped' => false))
+            ->add('dexterity',          'integer',  array('required' => true, 'mapped' => false))
+            ->add('constitution',       'integer',  array('required' => true, 'mapped' => false))
+            ->add('intelligence',       'integer',  array('required' => true, 'mapped' => false))
+            ->add('wisdom',             'integer',  array('required' => true, 'mapped' => false))
+            ->add('charisma',           'integer',  array('required' => true, 'mapped' => false))
         ;
     }
     

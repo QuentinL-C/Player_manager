@@ -110,6 +110,12 @@ class Race
     private $hpModifier;
 
     /**
+     * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\RaceAbility", mappedBy="race")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $abilities;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -155,6 +161,7 @@ class Race
     {
         $this->predilectionClass = New ArrayCollection();
         $this->languages = New ArrayCollection();
+        $this->abilities = New ArrayCollection();
     }
 
 
@@ -501,5 +508,39 @@ class Race
     public function getHpModifier()
     {
         return $this->hpModifier;
+    }
+
+    /**
+     * Add abilities
+     *
+     * @param \PM\CharacterBundle\Entity\RaceAbility $ability
+     * @return Race
+     */
+    public function addAbility(\PM\CharacterBundle\Entity\RaceAbility $ability)
+    {
+        $this->abilities[] = $ability;
+        $ability->setRace($this);
+
+        return $this;
+    }
+
+    /**
+     * Get abilities
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAbilities()
+    {
+        return $this->abilities;
+    }
+
+    /**
+     * Remove ability
+     *
+     * @param \PM\CharacterBundle\Entity\RaceAbility $ability
+     */
+    public function removeClassDnDInstance(\PM\CharacterBundle\Entity\RaceAbility $ability)
+    {
+        $this->abilities->removeElement($ability);
     }
 }

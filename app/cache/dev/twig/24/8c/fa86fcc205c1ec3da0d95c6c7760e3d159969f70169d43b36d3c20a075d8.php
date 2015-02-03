@@ -67,25 +67,29 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
             echo "
         ";
             // line 16
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilities", array()), 'errors');
+            echo "
+        ";
+            // line 17
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'errors');
             echo "
     </div>
     <br />
     ";
         }
-        // line 20
+        // line 21
         echo "
     <fieldset>
         <legend>Classe :</legend>
 
         <div class=\"form-group\">
             ";
-        // line 25
+        // line 26
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Nom :"));
         echo "
             <div class=\"col-md-9\">
                 ";
-        // line 27
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name", array()), 'widget', array("attr" => array("placeholder" => "Nom de votre race", "class" => "form-control")));
         echo "
             </div>
@@ -95,13 +99,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
             <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La description de votre race sera utilisée comme texte descriptif de ce dernier sur sa page publique, accessible à tous.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 34
+        // line 35
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Description :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 37
+        // line 38
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description", array()), 'widget', array("attr" => array("class" => "form-control", "rows" => "9")));
         echo "
             </div>
@@ -111,13 +115,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 44
+        // line 45
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "size", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Taille :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 47
+        // line 48
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "size", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -127,13 +131,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 54
+        // line 55
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "speed", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Vitesse :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 57
+        // line 58
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "speed", array()), 'widget', array("Vitesse" => array("class" => "form-control")));
         echo "
             </div>
@@ -143,13 +147,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 64
+        // line 65
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "skillModifier", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Modificateur de Points de Compétences :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 67
+        // line 68
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "skillModifier", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -159,13 +163,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 74
+        // line 75
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "hpModifier", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Modificateur de PV :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 77
+        // line 78
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "hpModifier", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -175,13 +179,13 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 84
+        // line 85
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "predilectionClass", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Classes de Prédilection :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 87
+        // line 88
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "predilectionClass", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
@@ -191,34 +195,46 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
            <div class=\"col-md-3 control-label\">
                 <span class=\"glyphicon glyphicon-question-sign\" style=\"cursor: pointer;\" data-content=\"La taille de votre race doit être inscrite sous la forme d'un dénominateur.\" data-toggle=\"popover\" data-container=\"body\" data-original-title=\"Description\" ></span>
                 ";
-        // line 94
+        // line 95
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "languages", array()), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Langues parlées :"));
         echo "
             </div>
             <div class=\"col-md-9\">
                 ";
-        // line 97
+        // line 98
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "languages", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
         </div>
     </fieldset>
+            
+    <fieldset>
+        <legend>Modificateurs de Caractéristiques :</legend>
+
+        <div class=\"form-group\">
+            ";
+        // line 107
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilities", array()), 'row');
+        echo "
+            
+        </div>
+    </fieldset>
         <hr />
     <div class=\"form-group\">
         ";
-        // line 103
+        // line 113
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Commentaire :"));
         echo "
         <div class=\"col-md-9\">
             ";
-        // line 105
+        // line 115
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'widget', array("attr" => array("placeholder" => "A propos de l'édition", "class" => "form-control")));
         echo "
         </div>
     </div>
         <br />
     ";
-        // line 109
+        // line 119
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
     <center><input type=\"submit\" class=\"btn btn-default\" /></center>
@@ -237,6 +253,6 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
 
     public function getDebugInfo()
     {
-        return array (  222 => 109,  215 => 105,  210 => 103,  201 => 97,  195 => 94,  185 => 87,  179 => 84,  169 => 77,  163 => 74,  153 => 67,  147 => 64,  137 => 57,  131 => 54,  121 => 47,  115 => 44,  105 => 37,  99 => 34,  89 => 27,  84 => 25,  77 => 20,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
+        return array (  238 => 119,  231 => 115,  226 => 113,  217 => 107,  205 => 98,  199 => 95,  189 => 88,  183 => 85,  173 => 78,  167 => 75,  157 => 68,  151 => 65,  141 => 58,  135 => 55,  125 => 48,  119 => 45,  109 => 38,  103 => 35,  93 => 28,  88 => 26,  81 => 21,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
     }
 }

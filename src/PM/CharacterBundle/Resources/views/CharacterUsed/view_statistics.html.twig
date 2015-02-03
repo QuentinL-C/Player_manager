@@ -6,9 +6,11 @@
         <li>Par <a href="{{path('pm_user_view', {'user_id': characterUsed.createUser.id})}}">{{characterUsed.createUser.username}}</a></li>
         <li>le {{characterUsed.createDate|date("d M Y")}}</li>
     </ul>
+    {% if characterUsed.updateUser is not null %}
     <li>Dernière modification :</li>
     <ul>
         <li>Par <a href="{{path('pm_user_view', {'user_id': characterUsed.updateUser.id})}}">{{characterUsed.updateUser.username}}</a></li>
         <li>le {{characterUsed.updateDate|date("d M Y")}}</li>
     </ul>
+    {% endif %}
 </ul>

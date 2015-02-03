@@ -129,7 +129,7 @@ class CharacterUsedController extends Controller
             $abilities[5]->setValue($data['charisma']); $em->persist($abilities[5]);
             $em->flush();
                     
-            $this->get('session')->getFlashBag()->add('notice', 'Félicitations, les caractéristiques de votre personnage ont bien été mmises à jour.' );
+            $this->get('session')->getFlashBag()->add('notice', 'Félicitations, les caractéristiques de votre personnage ont bien été mises à jour.' );
             //Renvoie vers la page de gestion des Caractéristiques :
             return $this->redirect($this->generateUrl('pm_characterused_administration_insert_skills', array('slug' => $characterUsed->getSlug())));
         }
@@ -190,39 +190,25 @@ class CharacterUsedController extends Controller
           throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
         }
         
-        $serviceCharacterUsed = $this->container->get('pm_character.characterused');
+        $serviceCharacterUsedDnD = $this->container->get('pm_character.characteruseddnd');
+        $serviceCharacterUsedAbility = $this->container->get('pm_character.characterusedability');
+        $serviceCharacterUsedST = $this->container->get('pm_character.characterusedst');
         //Ability :
-        $strength = $serviceCharacterUsed->getStrength($characterUsed);
-        $strengthModifier = $serviceCharacterUsed->getStrengthModifier($characterUsed);
-        $dexterity = $serviceCharacterUsed->getDexterity($characterUsed);
-        $dexterityModifier = $serviceCharacterUsed->getDexterityModifier($characterUsed);
-        $constitution = $serviceCharacterUsed->getConstitution($characterUsed);
-        $constitutionModifier = $serviceCharacterUsed->getConstitutionModifier($characterUsed);
-        $intelligence = $serviceCharacterUsed->getIntelligence($characterUsed);
-        $intelligenceModifier = $serviceCharacterUsed->getIntelligenceModifier($characterUsed);
-        $wisdom = $serviceCharacterUsed->getWisdom($characterUsed);
-        $wisdomModifier = $serviceCharacterUsed->getWisdomModifier($characterUsed);
-        $charisma = $serviceCharacterUsed->getCharisma($characterUsed);
-        $charismaModifier = $serviceCharacterUsed->getCharismaModifier($characterUsed);
-        $babs = $serviceCharacterUsed->getBAB($characterUsed);
-        $grappleModifiers = $serviceCharacterUsed->getGrappleModifier($characterUsed);
-        $ac = $serviceCharacterUsed->getAC($characterUsed);
-        $touchAC = $serviceCharacterUsed->getTouchAC($characterUsed);
-        $fFAC = $serviceCharacterUsed->getFFAC($characterUsed);
-        $fortitude = $serviceCharacterUsed->getFortitude($characterUsed);
-        $reflex = $serviceCharacterUsed->getRefLex($characterUsed);
-        $will = $serviceCharacterUsed->getWill($characterUsed);
-        $speed = $serviceCharacterUsed->getSpeed($characterUsed);
-        $initiative = $serviceCharacterUsed->getInitiativeModifier($characterUsed);
+        $abilities = $serviceCharacterUsedAbility->getAbilities($characterUsed);
+        $babs = $serviceCharacterUsedDnD->getBAB($characterUsed);
+        $grappleModifiers = $serviceCharacterUsedDnD->getGrappleModifier($characterUsed);
+        $ac = $serviceCharacterUsedDnD->getAC($characterUsed);
+        $touchAC = $serviceCharacterUsedDnD->getTouchAC($characterUsed);
+        $fFAC = $serviceCharacterUsedDnD->getFFAC($characterUsed);
+        $fortitude = $serviceCharacterUsedST->getFortitude($characterUsed);
+        $reflex = $serviceCharacterUsedST->getRefLex($characterUsed);
+        $will = $serviceCharacterUsedST->getWill($characterUsed);
+        $speed = $serviceCharacterUsedDnD->getSpeed($characterUsed);
+        $initiative = $serviceCharacterUsedDnD->getInitiativeModifier($characterUsed);
 
         return $this->render('PMCharacterBundle:CharacterUsed:view.html.twig', array(
                                 'characterUsed' => $characterUsed,
-                                'strength' => $strength, 'strengthModifier' => $strengthModifier,
-                                'dexterity' => $dexterity, 'dexterityModifier' => $dexterityModifier,
-                                'constitution' => $constitution, 'constitutionModifier' => $constitutionModifier,
-                                'intelligence' => $intelligence, 'intelligenceModifier' => $intelligenceModifier,
-                                'wisdom' => $wisdom, 'wisdomModifier' => $wisdomModifier,
-                                'charisma' => $charisma, 'charismaModifier' => $charismaModifier,
+                                'abilities' => $abilities,
                                 'babs' => $babs,
                                 'grappleModifiers' => $grappleModifiers,
                                 'ac' => $ac,
@@ -297,8 +283,8 @@ class CharacterUsedController extends Controller
           throw $this->createNotFoundException('Personnage : [slug='.$slug.'] inexistant.');
         }
         
-        $serviceCharacterUsed = $this->container->get('pm_character.characterused');
-        $serviceCharacterUsed->deleteCharacterUsed($characterUsed);
+        $serviceCharacterUsedAction = $this->container->get('pm_character.characterusedaction');
+        $serviceCharacterUsedAction->deleteCharacterUsed($characterUsed);
              
         $this->get('session')->getFlashBag()->add('notice', 'Le personnage a bien été supprimé.' );
         return $this->forward('PMCharacterBundle:CharacterUsed:list');

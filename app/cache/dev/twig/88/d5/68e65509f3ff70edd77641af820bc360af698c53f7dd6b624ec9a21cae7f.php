@@ -27,83 +27,106 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
                     <th>Détail</th>
                 </tr>
             </thead>
-            <tr>
-                <th>Force : </th>
-                <td>";
-        // line 15
-        echo twig_escape_filter($this->env, (isset($context["strengthModifier"]) ? $context["strengthModifier"] : $this->getContext($context, "strengthModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 16
-        echo twig_escape_filter($this->env, (isset($context["strength"]) ? $context["strength"] : $this->getContext($context, "strength")), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Dextérité : </th>
-                <td>";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["dexterityModifier"]) ? $context["dexterityModifier"] : $this->getContext($context, "dexterityModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 21
-        echo twig_escape_filter($this->env, (isset($context["dexterity"]) ? $context["dexterity"] : $this->getContext($context, "dexterity")), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Constitution : </th>
-                <td>";
-        // line 25
-        echo twig_escape_filter($this->env, (isset($context["constitutionModifier"]) ? $context["constitutionModifier"] : $this->getContext($context, "constitutionModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 26
-        echo twig_escape_filter($this->env, (isset($context["constitution"]) ? $context["constitution"] : $this->getContext($context, "constitution")), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Intelligence : </th>
-                <td>";
-        // line 30
-        echo twig_escape_filter($this->env, (isset($context["intelligenceModifier"]) ? $context["intelligenceModifier"] : $this->getContext($context, "intelligenceModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 31
-        echo twig_escape_filter($this->env, (isset($context["intelligence"]) ? $context["intelligence"] : $this->getContext($context, "intelligence")), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Sagesse : </th>
-                <td>";
-        // line 35
-        echo twig_escape_filter($this->env, (isset($context["wisdomModifier"]) ? $context["wisdomModifier"] : $this->getContext($context, "wisdomModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 36
-        echo twig_escape_filter($this->env, (isset($context["wisdom"]) ? $context["wisdom"] : $this->getContext($context, "wisdom")), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Charisme : </th>
-                <td>";
-        // line 40
-        echo twig_escape_filter($this->env, (isset($context["charismaModifier"]) ? $context["charismaModifier"] : $this->getContext($context, "charismaModifier")), "html", null, true);
-        echo "</td>
-                <td>";
-        // line 41
-        echo twig_escape_filter($this->env, (isset($context["charisma"]) ? $context["charisma"] : $this->getContext($context, "charisma")), "html", null, true);
-        echo "</td>
-            </tr>
-        </table>
+            ";
+        // line 13
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["abilities"]) ? $context["abilities"] : $this->getContext($context, "abilities")));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["ability"]) {
+            // line 14
+            echo "                ";
+            if (($this->getAttribute($context["loop"], "index", array()) == 1)) {
+                echo "<tr><th>Force</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            } elseif (($this->getAttribute(            // line 15
+$context["loop"], "index", array()) == 2)) {
+                echo "<tr><th>Dextérité</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            } elseif (($this->getAttribute(            // line 16
+$context["loop"], "index", array()) == 3)) {
+                echo "<tr><th>Constitution</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            } elseif (($this->getAttribute(            // line 17
+$context["loop"], "index", array()) == 4)) {
+                echo "<tr><th>Intelligence</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            } elseif (($this->getAttribute(            // line 18
+$context["loop"], "index", array()) == 5)) {
+                echo "<tr><th>Sagesse</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            } elseif (($this->getAttribute(            // line 19
+$context["loop"], "index", array()) == 6)) {
+                echo "<tr><th>Charisme</th><td>";
+                if (($context["ability"] >= 0)) {
+                    echo "+";
+                }
+                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo "</td></tr>
+                ";
+            }
+            // line 21
+            echo "            ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ability'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 22
+        echo "        </table>
     </div>
         
     <div class=\"col-md-6\">
         BBA : 
         ";
-        // line 48
+        // line 27
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["babs"]) ? $context["babs"] : $this->getContext($context, "babs")));
         foreach ($context['_seq'] as $context["_key"] => $context["bab"]) {
-            // line 49
+            // line 28
             echo "            ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["bab"], "value", array()), "html", null, true);
             echo "
@@ -112,15 +135,15 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bab'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 50
+        // line 29
         echo "<br />
         Mod. Lutte :
         ";
-        // line 52
+        // line 31
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["grappleModifiers"]) ? $context["grappleModifiers"] : $this->getContext($context, "grappleModifiers")));
         foreach ($context['_seq'] as $context["_key"] => $context["grappleModifier"]) {
-            // line 53
+            // line 32
             echo "            ";
             echo twig_escape_filter($this->env, $context["grappleModifier"], "html", null, true);
             echo "
@@ -129,26 +152,26 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['grappleModifier'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 33
         echo "<br />
         CA : ";
-        // line 55
+        // line 34
         echo twig_escape_filter($this->env, (isset($context["ac"]) ? $context["ac"] : $this->getContext($context, "ac")), "html", null, true);
         echo "<br />
         CA de Contact : ";
-        // line 56
+        // line 35
         echo twig_escape_filter($this->env, (isset($context["touchAC"]) ? $context["touchAC"] : $this->getContext($context, "touchAC")), "html", null, true);
         echo "<br />
         CA de pris au dépourvu : ";
-        // line 57
+        // line 36
         echo twig_escape_filter($this->env, (isset($context["fFAC"]) ? $context["fFAC"] : $this->getContext($context, "fFAC")), "html", null, true);
         echo "<br />
         Vitesse : ";
-        // line 58
+        // line 37
         echo twig_escape_filter($this->env, (isset($context["speed"]) ? $context["speed"] : $this->getContext($context, "speed")), "html", null, true);
         echo "<br />
         Initiative : ";
-        // line 59
+        // line 38
         echo twig_escape_filter($this->env, (isset($context["initiative"]) ? $context["initiative"] : $this->getContext($context, "initiative")), "html", null, true);
         echo "<br />
         <table class=\"table table-bordered\">
@@ -156,21 +179,21 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
             <tr>
                 <td>Réflex</td>
                 <td>";
-        // line 64
+        // line 43
         echo twig_escape_filter($this->env, (isset($context["fortitude"]) ? $context["fortitude"] : $this->getContext($context, "fortitude")), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <td>Vigueur</td>
                 <td>";
-        // line 68
+        // line 47
         echo twig_escape_filter($this->env, (isset($context["reflex"]) ? $context["reflex"] : $this->getContext($context, "reflex")), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <td>Volonté</td>
                 <td>";
-        // line 72
+        // line 51
         echo twig_escape_filter($this->env, (isset($context["will"]) ? $context["will"] : $this->getContext($context, "will")), "html", null, true);
         echo "</td>
             </tr>
@@ -191,6 +214,6 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
 
     public function getDebugInfo()
     {
-        return array (  174 => 72,  167 => 68,  160 => 64,  152 => 59,  148 => 58,  144 => 57,  140 => 56,  136 => 55,  133 => 54,  124 => 53,  120 => 52,  116 => 50,  107 => 49,  103 => 48,  93 => 41,  89 => 40,  82 => 36,  78 => 35,  71 => 31,  67 => 30,  60 => 26,  56 => 25,  49 => 21,  45 => 20,  38 => 16,  34 => 15,  19 => 2,);
+        return array (  197 => 51,  190 => 47,  183 => 43,  175 => 38,  171 => 37,  167 => 36,  163 => 35,  159 => 34,  156 => 33,  147 => 32,  143 => 31,  139 => 29,  130 => 28,  126 => 27,  119 => 22,  105 => 21,  95 => 19,  86 => 18,  77 => 17,  68 => 16,  59 => 15,  49 => 14,  32 => 13,  19 => 2,);
     }
 }

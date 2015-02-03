@@ -64,10 +64,10 @@ class Race extends \PM\CharacterBundle\Entity\Race implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'size', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'speed', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'skillModifier', 'predilectionClass', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'languages', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'hpModifier', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'size', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'speed', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'skillModifier', 'predilectionClass', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'languages', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'hpModifier', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'abilities', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'size', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'speed', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'skillModifier', 'predilectionClass', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'languages', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'hpModifier', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'size', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'speed', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'skillModifier', 'predilectionClass', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'languages', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'hpModifier', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Race' . "\0" . 'abilities', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
     }
 
     /**
@@ -505,6 +505,39 @@ class Race extends \PM\CharacterBundle\Entity\Race implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHpModifier', array());
 
         return parent::getHpModifier();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addAbility(\PM\CharacterBundle\Entity\RaceAbility $ability)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAbility', array($ability));
+
+        return parent::addAbility($ability);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAbilities()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAbilities', array());
+
+        return parent::getAbilities();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeClassDnDInstance(\PM\CharacterBundle\Entity\RaceAbility $ability)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeClassDnDInstance', array($ability));
+
+        return parent::removeClassDnDInstance($ability);
     }
 
 }

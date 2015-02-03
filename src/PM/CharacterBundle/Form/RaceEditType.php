@@ -17,6 +17,15 @@ class RaceEditType extends RaceRegisterType
         parent::buildForm($builder, $options);
         
         $builder
+            ->remove('strength')
+            ->remove('dexterity')
+            ->remove('constitution')
+            ->remove('intelligence')
+            ->remove('wisdom')
+            ->remove('charisma')
+            ->add('abilities',     'collection',   array(  'type' => new RaceAbilityType(),
+                                                        'allow_add'    => false,
+                                                        'allow_delete' => false))
             ->add('updateComment',    'text',   array('required' => false))
         ;
     }

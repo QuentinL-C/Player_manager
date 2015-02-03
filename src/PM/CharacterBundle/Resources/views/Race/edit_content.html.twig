@@ -13,6 +13,7 @@
         {{ form_errors(form.predilectionClass) }}
         {{ form_errors(form.languages) }}
         {{ form_errors(form.hpModifier) }}
+        {{ form_errors(form.abilities) }}
         {{ form_errors(form.updateComment) }}
     </div>
     <br />
@@ -96,6 +97,14 @@
             <div class="col-md-9">
                 {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }}
             </div>
+        </div>
+    </fieldset>
+            
+    <fieldset>
+        <legend>Modificateurs de Caractéristiques :</legend>
+
+        <div class="form-group">
+            {{ form_row(form.abilities) }}
         </div>
     </fieldset>
         <hr />

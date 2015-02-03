@@ -31,20 +31,27 @@ class __TwigTemplate_c1c8643912fe8cc57ae6d57915df01d12e5164191d0ea8a5c704326c8fe
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "createDate", array()), "d M Y"), "html", null, true);
         echo "</li>
     </ul>
-    <li>Dernière modification :</li>
+    ";
+        // line 9
+        if ( !(null === $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()))) {
+            // line 10
+            echo "    <li>Dernière modification :</li>
     <ul>
         <li>Par <a href=\"";
-        // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "id", array()))), "html", null, true);
-        echo "\">";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "username", array()), "html", null, true);
-        echo "</a></li>
+            // line 12
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "id", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "username", array()), "html", null, true);
+            echo "</a></li>
         <li>le ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateDate", array()), "d M Y"), "html", null, true);
-        echo "</li>
+            // line 13
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateDate", array()), "d M Y"), "html", null, true);
+            echo "</li>
     </ul>
-</ul>";
+    ";
+        }
+        // line 16
+        echo "</ul>";
     }
 
     public function getTemplateName()
@@ -59,6 +66,6 @@ class __TwigTemplate_c1c8643912fe8cc57ae6d57915df01d12e5164191d0ea8a5c704326c8fe
 
     public function getDebugInfo()
     {
-        return array (  44 => 12,  38 => 11,  31 => 7,  25 => 6,  19 => 2,);
+        return array (  54 => 16,  48 => 13,  42 => 12,  38 => 10,  36 => 9,  31 => 7,  25 => 6,  19 => 2,);
     }
 }

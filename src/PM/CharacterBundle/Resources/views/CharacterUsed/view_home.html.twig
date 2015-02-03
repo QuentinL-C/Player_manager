@@ -10,36 +10,15 @@
                     <th>Détail</th>
                 </tr>
             </thead>
-            <tr>
-                <th>Force : </th>
-                <td>{{strengthModifier}}</td>
-                <td>{{strength}}</td>
-            </tr>
-            <tr>
-                <th>Dextérité : </th>
-                <td>{{dexterityModifier}}</td>
-                <td>{{dexterity}}</td>
-            </tr>
-            <tr>
-                <th>Constitution : </th>
-                <td>{{constitutionModifier}}</td>
-                <td>{{constitution}}</td>
-            </tr>
-            <tr>
-                <th>Intelligence : </th>
-                <td>{{intelligenceModifier}}</td>
-                <td>{{intelligence}}</td>
-            </tr>
-            <tr>
-                <th>Sagesse : </th>
-                <td>{{wisdomModifier}}</td>
-                <td>{{wisdom}}</td>
-            </tr>
-            <tr>
-                <th>Charisme : </th>
-                <td>{{charismaModifier}}</td>
-                <td>{{charisma}}</td>
-            </tr>
+            {% for ability in abilities %}
+                {% if loop.index == 1 %}<tr><th>Force</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% elseif loop.index == 2 %}<tr><th>Dextérité</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% elseif loop.index == 3 %}<tr><th>Constitution</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% elseif loop.index == 4 %}<tr><th>Intelligence</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% elseif loop.index == 5 %}<tr><th>Sagesse</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% elseif loop.index == 6 %}<tr><th>Charisme</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+                {% endif %}
+            {% endfor %}
         </table>
     </div>
         
