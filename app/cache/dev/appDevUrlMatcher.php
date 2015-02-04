@@ -574,6 +574,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
+                if (0 === strpos($pathinfo, '/administration/caractéristique')) {
+                    // pm_ability_administration_homepage
+                    if ($pathinfo === '/administration/caractéristique') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::indexAction',  '_route' => 'pm_ability_administration_homepage',);
+                    }
+
+                    // pm_ability_administration_insert
+                    if ($pathinfo === '/administration/caractéristique/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::registerAction',  '_route' => 'pm_ability_administration_insert',);
+                    }
+
+                    // pm_ability_administration_list
+                    if ($pathinfo === '/administration/caractéristique/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::listAction',  '_route' => 'pm_ability_administration_list',);
+                    }
+
+                    // pm_ability_administration_view
+                    if (0 === strpos($pathinfo, '/administration/caractéristique/vue') && preg_match('#^/administration/caractéristique/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_ability_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::viewAction',));
+                    }
+
+                    // pm_ability_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/caractéristique/editer') && preg_match('#^/administration/caractéristique/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_ability_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::editAction',));
+                    }
+
+                    // pm_ability_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/caractéristique/supprimer') && preg_match('#^/administration/caractéristique/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_ability_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\AbilityController::deleteAction',));
+                    }
+
+                }
+
             }
 
         }

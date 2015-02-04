@@ -82,34 +82,38 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         
         <a href=\"";
         // line 27
+        echo $this->env->getExtension('routing')->getPath("pm_ability_administration_homepage");
+        echo "\">Gestion des Caractéristiques</a><br />
+        <a href=\"";
+        // line 28
         echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_homepage");
         echo "\">Gestion des Personnages</a><br />
         <a href=\"";
-        // line 28
+        // line 29
         echo $this->env->getExtension('routing')->getPath("pm_alignment_administration_homepage");
         echo "\">Gestion des Alignements</a><br />
         <a href=\"";
-        // line 29
+        // line 30
         echo $this->env->getExtension('routing')->getPath("pm_classdnd_administration_homepage");
         echo "\">Gestion des Classes</a><br />
         <a href=\"";
-        // line 30
+        // line 31
         echo $this->env->getExtension('routing')->getPath("pm_race_administration_homepage");
         echo "\">Gestion des Races</a><br />
         <a href=\"";
-        // line 31
+        // line 32
         echo $this->env->getExtension('routing')->getPath("pm_language_administration_homepage");
         echo "\">Gestion des Langues</a><br />
         <a href=\"";
-        // line 32
+        // line 33
         echo $this->env->getExtension('routing')->getPath("pm_skill_administration_homepage");
         echo "\">Gestion des Compétences</a><br />
         <a href=\"";
-        // line 33
+        // line 34
         echo $this->env->getExtension('routing')->getPath("pm_size_administration_homepage");
         echo "\">Gestion des Tailles</a><br />
         <a href=\"";
-        // line 34
+        // line 35
         echo $this->env->getExtension('routing')->getPath("pm_level_administration_homepage");
         echo "\">Gestion des Niveaux</a>
     </div>
@@ -120,7 +124,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 ";
     }
 
-    // line 42
+    // line 43
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -137,6 +141,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  124 => 42,  113 => 34,  109 => 33,  105 => 32,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  128 => 43,  117 => 35,  113 => 34,  109 => 33,  105 => 32,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

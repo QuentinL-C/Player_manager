@@ -38,8 +38,11 @@ class Alignment
 
     /**
      * @var string
-     * 
-     * @ORM\Column(name="description", type="text")
+     * @Assert\Length(
+     *      max = "10000",
+     *      maxMessage = "Votre description ne doit pas dépasser {{ limit }} caractères."
+     * )
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
     

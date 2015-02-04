@@ -79,25 +79,29 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
+    <li class=\"active\">";
+        // line 20
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "name", array()), "html", null, true);
+        echo "</li>
     <li class=\"active\">Voir</li>
 ";
     }
 
-    // line 23
+    // line 24
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 24
+        // line 25
         echo "<div class=\"row\">
     <section id=\"content\" class=\"col-lg-12\">
         ";
-        // line 26
+        // line 27
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 27
+            // line 28
             echo "            <div class=\"alert alert-success\">
                 ";
-            // line 28
+            // line 29
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -106,25 +110,25 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 32
         echo "        
         ";
-        // line 32
+        // line 33
         if ( !twig_test_empty($this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "description", array()))) {
-            // line 33
+            // line 34
             echo "            <div class=\"well\">
                 ";
-            // line 34
+            // line 35
             echo $this->getAttribute((isset($context["alignment"]) ? $context["alignment"] : $this->getContext($context, "alignment")), "description", array());
             echo "
             </div>
         ";
         } else {
-            // line 37
+            // line 38
             echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune description fournie pour cet alignement.</div>
         ";
         }
-        // line 39
+        // line 40
         echo "    </section>
 </div>
 ";
@@ -142,6 +146,6 @@ class __TwigTemplate_da56823ba922590b6030b07d3057e8a239b0df3552185d83aa8d4764f18
 
     public function getDebugInfo()
     {
-        return array (  128 => 39,  124 => 37,  118 => 34,  115 => 33,  113 => 32,  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  132 => 40,  128 => 38,  122 => 35,  119 => 34,  117 => 33,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

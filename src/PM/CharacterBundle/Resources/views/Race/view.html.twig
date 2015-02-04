@@ -59,7 +59,6 @@
                 {% else %}
                     <div class="alert alert-warning" role="alert">Aucune description fournie pour cette race.</div>
                 {% endif %}
-                
             </div>
         </div>
         <div class="row">
@@ -73,14 +72,8 @@
                             <th>Modificateur</th>
                         </tr>
                     </thead>
-                    {% for ability in race.abilities %}
-                        {% if ability.type == 1 %}<tr><th>Force</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% elseif ability.type == 2 %}<tr><th>Dextérité</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% elseif ability.type == 3 %}<tr><th>Constitution</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% elseif ability.type == 4 %}<tr><th>Intelligence</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% elseif ability.type == 5 %}<tr><th>Sagesse</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% elseif ability.type == 6 %}<tr><th>Charisme</th><td>{% if ability.value >= 0%}+{% endif %}{{ability.value}}</td></tr>
-                        {% endif %}
+                    {% for raceAbility in race.abilities %}
+                        <tr><th>{{raceAbility.ability.name}}</th><td>{{raceAbility.value}}</td></tr>
                     {% endfor %}
                 </table>
             </div>

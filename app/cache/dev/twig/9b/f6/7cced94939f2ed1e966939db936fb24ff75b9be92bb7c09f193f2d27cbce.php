@@ -64,7 +64,7 @@ class __TwigTemplate_9bf67cced94939f2ed1e966939db936fb24ff75b9be92bb7c09f193f2d2
     <li><a href=\"";
         // line 15
         echo $this->env->getExtension('routing')->getPath("pm_skill_administration_homepage");
-        echo "\">Compétence</a></li>
+        echo "\">Compétences</a></li>
 ";
     }
 

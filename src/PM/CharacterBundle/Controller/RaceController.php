@@ -23,12 +23,13 @@ class RaceController extends Controller
         $race->setCreateUser($current_user);
         
         // -- Gestion des Modificateurs de Caractéristiques de la Race :
-        $strength = new RaceAbility;        $strength->setCreateUser($current_user);    $strength->setType(1);      $strength->setValue(0);     $strength->setRace($race);
-        $dexterity = new RaceAbility;       $dexterity->setCreateUser($current_user);   $dexterity->setType(2);     $dexterity->setValue(0);    $dexterity->setRace($race);
-        $constitution = new RaceAbility;    $constitution->setCreateUser($current_user); $constitution->setType(3); $constitution->setValue(0); $constitution->setRace($race);
-        $intelligence = new RaceAbility;    $intelligence->setCreateUser($current_user); $intelligence->setType(4); $intelligence->setValue(0); $intelligence->setRace($race);
-        $wisdom = new RaceAbility;          $wisdom->setCreateUser($current_user);      $wisdom->setType(5);        $wisdom->setValue(0);       $wisdom->setRace($race);
-        $charisma = new RaceAbility;        $charisma->setCreateUser($current_user);    $charisma->setType(6);      $charisma->setValue(0);     $charisma->setRace($race);
+        $repositoryAbility = $em->getRepository('PMCharacterBundle:Ability');
+        $strength = new RaceAbility;        $strength->setCreateUser($current_user);        $strength->setAbility($repositoryAbility->findOneByName('Force'));              $strength->setValue(0);     $strength->setRace($race);
+        $dexterity = new RaceAbility;       $dexterity->setCreateUser($current_user);       $dexterity->setAbility($repositoryAbility->findOneByName('Dextérité'));         $dexterity->setValue(0);    $dexterity->setRace($race);
+        $constitution = new RaceAbility;    $constitution->setCreateUser($current_user);    $constitution->setAbility($repositoryAbility->findOneByName('Constitution'));   $constitution->setValue(0); $constitution->setRace($race);
+        $intelligence = new RaceAbility;    $intelligence->setCreateUser($current_user);    $intelligence->setAbility($repositoryAbility->findOneByName('Intelligence'));   $intelligence->setValue(0); $intelligence->setRace($race);
+        $wisdom = new RaceAbility;          $wisdom->setCreateUser($current_user);          $wisdom->setAbility($repositoryAbility->findOneByName('Sagesse'));              $wisdom->setValue(0);       $wisdom->setRace($race);
+        $charisma = new RaceAbility;        $charisma->setCreateUser($current_user);        $charisma->setAbility($repositoryAbility->findOneByName('Charisme'));           $charisma->setValue(0);     $charisma->setRace($race);
         
         // -- Génération du formulaire :
         $form = $this->createForm(new RaceRegisterType, $race);

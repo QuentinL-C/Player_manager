@@ -42,3 +42,7 @@ services:
     pm_character.deletelevel:
         class: PM\CharacterBundle\Service\deleteLevel
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deleteability:
+        class: PM\CharacterBundle\Service\deleteAbility
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

@@ -5,15 +5,17 @@ namespace PM\CharacterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use PM\WelcomeBundle\Model\EntityOrigin;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Ability
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\AbilityRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Une race semble déjà porter ce nom ...")
  */
-class Ability extends EntityOrigin
+class Ability
 {
     /**
      * @var integer
@@ -25,24 +27,68 @@ class Ability extends EntityOrigin
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed")
-     * @ORM\JoinColumn(nullable=false)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45)
      */
-    private $characterUsed;
+    private $name;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private $slug;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="type", type="smallint")
+     * @var string
+     * @Assert\Length(
+     *      max = "10000",
+     *      maxMessage = "Votre description ne doit pas dépasser {{ limit }} caractères."
+     * )
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
-    private $type;
+    private $description;
 
     /**
-     * @var integer
+    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    protected $createUser;
+
+    /**
+     * @var \DateTime
      *
-     * @ORM\Column(name="value", type="smallint")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="createDate", type="datetime", nullable=false)
      */
-    private $value;
+    protected $createDate;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    protected $updateUser;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updateDate", type="datetime", nullable=true)
+     */
+    protected $updateDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updateComment", type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le commentaire ne doit pas dépasser {{ limit }} caractères."
+     * )
+     */
+    protected $updateComment;
 
 
     /**
@@ -56,98 +102,50 @@ class Ability extends EntityOrigin
     }
 
     /**
-     * Set type
+     * Set name
      *
-     * @param integer $type
-     * @return ability
+     * @param string $name
+     * @return Ability
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->type = $type;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get name
      *
-     * @return integer 
+     * @return string 
      */
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * Set value
+     * Set description
      *
-     * @param integer $value
-     * @return ability
+     * @param string $description
+     * @return Ability
      */
-    public function setValue($value)
+    public function setDescription($description)
     {
-        $this->value = $value;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get value
+     * Get description
      *
-     * @return integer 
+     * @return string 
      */
-    public function getValue()
+    public function getDescription()
     {
-        return $this->value;
+        return $this->description;
     }
-
-    /**
-     * Set characterUsed
-     *
-     * @param \PM\CharacterBundle\Entity\CharacterUsed $characterUsed
-     * @return ability
-     */
-    public function setCharacterUsed(\PM\CharacterBundle\Entity\CharacterUsed $characterUsed)
-    {
-        $this->characterUsed = $characterUsed;
-
-        return $this;
-    }
-
-    /**
-     * Get characterUsed
-     *
-     * @return \PM\CharacterBundle\Entity\CharacterUsed 
-     */
-    public function getCharacterUsed()
-    {
-        return $this->characterUsed;
-    }
-    /**
-     * @var \DateTime
-     */
-    protected $createDate;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updateDate;
-
-    /**
-     * @var string
-     */
-    protected $updateComment;
-
-    /**
-     * @var \PM\UserBundle\Entity\User
-     */
-    protected $createUser;
-
-    /**
-     * @var \PM\UserBundle\Entity\User
-     */
-    protected $updateUser;
-
 
     /**
      * Set createDate

@@ -269,3 +269,34 @@ pm_level_administration_delete:
     defaults: { _controller: PMCharacterBundle:Level:delete }
     requirements:
         level:  \S{0,255}
+        
+# -- Ability -- #
+pm_ability_administration_homepage:
+    path:     /administration/caractéristique
+    defaults: { _controller: PMCharacterBundle:Ability:index }
+
+pm_ability_administration_insert:
+    path:     /administration/caractéristique/insertion
+    defaults: { _controller: PMCharacterBundle:Ability:register }
+
+pm_ability_administration_list:
+    path:     /administration/caractéristique/liste
+    defaults: { _controller: PMCharacterBundle:Ability:list }
+    
+pm_ability_administration_view:
+    path:     /administration/caractéristique/vue/{slug}
+    defaults: { _controller: PMCharacterBundle:Ability:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_ability_administration_edit:
+    path:     /administration/caractéristique/editer/{slug}
+    defaults: { _controller: PMCharacterBundle:Ability:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_ability_administration_delete:
+    path:     /administration/caractéristique/supprimer/{slug}
+    defaults: { _controller: PMCharacterBundle:Ability:delete }
+    requirements:
+        slug:  \S{0,255}

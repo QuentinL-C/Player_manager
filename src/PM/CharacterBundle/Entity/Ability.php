@@ -5,12 +5,15 @@ namespace PM\CharacterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Ability
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\AbilityRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Une race semble déjà porter ce nom ...")
  */
 class Ability
 {
@@ -24,24 +27,29 @@ class Ability
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\CharacterUsed")
-     * @ORM\JoinColumn(nullable=false)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45)
      */
-    private $characterUsed;
+    private $name;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private $slug;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="type", type="smallint")
+     * @var string
+     * @Assert\Length(
+     *      max = "10000",
+     *      maxMessage = "Votre description ne doit pas dépasser {{ limit }} caractères."
+     * )
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
-    private $type;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="value", type="smallint")
-     */
-    private $value;
+    private $description;
 
     /**
     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
@@ -94,56 +102,56 @@ class Ability
     }
 
     /**
-     * Set type
+     * Set name
      *
-     * @param integer $type
-     * @return ability
+     * @param string $name
+     * @return Ability
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->type = $type;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get name
      *
-     * @return integer 
+     * @return string 
      */
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * Set value
+     * Set description
      *
-     * @param integer $value
-     * @return ability
+     * @param string $description
+     * @return Ability
      */
-    public function setValue($value)
+    public function setDescription($description)
     {
-        $this->value = $value;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get value
+     * Get description
      *
-     * @return integer 
+     * @return string 
      */
-    public function getValue()
+    public function getDescription()
     {
-        return $this->value;
+        return $this->description;
     }
 
     /**
      * Set createDate
      *
      * @param \DateTime $createDate
-     * @return ability
+     * @return Ability
      */
     public function setCreateDate($createDate)
     {
@@ -166,7 +174,7 @@ class Ability
      * Set updateDate
      *
      * @param \DateTime $updateDate
-     * @return ability
+     * @return Ability
      */
     public function setUpdateDate($updateDate)
     {
@@ -189,7 +197,7 @@ class Ability
      * Set updateComment
      *
      * @param string $updateComment
-     * @return ability
+     * @return Ability
      */
     public function setUpdateComment($updateComment)
     {
@@ -209,33 +217,10 @@ class Ability
     }
 
     /**
-     * Set characterUsed
-     *
-     * @param \PM\CharacterBundle\Entity\CharacterUsed $characterUsed
-     * @return ability
-     */
-    public function setCharacterUsed(\PM\CharacterBundle\Entity\CharacterUsed $characterUsed)
-    {
-        $this->characterUsed = $characterUsed;
-
-        return $this;
-    }
-
-    /**
-     * Get characterUsed
-     *
-     * @return \PM\CharacterBundle\Entity\CharacterUsed 
-     */
-    public function getCharacterUsed()
-    {
-        return $this->characterUsed;
-    }
-
-    /**
      * Set createUser
      *
      * @param \PM\UserBundle\Entity\User $createUser
-     * @return ability
+     * @return Ability
      */
     public function setCreateUser(\PM\UserBundle\Entity\User $createUser)
     {
@@ -258,7 +243,7 @@ class Ability
      * Set updateUser
      *
      * @param \PM\UserBundle\Entity\User $updateUser
-     * @return ability
+     * @return Ability
      */
     public function setUpdateUser(\PM\UserBundle\Entity\User $updateUser = null)
     {
@@ -275,5 +260,28 @@ class Ability
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Ability
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

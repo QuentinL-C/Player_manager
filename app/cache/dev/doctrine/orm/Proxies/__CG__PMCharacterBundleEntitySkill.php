@@ -64,10 +64,10 @@ class Skill extends \PM\CharacterBundle\Entity\Skill implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'ability', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'ability', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Skill' . "\0" . 'slug', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
     }
 
     /**
@@ -340,6 +340,28 @@ class Skill extends \PM\CharacterBundle\Entity\Skill implements \Doctrine\ORM\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
 
         return parent::getSlug();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAbility(\PM\CharacterBundle\Entity\Ability $ability)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAbility', array($ability));
+
+        return parent::setAbility($ability);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAbility()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAbility', array());
+
+        return parent::getAbility();
     }
 
 }

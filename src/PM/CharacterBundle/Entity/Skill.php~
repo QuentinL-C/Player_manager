@@ -29,6 +29,12 @@ class Skill
      * @ORM\Column(name="name", type="string", length=45)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Ability")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ability;
     
     /**
      * @var string
@@ -224,5 +230,51 @@ class Skill
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Skill
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set abilityType
+     *
+     * @param integer $abilityType
+     * @return Skill
+     */
+    public function setAbilityType($abilityType)
+    {
+        $this->abilityType = $abilityType;
+
+        return $this;
+    }
+
+    /**
+     * Get abilityType
+     *
+     * @return integer 
+     */
+    public function getAbilityType()
+    {
+        return $this->abilityType;
     }
 }

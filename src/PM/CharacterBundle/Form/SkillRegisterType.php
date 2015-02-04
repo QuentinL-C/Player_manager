@@ -15,7 +15,14 @@ class SkillRegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',           'text',     array('required' => true))
+            ->add('name',           'text',     array(  'required' => true))
+            ->add('ability',        'entity',   array(  'class' => 'PMCharacterBundle:Ability',
+                                                        'property'    => 'name',
+                                                        'expanded' => false,
+                                                        'multiple' => false,
+                                                        'required' => false,
+                                                        'empty_value' => 'Compétences de Classe',
+                                                        'empty_data'  => null))
         ;
     }
     

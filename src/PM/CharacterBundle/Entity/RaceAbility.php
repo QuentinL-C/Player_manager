@@ -30,11 +30,10 @@ class RaceAbility
     private $race;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="type", type="smallint")
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Ability")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $type;
+    private $ability;
 
     /**
      * @var integer
@@ -114,29 +113,6 @@ class RaceAbility
     public function getRace()
     {
         return $this->race;
-    }
-
-    /**
-     * Set type
-     *
-     * @param integer $type
-     * @return RaceAbility
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return integer 
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -275,5 +251,28 @@ class RaceAbility
     public function getUpdateUser()
     {
         return $this->updateUser;
+    }
+
+    /**
+     * Set ability
+     *
+     * @param \PM\CharacterBundle\Entity\Ability $ability
+     * @return RaceAbility
+     */
+    public function setAbility(\PM\CharacterBundle\Entity\Ability $ability)
+    {
+        $this->ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get ability
+     *
+     * @return \PM\CharacterBundle\Entity\Ability 
+     */
+    public function getAbility()
+    {
+        return $this->ability;
     }
 }

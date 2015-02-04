@@ -5,12 +5,15 @@ namespace PM\CharacterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Skill
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\CharacterBundle\Entity\SkillRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Une race semble déjà porter ce nom ...")
  */
 class Skill
 {
@@ -29,6 +32,12 @@ class Skill
      * @ORM\Column(name="name", type="string", length=45)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Ability")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ability;
     
     /**
      * @var string
@@ -247,5 +256,28 @@ class Skill
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set ability
+     *
+     * @param \PM\CharacterBundle\Entity\Ability $ability
+     * @return Skill
+     */
+    public function setAbility(\PM\CharacterBundle\Entity\Ability $ability)
+    {
+        $this->ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get ability
+     *
+     * @return \PM\CharacterBundle\Entity\Ability 
+     */
+    public function getAbility()
+    {
+        return $this->ability;
     }
 }

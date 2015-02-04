@@ -223,7 +223,7 @@ class __TwigTemplate_e4e37df8f46a7873b1a7cd97970d6159f62b609adcfbff083602b05818e
     </fieldset>
             
     <fieldset>
-        <legend>Modificateur de Caractéristiques :</legend>
+        <legend>Modificateurs de Caractéristiques :</legend>
 
         <div class=\"form-group\">
             ";

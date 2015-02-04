@@ -1,0 +1,41 @@
+{# src/PM/CharacterBundle/Resources/views/Ability/register.html.twig #}
+ 
+{% extends "PMCharacterBundle:Ability:layoutAdmin.html.twig" %}
+
+{% block title %}
+    Insertion - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    Nouvelle Caractéristique :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Insertion</li>
+{% endblock %} 
+
+{% block PM_body %}
+<div class="row">
+    <section id="content" class="col-lg-8">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div class="well">
+            {% include "PMCharacterBundle:Ability:register_content.html.twig" %}
+        </div>
+    </section>
+    <aside class="col-lg-4">
+        Ici, contrôle live des infos ?
+    </aside>
+</div>
+{% endblock %}
+    
+{% block javascripts_block %}
+    {% javascripts  '@PMCharacterBundle/Resources/public/js/*'  %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

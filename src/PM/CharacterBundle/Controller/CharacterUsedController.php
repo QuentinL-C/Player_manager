@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PM\CharacterBundle\Entity\CharacterUsed;
 use PM\CharacterBundle\Entity\CharacterWealth;
 use PM\CharacterBundle\Entity\CharacterSkill;
-use PM\CharacterBundle\Entity\Ability;
+use PM\CharacterBundle\Entity\CharacterAbility;
 use PM\CharacterBundle\Form\CharacterUsedRegisterType;
 use PM\CharacterBundle\Form\CharacterUsedEditType;
 use PM\CharacterBundle\Form\CharacterUsedAddSkillType;
@@ -35,12 +35,13 @@ class CharacterUsedController extends Controller
         $characterUsed->setHpCurrent(0); $characterUsed->setHpMax(0); $characterUsed->setWealth($characterWealth);
         
         // -- Gestion des Caractéristiques du personnage :
-        $strength = new Ability;        $strength->setCreateUser($current_user);    $strength->setType(1);      $strength->setValue(0);     $strength->setCharacterUsed($characterUsed);
-        $dexterity = new Ability;       $dexterity->setCreateUser($current_user);   $dexterity->setType(2);     $dexterity->setValue(0);    $dexterity->setCharacterUsed($characterUsed);
-        $constitution = new Ability;    $constitution->setCreateUser($current_user); $constitution->setType(3); $constitution->setValue(0); $constitution->setCharacterUsed($characterUsed);
-        $intelligence = new Ability;    $intelligence->setCreateUser($current_user); $intelligence->setType(4); $intelligence->setValue(0); $intelligence->setCharacterUsed($characterUsed);
-        $wisdom = new Ability;          $wisdom->setCreateUser($current_user);      $wisdom->setType(5);        $wisdom->setValue(0);       $wisdom->setCharacterUsed($characterUsed);
-        $charisma = new Ability;        $charisma->setCreateUser($current_user);    $charisma->setType(6);      $charisma->setValue(0);     $charisma->setCharacterUsed($characterUsed);
+        $repositoryAbility = $em->getRepository('PMCharacterBundle:Ability');
+        $strength = new CharacterAbility;        $strength->setCreateUser($current_user);       $strength->setAbility($repositoryAbility->findOneByName('Force'));              $strength->setValue(0);     $strength->setCharacterUsed($characterUsed);
+        $dexterity = new CharacterAbility;       $dexterity->setCreateUser($current_user);      $dexterity->setAbility($repositoryAbility->findOneByName('Dextérité'));         $dexterity->setValue(0);    $dexterity->setCharacterUsed($characterUsed);
+        $constitution = new CharacterAbility;    $constitution->setCreateUser($current_user);   $constitution->setAbility($repositoryAbility->findOneByName('Constitution'));   $constitution->setValue(0); $constitution->setCharacterUsed($characterUsed);
+        $intelligence = new CharacterAbility;    $intelligence->setCreateUser($current_user);   $intelligence->setAbility($repositoryAbility->findOneByName('Intelligence'));   $intelligence->setValue(0); $intelligence->setCharacterUsed($characterUsed);
+        $wisdom = new CharacterAbility;          $wisdom->setCreateUser($current_user);         $wisdom->setAbility($repositoryAbility->findOneByName('Sagesse'));              $wisdom->setValue(0);       $wisdom->setCharacterUsed($characterUsed);
+        $charisma = new CharacterAbility;        $charisma->setCreateUser($current_user);       $charisma->setAbility($repositoryAbility->findOneByName('Charisme'));           $charisma->setValue(0);     $charisma->setCharacterUsed($characterUsed);
         
         // -- Création du formulaire :
         $form = $this->createForm(new CharacterUsedRegisterType, $characterUsed);
@@ -92,11 +93,11 @@ class CharacterUsedController extends Controller
         $manager = $this->getDoctrine()
                            ->getManager();
         $repositoryCharacterUsed = $manager->getRepository('PMCharacterBundle:CharacterUsed');
-        $repositoryAbility = $manager->getRepository('PMCharacterBundle:Ability');
+        $repositoryAbility = $manager->getRepository('PMCharacterBundle:CharacterAbility');
  
         $characterUsed = $repositoryCharacterUsed->findOneBySlug($slug);
         $abilities = $repositoryAbility->findBy(array('characterUsed' => $characterUsed),
-                                                array('type' => 'ASC'),
+                                                array('ability' => 'ASC'),
                                                 6,
                                                 0);
 
@@ -182,7 +183,6 @@ class CharacterUsedController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $repositoryCharacterUsed = $manager->getRepository('PMCharacterBundle:CharacterUsed');
-        $repositoryAbility = $manager->getRepository('PMCharacterBundle:Ability');
  
         $characterUsed = $repositoryCharacterUsed->findOneBySlug($slug);
         

@@ -79,25 +79,29 @@ class __TwigTemplate_eccef010176a0f53511634e6c194076a57bd1a2187a7b1552dd17071933
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
+    <li class=\"active\">";
+        // line 20
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["skill"]) ? $context["skill"] : $this->getContext($context, "skill")), "name", array()), "html", null, true);
+        echo "</li>
     <li class=\"active\">Voir</li>
 ";
     }
 
-    // line 23
+    // line 24
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 24
+        // line 25
         echo "<div class=\"row\">
     <section id=\"content\" class=\"col-lg-12\">
         ";
-        // line 26
+        // line 27
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 27
+            // line 28
             echo "            <div class=\"alert alert-success\">
                 ";
-            // line 28
+            // line 29
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -106,9 +110,17 @@ class __TwigTemplate_eccef010176a0f53511634e6c194076a57bd1a2187a7b1552dd17071933
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 32
         echo "        
-        <p>Blabla à venir.</p>
+        <h2>Détail :</h2>
+        <ul>
+            <li>Caractéristique parente : <a href=\"";
+        // line 35
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => $this->getAttribute($this->getAttribute((isset($context["skill"]) ? $context["skill"] : $this->getContext($context, "skill")), "ability", array()), "slug", array()))), "html", null, true);
+        echo "\">";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["skill"]) ? $context["skill"] : $this->getContext($context, "skill")), "ability", array()), "name", array()), "html", null, true);
+        echo "</a></li>
+        </ul>
     </section>
 </div>
 ";
@@ -126,6 +138,6 @@ class __TwigTemplate_eccef010176a0f53511634e6c194076a57bd1a2187a7b1552dd17071933
 
     public function getDebugInfo()
     {
-        return array (  110 => 31,  101 => 28,  98 => 27,  94 => 26,  90 => 24,  87 => 23,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  119 => 35,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

@@ -16,16 +16,16 @@ class characterUsedAbility
         $this->security = $security_context;
     }
     
-    private function getAbility ($characterUsed, $abilityType, $detail=false) {
-        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
-	$abilityBase = $repositoryAbility->findOneBy(array('characterUsed' => $characterUsed, 'type' => $abilityType));
+    private function getAbility ($characterUsed, $ability, $detail=false) {
+        $repositoryCharacterAbility = $this->em->getRepository('PMCharacterBundle:CharacterAbility');
+	$abilityBase = $repositoryCharacterAbility->findOneBy(array('characterUsed' => $characterUsed, 'ability' => $ability));
         $repositoryRaceAbility = $this->em->getRepository('PMCharacterBundle:RaceAbility');
-	$abilityRace = $repositoryRaceAbility->findOneBy(array('race' => $characterUsed->getRace(), 'type' => $abilityType));
+	$abilityRace = $repositoryRaceAbility->findOneBy(array('race' => $characterUsed->getRace(), 'ability' => $ability));
 
-        if($detail == true) {$ability = $abilityBase->getValue().' + '.$abilityRace->getValue();}
-        else {$ability = $abilityBase->getValue() + $abilityRace->getValue();}
+        if($detail == true) {$abilityValue = $abilityBase->getValue().' + '.$abilityRace->getValue();}
+        else {$abilityValue = $abilityBase->getValue() + $abilityRace->getValue();}
         
-	return $ability;
+	return $abilityValue;
     }
     
     private function abilityModifier($abilityValue) { 
@@ -82,7 +82,9 @@ class characterUsedAbility
     
     public function getStrength($characterUsed, $detail=false) { 
         // Retourne la Force du Personnage
-        return $this->getAbility($characterUsed, 1, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Force'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getStrengthModifier($characterUsed) { 
@@ -95,7 +97,9 @@ class characterUsedAbility
 
     public function getDexterity($characterUsed, $detail=false) { 
         // Retourne la Dextérité du Personnage
-        return $this->getAbility($characterUsed, 2, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Dextérité'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getDexterityModifier($characterUsed) { 
@@ -108,7 +112,9 @@ class characterUsedAbility
 
     public function getConstitution($characterUsed, $detail=false) { 
         // Retourne la Constitution du Personnage
-        return $this->getAbility($characterUsed, 3, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Constitution'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getConstitutionModifier($characterUsed) { 
@@ -122,7 +128,9 @@ class characterUsedAbility
 
     public function getIntelligence($characterUsed, $detail=false) { 
         // Retourne l'Intelligence du Personnage
-        return $this->getAbility($characterUsed, 4, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Intelligence'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getIntelligenceModifier($characterUsed) { 
@@ -135,7 +143,9 @@ class characterUsedAbility
 
     public function getWisdom($characterUsed, $detail=false) { 
         // Retourne la Sagesse du Personnage
-        return $this->getAbility($characterUsed, 5, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Sagesse'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getWisdomModifier($characterUsed) { 
@@ -148,7 +158,9 @@ class characterUsedAbility
 
     public function getCharisma($characterUsed, $detail=false) { 
         //Retourne le Charisme du Personnage
-        return $this->getAbility($characterUsed, 6, $detail);
+        $repositoryAbility = $this->em->getRepository('PMCharacterBundle:Ability');
+	$ability = $repositoryAbility->findOneBy(array('name' => 'Charisme'));
+        return $this->getAbility($characterUsed, $ability, $detail);
     }
 
     public function getCharismaModifier($characterUsed) { 
