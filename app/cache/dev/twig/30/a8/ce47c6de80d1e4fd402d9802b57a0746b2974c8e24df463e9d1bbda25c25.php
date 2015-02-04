@@ -156,7 +156,9 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['instance'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 47
-        echo "                    Exp. : 0XP
+        echo "                    Exp. : 0/";
+        echo twig_escape_filter($this->env, (isset($context["xpForLevelUp"]) ? $context["xpForLevelUp"] : $this->getContext($context, "xpForLevelUp")), "html", null, true);
+        echo "XP
                 </div>
                 <div class=\"col-md-3\">
                     PV : ";
@@ -223,6 +225,6 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
 
     public function getDebugInfo()
     {
-        return array (  206 => 77,  204 => 76,  200 => 74,  198 => 73,  194 => 71,  192 => 70,  188 => 68,  186 => 67,  164 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  208 => 77,  206 => 76,  202 => 74,  200 => 73,  196 => 71,  194 => 70,  190 => 68,  188 => 67,  166 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

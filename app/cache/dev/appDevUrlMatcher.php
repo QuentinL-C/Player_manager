@@ -541,6 +541,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
+                if (0 === strpos($pathinfo, '/administration/niveau')) {
+                    // pm_level_administration_homepage
+                    if ($pathinfo === '/administration/niveau') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::indexAction',  '_route' => 'pm_level_administration_homepage',);
+                    }
+
+                    // pm_level_administration_insert
+                    if ($pathinfo === '/administration/niveau/insertion') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::registerAction',  '_route' => 'pm_level_administration_insert',);
+                    }
+
+                    // pm_level_administration_list
+                    if ($pathinfo === '/administration/niveau/liste') {
+                        return array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::listAction',  '_route' => 'pm_level_administration_list',);
+                    }
+
+                    // pm_level_administration_view
+                    if (0 === strpos($pathinfo, '/administration/niveau/vue') && preg_match('#^/administration/niveau/vue/(?P<level>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_level_administration_view')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::viewAction',));
+                    }
+
+                    // pm_level_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/niveau/editer') && preg_match('#^/administration/niveau/editer/(?P<level>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_level_administration_edit')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::editAction',));
+                    }
+
+                    // pm_level_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/niveau/supprimer') && preg_match('#^/administration/niveau/supprimer/(?P<level>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_level_administration_delete')), array (  '_controller' => 'PM\\CharacterBundle\\Controller\\LevelController::deleteAction',));
+                    }
+
+                }
+
             }
 
         }

@@ -205,6 +205,7 @@ class CharacterUsedController extends Controller
         $will = $serviceCharacterUsedST->getWill($characterUsed);
         $speed = $serviceCharacterUsedDnD->getSpeed($characterUsed);
         $initiative = $serviceCharacterUsedDnD->getInitiativeModifier($characterUsed);
+        $xpForLevelUp = $serviceCharacterUsedDnD->getXpPointsForLevelUp($characterUsed);
 
         return $this->render('PMCharacterBundle:CharacterUsed:view.html.twig', array(
                                 'characterUsed' => $characterUsed,
@@ -218,7 +219,8 @@ class CharacterUsedController extends Controller
                                 'reflex' => $reflex,
                                 'will' => $will,
                                 'speed' => $speed,
-                                'initiative' => $initiative
+                                'initiative' => $initiative,
+                                'xpForLevelUp' => $xpForLevelUp
                             ));
     }
     

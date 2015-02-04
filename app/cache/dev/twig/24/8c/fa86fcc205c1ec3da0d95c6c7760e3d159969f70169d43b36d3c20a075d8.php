@@ -216,25 +216,24 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
         // line 107
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilities", array()), 'row');
         echo "
-            
         </div>
     </fieldset>
         <hr />
     <div class=\"form-group\">
         ";
-        // line 113
+        // line 112
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Commentaire :"));
         echo "
         <div class=\"col-md-9\">
             ";
-        // line 115
+        // line 114
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "updateComment", array()), 'widget', array("attr" => array("placeholder" => "A propos de l'édition", "class" => "form-control")));
         echo "
         </div>
     </div>
         <br />
     ";
-        // line 119
+        // line 118
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
     <center><input type=\"submit\" class=\"btn btn-default\" /></center>
@@ -253,6 +252,6 @@ class __TwigTemplate_248cfa86fcc205c1ec3da0d95c6c7760e3d159969f70169d43b36d3c20a
 
     public function getDebugInfo()
     {
-        return array (  238 => 119,  231 => 115,  226 => 113,  217 => 107,  205 => 98,  199 => 95,  189 => 88,  183 => 85,  173 => 78,  167 => 75,  157 => 68,  151 => 65,  141 => 58,  135 => 55,  125 => 48,  119 => 45,  109 => 38,  103 => 35,  93 => 28,  88 => 26,  81 => 21,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
+        return array (  237 => 118,  230 => 114,  225 => 112,  217 => 107,  205 => 98,  199 => 95,  189 => 88,  183 => 85,  173 => 78,  167 => 75,  157 => 68,  151 => 65,  141 => 58,  135 => 55,  125 => 48,  119 => 45,  109 => 38,  103 => 35,  93 => 28,  88 => 26,  81 => 21,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  42 => 9,  38 => 8,  34 => 7,  30 => 5,  28 => 4,  22 => 3,  19 => 2,);
     }
 }

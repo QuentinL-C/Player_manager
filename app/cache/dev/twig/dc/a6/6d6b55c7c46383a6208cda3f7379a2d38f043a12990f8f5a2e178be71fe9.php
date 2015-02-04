@@ -107,7 +107,11 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         <a href=\"";
         // line 33
         echo $this->env->getExtension('routing')->getPath("pm_size_administration_homepage");
-        echo "\">Gestion des Tailles</a>
+        echo "\">Gestion des Tailles</a><br />
+        <a href=\"";
+        // line 34
+        echo $this->env->getExtension('routing')->getPath("pm_level_administration_homepage");
+        echo "\">Gestion des Niveaux</a>
     </div>
     <div class=\"well\">
         <h2>Parties :</h2>
@@ -116,7 +120,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 ";
     }
 
-    // line 41
+    // line 42
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -133,6 +137,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  120 => 41,  109 => 33,  105 => 32,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  124 => 42,  113 => 34,  109 => 33,  105 => 32,  101 => 31,  97 => 30,  93 => 29,  89 => 28,  85 => 27,  77 => 22,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

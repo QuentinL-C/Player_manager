@@ -45,6 +45,13 @@ class CharacterUsedRegisterType extends AbstractType
                                                             'property' => 'name',
                                                             'required' => true,
                                                             'empty_value' => 'Choisissez une race',))
+            ->add('languages',          'entity',   array(  'class' => 'PMCharacterBundle:Language',
+                                                            'property'    => 'name',
+                                                            'expanded' => false,
+                                                            'multiple' => true,
+                                                            'required' => false,
+                                                            'empty_value' => 'Langues',
+                                                            'empty_data'  => null))
         ;
     }
     

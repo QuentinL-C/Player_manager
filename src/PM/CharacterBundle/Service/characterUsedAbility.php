@@ -161,36 +161,33 @@ class characterUsedAbility
     
     public function getAbilities($characterUsed)
     {
-        $abilities = array();
+        $abilities = array("strength" => 0, "dexterity" => 0, "constitution" => 0, "intelligence" => 0, "wisdom" => 0, "charisma" => 0);
         
         for($i = 1; $i <= 6; $i++ ) {
             switch ($i) {
                 case 1:
                     $strength = $this->getStrength($characterUsed);
-                    array_push($abilities, $strength);
+                    $abilities["strength"] = $strength;
                     break;
                 case 2:
                     $dexterity = $this->getDexterity($characterUsed);
-                    array_push($abilities, $dexterity);
+                    $abilities["dexterity"] = $dexterity;
                     break;
                 case 3:
                     $constitution = $this->getConstitution($characterUsed);
-                    array_push($abilities, $constitution);
+                    $abilities["constitution"] = $constitution;
                     break;
                 case 4:
                     $intelligence = $this->getIntelligence($characterUsed);
-                    array_push($abilities, $intelligence);
+                    $abilities["intelligence"] = $intelligence;
                     break;
                 case 5:
                     $wisdom = $this->getWisdom($characterUsed);
-                    array_push($abilities, $wisdom);
+                    $abilities["wisdom"] = $wisdom;
                     break;
                 case 6:
                     $charisma = $this->getCharisma($characterUsed);
-                    array_push($abilities, $charisma);
-                    break;
-
-                default:
+                    $abilities["charisma"] = $charisma;
                     break;
             }
         }

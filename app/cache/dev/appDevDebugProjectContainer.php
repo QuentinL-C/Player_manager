@@ -165,10 +165,13 @@ class appDevDebugProjectContainer extends Container
             'monolog.logger.templating' => 'getMonolog_Logger_TemplatingService',
             'monolog.logger.translation' => 'getMonolog_Logger_TranslationService',
             'pm_character.characterusedability' => 'getPmCharacter_CharacterusedabilityService',
+            'pm_character.characterusedaction' => 'getPmCharacter_CharacterusedactionService',
             'pm_character.characteruseddnd' => 'getPmCharacter_CharacteruseddndService',
+            'pm_character.characterusedst' => 'getPmCharacter_CharacterusedstService',
             'pm_character.deletealignment' => 'getPmCharacter_DeletealignmentService',
             'pm_character.deleteclassdnd' => 'getPmCharacter_DeleteclassdndService',
             'pm_character.deletelanguage' => 'getPmCharacter_DeletelanguageService',
+            'pm_character.deletelevel' => 'getPmCharacter_DeletelevelService',
             'pm_character.deleterace' => 'getPmCharacter_DeleteraceService',
             'pm_character.deletesize' => 'getPmCharacter_DeletesizeService',
             'pm_character.deleteskill' => 'getPmCharacter_DeleteskillService',
@@ -2107,6 +2110,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'pm_character.characterusedaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\CharacterBundle\Service\characterUsedAction A PM\CharacterBundle\Service\characterUsedAction instance.
+     */
+    protected function getPmCharacter_CharacterusedactionService()
+    {
+        return $this->services['pm_character.characterusedaction'] = new \PM\CharacterBundle\Service\characterUsedAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
      * Gets the 'pm_character.characteruseddnd' service.
      *
      * This service is shared.
@@ -2117,6 +2133,19 @@ class appDevDebugProjectContainer extends Container
     protected function getPmCharacter_CharacteruseddndService()
     {
         return $this->services['pm_character.characteruseddnd'] = new \PM\CharacterBundle\Service\characterUsedDnD($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'), $this->get('pm_character.characterusedability'));
+    }
+
+    /**
+     * Gets the 'pm_character.characterusedst' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\CharacterBundle\Service\characterUsedST A PM\CharacterBundle\Service\characterUsedST instance.
+     */
+    protected function getPmCharacter_CharacterusedstService()
+    {
+        return $this->services['pm_character.characterusedst'] = new \PM\CharacterBundle\Service\characterUsedST($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'), $this->get('pm_character.characterusedability'));
     }
 
     /**
@@ -2156,6 +2185,19 @@ class appDevDebugProjectContainer extends Container
     protected function getPmCharacter_DeletelanguageService()
     {
         return $this->services['pm_character.deletelanguage'] = new \PM\CharacterBundle\Service\deleteLanguage($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'pm_character.deletelevel' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\CharacterBundle\Service\deleteLevel A PM\CharacterBundle\Service\deleteLevel instance.
+     */
+    protected function getPmCharacter_DeletelevelService()
+    {
+        return $this->services['pm_character.deletelevel'] = new \PM\CharacterBundle\Service\deleteLevel($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
     }
 
     /**
@@ -2555,7 +2597,7 @@ class appDevDebugProjectContainer extends Container
         $n = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $i, 'main', $l, $m, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, NULL);
         $n->setRememberMeServices($j);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $n, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54d0bf4a85c71', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $n, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54d138a515376', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -4055,7 +4097,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54d0bf4a85c71')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54d138a515376')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

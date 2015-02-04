@@ -1,0 +1,65 @@
+{# src/PM/CharacterBundle/Resources/views/Level/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.level) }}
+        {{ form_errors(form.xpPoints) }}
+        {{ form_errors(form.classSkillModifier) }}
+        {{ form_errors(form.ofClassSkillModifier) }}
+        {{ form_errors(form.gift) }}
+        {{ form_errors(form.abilityUp) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Niveau :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.level, "Niveau :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.xpPoints, "Points d'XP nécessaires :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.xpPoints, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.classSkillModifier, "Limite des Compét. de Classe :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.classSkillModifier, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.ofClassSkillModifier, "Limite des Compét. hors Classe :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.ofClassSkillModifier, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.gift, "Gain de don ?", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.gift, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.abilityUp, "Gain de caractéristique ?", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.abilityUp, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

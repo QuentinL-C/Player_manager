@@ -65,27 +65,54 @@ class __TwigTemplate_71a36aa0638c21fd46946e5b26f43f6e211af2e6f1fda6e921542a16475
         // line 12
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "wealth", array()), "po", array()), "html", null, true);
         echo "</li>
+            <li>Langues parlées :</li>
+            <ul>
+                ";
+        // line 15
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "languages", array()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["langue"]) {
+            // line 16
+            echo "                    <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_language_administration_view", array("slug" => $this->getAttribute($context["langue"], "slug", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["langue"], "name", array()), "html", null, true);
+            echo "</a></li>
+                ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 18
+            echo "                    <li>Aucune langue parlée</li>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['langue'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 20
+        echo "            </ul>
         </ul>
     </div>
     <div class=\"col-md-6\">
         <h2>Histoire</h2>
         ";
-        // line 17
+        // line 25
         if ( !twig_test_empty($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "story", array()))) {
-            // line 18
+            // line 26
             echo "            <div class=\"well\">
                 ";
-            // line 19
+            // line 27
             echo $this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "story", array());
             echo "
             </div>
         ";
         } else {
-            // line 22
+            // line 30
             echo "            <div class=\"alert alert-warning\" role=\"alert\">Aucune histoire fournie pour ce personnage.</div>
         ";
         }
-        // line 24
+        // line 32
         echo "
     </div>
 </div>";
@@ -103,6 +130,6 @@ class __TwigTemplate_71a36aa0638c21fd46946e5b26f43f6e211af2e6f1fda6e921542a16475
 
     public function getDebugInfo()
     {
-        return array (  89 => 24,  85 => 22,  79 => 19,  76 => 18,  74 => 17,  66 => 12,  58 => 11,  50 => 10,  42 => 9,  34 => 8,  26 => 7,  19 => 2,);
+        return array (  116 => 32,  112 => 30,  106 => 27,  103 => 26,  101 => 25,  94 => 20,  87 => 18,  77 => 16,  72 => 15,  66 => 12,  58 => 11,  50 => 10,  42 => 9,  34 => 8,  26 => 7,  19 => 2,);
     }
 }

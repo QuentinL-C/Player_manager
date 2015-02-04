@@ -1921,7 +1921,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54d0bf4a85c71</argument>
+            <argument>54d138a515376</argument>
           </service>
         </argument>
       </argument>
@@ -2239,7 +2239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54d0bf4a85c71</argument>
+            <argument>54d138a515376</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3043,6 +3043,15 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.context"/>
     </service>
+    <service id="pm_character.characterusedst" class="PM\CharacterBundle\Service\characterUsedST">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="pm_character.characterusedability"/>
+    </service>
+    <service id="pm_character.characterusedaction" class="PM\CharacterBundle\Service\characterUsedAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
     <service id="pm_character.deletealignment" class="PM\CharacterBundle\Service\deleteAlignment">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.context"/>
@@ -3064,6 +3073,10 @@
       <argument type="service" id="security.context"/>
     </service>
     <service id="pm_character.deletesize" class="PM\CharacterBundle\Service\deleteSize">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.deletelevel" class="PM\CharacterBundle\Service\deleteLevel">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.context"/>
     </service>

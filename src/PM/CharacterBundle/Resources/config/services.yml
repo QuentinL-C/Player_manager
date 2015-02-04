@@ -38,3 +38,7 @@ services:
     pm_character.deletesize:
         class: PM\CharacterBundle\Service\deleteSize
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_character.deletelevel:
+        class: PM\CharacterBundle\Service\deleteLevel
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

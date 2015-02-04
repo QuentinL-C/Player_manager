@@ -44,7 +44,7 @@
                         Classe : <a href="{{path('pm_classdnd_administration_view', {'slug': instance.classDnD.slug})}}">{{instance.classDnD.name}}</a><br />
                         Niveau : {{instance.level}}<br />
                     {% endfor %}
-                    Exp. : 0XP
+                    Exp. : 0/{{xpForLevelUp}}XP
                 </div>
                 <div class="col-md-3">
                     PV : {{characterUsed.hpCurrent}}/{{characterUsed.hpMax}}

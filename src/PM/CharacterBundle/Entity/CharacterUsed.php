@@ -137,6 +137,12 @@ class CharacterUsed
     private $skills;
 
     /**
+     * @ORM\ManyToMany(targetEntity="PM\CharacterBundle\Entity\Language")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $languages;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Race")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -199,6 +205,8 @@ class CharacterUsed
     public function __construct()
     {
         $this->classDnDInstances = New ArrayCollection();
+        $this->skills = New ArrayCollection();
+        $this->languages = New ArrayCollection();
     }
 
 
@@ -666,7 +674,7 @@ class CharacterUsed
      * @param \PM\CharacterBundle\Entity\CharacterSkill $skill
      * @return CharacterUsed
      */
-    public function addSkillInstance(\PM\CharacterBundle\Entity\CharacterSkill $skill)
+    public function addSkill(\PM\CharacterBundle\Entity\CharacterSkill $skill)
     {
         $this->skills[] = $skill;
         $skill->setCharacterUsed($this);
@@ -692,5 +700,39 @@ class CharacterUsed
     public function removeSkill(\PM\CharacterBundle\Entity\CharacterSkill $skill)
     {
         $this->skills->removeElement($skill);
+    }
+
+    /**
+     * Add languages
+     *
+     * @param \PM\CharacterBundle\Entity\Language $language
+     * @return CharacterUsed
+     */
+    public function addLanguage(\PM\CharacterBundle\Entity\Language $language)
+    {
+        $this->languages[] = $language;
+        $language->setCharacterUsed($this);
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Remove language
+     *
+     * @param \PM\CharacterBundle\Entity\Language $language
+     */
+    public function removeLanguage(\PM\CharacterBundle\Entity\Language $language)
+    {
+        $this->languages->removeElement($language);
     }
 }

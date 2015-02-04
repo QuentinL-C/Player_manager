@@ -31,89 +31,68 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
         // line 13
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["abilities"]) ? $context["abilities"] : $this->getContext($context, "abilities")));
-        $context['loop'] = array(
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        );
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["ability"]) {
+        foreach ($context['_seq'] as $context["abilityName"] => $context["abilityValue"]) {
             // line 14
             echo "                ";
-            if (($this->getAttribute($context["loop"], "index", array()) == 1)) {
+            if (($context["abilityName"] == "strength")) {
                 echo "<tr><th>Force</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
-            } elseif (($this->getAttribute(            // line 15
-$context["loop"], "index", array()) == 2)) {
+            } elseif ((            // line 15
+$context["abilityName"] == "dexterity")) {
                 echo "<tr><th>Dextérité</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
-            } elseif (($this->getAttribute(            // line 16
-$context["loop"], "index", array()) == 3)) {
+            } elseif ((            // line 16
+$context["abilityName"] == "constitution")) {
                 echo "<tr><th>Constitution</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
-            } elseif (($this->getAttribute(            // line 17
-$context["loop"], "index", array()) == 4)) {
+            } elseif ((            // line 17
+$context["abilityName"] == "intelligence")) {
                 echo "<tr><th>Intelligence</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
-            } elseif (($this->getAttribute(            // line 18
-$context["loop"], "index", array()) == 5)) {
+            } elseif ((            // line 18
+$context["abilityName"] == "wisdom")) {
                 echo "<tr><th>Sagesse</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
-            } elseif (($this->getAttribute(            // line 19
-$context["loop"], "index", array()) == 6)) {
+            } elseif ((            // line 19
+$context["abilityName"] == "charisma")) {
                 echo "<tr><th>Charisme</th><td>";
-                if (($context["ability"] >= 0)) {
+                if (($context["abilityValue"] >= 0)) {
                     echo "+";
                 }
-                echo twig_escape_filter($this->env, $context["ability"], "html", null, true);
+                echo twig_escape_filter($this->env, $context["abilityValue"], "html", null, true);
                 echo "</td></tr>
                 ";
             }
             // line 21
             echo "            ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ability'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['abilityName'], $context['abilityValue'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 22
         echo "        </table>
@@ -214,6 +193,6 @@ $context["loop"], "index", array()) == 6)) {
 
     public function getDebugInfo()
     {
-        return array (  197 => 51,  190 => 47,  183 => 43,  175 => 38,  171 => 37,  167 => 36,  163 => 35,  159 => 34,  156 => 33,  147 => 32,  143 => 31,  139 => 29,  130 => 28,  126 => 27,  119 => 22,  105 => 21,  95 => 19,  86 => 18,  77 => 17,  68 => 16,  59 => 15,  49 => 14,  32 => 13,  19 => 2,);
+        return array (  176 => 51,  169 => 47,  162 => 43,  154 => 38,  150 => 37,  146 => 36,  142 => 35,  138 => 34,  135 => 33,  126 => 32,  122 => 31,  118 => 29,  109 => 28,  105 => 27,  98 => 22,  92 => 21,  82 => 19,  73 => 18,  64 => 17,  55 => 16,  46 => 15,  36 => 14,  32 => 13,  19 => 2,);
     }
 }

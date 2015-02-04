@@ -10,6 +10,14 @@
             <li>Poids : {% if characterUsed.weight is not empty %}{{characterUsed.weight}}{% else %}Aucun poids{% endif %}</li>
             <li>Alignement : {% if characterUsed.alignment is not empty %}{{characterUsed.alignment.name}}{% else %}Aucun alignement{% endif %}</li>
             <li>Richesse : {{characterUsed.wealth.po}}</li>
+            <li>Langues parlées :</li>
+            <ul>
+                {% for langue in characterUsed.languages %}
+                    <li><a href="{{path('pm_language_administration_view', {'slug': langue.slug})}}">{{langue.name}}</a></li>
+                {% else %}
+                    <li>Aucune langue parlée</li>
+                {% endfor %}
+            </ul>
         </ul>
     </div>
     <div class="col-md-6">

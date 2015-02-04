@@ -10,13 +10,13 @@
                     <th>Détail</th>
                 </tr>
             </thead>
-            {% for ability in abilities %}
-                {% if loop.index == 1 %}<tr><th>Force</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
-                {% elseif loop.index == 2 %}<tr><th>Dextérité</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
-                {% elseif loop.index == 3 %}<tr><th>Constitution</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
-                {% elseif loop.index == 4 %}<tr><th>Intelligence</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
-                {% elseif loop.index == 5 %}<tr><th>Sagesse</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
-                {% elseif loop.index == 6 %}<tr><th>Charisme</th><td>{% if ability >= 0%}+{% endif %}{{ability}}</td></tr>
+            {% for abilityName, abilityValue in abilities %}
+                {% if abilityName == "strength" %}<tr><th>Force</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
+                {% elseif abilityName == "dexterity" %}<tr><th>Dextérité</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
+                {% elseif abilityName == "constitution" %}<tr><th>Constitution</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
+                {% elseif abilityName == "intelligence" %}<tr><th>Intelligence</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
+                {% elseif abilityName == "wisdom" %}<tr><th>Sagesse</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
+                {% elseif abilityName == "charisma" %}<tr><th>Charisme</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
                 {% endif %}
             {% endfor %}
         </table>

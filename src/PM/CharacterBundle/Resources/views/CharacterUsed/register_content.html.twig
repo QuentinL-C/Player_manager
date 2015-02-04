@@ -13,6 +13,7 @@
         {{ form_errors(form.height) }}
         {{ form_errors(form.weight) }}
         {{ form_errors(form.alignment) }}
+        {{ form_errors(form.languages) }}
         {{ form_errors(form.race) }}
         {{ form_errors(form.classDnDInstances) }}
     </div>
@@ -108,9 +109,22 @@
         </div>
             
         <div class="form-group">
-            {{ form_label(form.alignment, "Alignement :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
-            <div class="col-md-3">
-                {{ form_widget(form.alignment, {'attr': {'class': 'form-control'}}) }}
+            <div class="col-md-3 control-label">
+                {{ form_label(form.alignment, "Alignement :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_widget(form.alignment, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="col-md-4 control-label">
+                        {{ form_label(form.languages, "Langues :", {'label_attr': {'class': 'control-label'}}) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
             </div>
         </div>
     </fieldset>

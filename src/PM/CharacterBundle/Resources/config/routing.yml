@@ -238,3 +238,34 @@ pm_size_administration_delete:
     defaults: { _controller: PMCharacterBundle:Size:delete }
     requirements:
         slug:  \S{0,255}
+
+# -- Level -- #
+pm_level_administration_homepage:
+    path:     /administration/niveau
+    defaults: { _controller: PMCharacterBundle:Level:index }
+
+pm_level_administration_insert:
+    path:     /administration/niveau/insertion
+    defaults: { _controller: PMCharacterBundle:Level:register }
+
+pm_level_administration_list:
+    path:     /administration/niveau/liste
+    defaults: { _controller: PMCharacterBundle:Level:list }
+    
+pm_level_administration_view:
+    path:     /administration/niveau/vue/{level}
+    defaults: { _controller: PMCharacterBundle:Level:view }
+    requirements:
+        level:  \S{0,255}
+    
+pm_level_administration_edit:
+    path:     /administration/niveau/editer/{level}
+    defaults: { _controller: PMCharacterBundle:Level:edit }
+    requirements:
+        level:  \S{0,255}
+    
+pm_level_administration_delete:
+    path:     /administration/niveau/supprimer/{level}
+    defaults: { _controller: PMCharacterBundle:Level:delete }
+    requirements:
+        level:  \S{0,255}
