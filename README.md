@@ -46,26 +46,26 @@ Player Manager
 * getConstitution()
     * Fonction : Retourne la Constitution d’un personnage. Peut retourner le détail du calcul de la Constitution du personnage si $detail=true.
     * Paramètres : $characterUsed (object), ($detail=false (booléen))
-Retour : 
-•	Si $detail=false : retourne un INT, valeur de la Constitution
-•	Si $detail=true : retourne un String, détail de la valeur de la Constitution
+    * Retour : 
+        * Si $detail=false : retourne un INT, valeur de la Constitution
+        * Si $detail=true : retourne un String, détail de la valeur de la Constitution
 
-getConstitutionModifier()
-	Fonction : Retourne le Modificateur de Constitution d’un personnage
-	Paramètres : $characterUsed (object)
-	Retourne : INT du modificateur de Constitution
+* getConstitutionModifier()
+    * Fonction : Retourne le Modificateur de Constitution d’un personnage
+    * Paramètres : $characterUsed (object)
+    * Retourne : INT du modificateur de Constitution
 
-getIntelligence()
-	Fonction : Retourne l’Intelligence d’un personnage. Peut retourner le détail du calcul de l’intelligence du personnage si $detail=true.
-Paramètres : $characterUsed (object), ($detail=false (booléen))
-Retour : 
-•	Si $detail=false : retourne un INT, valeur de l’intelligence
-•	Si $detail=true : retourne un String, détail de la valeur de l’intelligence
+* getIntelligence()
+    * Fonction : Retourne l’Intelligence d’un personnage. Peut retourner le détail du calcul de l’intelligence du personnage si $detail=true.
+    * Paramètres : $characterUsed (object), ($detail=false (booléen))
+    * Retour : 
+        * Si $detail=false : retourne un INT, valeur de l’intelligence
+        * Si $detail=true : retourne un String, détail de la valeur de l’intelligence
 
-getIntelligenceModifier()
-	Fonction : Retourne le Modificateur d’Intelligence d’un personnage
-	Paramètres : $characterUsed (object)
-	Retour : INT du modificateur d’Intelligence
+* getIntelligenceModifier()
+    * Fonction : Retourne le Modificateur d’Intelligence d’un personnage
+    * Paramètres : $characterUsed (object)
+    * Retour : INT du modificateur d’Intelligence
 
 getWisdom()
 	Fonction : Retourne la Sagesse d’un personnage. Peut retourner le détail du calcul de la sagesse du personnage si $detail=true.
