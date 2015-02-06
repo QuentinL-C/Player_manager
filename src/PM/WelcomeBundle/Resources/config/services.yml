@@ -1,10 +1,1 @@
 services:
-    pm_welcome.connection.redirect:
-        class: PM\WelcomeBundle\Connection\ConnectionRedirect
-        arguments: [ "@router" ]
-        
-    pm_welcome.connection.listener:
-        class: PM\WelcomeBundle\Connection\ConnectionListener
-        arguments: [ "@doctrine.orm.entity_manager", "@security.context", @pm_welcome.connection.redirect ]
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelRequest }

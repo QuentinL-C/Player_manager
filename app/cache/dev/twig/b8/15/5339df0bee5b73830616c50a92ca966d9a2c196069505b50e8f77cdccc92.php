@@ -90,7 +90,7 @@ class __TwigTemplate_b8155339df0bee5b73830616c50a92ca966d9a2c196069505b50e8f77cd
         // line 26
         echo "        
         <div class=\"well\">
-            <h2>Gestion des Tailles</h2>
+            <h2>Gestion des Caractéristiques</h2>
             <ul>
                 <li><a href=\"";
         // line 30
