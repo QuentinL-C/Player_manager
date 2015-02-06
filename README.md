@@ -179,7 +179,7 @@ Player Manager
 #### CharacterUsedSkill :
 * getCharacterSkillModifier() 
     * Fonction : Retourne le modificateur d'une compétence pour un personnage. Peut retourner le détail du calcul
-    * Paramètres : $characterSkill (object), ($detail (booleen))
+    * Paramètres : $characterSkill (object), ($detail=false (booleen))
     * Retour : 
         * Si $detail=false : INT, valeur du modificateur
         * Si $detail=true : String, détail du calcul
@@ -192,21 +192,21 @@ Player Manager
 #### CharacterUsedST :
 * getFortitude()
     * Fonction : Retourne le JdS de Réflex du personnage. Peut retourner le détail de la formule.
-    * Paramètres : $characterUsed (object), (detail=false (booléen))
+    * Paramètres : $characterUsed (object), ($detail=false (booléen))
     * Retour : 
         * Si $detail=false : INT, valeur du modificateur de JdS du personnage
         * Si $detail=true : String, délivrant le détail du calcul du modificateur
 
 * getReflex()
     * Fonction : Retourne le JdS de Vigueur du personnage. Peut retourner le détail de la formule.
-    * Paramètres : $characterUsed (object), (detail=false (booléen))
+    * Paramètres : $characterUsed (object), ($detail=false (booléen))
     * Retour : 
         * Si $detail=false : INT, valeur du modificateur de JdS du personnage
         * Si $detail=true : String, délivrant le détail du calcul du modificateur
 
 * getWill()
     * Fonction : Retourne le JdS de Volonté du personnage. Peut retourner le détail de la formule.
-    * Paramètres : $characterUsed (object), (detail=false (booléen))
+    * Paramètres : $characterUsed (object), ($detail=false (booléen))
     * Retour : 
         * Si $detail=false : INT, valeur du modificateur de JdS du personnage
         * Si $detail=true : String, délivrant le détail du calcul du modificateur

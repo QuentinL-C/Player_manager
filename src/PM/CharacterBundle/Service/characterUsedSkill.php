@@ -55,17 +55,17 @@ class characterUsedSkill
         $classDnDInstances = $characterSkill->getCharacterUsed()->getClassDnDInstances();
         foreach ($classDnDInstances as $classDnDInstance) {
             $skillsClass = $classDnDInstance->getClassDnD()->getSkills();
+            $matchClassDnDInstance = $classDnDInstance;
             foreach($skillsClass as $skillClass) {
                 if($skillClass == $skill) 
                 {
                     $match = true; 
-                    $matchClassDnDInstance = $classDnDInstance;
                     break;
                 }
             }
         }
         
-        if($match == true) {$maxRanks = $matchClassDnDInstance->getLevel()->getclassSkillModifier();}
+        if($match == true) {$maxRanks = $matchClassDnDInstance->getLevel()->getClassSkillModifier();}
         elseif($match == false) {$maxRanks = $matchClassDnDInstance->getLevel()->getofClassSkillModifier();}
         
         return $maxRanks;

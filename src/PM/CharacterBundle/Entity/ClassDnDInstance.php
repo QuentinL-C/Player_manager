@@ -36,13 +36,8 @@ class ClassDnDInstance
     private $classDnD;
 
     /**
-     * @var integer
-     * @Assert\Range(
-     *      min = "0",
-     *      minMessage = "Votre personnage ne peut pas avoir un niveau négatif."
-     * )
-     *
-     * @ORM\Column(name="level", type="smallint", options={"default" = 0}, nullable=false)
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Level")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $level;
 
@@ -94,29 +89,6 @@ class ClassDnDInstance
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set level
-     *
-     * @param integer $level
-     * @return ClassDnDInstance
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return integer 
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 
     /**
@@ -232,6 +204,29 @@ class ClassDnDInstance
     public function getClassDnD()
     {
         return $this->classDnD;
+    }
+
+    /**
+     * Set level
+     *
+     * @param \PM\CharacterBundle\Entity\Level $level
+     * @return Level
+     */
+    public function setLevel(\PM\CharacterBundle\Entity\Level $level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return \PM\CharacterBundle\Entity\Level 
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 
     /**

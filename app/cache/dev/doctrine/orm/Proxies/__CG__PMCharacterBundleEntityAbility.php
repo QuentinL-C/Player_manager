@@ -64,10 +64,10 @@ class Ability extends \PM\CharacterBundle\Entity\Ability implements \Doctrine\OR
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'description', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+            return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'type', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'description', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
+        return array('__isInitialized__', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'id', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'name', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'slug', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'description', '' . "\0" . 'PM\\CharacterBundle\\Entity\\Ability' . "\0" . 'type', 'createUser', 'createDate', 'updateUser', 'updateDate', 'updateComment');
     }
 
     /**
@@ -362,6 +362,28 @@ class Ability extends \PM\CharacterBundle\Entity\Ability implements \Doctrine\OR
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
 
         return parent::getSlug();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', array($type));
+
+        return parent::setType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getType()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getType', array());
+
+        return parent::getType();
     }
 
 }

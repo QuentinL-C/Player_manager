@@ -208,7 +208,7 @@ class characterUsedDnD
         $globalLevel = 0;
         $classDnDInstances = $characterUsed->getClassDnDInstances();
         foreach ($classDnDInstances as $classDnDInstance) {
-            $classLevel = $classDnDInstance->getLevel();
+            $classLevel = $classDnDInstance->getLevel()->getLevel();
             $globalLevel += $classLevel;
         }
         

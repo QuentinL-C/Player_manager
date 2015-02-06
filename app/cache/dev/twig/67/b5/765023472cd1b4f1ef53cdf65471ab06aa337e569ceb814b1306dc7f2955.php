@@ -52,7 +52,7 @@ class __TwigTemplate_67b5765023472cd1b4f1ef53cdf65471ab06aa337e569ceb814b1306dc7
         // line 14
         echo "
     <fieldset>
-        <legend>Classe :</legend>
+        <legend>Taille :</legend>
 
         <div class=\"form-group\">
             ";

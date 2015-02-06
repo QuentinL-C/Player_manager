@@ -42,7 +42,7 @@
                 <div class="col-md-3">
                     {% for instance in characterUsed.classDnDInstances %}
                         Classe : <a href="{{path('pm_classdnd_administration_view', {'slug': instance.classDnD.slug})}}">{{instance.classDnD.name}}</a><br />
-                        Niveau : {{instance.level}}<br />
+                        Niveau : {{instance.level.level}}<br />
                     {% endfor %}
                     Exp. : 0/{{xpForLevelUp}}XP
                 </div>

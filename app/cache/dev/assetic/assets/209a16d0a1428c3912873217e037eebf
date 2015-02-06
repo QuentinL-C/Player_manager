@@ -1,9 +1,0 @@
-$(document).ready(function() {
-    //Merci OC pour le code ^^:
-    var $container = $('div#pm_characterbundle_characterused_edit_classDnDInstances'); //-> Changer div en table pour mettre en place le theme
-                     $('div#pm_characterbundle_characterused_edit_classDnDInstances').prev().hide();
-    
-    $('div[id^="pm_characterbundle_characterused_edit_classDnDInstances_"]').html('');
-    
-    
-});

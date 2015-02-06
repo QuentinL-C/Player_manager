@@ -39,7 +39,7 @@ class __TwigTemplate_77c852ae3a34fd33a5858a467655674fcd74e8e263fc17e5b52edeaa811
             echo "
         ";
             // line 9
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilityType", array()), 'errors');
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ability", array()), 'errors');
             echo "
         ";
             // line 10
@@ -70,12 +70,12 @@ class __TwigTemplate_77c852ae3a34fd33a5858a467655674fcd74e8e263fc17e5b52edeaa811
         <div class=\"form-group\">
             ";
         // line 26
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilityType", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Caractéristique :"));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ability", array()), 'label', array("label_attr" => array("class" => "col-md-3 control-label"), "label" => "Caractéristique :"));
         echo "
             <div class=\"col-md-9\">
                 ";
         // line 28
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "abilityType", array()), 'widget', array("attr" => array("placeholder" => "Nom de votre Compétence", "class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ability", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
             </div>
         </div>

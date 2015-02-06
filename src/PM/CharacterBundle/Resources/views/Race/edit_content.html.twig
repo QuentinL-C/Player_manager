@@ -25,13 +25,13 @@
         <div class="form-group">
             {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
             <div class="col-md-9">
-                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre race', 'class': 'form-control'}}) }}
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre Race', 'class': 'form-control'}}) }}
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La description de votre race sera utilisée comme texte descriptif de ce dernier sur sa page publique, accessible à tous." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La description de votre race sera utilisée comme texte descriptif pour les joueurs." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
                 {{ form_label(form.description, "Description :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
@@ -41,7 +41,7 @@
 
         <div class="form-group">
            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race servira de dénominateur à certains calculs." data-toggle="popover" data-container="body" data-original-title="Taille" ></span>
                 {{ form_label(form.size, "Taille :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
@@ -51,27 +51,17 @@
 
         <div class="form-group">
            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La vitesse de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Vitesse" ></span>
                 {{ form_label(form.speed, "Vitesse :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
-                {{ form_widget(form.speed, {'Vitesse': {'class': 'form-control'}}) }}
+                {{ form_widget(form.speed, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
 
         <div class="form-group">
            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
-                {{ form_label(form.skillModifier, "Modificateur de Points de Compétences :", {'label_attr': {'class': 'control-label'}}) }}
-            </div>
-            <div class="col-md-9">
-                {{ form_widget(form.skillModifier, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-           <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le Modificateur de Points de Vie de votre race doit être inscrit sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Points de Vie" ></span>
                 {{ form_label(form.hpModifier, "Modificateur de PV :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
@@ -81,8 +71,18 @@
 
         <div class="form-group">
            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
-                {{ form_label(form.predilectionClass, "Classes de Prédilection :", {'label_attr': {'class': 'control-label'}}) }}
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le Modificateur de Points de Compétence de votre race doit être inscrit sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Points de Compétence" ></span>
+                {{ form_label(form.skillModifier, "Modificateur de Points de Compétences :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.skillModifier, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Classe de Prédilection apporte des avantages aux joueurs (PV, attaques ...)" data-toggle="popover" data-container="body" data-original-title="Classe de Prédilection" ></span>
+                {{ form_label(form.predilectionClass, "Classe de Prédilection :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.predilectionClass, {'attr': {'class': 'form-control'}}) }}
@@ -91,7 +91,6 @@
 
         <div class="form-group">
            <div class="col-md-3 control-label">
-                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La taille de votre race doit être inscrite sous la forme d'un dénominateur." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
                 {{ form_label(form.languages, "Langues parlées :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">

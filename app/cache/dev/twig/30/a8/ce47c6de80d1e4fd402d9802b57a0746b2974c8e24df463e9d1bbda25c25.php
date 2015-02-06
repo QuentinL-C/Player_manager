@@ -148,7 +148,7 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
             echo "</a><br />
                         Niveau : ";
             // line 45
-            echo twig_escape_filter($this->env, $this->getAttribute($context["instance"], "level", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["instance"], "level", array()), "level", array()), "html", null, true);
             echo "<br />
                     ";
         }

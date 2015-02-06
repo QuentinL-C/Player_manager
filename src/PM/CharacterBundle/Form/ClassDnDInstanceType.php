@@ -19,8 +19,10 @@ class ClassDnDInstanceType extends AbstractType
                                                     'property' => 'name',
                                                     'required' => true,
                                                     'empty_value' => 'Choisissez une classe',))
-            ->add('level',      'integer',  array(  'required' => true,
-                                                    'label' => 'Niveau :',))
+            ->add('level',      'entity',  array(   'class' => 'PMCharacterBundle:Level',
+                                                    'property' => 'level',
+                                                    'required' => true,
+                                                    'empty_value' => 'Niveau',))
         ;
     }
     

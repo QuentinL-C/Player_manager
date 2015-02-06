@@ -9,7 +9,7 @@ class __TwigTemplate_4c67c2d558cd1635bc93dc86f60a3f4c351ba96f05141bbcb2fed275c7a
 
         // line 3
         try {
-            $this->parent = $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:layoutAdmin.html.twig");
+            $this->parent = $this->env->loadTemplate("PMCharacterBundle:Language:layoutAdmin.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(3);
@@ -28,7 +28,7 @@ class __TwigTemplate_4c67c2d558cd1635bc93dc86f60a3f4c351ba96f05141bbcb2fed275c7a
 
     protected function doGetParent(array $context)
     {
-        return "PMCharacterBundle:CharacterUsed:layoutAdmin.html.twig";
+        return "PMCharacterBundle:Language:layoutAdmin.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -50,7 +50,7 @@ class __TwigTemplate_4c67c2d558cd1635bc93dc86f60a3f4c351ba96f05141bbcb2fed275c7a
     public function block_h1($context, array $blocks = array())
     {
         // line 10
-        echo "    Nouveau Personnage :
+        echo "    Nouvelle Langue :
 ";
     }
 
@@ -93,7 +93,7 @@ class __TwigTemplate_4c67c2d558cd1635bc93dc86f60a3f4c351ba96f05141bbcb2fed275c7a
         <div class=\"well\">
             ";
         // line 28
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:register_content.html.twig")->display($context);
+        $this->env->loadTemplate("PMCharacterBundle:Language:register_content.html.twig")->display($context);
         // line 29
         echo "        </div>
     </section>
@@ -111,14 +111,32 @@ class __TwigTemplate_4c67c2d558cd1635bc93dc86f60a3f4c351ba96f05141bbcb2fed275c7a
         echo "    ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "1f60180_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_editBAB_1.js");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_characterUsedAddSkill_1.js");
             // line 39
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
             // asset "1f60180_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_editST_2.js");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_editBAB_2.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "1f60180_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_editCharacterUsed_3.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "1f60180_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_editST_4.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "1f60180_4"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1f60180_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/1f60180_part_1_registerCharacterUsed_5.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>

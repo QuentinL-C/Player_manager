@@ -48,7 +48,7 @@ class __TwigTemplate_9fbb312691ba34c54cfb18c026a53355943d08797f97fd755180f4087dd
         // line 13
         echo "
     <fieldset>
-        <legend>Classe :</legend>
+        <legend>Langue :</legend>
 
         <div class=\"form-group\">
             ";
