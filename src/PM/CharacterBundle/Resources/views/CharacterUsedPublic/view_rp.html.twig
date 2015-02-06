@@ -1,0 +1,34 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_rp.html.twig #}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Informations sur le Personnage</h2>
+
+        <ul>
+            <li>Age : {% if characterUsed.age is not empty %}{{characterUsed.age}}{% else %}Aucun âge{% endif %}</li>
+            <li>Sexe : {% if characterUsed.gender is not empty %}{{characterUsed.gender}}{% else %}Aucun genre{% endif %}</li>
+            <li>Taille : {% if characterUsed.height is not empty %}{{characterUsed.height}}{% else %}Aucune taille{% endif %}</li>
+            <li>Poids : {% if characterUsed.weight is not empty %}{{characterUsed.weight}}{% else %}Aucun poids{% endif %}</li>
+            <li>Alignement : {% if characterUsed.alignment is not empty %}{{characterUsed.alignment.name}}{% else %}Aucun alignement{% endif %}</li>
+            <li>Richesse : {{characterUsed.wealth.po}}</li>
+            <li>Langues parlées :</li>
+            <ul>
+                {% for langue in characterUsed.languages %}
+                    <li><a href="{{path('pm_language_public_view', {'slug': langue.slug})}}">{{langue.name}}</a></li>
+                {% else %}
+                    <li>Aucune langue parlée</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Histoire</h2>
+        {% if characterUsed.story is not empty %}
+            <div class="well">
+                {{ characterUsed.story|raw }}
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">Aucune histoire fournie pour ce personnage. <small>(Et ce n'est pas bien ...)</small></div>
+        {% endif %}
+
+    </div>
+</div>

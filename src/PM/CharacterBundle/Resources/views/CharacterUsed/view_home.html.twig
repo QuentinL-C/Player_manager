@@ -14,12 +14,12 @@
             {% for abilityName, abilityValue in abilities %}
                 {% set abilityModifier = pm_character_characterusedability.getAbilityModifier(abilityValue) %}
                 <tr>
-                    {% if abilityName == "strength" %}<th>Force</th>
-                    {% elseif abilityName == "dexterity" %}<th>Dextérité</th>
-                    {% elseif abilityName == "constitution" %}<th>Constitution</th>
-                    {% elseif abilityName == "intelligence" %}<th>Intelligence</th>
-                    {% elseif abilityName == "wisdom" %}<th>Sagesse</th>
-                    {% elseif abilityName == "charisma" %}<th>Charisme</th>
+                    {% if abilityName == "strength" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'force'})}}">Force</a></th>
+                    {% elseif abilityName == "dexterity" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'dextérité'})}}">Dextérité</a></th>
+                    {% elseif abilityName == "constitution" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'constitution'})}}">Constitution</a></th>
+                    {% elseif abilityName == "intelligence" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'intelligence'})}}">Intelligence</a></th>
+                    {% elseif abilityName == "wisdom" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'sagesse'})}}">Sagesse</a></th>
+                    {% elseif abilityName == "charisma" %}<th><a href="{{path('pm_ability_administration_view', {'slug': 'charisme'})}}">Charisme</a></th>
                     {% endif %}    
                     <td>{% if abilityModifier >= 0%}+{% endif %}{{abilityModifier}}</td>
                     <td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}} = </td>

@@ -1,0 +1,78 @@
+{# src/PM/CharacterBundle/Resources/views/RacePublic/view.html.twig #}
+ 
+{% extends "PMCharacterBundle:RacePublic:layoutPublic.html.twig" %}
+
+{% block title %}
+    {{ race.name }} - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    {{ race.name }} :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{race.name}}</li>
+    <li class="active">Voir</li>
+{% endblock %} 
+
+{% block PM_body %}
+<div class="row">
+    <section id="content" class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Informations sur la Race</h2>
+                
+                <ul>
+                    <li>Taille : <a href="{{path('pm_size_public_view', {'slug': race.size.slug})}}">{{race.size.name}}</a></li>
+                    <li>Vitesse : {{race.speed}}</li>
+                    <li>Classe de Prédilection : {% if race.predilectionClass is not null %}<a href="{{path('pm_classdnd_public_view', {'slug': race.predilectionClass.slug})}}">{{ race.predilectionClass.name }}</a>{% else %}Pas de classe de prédilection renseignée.{% endif %}</li>
+                    <li>Modificateur de Points de Compétences : {{race.skillModifier}}</li>
+                    <li>Modificateur de Points de Vie : {{race.hpModifier}}</li>
+                    <li>Langues :</li>
+                    <ul>
+                        {%for language in race.languages %}
+                            <li><a href="{{path('pm_language_public_view', {'slug': language.slug})}}">{{language.name}}</a></li>
+                        {% else %}
+                            <li>Aucune langue parlée</li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Texte descriptif</h2>
+                {% if race.description is not empty %}
+                    <div class="well">
+                        {{ race.description|raw }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning" role="alert">Aucune description fournie pour cette race.</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Modificateurs de Caractéristiques :</h2>
+                <table class="table table-bordered table-hover">
+                    <caption>Modificateurs de Caractéristiques :</caption>
+                    <thead>
+                        <tr>
+                            <th>Caractéristique</th>
+                            <th>Modificateur</th>
+                        </tr>
+                    </thead>
+                    {% for raceAbility in race.abilities %}
+                        <tr><th>{{raceAbility.ability.name}}</th><td>{{raceAbility.value}}</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

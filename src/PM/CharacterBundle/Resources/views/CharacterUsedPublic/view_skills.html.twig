@@ -1,0 +1,18 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_skill.html.twig #}
+<table class="table table-bordered">
+    <caption>Compétences :</caption>
+    <tr>
+        <th>Compétence</th>
+        <th>Modificateur de Compétence</th>
+        <th>Détail</th>
+        <th>Degré Max.</th>
+    </tr>
+    {% for skill in characterUsed.skills %}
+        <tr>
+            <th><a href="{{path('pm_skill_public_view', {'slug': skill.skill.slug})}}">{{skill.skill.name}}</a></th>
+            <td>{{ pm_character_characterusedskill.getCharacterSkillModifier(skill) }}</td>
+            <td>{{ pm_character_characterusedskill.getCharacterSkillModifier(skill, true)|raw }}</td>
+            <td>{{ pm_character_characterusedskill.getMaxRanksForSkill(skill) }}</td>
+        </tr>
+    {% endfor %}
+</table>

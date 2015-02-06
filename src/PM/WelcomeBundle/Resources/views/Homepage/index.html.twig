@@ -13,9 +13,28 @@
 {% block h1 %}
     Bienvenue sur {{project_name}}
 {% endblock %}
+    
+{% block h1_extend %}
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_help_public_homepage') }}" >Aide</a>
+{% endblock %}
 
 {% block PM_body %}
-    Ah que coucou !
+<div class="row">
+    <div class="col-md-6">
+        <h2>Mes personnages</h2>
+        
+        <ul>
+            <li><a href="{{path('pm_characterused_public_homepage')}}">Accéder à mes personnages</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Mes parties</h2>
+        
+        <ul>
+            <li>A venir</li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
     
 {% block javascripts_block %}

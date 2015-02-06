@@ -40,7 +40,7 @@ class __TwigTemplate_5a6bcb75edb13633773589b9fa8e9eff4b53855efda56ad0352948e3d82
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "    Langue - ";
+        echo "    Langues - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";

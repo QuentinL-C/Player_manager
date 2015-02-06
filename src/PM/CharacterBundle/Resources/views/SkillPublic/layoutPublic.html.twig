@@ -1,0 +1,22 @@
+{# src/PM/WelcomeBundle/Resources/views/SkillPublic/layoutPublic.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutPublic.html.twig" %}
+
+{% block title %}
+    Compétences - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_help_public_homepage') }}">Donjons & Dragons</a></li>
+    <li><a href="{{ path('pm_skill_public_homepage') }}">Compétences</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

@@ -40,7 +40,7 @@ class __TwigTemplate_48026396de2e95e1d5c7d26adaa4d2ac3feffe66463f6bb92e0d047639f
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "    Niveau - ";
+        echo "    Niveaux - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";

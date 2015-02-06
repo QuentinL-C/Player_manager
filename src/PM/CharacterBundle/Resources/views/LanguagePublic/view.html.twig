@@ -1,0 +1,33 @@
+{# src/PM/CharacterBundle/Resources/views/LanguagePublic/view.html.twig #}
+ 
+{% extends "PMCharacterBundle:LanguagePublic:layoutPublic.html.twig" %}
+
+{% block title %}
+    {{ language.name }} - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    {{ language.name }} :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{language.name}}</li>
+    <li class="active">Voir</li>
+{% endblock %} 
+
+{% block PM_body %}
+<div class="row">
+    <section id="content" class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div class="row">
+            <p>Futur blabla</p>
+        </div>
+    </section>
+</div>
+{% endblock %}

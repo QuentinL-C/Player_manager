@@ -1,0 +1,22 @@
+{# src/PM/WelcomeBundle/Resources/views/RacePublic/layoutPublic.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutPublic.html.twig" %}
+
+{% block title %}
+    Races - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_help_public_homepage') }}">Donjons & Dragons</a></li>
+    <li><a href="{{ path('pm_race_public_homepage') }}">Races</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

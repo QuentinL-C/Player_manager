@@ -40,7 +40,7 @@ class __TwigTemplate_2d55c4e670604f9d469f185713b7ca8628164bea45d1b3910d48a71d4e9
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "    Classe - ";
+        echo "    Classes - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";

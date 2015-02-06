@@ -1,0 +1,16 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_statistics.html.twig #}
+<h2>Statistiques :</h2>
+<ul>
+    <li>Création :</li>
+    <ul>
+        <li>Par <a href="mailto:{{characterUsed.createUser.email}}">{{characterUsed.createUser.username}}</a></li>
+        <li>le {{characterUsed.createDate|date("d M Y")}}</li>
+    </ul>
+    {% if characterUsed.updateUser is not null %}
+    <li>Dernière modification :</li>
+    <ul>
+        <li>Par <a href="mailto:{{characterUsed.createUser.email}}">{{characterUsed.updateUser.username}}</a></li>
+        <li>le {{characterUsed.updateDate|date("d M Y")}}</li>
+    </ul>
+    {% endif %}
+</ul>

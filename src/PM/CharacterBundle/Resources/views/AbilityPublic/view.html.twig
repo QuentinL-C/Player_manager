@@ -1,0 +1,38 @@
+{# src/PM/CharacterBundle/Resources/views/AbilityPublic/view.html.twig #}
+ 
+{% extends "PMCharacterBundle:AbilityPublic:layoutPublic.html.twig" %}
+
+{% block title %}
+    {{ ability.name }} - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    {{ ability.name }} :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{ability.name}}</li>
+    <li class="active">Voir</li>
+{% endblock %} 
+
+{% block PM_body %}
+<div class="row">
+    <section id="content" class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <h2>Texte descriptif</h2>
+        {% if ability.description is not empty %}
+            <div class="well">
+                {{ ability.description|raw }}
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">Aucune description fournie pour cette caractéristique.</div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

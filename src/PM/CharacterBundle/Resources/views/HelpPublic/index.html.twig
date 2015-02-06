@@ -1,0 +1,42 @@
+{# src/PM/CharacterBundle/Resources/views/AbilityPublic/index.html.twig #}
+ 
+{% extends "PMCharacterBundle:HelpPublic:layoutPublic.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %} 
+    
+{% block h1 %}
+    Aide de Donjons & Dragons :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Accueil</li>
+{% endblock %}    
+    
+{% block PM_body %}
+<div class="row">
+    <section class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert col-lg-7 alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div class="well">
+            <h2>Sections</h2>
+            <ul>
+                <li><a href="{{ path('pm_ability_public_homepage') }}">Les Caractéristiques</a></li>
+                <li><a href="{{ path('pm_alignment_public_homepage') }}">Les Alignements</a></li>
+                <li><a href="{{ path('pm_classdnd_public_homepage') }}">Les Classes</a></li>
+                <li><a href="{{ path('pm_language_public_homepage') }}">Les Langues</a></li>
+                <li><a href="{{ path('pm_level_public_homepage') }}">Les Niveaux</a></li>
+                <li><a href="{{ path('pm_race_public_homepage') }}">Les Races</a></li>
+                <li><a href="{{ path('pm_size_public_homepage') }}">Les Tailles</a></li>
+                <li><a href="{{ path('pm_skill_public_homepage') }}">Les Compétences</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -41,27 +41,39 @@ class __TwigTemplate_88d568e65509f3ff70edd77641af820bc360af698c53f7dd6b624ec9a21
                     ";
             // line 17
             if (($context["abilityName"] == "strength")) {
-                echo "<th>Force</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "force"));
+                echo "\">Force</a></th>
                     ";
             } elseif ((            // line 18
 $context["abilityName"] == "dexterity")) {
-                echo "<th>Dextérité</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "dextérité"));
+                echo "\">Dextérité</a></th>
                     ";
             } elseif ((            // line 19
 $context["abilityName"] == "constitution")) {
-                echo "<th>Constitution</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "constitution"));
+                echo "\">Constitution</a></th>
                     ";
             } elseif ((            // line 20
 $context["abilityName"] == "intelligence")) {
-                echo "<th>Intelligence</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "intelligence"));
+                echo "\">Intelligence</a></th>
                     ";
             } elseif ((            // line 21
 $context["abilityName"] == "wisdom")) {
-                echo "<th>Sagesse</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "sagesse"));
+                echo "\">Sagesse</a></th>
                     ";
             } elseif ((            // line 22
 $context["abilityName"] == "charisma")) {
-                echo "<th>Charisme</th>
+                echo "<th><a href=\"";
+                echo $this->env->getExtension('routing')->getPath("pm_ability_administration_view", array("slug" => "charisme"));
+                echo "\">Charisme</a></th>
                     ";
             }
             // line 23
@@ -204,6 +216,6 @@ $context["abilityName"] == "charisma")) {
 
     public function getDebugInfo()
     {
-        return array (  184 => 75,  177 => 71,  170 => 67,  155 => 55,  150 => 53,  145 => 51,  140 => 49,  135 => 47,  131 => 45,  122 => 43,  118 => 42,  113 => 39,  104 => 37,  100 => 36,  90 => 28,  78 => 25,  71 => 24,  68 => 23,  63 => 22,  59 => 21,  55 => 20,  51 => 19,  47 => 18,  43 => 17,  40 => 16,  37 => 15,  33 => 14,  19 => 2,);
+        return array (  196 => 75,  189 => 71,  182 => 67,  167 => 55,  162 => 53,  157 => 51,  152 => 49,  147 => 47,  143 => 45,  134 => 43,  130 => 42,  125 => 39,  116 => 37,  112 => 36,  102 => 28,  90 => 25,  83 => 24,  80 => 23,  73 => 22,  67 => 21,  61 => 20,  55 => 19,  49 => 18,  43 => 17,  40 => 16,  37 => 15,  33 => 14,  19 => 2,);
     }
 }
