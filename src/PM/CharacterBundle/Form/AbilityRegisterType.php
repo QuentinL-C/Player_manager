@@ -17,6 +17,7 @@ class AbilityRegisterType extends AbstractType
         $builder
             ->add('name',           'text',         array('required' => true))
             ->add('description',    'textarea',     array('required' => false))
+            ->add('type',           'integer',      array('required' => false))
         ;
     }
     

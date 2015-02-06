@@ -31,6 +31,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         project_name: "Player Manager"
+        pm_character_characterusedskill: "@pm_character.characterusedskill"
+        pm_character_characterusedability: "@pm_character.characterusedability"
 
 # Assetic Configuration
 assetic:

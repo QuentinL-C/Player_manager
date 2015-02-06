@@ -7,6 +7,10 @@ services:
         class: PM\CharacterBundle\Service\characterUsedAbility
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
         
+    pm_character.characterusedskill:
+        class: PM\CharacterBundle\Service\characterUsedSkill
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context", "@pm_character.characterusedability"]
+        
     pm_character.characterusedst:
         class: PM\CharacterBundle\Service\characterUsedST
         arguments: [ "@doctrine.orm.entity_manager", "@security.context", "@pm_character.characterusedability"]

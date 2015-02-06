@@ -7,14 +7,14 @@ Player Manager
 ### Bundle CharacterBundle
 
 #### CharacterUsedAbility
-* private getAbility()
+* getAbility()
     * Fonction : Retourne une caractéristique donnée pour un personnage. Peut retourner le détail du total de la valeur si $detail=true.
     * Paramètres : $characterUsed (object), $abilityType (INT), ($detail=false (booléen))
     * Retour : 
         * Si $detail=false, retourne un INT, contenant la valeur totale de la caractéristique. 
         * Si $detail=true, retourne un String, contenant la formule de calcul de la valeur totale de la caractéristique.
 
-* private abilityModifier()
+* getAbilityModifier()
     * Fonction : Retourne le modificateur d’une caractéristique donnée.
     * Paramètre : $abilityValue (INT)
     * Retour : INT, valeur du modificateur
@@ -169,12 +169,25 @@ Player Manager
     * Paramètres : $characterUser (object)
     * Retour : INT, valeur d'XP pour passer au prochain niveau
     
-* isNewLevel() {
+* isNewLevel()
     * Fonction : Retourne un booléen : le personnage gagne-t-il un niveau ?
     * Paramètres : $characterUser (object)
     * Retour : BOOLEEN
         * True : Le personnage gagne un niveau
         * False : Le personnage reste au même niveau
+
+#### CharacterUsedSkill :
+* getCharacterSkillModifier() 
+    * Fonction : Retourne le modificateur d'une compétence pour un personnage. Peut retourner le détail du calcul
+    * Paramètres : $characterSkill (object), ($detail (booleen))
+    * Retour : 
+        * Si $detail=false : INT, valeur du modificateur
+        * Si $detail=true : String, détail du calcul
+
+* getMaxRanksForSkill() 
+    * Fonction : Retourne le degré de maitrise maximum d'une compétence pour un personnage en fonction de sa classe et de son niveau
+    * Paramètres : $characterSkill (object)
+    * Retour : INT, degré de maitrise maximal
 
 #### CharacterUsedST :
 * getFortitude()

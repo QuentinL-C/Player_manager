@@ -1921,7 +1921,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54d2058408d10</argument>
+            <argument>54d47dd8e77f8</argument>
           </service>
         </argument>
       </argument>
@@ -2239,7 +2239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54d2058408d10</argument>
+            <argument>54d47dd8e77f8</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2472,6 +2472,14 @@
       <call method="addGlobal">
         <argument>project_name</argument>
         <argument>Player Manager</argument>
+      </call>
+      <call method="addGlobal">
+        <argument>pm_character_characterusedskill</argument>
+        <argument type="service" id="pm_character.characterusedskill"/>
+      </call>
+      <call method="addGlobal">
+        <argument>pm_character_characterusedability</argument>
+        <argument type="service" id="pm_character.characterusedability"/>
       </call>
     </service>
     <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor">
@@ -3042,6 +3050,11 @@
     <service id="pm_character.characterusedability" class="PM\CharacterBundle\Service\characterUsedAbility">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_character.characterusedskill" class="PM\CharacterBundle\Service\characterUsedSkill">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="pm_character.characterusedability"/>
     </service>
     <service id="pm_character.characterusedst" class="PM\CharacterBundle\Service\characterUsedST">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>

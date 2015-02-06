@@ -3,9 +3,14 @@
     <caption>Compétences :</caption>
     <tr>
         <th>Compétence</th>
-        <th>Degré de Maitrise</th>
+        <th>Modificateur de Compétence</th>
+        <th>Détail</th>
     </tr>
     {% for skill in characterUsed.skills %}
-        <tr><th><a href="{{path('pm_skill_administration_view', {'slug': skill.skill.slug})}}">{{skill.skill.name}}</a></th><td>{{skill.ranks}}</td></tr>
+        <tr>
+            <th><a href="{{path('pm_skill_administration_view', {'slug': skill.skill.slug})}}">{{skill.skill.name}}</a></th>
+            <td>{{ pm_character_characterusedskill.getCharacterSkillModifier(skill) }}</td>
+            <td>{{ pm_character_characterusedskill.getCharacterSkillModifier(skill, true)|raw }}</td>
+        </tr>
     {% endfor %}
 </table>

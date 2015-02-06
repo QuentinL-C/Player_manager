@@ -1,6 +1,7 @@
 {# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_home.html.twig #}
 <div class="row">
     <div class="col-md-6">
+        <h2>Valeurs de Caractéristique :</h2>
         <table class="table table-bordered table-hover">
             <caption>Caractéristiques :</caption>
             <thead>
@@ -11,33 +12,56 @@
                 </tr>
             </thead>
             {% for abilityName, abilityValue in abilities %}
-                {% if abilityName == "strength" %}<tr><th>Force</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% elseif abilityName == "dexterity" %}<tr><th>Dextérité</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% elseif abilityName == "constitution" %}<tr><th>Constitution</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% elseif abilityName == "intelligence" %}<tr><th>Intelligence</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% elseif abilityName == "wisdom" %}<tr><th>Sagesse</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% elseif abilityName == "charisma" %}<tr><th>Charisme</th><td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}}</td></tr>
-                {% endif %}
+                {% set abilityModifier = pm_character_characterusedability.getAbilityModifier(abilityValue) %}
+                <tr>
+                    {% if abilityName == "strength" %}<th>Force</th>
+                    {% elseif abilityName == "dexterity" %}<th>Dextérité</th>
+                    {% elseif abilityName == "constitution" %}<th>Constitution</th>
+                    {% elseif abilityName == "intelligence" %}<th>Intelligence</th>
+                    {% elseif abilityName == "wisdom" %}<th>Sagesse</th>
+                    {% elseif abilityName == "charisma" %}<th>Charisme</th>
+                    {% endif %}    
+                    <td>{% if abilityModifier >= 0%}+{% endif %}{{abilityModifier}}</td>
+                    <td>{% if abilityValue >= 0%}+{% endif %}{{abilityValue}} = </td>
+                </tr>
             {% endfor %}
         </table>
     </div>
         
     <div class="col-md-6">
-        BBA : 
-        {% for bab in babs %}
-            {{bab.value}}
-        {% endfor %}<br />
-        Mod. Lutte :
-        {% for grappleModifier in grappleModifiers %}
-            {{grappleModifier}}
-        {% endfor %}<br />
-        CA : {{ac}}<br />
-        CA de Contact : {{touchAC}}<br />
-        CA de pris au dépourvu : {{fFAC}}<br />
-        Vitesse : {{speed}}<br />
-        Initiative : {{initiative}}<br />
+        <h2>Options de Combat :</h2>
+        <dl class="dl-horizontal">
+            <dt>Bonus de Base à l'Attaque :</dt>
+            <dd>
+                {% for bab in babs %}
+                    {{bab.value}}
+                {% endfor %}
+            </dd>
+            <dt>Mod. Lutte :</dt>
+            <dd>
+                {% for grappleModifier in grappleModifiers %}
+                    {{grappleModifier}}
+                {% endfor %}
+            </dd>
+            <dt>Classe d'Armure :</dt>
+            <dd>{{ac}}</dd>
+            <dt>CA de Contact :</dt>
+            <dd>{{touchAC}}</dd>
+            <dt>CA de Pris au dépourvu :</dt>
+            <dd>{{fFAC}}</dd>
+            <dt>Vitesse :</dt>
+            <dd>{{speed}}</dd>
+            <dt>Initiative :</dt>
+            <dd>{{initiative}}</dd>
+        </dl>
+    </div>
+</div>
+            
+<div class="row">
+    <div class="col-md-6">
+        <h2>Jets de Sauvegarde :</h2>
         <table class="table table-bordered">
-            <caption>Jets de Sauvegarde</caption>
+            <caption>Jets de Sauvegarde :</caption>
             <tr>
                 <td>Réflex</td>
                 <td>{{fortitude}}</td>
@@ -50,6 +74,9 @@
                 <td>Volonté</td>
                 <td>{{will}}</td>
             </tr>
-        </table>
+        </table>    
+    </div>
+    <div class="col-md-6">
+        
     </div>
 </div>

@@ -52,6 +52,20 @@ class Ability
     private $description;
 
     /**
+     * @var integer
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "1",
+     *      max = "6",
+     *      minMessage = "Le type de la caractéristique doit être compris entre 1 et 6.",
+     *      maxMessage = "Le type de la caractéristique doit être compris entre 1 et 6."
+     * )
+     *
+     * @ORM\Column(name="type", type="smallint")
+     */
+    private $type;
+
+    /**
     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
     * @ORM\JoinColumn(nullable=false)
     */
@@ -283,5 +297,28 @@ class Ability
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     * @return Ability
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

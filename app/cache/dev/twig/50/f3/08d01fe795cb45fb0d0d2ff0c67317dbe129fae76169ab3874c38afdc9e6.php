@@ -20,27 +20,37 @@ class __TwigTemplate_50f308d01fe795cb45fb0d0d2ff0c67317dbe129fae76169ab3874c38af
     <caption>Compétences :</caption>
     <tr>
         <th>Compétence</th>
-        <th>Degré de Maitrise</th>
+        <th>Modificateur de Compétence</th>
+        <th>Détail</th>
     </tr>
     ";
-        // line 8
+        // line 9
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "skills", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["skill"]) {
-            // line 9
-            echo "        <tr><th><a href=\"";
+            // line 10
+            echo "        <tr>
+            <th><a href=\"";
+            // line 11
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_skill_administration_view", array("slug" => $this->getAttribute($this->getAttribute($context["skill"], "skill", array()), "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["skill"], "skill", array()), "name", array()), "html", null, true);
-            echo "</a></th><td>";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["skill"], "ranks", array()), "html", null, true);
-            echo "</td></tr>
+            echo "</a></th>
+            <td>";
+            // line 12
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pm_character_characterusedskill"]) ? $context["pm_character_characterusedskill"] : $this->getContext($context, "pm_character_characterusedskill")), "getCharacterSkillModifier", array(0 => $context["skill"]), "method"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 13
+            echo $this->getAttribute((isset($context["pm_character_characterusedskill"]) ? $context["pm_character_characterusedskill"] : $this->getContext($context, "pm_character_characterusedskill")), "getCharacterSkillModifier", array(0 => $context["skill"], 1 => true), "method");
+            echo "</td>
+        </tr>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['skill'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 11
+        // line 16
         echo "</table>";
     }
 
@@ -56,6 +66,6 @@ class __TwigTemplate_50f308d01fe795cb45fb0d0d2ff0c67317dbe129fae76169ab3874c38af
 
     public function getDebugInfo()
     {
-        return array (  44 => 11,  31 => 9,  27 => 8,  19 => 2,);
+        return array (  54 => 16,  45 => 13,  41 => 12,  35 => 11,  32 => 10,  28 => 9,  19 => 2,);
     }
 }
