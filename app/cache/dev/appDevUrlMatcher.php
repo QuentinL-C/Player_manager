@@ -158,6 +158,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // _assetic_e4176c0
+            if ($pathinfo === '/js/e4176c0.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e4176c0',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_e4176c0',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/_')) {
@@ -256,6 +261,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/administration/monstres')) {
+            // pm_monster_administration_homepage
+            if ($pathinfo === '/administration/monstres') {
+                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::indexAction',  '_route' => 'pm_monster_administration_homepage',);
+            }
+
+            // pm_monster_administration_insert
+            if ($pathinfo === '/administration/monstres/insertion') {
+                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::registerAction',  '_route' => 'pm_monster_administration_insert',);
+            }
+
+            // pm_monster_administration_list
+            if ($pathinfo === '/administration/monstres/liste') {
+                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::listAction',  '_route' => 'pm_monster_administration_list',);
+            }
+
+            // pm_monster_administration_view
+            if (0 === strpos($pathinfo, '/administration/monstres/vue') && preg_match('#^/administration/monstres/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::viewAction',));
+            }
+
+            // pm_monster_administration_edit
+            if (0 === strpos($pathinfo, '/administration/monstres/editer') && preg_match('#^/administration/monstres/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::editAction',));
+            }
+
+            // pm_monster_administration_delete
+            if (0 === strpos($pathinfo, '/administration/monstres/supprimer') && preg_match('#^/administration/monstres/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::deleteAction',));
             }
 
         }
@@ -805,28 +843,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/a')) {
-            if (0 === strpos($pathinfo, '/administration/utilisateur')) {
-                // pm_user_homepage
-                if (rtrim($pathinfo, '/') === '/administration/utilisateur') {
+            if (0 === strpos($pathinfo, '/administration/utilisateurs')) {
+                // pm_user_administration_homepage
+                if (rtrim($pathinfo, '/') === '/administration/utilisateurs') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'pm_user_homepage');
+                        return $this->redirect($pathinfo.'/', 'pm_user_administration_homepage');
                     }
 
-                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::indexAction',  '_route' => 'pm_user_homepage',);
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::indexAction',  '_route' => 'pm_user_administration_homepage',);
                 }
 
-                // pm_user_list
-                if ($pathinfo === '/administration/utilisateur/liste') {
-                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::UsersListAction',  '_route' => 'pm_user_list',);
+                // pm_user_administration_list
+                if ($pathinfo === '/administration/utilisateurs/liste') {
+                    return array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::UsersListAction',  '_route' => 'pm_user_administration_list',);
                 }
 
-                // pm_user_view
-                if (0 === strpos($pathinfo, '/administration/utilisateur/user') && preg_match('#^/administration/utilisateur/user/(?P<user_id>\\d+)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
+                // pm_user_administration_view
+                if (preg_match('#^/administration/utilisateurs/(?P<user_id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_administration_view')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::ViewAction',));
+                }
+
+                // pm_user_administration_edit
+                if (preg_match('#^/administration/utilisateurs/(?P<user_id>\\d+)/edition$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_user_administration_edit')), array (  '_controller' => 'PM\\UserBundle\\Controller\\UserController::editAction',));
                 }
 
                 // pm_user_ajax_password
-                if ($pathinfo === '/administration/utilisateur/1234-password') {
+                if ($pathinfo === '/administration/utilisateurs/1234-password') {
                     if ($this->context->getMethod() != 'POST') {
                         $allow[] = 'POST';
                         goto not_pm_user_ajax_password;

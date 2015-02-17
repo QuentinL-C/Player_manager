@@ -20,6 +20,7 @@ class __TwigTemplate_aa86328d824be556cc63102235f65fc1038c6b905505372b070686e5eb5
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'h1' => array($this, 'block_h1'),
+            'h1_extend' => array($this, 'block_h1_extend'),
             'breadcrumb' => array($this, 'block_breadcrumb'),
             'PMUser_body' => array($this, 'block_PMUser_body'),
         );
@@ -58,49 +59,53 @@ class __TwigTemplate_aa86328d824be556cc63102235f65fc1038c6b905505372b070686e5eb5
     }
 
     // line 13
-    public function block_breadcrumb($context, array $blocks = array())
+    public function block_h1_extend($context, array $blocks = array())
     {
         // line 14
+        echo "    <a class=\"btn btn-lg btn-primary\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_administration_edit", array("user_id" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id", array()))), "html", null, true);
+        echo "\" >Modifier</a>
+";
+    }
+
+    // line 17
+    public function block_breadcrumb($context, array $blocks = array())
+    {
+        // line 18
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
     <li><a href=\"";
-        // line 15
-        echo $this->env->getExtension('routing')->getPath("pm_user_list");
+        // line 19
+        echo $this->env->getExtension('routing')->getPath("pm_user_administration_list");
         echo "\">Liste des Utilisateurs</a></li>    
     <li class=\"active\">Voir</li>
 ";
     }
 
-    // line 19
+    // line 23
     public function block_PMUser_body($context, array $blocks = array())
     {
-        // line 20
+        // line 24
         echo "<div class=\"row\">
     <!-- Nav tab -->
     <div class=\"col-lg-2\">
         <ul id=\"UserTab\" class=\"nav nav-stacked\">
-            <li class=\"dropdown\">
-                <a id=\"User_BlocUser\" hef=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" >Utilisateur <span class=\"caret\"></span></a>
-                <ul class=\"dropdown-menu\" aria-labelledby=\"User_BlocUser\" role=\"menu\">
-                    <li><a href=\"#User_User\" data-toggle=\"tab\" tabindex=\"-1\" >Informations</a></li>
-                    <li><a href=\"#User_Edit\" data-toggle=\"tab\" tabindex=\"-1\" >Editer</a></li>
-                </ul>
-            </li>
+            <li><a href=\"#User_User\" data-toggle=\"tab\" tabindex=\"-1\" >Informations</a></li>
             <li><a href=\"#User_Settings\" data-toggle=\"tab\">Paramètres</a></li>
         </ul>
     </div>
     
     <div class=\"col-lg-10 well\">
         ";
-        // line 36
+        // line 34
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 37
+            // line 35
             echo "            <div class=\"alert col-lg-10 alert-success\">
                 ";
-            // line 38
+            // line 36
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -109,27 +114,21 @@ class __TwigTemplate_aa86328d824be556cc63102235f65fc1038c6b905505372b070686e5eb5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 39
         echo "    
         <!-- Tab panes -->
         <div class=\"tab-content\">
             <div class=\"tab-pane active\" id=\"User_User\">
                 ";
-        // line 45
+        // line 43
         $this->env->loadTemplate("PMUserBundle:User:view_user_user.html.twig")->display($context);
-        // line 46
-        echo "            </div>
-            <div class=\"tab-pane\" id=\"User_Edit\">
-                ";
-        // line 48
-        $this->env->loadTemplate("PMUserBundle:User:view_user_edit.html.twig")->display($context);
-        // line 49
+        // line 44
         echo "            </div>
             <div class=\"tab-pane\" id=\"User_Settings\">
                 ";
-        // line 51
+        // line 46
         $this->env->loadTemplate("PMUserBundle:User:view_user_settings.html.twig")->display($context);
-        // line 52
+        // line 47
         echo "            </div>
         </div>
     </div>
@@ -149,6 +148,6 @@ class __TwigTemplate_aa86328d824be556cc63102235f65fc1038c6b905505372b070686e5eb5
 
     public function getDebugInfo()
     {
-        return array (  133 => 52,  131 => 51,  127 => 49,  125 => 48,  121 => 46,  119 => 45,  113 => 41,  104 => 38,  101 => 37,  97 => 36,  79 => 20,  76 => 19,  69 => 15,  64 => 14,  61 => 13,  54 => 10,  51 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  132 => 47,  130 => 46,  126 => 44,  124 => 43,  118 => 39,  109 => 36,  106 => 35,  102 => 34,  90 => 24,  87 => 23,  80 => 19,  75 => 18,  72 => 17,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

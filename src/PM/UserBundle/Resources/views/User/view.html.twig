@@ -9,10 +9,14 @@
 {% block h1 %}
     {{ user.firstname ~ " " ~ user.name|title}}
 {% endblock %}
+    
+{% block h1_extend %}
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_user_administration_edit', {'user_id': user.id}) }}" >Modifier</a>
+{% endblock %}
 
 {% block breadcrumb %}
     {{ parent() }}
-    <li><a href="{{ path('pm_user_list') }}">Liste des Utilisateurs</a></li>    
+    <li><a href="{{ path('pm_user_administration_list') }}">Liste des Utilisateurs</a></li>    
     <li class="active">Voir</li>
 {% endblock %}    
     
@@ -21,13 +25,7 @@
     <!-- Nav tab -->
     <div class="col-lg-2">
         <ul id="UserTab" class="nav nav-stacked">
-            <li class="dropdown">
-                <a id="User_BlocUser" hef="#" class="dropdown-toggle" data-toggle="dropdown" >Utilisateur <span class="caret"></span></a>
-                <ul class="dropdown-menu" aria-labelledby="User_BlocUser" role="menu">
-                    <li><a href="#User_User" data-toggle="tab" tabindex="-1" >Informations</a></li>
-                    <li><a href="#User_Edit" data-toggle="tab" tabindex="-1" >Editer</a></li>
-                </ul>
-            </li>
+            <li><a href="#User_User" data-toggle="tab" tabindex="-1" >Informations</a></li>
             <li><a href="#User_Settings" data-toggle="tab">Paramètres</a></li>
         </ul>
     </div>
@@ -43,9 +41,6 @@
         <div class="tab-content">
             <div class="tab-pane active" id="User_User">
                 {% include "PMUserBundle:User:view_user_user.html.twig" %}
-            </div>
-            <div class="tab-pane" id="User_Edit">
-                {% include "PMUserBundle:User:view_user_edit.html.twig" %}
             </div>
             <div class="tab-pane" id="User_Settings">
                 {% include "PMUserBundle:User:view_user_settings.html.twig" %}

@@ -1,15 +1,22 @@
 # -- Routes des utilisateurs -- #
-pm_user_homepage:
+# Pattern extend : /utilisateurs #
+pm_user_administration_homepage:
     pattern:  /
     defaults: { _controller: PMUserBundle:User:index }
 
-pm_user_list:
+pm_user_administration_list:
     pattern:  /liste
     defaults: { _controller: PMUserBundle:User:UsersList }
     
-pm_user_view:
-    pattern:  /user/{user_id}
+pm_user_administration_view:
+    pattern:  /{user_id}
     defaults: { _controller: PMUserBundle:User:View}
+    requirements:
+        user_id:  \d+
+    
+pm_user_administration_edit:
+    pattern:  /{user_id}/edition
+    defaults: { _controller: PMUserBundle:User:edit}
     requirements:
         user_id:  \d+
         

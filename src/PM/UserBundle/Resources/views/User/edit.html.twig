@@ -1,0 +1,34 @@
+{% extends "PMUserBundle::layout.html.twig" %}
+
+{% block title %}
+    &Eacute;dition Profil - {{ parent() }}
+{% endblock %}
+    
+{% block h1 %}
+    &Eacute;dition Profil Utilisateur :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+    <li class="active">&Eacute;dition</li>
+{% endblock %}    
+    
+{% block PMUser_body %}
+    {% block fos_user_content %}
+        <div class="row">
+            <section class="col-lg-12">
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert col-lg-7 alert-success">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+
+                {% include "PMUserBundle:User:edit_content.html.twig" %}
+            </section>
+        </div>
+    {% endblock fos_user_content %}
+{% endblock %}
+    
+{% block javascripts_block %}
+{% endblock %}

@@ -24,6 +24,7 @@
       <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
       <parameter key="PMWelcomeBundle">PM\WelcomeBundle\PMWelcomeBundle</parameter>
       <parameter key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</parameter>
+      <parameter key="PMMonsterBundle">PM\MonsterBundle\PMMonsterBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -460,6 +461,7 @@
       <parameter>PMGameBundle</parameter>
       <parameter>PMCharacterBundle</parameter>
       <parameter>FOSUserBundle</parameter>
+      <parameter>PMMonsterBundle</parameter>
     </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -1913,7 +1915,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54d4e3e42bbbe</argument>
+            <argument>54e3399371f43</argument>
           </service>
         </argument>
       </argument>
@@ -2254,7 +2256,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54d4e3e42bbbe</argument>
+            <argument>54e3399371f43</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2472,6 +2474,7 @@
               <argument>PMGameBundle</argument>
               <argument>PMCharacterBundle</argument>
               <argument>FOSUserBundle</argument>
+              <argument>PMMonsterBundle</argument>
             </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
@@ -2745,6 +2748,33 @@
       </call>
       <call method="addResource">
         <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>PMMonsterBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/app/Resources/PMMonsterBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>PMMonsterBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
             <tag name="assetic.templating.twig"/>
             <tag name="assetic.formula_resource" loader="twig"/>
@@ -2918,6 +2948,7 @@
               <argument key="PMCharacterBundle">PM\CharacterBundle\Entity</argument>
               <argument key="PMUserBundle">PM\UserBundle\Entity</argument>
               <argument key="PMWelcomeBundle">PM\WelcomeBundle\Entity</argument>
+              <argument key="PMMonsterBundle">PM\MonsterBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2941,6 +2972,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2955,6 +2987,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2969,6 +3002,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2983,10 +3017,26 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>PM\WelcomeBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GameBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>PM\MonsterBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3256,6 +3306,7 @@
         <argument key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</argument>
         <argument key="PMWelcomeBundle">PM\WelcomeBundle\PMWelcomeBundle</argument>
         <argument key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</argument>
+        <argument key="PMMonsterBundle">PM\MonsterBundle\PMMonsterBundle</argument>
         <argument key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</argument>
         <argument key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</argument>
         <argument key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</argument>
@@ -3658,6 +3709,10 @@
       <call method="addPath">
         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Resources/views</argument>
         <argument>PMWelcome</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Resources/views</argument>
+        <argument>PMMonster</argument>
       </call>
       <call method="addPath">
         <argument>/Users/karlpineau/Sites/player_manager/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

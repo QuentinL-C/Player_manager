@@ -98,7 +98,7 @@ class __TwigTemplate_4cd1b3a0811916ca21beb31d040989864364ae4278e64b73daf0fe6a5e9
         echo "\">Ajouter un utilisateur</a></li>
                 <li><a href=\"";
         // line 31
-        echo $this->env->getExtension('routing')->getPath("pm_user_list");
+        echo $this->env->getExtension('routing')->getPath("pm_user_administration_list");
         echo "\">Liste des utilisateurs</a></li>
             </ul>
         </div>

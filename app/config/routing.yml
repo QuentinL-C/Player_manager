@@ -1,3 +1,7 @@
+pm_monster:
+    resource: "@PMMonsterBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pm_welcome:
     resource: "@PMWelcomeBundle/Resources/config/routing.yml"
     prefix:   /
@@ -12,7 +16,7 @@ pm_game:
 
 pm_user:
     resource: "@PMUserBundle/Resources/config/routing.yml"
-    prefix:   /administration/utilisateur
+    prefix:   /administration/utilisateurs
 
 app:
     resource: @AppBundle/Controller/

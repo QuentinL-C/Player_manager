@@ -16,27 +16,38 @@
 {% endblock %}
 
 {% block PM_body %}
-    <div class="well">
-        <h2>Utilisateurs :</h2>
-        
-        <a href="{{path('pm_user_homepage')}}">Gestion Utilisateurs</a>
-    </div>
-    <div class="well">
-        <h2>Personnages :</h2>
-        
-        <a href="{{path('pm_ability_administration_homepage')}}">Gestion des Caractéristiques</a><br />
-        <a href="{{path('pm_characterused_administration_homepage')}}">Gestion des Personnages</a><br />
-        <a href="{{path('pm_alignment_administration_homepage')}}">Gestion des Alignements</a><br />
-        <a href="{{path('pm_classdnd_administration_homepage')}}">Gestion des Classes</a><br />
-        <a href="{{path('pm_race_administration_homepage')}}">Gestion des Races</a><br />
-        <a href="{{path('pm_language_administration_homepage')}}">Gestion des Langues</a><br />
-        <a href="{{path('pm_skill_administration_homepage')}}">Gestion des Compétences</a><br />
-        <a href="{{path('pm_size_administration_homepage')}}">Gestion des Tailles</a><br />
-        <a href="{{path('pm_level_administration_homepage')}}">Gestion des Niveaux</a>
-    </div>
-    <div class="well">
-        <h2>Parties :</h2>
-        A venir.
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <h2>Utilisateurs :</h2>
+
+                <a href="{{path('pm_user_administration_homepage')}}">Gestion Utilisateurs</a>
+            </div>
+            <div class="well">
+                <h2>Parties :</h2>
+                A venir.
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well">
+                <h2>Personnages :</h2>
+
+                <a href="{{path('pm_ability_administration_homepage')}}">Gestion des Caractéristiques</a><br />
+                <a href="{{path('pm_characterused_administration_homepage')}}">Gestion des Personnages</a><br />
+                <a href="{{path('pm_alignment_administration_homepage')}}">Gestion des Alignements</a><br />
+                <a href="{{path('pm_classdnd_administration_homepage')}}">Gestion des Classes</a><br />
+                <a href="{{path('pm_race_administration_homepage')}}">Gestion des Races</a><br />
+                <a href="{{path('pm_language_administration_homepage')}}">Gestion des Langues</a><br />
+                <a href="{{path('pm_skill_administration_homepage')}}">Gestion des Compétences</a><br />
+                <a href="{{path('pm_size_administration_homepage')}}">Gestion des Tailles</a><br />
+                <a href="{{path('pm_level_administration_homepage')}}">Gestion des Niveaux</a>
+            </div>
+            <div class="well">
+                <h2>Monstres :</h2>
+
+                <a href="{{path('pm_monster_administration_homepage')}}">Gestion des Monstres</a><br />
+            </div>
+        </div>
     </div>
 {% endblock %}
     

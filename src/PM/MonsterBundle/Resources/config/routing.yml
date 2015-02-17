@@ -1,0 +1,30 @@
+# -- Monstres -- #
+pm_monster_administration_homepage:
+    path:     /administration/monstres
+    defaults: { _controller: PMMonsterBundle:Monster:index }
+
+pm_monster_administration_insert:
+    path:     /administration/monstres/insertion
+    defaults: { _controller: PMMonsterBundle:Monster:register }
+
+pm_monster_administration_list:
+    path:     /administration/monstres/liste
+    defaults: { _controller: PMMonsterBundle:Monster:list }
+    
+pm_monster_administration_view:
+    path:     /administration/monstres/vue/{slug}
+    defaults: { _controller: PMMonsterBundle:Monster:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monster_administration_edit:
+    path:     /administration/monstres/editer/{slug}
+    defaults: { _controller: PMMonsterBundle:Monster:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monster_administration_delete:
+    path:     /administration/monstres/supprimer/{slug}
+    defaults: { _controller: PMMonsterBundle:Monster:delete }
+    requirements:
+        slug:  \S{0,255}

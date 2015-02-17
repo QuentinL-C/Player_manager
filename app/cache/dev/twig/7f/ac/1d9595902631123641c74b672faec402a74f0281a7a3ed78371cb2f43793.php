@@ -60,7 +60,7 @@ class __TwigTemplate_7fac1d9595902631123641c74b672faec402a74f0281a7a3ed78371cb2f
         echo "\">Administration</a></li>
     <li><a href=\"";
         // line 12
-        echo $this->env->getExtension('routing')->getPath("pm_user_homepage");
+        echo $this->env->getExtension('routing')->getPath("pm_user_administration_homepage");
         echo "\">Utilisateurs</a></li>
 ";
     }

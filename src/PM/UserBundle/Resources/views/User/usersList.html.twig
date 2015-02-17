@@ -3,8 +3,17 @@
 {% extends "PMUserBundle::layout.html.twig" %}
  
 {% block title %}
-  Liste - {{ parent() }}
+    Liste - {{ parent() }}
 {% endblock %}
+    
+{% block h1 %}
+    Liste des Utilisateurs :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Liste</li>
+{% endblock %}    
 
 {% block PMUser_body %}
 <div class="row">
@@ -27,7 +36,7 @@
             {% for user in usersList %}
                 <tr>
                     <td style="text-align: left;">{{ loop.index }}</td>
-                    <td style="text-align: left;"><a href="{{ path('pm_user_view', { 'user_id' : user.id} ) }}">{{ user.name | upper}} {{ user.firstname }}</a></td>
+                    <td style="text-align: left;"><a href="{{ path('pm_user_administration_view', { 'user_id' : user.id} ) }}">{{ user.name | upper}} {{ user.firstname }}</a></td>
                     <td style="text-align: left;"><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
                 </tr>
             {% endfor %}
