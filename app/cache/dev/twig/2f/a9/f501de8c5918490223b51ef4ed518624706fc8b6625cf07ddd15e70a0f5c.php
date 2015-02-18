@@ -90,7 +90,7 @@ class __TwigTemplate_2fa9f501de8c5918490223b51ef4ed518624706fc8b6625cf07ddd15e70
         // line 26
         echo "        
         <div class=\"well\">
-            <h2>Gestion des Personnages</h2>
+            <h2>Gestion des Monstres</h2>
             <ul>
                 <li><a href=\"";
         // line 30

@@ -1,0 +1,21 @@
+{# src/PM/MonsterBundle/Resources/views/Environment/layoutAdmin.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Environnements - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_environment_administration_homepage') }}">Environnements</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

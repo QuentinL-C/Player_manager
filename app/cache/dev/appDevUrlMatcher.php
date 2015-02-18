@@ -265,35 +265,173 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/administration/monstres')) {
-            // pm_monster_administration_homepage
-            if ($pathinfo === '/administration/monstres') {
-                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::indexAction',  '_route' => 'pm_monster_administration_homepage',);
+        if (0 === strpos($pathinfo, '/administration')) {
+            if (0 === strpos($pathinfo, '/administration/monstres')) {
+                // pm_monster_administration_homepage
+                if ($pathinfo === '/administration/monstres') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::indexAction',  '_route' => 'pm_monster_administration_homepage',);
+                }
+
+                // pm_monster_administration_insert
+                if ($pathinfo === '/administration/monstres/insertion') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::registerAction',  '_route' => 'pm_monster_administration_insert',);
+                }
+
+                // pm_monster_administration_list
+                if ($pathinfo === '/administration/monstres/liste') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::listAction',  '_route' => 'pm_monster_administration_list',);
+                }
+
+                // pm_monster_administration_view
+                if (0 === strpos($pathinfo, '/administration/monstres/vue') && preg_match('#^/administration/monstres/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::viewAction',));
+                }
+
+                // pm_monster_administration_edit
+                if (0 === strpos($pathinfo, '/administration/monstres/editer') && preg_match('#^/administration/monstres/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::editAction',));
+                }
+
+                // pm_monster_administration_delete
+                if (0 === strpos($pathinfo, '/administration/monstres/supprimer') && preg_match('#^/administration/monstres/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::deleteAction',));
+                }
+
             }
 
-            // pm_monster_administration_insert
-            if ($pathinfo === '/administration/monstres/insertion') {
-                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::registerAction',  '_route' => 'pm_monster_administration_insert',);
+            if (0 === strpos($pathinfo, '/administration/environnements')) {
+                // pm_environment_administration_homepage
+                if ($pathinfo === '/administration/environnements') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::indexAction',  '_route' => 'pm_environment_administration_homepage',);
+                }
+
+                // pm_environment_administration_insert
+                if ($pathinfo === '/administration/environnements/insertion') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::registerAction',  '_route' => 'pm_environment_administration_insert',);
+                }
+
+                // pm_environment_administration_list
+                if ($pathinfo === '/administration/environnements/liste') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::listAction',  '_route' => 'pm_environment_administration_list',);
+                }
+
+                // pm_environment_administration_view
+                if (0 === strpos($pathinfo, '/administration/environnements/vue') && preg_match('#^/administration/environnements/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_environment_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::viewAction',));
+                }
+
+                // pm_environment_administration_edit
+                if (0 === strpos($pathinfo, '/administration/environnements/editer') && preg_match('#^/administration/environnements/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_environment_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::editAction',));
+                }
+
+                // pm_environment_administration_delete
+                if (0 === strpos($pathinfo, '/administration/environnements/supprimer') && preg_match('#^/administration/environnements/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_environment_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\EnvironmentController::deleteAction',));
+                }
+
             }
 
-            // pm_monster_administration_list
-            if ($pathinfo === '/administration/monstres/liste') {
-                return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::listAction',  '_route' => 'pm_monster_administration_list',);
+            if (0 === strpos($pathinfo, '/administration/monstre-')) {
+                if (0 === strpos($pathinfo, '/administration/monstre-types')) {
+                    // pm_monstertype_administration_homepage
+                    if ($pathinfo === '/administration/monstre-types') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::indexAction',  '_route' => 'pm_monstertype_administration_homepage',);
+                    }
+
+                    // pm_monstertype_administration_insert
+                    if ($pathinfo === '/administration/monstre-types/insertion') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::registerAction',  '_route' => 'pm_monstertype_administration_insert',);
+                    }
+
+                    // pm_monstertype_administration_list
+                    if ($pathinfo === '/administration/monstre-types/liste') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::listAction',  '_route' => 'pm_monstertype_administration_list',);
+                    }
+
+                    // pm_monstertype_administration_view
+                    if (0 === strpos($pathinfo, '/administration/monstre-types/vue') && preg_match('#^/administration/monstre\\-types/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstertype_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::viewAction',));
+                    }
+
+                    // pm_monstertype_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/monstre-types/editer') && preg_match('#^/administration/monstre\\-types/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstertype_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::editAction',));
+                    }
+
+                    // pm_monstertype_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/monstre-types/supprimer') && preg_match('#^/administration/monstre\\-types/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstertype_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterTypeController::deleteAction',));
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/administration/monstre-sous-types')) {
+                    // pm_monstersubtype_administration_homepage
+                    if ($pathinfo === '/administration/monstre-sous-types') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::indexAction',  '_route' => 'pm_monstersubtype_administration_homepage',);
+                    }
+
+                    // pm_monstersubtype_administration_insert
+                    if ($pathinfo === '/administration/monstre-sous-types/insertion') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::registerAction',  '_route' => 'pm_monstersubtype_administration_insert',);
+                    }
+
+                    // pm_monstersubtype_administration_list
+                    if ($pathinfo === '/administration/monstre-sous-types/liste') {
+                        return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::listAction',  '_route' => 'pm_monstersubtype_administration_list',);
+                    }
+
+                    // pm_monstersubtype_administration_view
+                    if (0 === strpos($pathinfo, '/administration/monstre-sous-types/vue') && preg_match('#^/administration/monstre\\-sous\\-types/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstersubtype_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::viewAction',));
+                    }
+
+                    // pm_monstersubtype_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/monstre-sous-types/editer') && preg_match('#^/administration/monstre\\-sous\\-types/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstersubtype_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::editAction',));
+                    }
+
+                    // pm_monstersubtype_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/monstre-sous-types/supprimer') && preg_match('#^/administration/monstre\\-sous\\-types/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monstersubtype_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterSubTypeController::deleteAction',));
+                    }
+
+                }
+
             }
 
-            // pm_monster_administration_view
-            if (0 === strpos($pathinfo, '/administration/monstres/vue') && preg_match('#^/administration/monstres/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::viewAction',));
-            }
+            if (0 === strpos($pathinfo, '/administration/deplacements')) {
+                // pm_speedspecial_administration_homepage
+                if ($pathinfo === '/administration/deplacements') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::indexAction',  '_route' => 'pm_speedspecial_administration_homepage',);
+                }
 
-            // pm_monster_administration_edit
-            if (0 === strpos($pathinfo, '/administration/monstres/editer') && preg_match('#^/administration/monstres/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::editAction',));
-            }
+                // pm_speedspecial_administration_insert
+                if ($pathinfo === '/administration/deplacements/insertion') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::registerAction',  '_route' => 'pm_speedspecial_administration_insert',);
+                }
 
-            // pm_monster_administration_delete
-            if (0 === strpos($pathinfo, '/administration/monstres/supprimer') && preg_match('#^/administration/monstres/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_monster_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\MonsterController::deleteAction',));
+                // pm_speedspecial_administration_list
+                if ($pathinfo === '/administration/deplacements/liste') {
+                    return array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::listAction',  '_route' => 'pm_speedspecial_administration_list',);
+                }
+
+                // pm_speedspecial_administration_view
+                if (0 === strpos($pathinfo, '/administration/deplacements/vue') && preg_match('#^/administration/deplacements/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_speedspecial_administration_view')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::viewAction',));
+                }
+
+                // pm_speedspecial_administration_edit
+                if (0 === strpos($pathinfo, '/administration/deplacements/editer') && preg_match('#^/administration/deplacements/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_speedspecial_administration_edit')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::editAction',));
+                }
+
+                // pm_speedspecial_administration_delete
+                if (0 === strpos($pathinfo, '/administration/deplacements/supprimer') && preg_match('#^/administration/deplacements/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_speedspecial_administration_delete')), array (  '_controller' => 'PM\\MonsterBundle\\Controller\\SpeedSpecialController::deleteAction',));
+                }
+
             }
 
         }

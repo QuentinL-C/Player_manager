@@ -34,16 +34,50 @@
             <div class="col-md-6">
                 {% if monster.description is not empty %}
                     <div class="well">
+                        <h2>Description :</h2>
                         {{ monster.description|raw }}
                     </div>
                 {% else %}
                     <div class="alert alert-warning" role="alert">Aucune description fournie pour ce monstre.</div>
                 {% endif %}
+                {% if monster.socialOrganisation is not empty %}
+                    <div class="well">
+                        <h2>Organisation sociale :</h2>
+                        {{ monster.socialOrganisation|raw }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning" role="alert">Aucune organisation sociale fournie pour ce monstre.</div>
+                {% endif %}
             </div>
             <div class="col-md-6">
-                <h2>Informations pratiques :</h2>
+                <h2>Informations :</h2>
                 <ul>
                     <li>Initiative : {{monster.initiative}}</li>
+                    <li>Points de vie moyens : {{monster.hpAverage}}</li>
+                    <li>Bonus de Base à l'Attaque : {{monster.bab}}</li>
+                    <li>Modificateur de Lutte : {{monster.grappleModifier}}</li>
+                    <li>CA : {{monster.ac}}</li>
+                    <li>CA de Contact : {{monster.touchAC}}</li>
+                    <li>CA de Prise au dépourvu : {{monster.ffAC}}</li>
+                    <li>Vitesse de déplacement au sol : {{monster.speed}}</li>
+                    <li>Espace au sol : {{monster.spaceOccupied}}</li>
+                    <li>Zone de danger : {{monster.areaLying}}</li>
+                    <li>Initiative : {{monster.initiative}}</li>
+                    <li>Facteur de Puissance : {{monster.powerfullFactor}}</li>
+                    <li>Langues parlées :</li>
+                    <ul>
+                        {% for language in monster.languages %}
+                            <li><a href="{{path('pm_language_administration_view', {'slug': language.slug})}}">{{language.name}}</a></li>
+                        {% else %}
+                            <li>Aucune langue connue pour ce monstre</li>
+                        {% endfor %}   
+                    </ul>
+                    <li>Alignement : <a href="{{path('pm_alignment_administration_view', {'slug': monster.alignment.slug})}}">{{monster.alignment.name}}</a></li>
+                    <li>Environnement : <a href="{{path('pm_environment_administration_view', {'slug': monster.environment.slug})}}">{{monster.environment.name}}</a></li>
+                    <li>Créé par <a href="{{path('pm_user_administration_view', {'user_id': monster.createUser.id})}}">{{monster.createUser.username}}</a> le {{monster.createDate|date('d/m/Y')}}</li>
+                    {% if monster.updateUser is not empty %}
+                    <li>Edité par <a href="{{path('pm_user_administration_view', {'user_id': monster.updateUser.id})}}">{{monster.updateUser.username}}</a> le {{monster.updateDate|date('d/m/Y')}}</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

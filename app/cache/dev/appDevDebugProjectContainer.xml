@@ -1915,7 +1915,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54e3399371f43</argument>
+            <argument>54e4488075dc9</argument>
           </service>
         </argument>
       </argument>
@@ -2256,7 +2256,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54e3399371f43</argument>
+            <argument>54e4488075dc9</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3332,6 +3332,26 @@
           <service class="Symfony\Component\Serializer\Encoder\JsonEncoder" public="false"/>
         </argument>
       </argument>
+    </service>
+    <service id="pm_monster.monsteraction" class="PM\MonsterBundle\Service\monsterAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_monster.environmentaction" class="PM\MonsterBundle\Service\environmentAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_monster.monstertypeaction" class="PM\MonsterBundle\Service\monsterTypeAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_monster.monstersubtypeaction" class="PM\MonsterBundle\Service\monsterSubTypeAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_monster.speedspecialaction" class="PM\MonsterBundle\Service\speedSpecialAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>

@@ -132,13 +132,29 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         // line 48
         echo $this->env->getExtension('routing')->getPath("pm_monster_administration_homepage");
         echo "\">Gestion des Monstres</a><br />
+                <a href=\"";
+        // line 49
+        echo $this->env->getExtension('routing')->getPath("pm_environment_administration_homepage");
+        echo "\">Gestion des Environnements</a><br />
+                <a href=\"";
+        // line 50
+        echo $this->env->getExtension('routing')->getPath("pm_monstertype_administration_homepage");
+        echo "\">Gestion des Types de monstre</a><br />
+                <a href=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("pm_monstersubtype_administration_homepage");
+        echo "\">Gestion des Sous-Types de monstre</a><br />
+                <a href=\"";
+        // line 52
+        echo $this->env->getExtension('routing')->getPath("pm_speedspecial_administration_homepage");
+        echo "\">Gestion des Modes de déplacement</a><br />
             </div>
         </div>
     </div>
 ";
     }
 
-    // line 54
+    // line 58
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -155,6 +171,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  142 => 54,  133 => 48,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  93 => 35,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  158 => 58,  149 => 52,  145 => 51,  141 => 50,  137 => 49,  133 => 48,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  93 => 35,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

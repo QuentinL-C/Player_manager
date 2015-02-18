@@ -1,0 +1,21 @@
+{# src/PM/MonsterBundle/Resources/views/MonsterType/layoutAdmin.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Types - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_monstertype_administration_homepage') }}">Types</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

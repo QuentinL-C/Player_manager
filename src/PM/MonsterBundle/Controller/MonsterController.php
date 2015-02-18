@@ -57,6 +57,43 @@ class MonsterController extends Controller
                             ));
     }
     
+    public function editAction($slug)
+    {
+        $repository = $this->getDoctrine()
+                           ->getManager()
+                           ->getRepository('PMMonsterBundle:Monster');
+ 
+        $monster = $repository->findOneBySlug($slug);
+
+        if ($monster === null) {
+          throw $this->createNotFoundException('Monstre : [slug='.$slug.'] inexistant.');
+        }
+        
+        $form = $this->createForm(new MonsterEditType, $monster);
+        
+        $current_user = $this->getUser();
+        $monster->setUpdateUser($current_user);
+        
+        $request = $this->get('request');
+            if ($request->getMethod() == 'POST') {
+                $form->bind($request);
+                
+                if ($form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($monster);
+                    $em->flush();
+
+                    $this->get('session')->getFlashBag()->add('notice', 'Félicitations, votre monstre a bien été édité.' );
+                    return $this->redirect($this->generateUrl('pm_monster_administration_view', array('slug' => $monster->getSlug())));
+                }
+            }
+        
+        return $this->render('PMMonsterBundle:Monster:edit.html.twig', array(
+                                'monster' => $monster,
+                                'form' => $form->createView(),
+                            ));
+    }
+    
     public function listAction()
     {
         $repository = $this->getDoctrine()
@@ -68,5 +105,22 @@ class MonsterController extends Controller
         return $this->render('PMMonsterBundle:Monster:listMonsters.html.twig', array(
                                 'listMonsters' => $listMonsters,
                             ));
+    }
+    
+    public function deleteAction($slug)
+    {
+        $repository = $this->getDoctrine()->getManager()
+                           ->getRepository('PMMonsterBundle:Monster');
+        $monster = $repository->findOneBySlug($slug);
+        
+        if ($monster === null) {
+          throw $this->createNotFoundException('Monstre : [slug='.$slug.'] inexistant.');
+        }
+        
+        $monsterAction = $this->container->get('pm_monster.monsteraction');
+        $monsterAction->deleteMonster($monster);
+             
+        $this->get('session')->getFlashBag()->add('notice', 'Votre monstre a bien été supprimé.' );
+        return $this->forward('PMMonsterBundle:Monster:list');
     }
 }

@@ -1,0 +1,44 @@
+{# src/PM/MonsterBundle/Resources/views/MonsterSubType/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.name) }}
+        {{ form_errors(form.description) }}
+        {{ form_errors(form.monsterType) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Sous-Type :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre Sous-Type', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La description de votre Sous-Type sera utilisée comme texte descriptif de ce dernier sur sa page publique, accessible à tous." data-toggle="popover" data-container="body" data-original-title="Description" ></span>
+                {{ form_label(form.description, "Description :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.monsterType, "Type parent :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.monsterType, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

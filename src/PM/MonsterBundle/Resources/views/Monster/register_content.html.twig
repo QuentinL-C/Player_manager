@@ -7,6 +7,21 @@
         {{ form_errors(form) }}
         {{ form_errors(form.name) }}
         {{ form_errors(form.description) }}
+        {{ form_errors(form.socialOrganisation) }}
+        {{ form_errors(form.powerfullFactor) }}
+        {{ form_errors(form.initiative) }}
+        {{ form_errors(form.hpAverage) }}
+        {{ form_errors(form.bab) }}
+        {{ form_errors(form.ac) }}
+        {{ form_errors(form.touchAC) }}
+        {{ form_errors(form.ffAC) }}
+        {{ form_errors(form.grappleModifier) }}
+        {{ form_errors(form.speed) }}
+        {{ form_errors(form.spaceOccupied) }}
+        {{ form_errors(form.areaLying) }}
+        {{ form_errors(form.alignment) }}
+        {{ form_errors(form.languages) }}
+        {{ form_errors(form.environment) }}
     </div>
     <br />
     {% endif %}
@@ -33,11 +48,151 @@
 
         <div class="form-group">
            <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'organisation sociale de votre monstre sera utilisée lors du RP." data-toggle="popover" data-container="body" data-original-title="Organisation sociale" ></span>
+                {{ form_label(form.socialOrganisation, "Organisation Sociale :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.socialOrganisation, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
                 <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'initiative de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="Initiative" ></span>
                 {{ form_label(form.initiative, "Initiative :", {'label_attr': {'class': 'control-label'}}) }}
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.initiative, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le facteur de puissance de votre Monstre sera utilisée lors des combats. Il est utilisé pour déterminer la puissance d'un monstre face à un groupe de PJ." data-toggle="popover" data-container="body" data-original-title="Facteur de Puissance" ></span>
+                {{ form_label(form.powerfullFactor, "Facteur de Puissance :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.powerfullFactor, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Nombre de Points de Vie moyen d'un monstre" data-toggle="popover" data-container="body" data-original-title="Moyenne de Points de Vie" ></span>
+                {{ form_label(form.hpAverage, "Points de Vie Moyen :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.hpAverage, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le Bonus de Base à l'Attaque de votre Monstre sera utilisé lors des combats. Il doit impérativement être spécifié. Il vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="Bonus de Base à l'Attaque" ></span>
+                {{ form_label(form.bab, "Bonus de Base à l'Attaque :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.bab, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le Modificateur de Lutte sera utilisé lors des combats. Il doit impérativement être spécifié. Il vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="Modificateur de Lutte" ></span>
+                {{ form_label(form.grappleModifier, "Modificateur de Lutte :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.grappleModifier, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Classe d'Armure de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="Class d'Armure" ></span>
+                {{ form_label(form.ac, "Classe d'Armure :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.ac, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Classe d'Armure de Contact de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="CA de Contact" ></span>
+                {{ form_label(form.touchAC, "Classe d'Armure de Contact :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.touchAC, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Classe d'Armure de prise au dépourvu de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="CA de Prise au Dépourvu" ></span>
+                {{ form_label(form.ffAC, "CA de Prise au Dépourvu :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.ffAC, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Vitesse de Déplacement au Sol de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="Vitesse de Déplacement au sol" ></span>
+                {{ form_label(form.speed, "Vitesse de déplacement au sol :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.speed, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'espace occupé de votre Monstre sera utilisé lors des combats. Il doit impérativement être spécifié. Il vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="CA de Prise au Dépourvu" ></span>
+                {{ form_label(form.spaceOccupied, "Espace occupé :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.spaceOccupied, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="La Zone de Danger de votre Monstre sera utilisée lors des combats. Elle doit impérativement être spécifiée. Elle vaut par défaut 0." data-toggle="popover" data-container="body" data-original-title="CA de Prise au Dépourvu" ></span>
+                {{ form_label(form.areaLying, "Zone de danger :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.areaLying, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'Alignement de votre personnage aura des répercussions sur les cibles ou le RP de votre monstre." data-toggle="popover" data-container="body" data-original-title="Alignement" ></span>
+                {{ form_label(form.alignment, "Alignement :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.alignment, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Les langues connues par votre monstre seront utilisées lors du RP." data-toggle="popover" data-container="body" data-original-title="Langues" ></span>
+                {{ form_label(form.languages, "Langues parlées :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="L'environnement de votre monstre sera utilisé lors du RP." data-toggle="popover" data-container="body" data-original-title="Environnement" ></span>
+                {{ form_label(form.environment, "Environnement :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.environment, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>

@@ -6,12 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Monster
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="PM\MonsterBundle\Entity\MonsterRepository")
+ * 
+ * @UniqueEntity(fields="name", message="Un monstre semble déjà porter ce nom ...")
  */
 class Monster
 {
@@ -26,6 +29,13 @@ class Monster
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "45",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="name", type="string", length=45)
      */
@@ -34,7 +44,7 @@ class Monster
     /**
      * @var string
      *
-     * @Gedmo\Slug(fields={"name", "createDate"})
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
      */
     private $slug;
@@ -54,9 +64,109 @@ class Monster
      * @var integer
      * @Assert\NotBlank()
      *
+     * @ORM\Column(name="hpAverage", type="smallint", options={"default" = 0}, nullable=false)
+     */
+    private $hpAverage;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="bab", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $bab;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="grappleModifier", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $grappleModifier;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="ac", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $ac;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="ffAC", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $ffAC;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="touchAC", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $touchAC;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "1",
+     *      minMessage = "Votre monstre ne peut pas avoir une vitesse négative ou nulle."
+     * )
+     *
+     * @ORM\Column(name="speed", type="float")
+     */
+    private $speed;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre monstre ne peut pas avoir une taille négative."
+     * )
+     *
+     * @ORM\Column(name="spaceOccupied", type="float")
+     */
+    private $spaceOccupied;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "0",
+     *      minMessage = "Votre monstre ne peut pas avoir un espace d'influence négatif."
+     * )
+     *
+     * @ORM\Column(name="areaLying", type="float")
+     */
+    private $areaLying;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="initiative", type="smallint", nullable=false, options={"default" = 0})
      */
     private $initiative;
+
+    /**
+     * @var string
+     * @Assert\Length(
+     *      max = "10000",
+     *      maxMessage = "Votre Organisation Sociale ne doit pas dépasser {{ limit }} caractères."
+     * )
+     *
+     * @ORM\Column(name="socialOrganisation", type="text", nullable=true)
+     */
+    private $socialOrganisation;
+
+    /**
+     * @var integer
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="powerfullFactor", type="smallint", nullable=false, options={"default" = 0})
+     */
+    private $powerfullFactor;
 
     /**
      * @ORM\ManyToMany(targetEntity="PM\CharacterBundle\Entity\Language")
@@ -65,9 +175,21 @@ class Monster
     private $languages;
 
     /**
-    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="PM\CharacterBundle\Entity\Alignment")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $alignment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\MonsterBundle\Entity\Environment")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $environment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
     protected $createUser;
 
     /**
@@ -79,9 +201,9 @@ class Monster
     protected $createDate;
 
     /**
-    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
-    * @ORM\JoinColumn(nullable=true)
-    */
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
     protected $updateUser;
 
     /**
@@ -361,5 +483,304 @@ class Monster
     public function getInitiative()
     {
         return $this->initiative;
+    }
+
+    /**
+     * Set hpAverage
+     *
+     * @param integer $hpAverage
+     * @return Monster
+     */
+    public function setHpAverage($hpAverage)
+    {
+        $this->hpAverage = $hpAverage;
+
+        return $this;
+    }
+
+    /**
+     * Get hpAverage
+     *
+     * @return integer 
+     */
+    public function getHpAverage()
+    {
+        return $this->hpAverage;
+    }
+
+    /**
+     * Set bab
+     *
+     * @param integer $bab
+     * @return Monster
+     */
+    public function setBab($bab)
+    {
+        $this->bab = $bab;
+
+        return $this;
+    }
+
+    /**
+     * Get bab
+     *
+     * @return integer 
+     */
+    public function getBab()
+    {
+        return $this->bab;
+    }
+
+    /**
+     * Set grappleModifier
+     *
+     * @param integer $grappleModifier
+     * @return Monster
+     */
+    public function setGrappleModifier($grappleModifier)
+    {
+        $this->grappleModifier = $grappleModifier;
+
+        return $this;
+    }
+
+    /**
+     * Get grappleModifier
+     *
+     * @return integer 
+     */
+    public function getGrappleModifier()
+    {
+        return $this->grappleModifier;
+    }
+
+    /**
+     * Set ac
+     *
+     * @param integer $ac
+     * @return Monster
+     */
+    public function setAc($ac)
+    {
+        $this->ac = $ac;
+
+        return $this;
+    }
+
+    /**
+     * Get ac
+     *
+     * @return integer 
+     */
+    public function getAc()
+    {
+        return $this->ac;
+    }
+
+    /**
+     * Set ffAC
+     *
+     * @param integer $ffAC
+     * @return Monster
+     */
+    public function setFfAC($ffAC)
+    {
+        $this->ffAC = $ffAC;
+
+        return $this;
+    }
+
+    /**
+     * Get ffAC
+     *
+     * @return integer 
+     */
+    public function getFfAC()
+    {
+        return $this->ffAC;
+    }
+
+    /**
+     * Set touchAC
+     *
+     * @param integer $touchAC
+     * @return Monster
+     */
+    public function setTouchAC($touchAC)
+    {
+        $this->touchAC = $touchAC;
+
+        return $this;
+    }
+
+    /**
+     * Get touchAC
+     *
+     * @return integer 
+     */
+    public function getTouchAC()
+    {
+        return $this->touchAC;
+    }
+
+    /**
+     * Set speed
+     *
+     * @param float $speed
+     * @return Monster
+     */
+    public function setSpeed($speed)
+    {
+        $this->speed = $speed;
+
+        return $this;
+    }
+
+    /**
+     * Get speed
+     *
+     * @return float 
+     */
+    public function getSpeed()
+    {
+        return $this->speed;
+    }
+
+    /**
+     * Set spaceOccupied
+     *
+     * @param float $spaceOccupied
+     * @return Monster
+     */
+    public function setSpaceOccupied($spaceOccupied)
+    {
+        $this->spaceOccupied = $spaceOccupied;
+
+        return $this;
+    }
+
+    /**
+     * Get spaceOccupied
+     *
+     * @return float 
+     */
+    public function getSpaceOccupied()
+    {
+        return $this->spaceOccupied;
+    }
+
+    /**
+     * Set areaLying
+     *
+     * @param float $areaLying
+     * @return Monster
+     */
+    public function setAreaLying($areaLying)
+    {
+        $this->areaLying = $areaLying;
+
+        return $this;
+    }
+
+    /**
+     * Get areaLying
+     *
+     * @return float 
+     */
+    public function getAreaLying()
+    {
+        return $this->areaLying;
+    }
+
+    /**
+     * Set socialOrganisation
+     *
+     * @param string $socialOrganisation
+     * @return Monster
+     */
+    public function setSocialOrganisation($socialOrganisation)
+    {
+        $this->socialOrganisation = $socialOrganisation;
+
+        return $this;
+    }
+
+    /**
+     * Get socialOrganisation
+     *
+     * @return string 
+     */
+    public function getSocialOrganisation()
+    {
+        return $this->socialOrganisation;
+    }
+
+    /**
+     * Set powerfullFactor
+     *
+     * @param integer $powerfullFactor
+     * @return Monster
+     */
+    public function setPowerfullFactor($powerfullFactor)
+    {
+        $this->powerfullFactor = $powerfullFactor;
+
+        return $this;
+    }
+
+    /**
+     * Get powerfullFactor
+     *
+     * @return integer 
+     */
+    public function getPowerfullFactor()
+    {
+        return $this->powerfullFactor;
+    }
+
+    /**
+     * Set alignment
+     *
+     * @param \PM\CharacterBundle\Entity\Alignment $alignment
+     * @return Monster
+     */
+    public function setAlignment(\PM\CharacterBundle\Entity\Alignment $alignment = null)
+    {
+        $this->alignment = $alignment;
+
+        return $this;
+    }
+
+    /**
+     * Get alignment
+     *
+     * @return \PM\CharacterBundle\Entity\Alignment 
+     */
+    public function getAlignment()
+    {
+        return $this->alignment;
+    }
+
+    /**
+     * Set environment
+     *
+     * @param \PM\MonsterBundle\Entity\Environment $environment
+     * @return Monster
+     */
+    public function setEnvironment(\PM\MonsterBundle\Entity\Environment $environment = null)
+    {
+        $this->environment = $environment;
+
+        return $this;
+    }
+
+    /**
+     * Get environment
+     *
+     * @return \PM\MonsterBundle\Entity\Environment 
+     */
+    public function getEnvironment()
+    {
+        return $this->environment;
     }
 }

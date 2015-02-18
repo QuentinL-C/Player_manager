@@ -1,4 +1,20 @@
 services:
-#    pm_monster.example:
-#        class: PM\MonsterBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    pm_monster.monsteraction:
+        class: PM\MonsterBundle\Service\monsterAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_monster.environmentaction:
+        class: PM\MonsterBundle\Service\environmentAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_monster.monstertypeaction:
+        class: PM\MonsterBundle\Service\monsterTypeAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_monster.monstersubtypeaction:
+        class: PM\MonsterBundle\Service\monsterSubTypeAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
+        
+    pm_monster.speedspecialaction:
+        class: PM\MonsterBundle\Service\speedSpecialAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

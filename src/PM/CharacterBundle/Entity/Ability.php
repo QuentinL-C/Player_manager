@@ -28,6 +28,13 @@ class Ability
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "1",
+     *      max = "45",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="name", type="string", length=45)
      */

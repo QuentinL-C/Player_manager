@@ -177,6 +177,11 @@ class appDevDebugProjectContainer extends Container
             'pm_character.deleterace' => 'getPmCharacter_DeleteraceService',
             'pm_character.deletesize' => 'getPmCharacter_DeletesizeService',
             'pm_character.deleteskill' => 'getPmCharacter_DeleteskillService',
+            'pm_monster.environmentaction' => 'getPmMonster_EnvironmentactionService',
+            'pm_monster.monsteraction' => 'getPmMonster_MonsteractionService',
+            'pm_monster.monstersubtypeaction' => 'getPmMonster_MonstersubtypeactionService',
+            'pm_monster.monstertypeaction' => 'getPmMonster_MonstertypeactionService',
+            'pm_monster.speedspecialaction' => 'getPmMonster_SpeedspecialactionService',
             'pm_user.genere_password' => 'getPmUser_GenerePasswordService',
             'pm_user.profile.form.type' => 'getPmUser_Profile_Form_TypeService',
             'pm_user.registration.form.type' => 'getPmUser_Registration_Form_TypeService',
@@ -2267,6 +2272,71 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'pm_monster.environmentaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\MonsterBundle\Service\environmentAction A PM\MonsterBundle\Service\environmentAction instance.
+     */
+    protected function getPmMonster_EnvironmentactionService()
+    {
+        return $this->services['pm_monster.environmentaction'] = new \PM\MonsterBundle\Service\environmentAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'pm_monster.monsteraction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\MonsterBundle\Service\monsterAction A PM\MonsterBundle\Service\monsterAction instance.
+     */
+    protected function getPmMonster_MonsteractionService()
+    {
+        return $this->services['pm_monster.monsteraction'] = new \PM\MonsterBundle\Service\monsterAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'pm_monster.monstersubtypeaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\MonsterBundle\Service\monsterSubTypeAction A PM\MonsterBundle\Service\monsterSubTypeAction instance.
+     */
+    protected function getPmMonster_MonstersubtypeactionService()
+    {
+        return $this->services['pm_monster.monstersubtypeaction'] = new \PM\MonsterBundle\Service\monsterSubTypeAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'pm_monster.monstertypeaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\MonsterBundle\Service\monsterTypeAction A PM\MonsterBundle\Service\monsterTypeAction instance.
+     */
+    protected function getPmMonster_MonstertypeactionService()
+    {
+        return $this->services['pm_monster.monstertypeaction'] = new \PM\MonsterBundle\Service\monsterTypeAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'pm_monster.speedspecialaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\MonsterBundle\Service\speedSpecialAction A PM\MonsterBundle\Service\speedSpecialAction instance.
+     */
+    protected function getPmMonster_SpeedspecialactionService()
+    {
+        return $this->services['pm_monster.speedspecialaction'] = new \PM\MonsterBundle\Service\speedSpecialAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
      * Gets the 'pm_user.genere_password' service.
      *
      * This service is shared.
@@ -2604,7 +2674,7 @@ class appDevDebugProjectContainer extends Container
         $p = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $k, 'main', $n, $o, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, NULL);
         $p->setRememberMeServices($l);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($j, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $m, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $l, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54e3399371f43', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $j, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $k, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $k, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($j, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $m, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $l, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54e4488075dc9', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $j, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $k, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $k, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -4107,7 +4177,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54e3399371f43')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54e4488075dc9')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

@@ -28,3 +28,127 @@ pm_monster_administration_delete:
     defaults: { _controller: PMMonsterBundle:Monster:delete }
     requirements:
         slug:  \S{0,255}
+        
+# -- Environnement -- #
+pm_environment_administration_homepage:
+    path:     /administration/environnements
+    defaults: { _controller: PMMonsterBundle:Environment:index }
+
+pm_environment_administration_insert:
+    path:     /administration/environnements/insertion
+    defaults: { _controller: PMMonsterBundle:Environment:register }
+
+pm_environment_administration_list:
+    path:     /administration/environnements/liste
+    defaults: { _controller: PMMonsterBundle:Environment:list }
+    
+pm_environment_administration_view:
+    path:     /administration/environnements/vue/{slug}
+    defaults: { _controller: PMMonsterBundle:Environment:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_environment_administration_edit:
+    path:     /administration/environnements/editer/{slug}
+    defaults: { _controller: PMMonsterBundle:Environment:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_environment_administration_delete:
+    path:     /administration/environnements/supprimer/{slug}
+    defaults: { _controller: PMMonsterBundle:Environment:delete }
+    requirements:
+        slug:  \S{0,255}
+        
+# -- MonsterType -- #
+pm_monstertype_administration_homepage:
+    path:     /administration/monstre-types
+    defaults: { _controller: PMMonsterBundle:MonsterType:index }
+
+pm_monstertype_administration_insert:
+    path:     /administration/monstre-types/insertion
+    defaults: { _controller: PMMonsterBundle:MonsterType:register }
+
+pm_monstertype_administration_list:
+    path:     /administration/monstre-types/liste
+    defaults: { _controller: PMMonsterBundle:MonsterType:list }
+    
+pm_monstertype_administration_view:
+    path:     /administration/monstre-types/vue/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterType:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monstertype_administration_edit:
+    path:     /administration/monstre-types/editer/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterType:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monstertype_administration_delete:
+    path:     /administration/monstre-types/supprimer/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterType:delete }
+    requirements:
+        slug:  \S{0,255}
+        
+# -- MonsterSubType -- #
+pm_monstersubtype_administration_homepage:
+    path:     /administration/monstre-sous-types
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:index }
+
+pm_monstersubtype_administration_insert:
+    path:     /administration/monstre-sous-types/insertion
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:register }
+
+pm_monstersubtype_administration_list:
+    path:     /administration/monstre-sous-types/liste
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:list }
+    
+pm_monstersubtype_administration_view:
+    path:     /administration/monstre-sous-types/vue/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monstersubtype_administration_edit:
+    path:     /administration/monstre-sous-types/editer/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_monstersubtype_administration_delete:
+    path:     /administration/monstre-sous-types/supprimer/{slug}
+    defaults: { _controller: PMMonsterBundle:MonsterSubType:delete }
+    requirements:
+        slug:  \S{0,255}
+        
+# -- Déplacement en milieu spécial -- #
+pm_speedspecial_administration_homepage:
+    path:     /administration/deplacements
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:index }
+
+pm_speedspecial_administration_insert:
+    path:     /administration/deplacements/insertion
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:register }
+
+pm_speedspecial_administration_list:
+    path:     /administration/deplacements/liste
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:list }
+    
+pm_speedspecial_administration_view:
+    path:     /administration/deplacements/vue/{slug}
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_speedspecial_administration_edit:
+    path:     /administration/deplacements/editer/{slug}
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_speedspecial_administration_delete:
+    path:     /administration/deplacements/supprimer/{slug}
+    defaults: { _controller: PMMonsterBundle:SpeedSpecial:delete }
+    requirements:
+        slug:  \S{0,255}
