@@ -10,6 +10,7 @@
         {{ form_errors(form.socialOrganisation) }}
         {{ form_errors(form.powerfullFactor) }}
         {{ form_errors(form.initiative) }}
+        {{ form_errors(form.hpForm) }}
         {{ form_errors(form.hpAverage) }}
         {{ form_errors(form.bab) }}
         {{ form_errors(form.ac) }}
@@ -21,6 +22,7 @@
         {{ form_errors(form.areaLying) }}
         {{ form_errors(form.alignment) }}
         {{ form_errors(form.languages) }}
+        {{ form_errors(form.gifts) }}
         {{ form_errors(form.environment) }}
     </div>
     <br />
@@ -73,6 +75,16 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.powerfullFactor, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Cette formule sera utilisée durant les parties pour générer les points de vie des monstres." data-toggle="popover" data-container="body" data-original-title="Formule de Points de Vie" ></span>
+                {{ form_label(form.hpForm, "Formule de PV :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.hpForm) }}
             </div>
         </div>
 
@@ -183,6 +195,16 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Liste des dons maitrisés par votre monstre." data-toggle="popover" data-container="body" data-original-title="Dons" ></span>
+                {{ form_label(form.gifts, "Dons :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.gifts, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
 

@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new PM\MonsterBundle\PMMonsterBundle(),
             new PM\WeaponBundle\PMWeaponBundle(),
+            new PM\GiftBundle\PMGiftBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

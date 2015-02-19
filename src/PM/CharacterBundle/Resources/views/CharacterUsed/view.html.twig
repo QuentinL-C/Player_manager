@@ -58,6 +58,7 @@
                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Présentation</a></li>
                 <li role="presentation"><a href="#rp" aria-controls="rp" role="tab" data-toggle="tab">Role Play</a></li>
                 <li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Compétences</a></li>
+                <li role="presentation"><a href="#gifts" aria-controls="gifts" role="tab" data-toggle="tab">Dons</a></li>
                 <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Statistiques</a></li>
             </ul>
 
@@ -71,6 +72,9 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="skills">
                     {% include 'PMCharacterBundle:CharacterUsed:view_skills.html.twig' %}
+                </div>
+                <div role="tabpanel" class="tab-pane" id="gifts">
+                    {% include 'PMCharacterBundle:CharacterUsed:view_gifts.html.twig' %}
                 </div>
                 <div role="tabpanel" class="tab-pane" id="statistics">
                     {% include 'PMCharacterBundle:CharacterUsed:view_statistics.html.twig' %}

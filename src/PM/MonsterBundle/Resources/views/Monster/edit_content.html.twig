@@ -21,6 +21,7 @@
         {{ form_errors(form.areaLying) }}
         {{ form_errors(form.alignment) }}
         {{ form_errors(form.languages) }}
+        {{ form_errors(form.gifts) }}
         {{ form_errors(form.environment) }}
         {{ form_errors(form.updateComment) }}
     </div>
@@ -184,6 +185,16 @@
             </div>
             <div class="col-md-9">
                 {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Liste des dons maitrisés par votre monstre." data-toggle="popover" data-container="body" data-original-title="Dons" ></span>
+                {{ form_label(form.gifts, "Dons :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.gifts, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
 

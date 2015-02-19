@@ -22,7 +22,7 @@ class __TwigTemplate_c1c8643912fe8cc57ae6d57915df01d12e5164191d0ea8a5c704326c8fe
     <ul>
         <li>Par <a href=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "createUser", array()), "id", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_administration_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "createUser", array()), "id", array()))), "html", null, true);
         echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "createUser", array()), "username", array()), "html", null, true);
         echo "</a></li>
@@ -39,7 +39,7 @@ class __TwigTemplate_c1c8643912fe8cc57ae6d57915df01d12e5164191d0ea8a5c704326c8fe
     <ul>
         <li>Par <a href=\"";
             // line 12
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "id", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_administration_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "updateUser", array()), "username", array()), "html", null, true);
             echo "</a></li>

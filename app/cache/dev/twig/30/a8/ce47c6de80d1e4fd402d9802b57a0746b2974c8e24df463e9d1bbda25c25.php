@@ -121,7 +121,7 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
                 <div class=\"col-md-3\">
                     <small><a href=\"";
         // line 37
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "id", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_user_administration_view", array("user_id" => $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "id", array()))), "html", null, true);
         echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["characterUsed"]) ? $context["characterUsed"] : $this->getContext($context, "characterUsed")), "user", array()), "username", array()), "html", null, true);
         echo "</a></small>
@@ -177,6 +177,7 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
                 <li role=\"presentation\" class=\"active\"><a href=\"#home\" aria-controls=\"home\" role=\"tab\" data-toggle=\"tab\">Présentation</a></li>
                 <li role=\"presentation\"><a href=\"#rp\" aria-controls=\"rp\" role=\"tab\" data-toggle=\"tab\">Role Play</a></li>
                 <li role=\"presentation\"><a href=\"#skills\" aria-controls=\"skills\" role=\"tab\" data-toggle=\"tab\">Compétences</a></li>
+                <li role=\"presentation\"><a href=\"#gifts\" aria-controls=\"gifts\" role=\"tab\" data-toggle=\"tab\">Dons</a></li>
                 <li role=\"presentation\"><a href=\"#statistics\" aria-controls=\"statistics\" role=\"tab\" data-toggle=\"tab\">Statistiques</a></li>
             </ul>
 
@@ -184,27 +185,33 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
             <div class=\"tab-content\">
                 <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">
                     ";
-        // line 67
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_home.html.twig")->display($context);
         // line 68
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_home.html.twig")->display($context);
+        // line 69
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"rp\">
                     ";
-        // line 70
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
         // line 71
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_rp.html.twig")->display($context);
+        // line 72
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"skills\">
                     ";
-        // line 73
-        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_skills.html.twig")->display($context);
         // line 74
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_skills.html.twig")->display($context);
+        // line 75
+        echo "                </div>
+                <div role=\"tabpanel\" class=\"tab-pane\" id=\"gifts\">
+                    ";
+        // line 77
+        $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_gifts.html.twig")->display($context);
+        // line 78
         echo "                </div>
                 <div role=\"tabpanel\" class=\"tab-pane\" id=\"statistics\">
                     ";
-        // line 76
+        // line 80
         $this->env->loadTemplate("PMCharacterBundle:CharacterUsed:view_statistics.html.twig")->display($context);
-        // line 77
+        // line 81
         echo "                </div>
             </div>
         </div>
@@ -225,6 +232,6 @@ class __TwigTemplate_30a8ce47c6de80d1e4fd402d9802b57a0746b2974c8e24df463e9d1bbda
 
     public function getDebugInfo()
     {
-        return array (  208 => 77,  206 => 76,  202 => 74,  200 => 73,  196 => 71,  194 => 70,  190 => 68,  188 => 67,  166 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  215 => 81,  213 => 80,  209 => 78,  207 => 77,  203 => 75,  201 => 74,  197 => 72,  195 => 71,  191 => 69,  189 => 68,  166 => 50,  159 => 47,  151 => 45,  144 => 44,  140 => 43,  132 => 40,  124 => 37,  118 => 34,  114 => 32,  105 => 29,  102 => 28,  98 => 27,  94 => 25,  91 => 24,  84 => 20,  79 => 19,  76 => 18,  70 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

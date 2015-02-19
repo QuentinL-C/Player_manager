@@ -1,0 +1,4 @@
+services:
+    pm_gift.giftaction:
+        class: PM\GiftBundle\Service\giftAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

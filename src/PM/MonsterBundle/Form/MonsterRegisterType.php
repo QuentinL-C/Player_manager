@@ -5,6 +5,7 @@ namespace PM\MonsterBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use PM\WelcomeBundle\Form\DiceFormType;
 
 class MonsterRegisterType extends AbstractType
 {
@@ -20,6 +21,7 @@ class MonsterRegisterType extends AbstractType
             ->add('socialOrganisation', 'textarea', array(  'required' => false))
             ->add('powerfullFactor',    'integer',  array(  'required' => true))
             ->add('initiative',         'integer',  array(  'required' => true))
+            ->add('hpForm',              new DiceFormType())
             ->add('hpAverage',          'integer',  array(  'required' => true))
             ->add('bab',                'integer',  array(  'required' => true))
             ->add('grappleModifier',    'integer',  array(  'required' => true))
@@ -45,6 +47,13 @@ class MonsterRegisterType extends AbstractType
                                                             'multiple' => true,
                                                             'required' => false,
                                                             'empty_value' => 'Langues',
+                                                            'empty_data'  => null))
+            ->add('gifts',              'entity',   array(  'class' => 'PMGiftBundle:Gift',
+                                                            'property'    => 'name',
+                                                            'expanded' => false,
+                                                            'multiple' => true,
+                                                            'required' => false,
+                                                            'empty_value' => 'Dons',
                                                             'empty_data'  => null))
         ;
     }

@@ -125,6 +125,12 @@ class CharacterUsed
     private $alignment;
 
     /**
+     * @ORM\ManyToMany(targetEntity="PM\GiftBundle\Entity\Gift")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $gifts;
+
+    /**
      * @ORM\OneToMany(targetEntity="PM\CharacterBundle\Entity\ClassDnDInstance", mappedBy="characterUsed")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -207,6 +213,7 @@ class CharacterUsed
         $this->classDnDInstances = New ArrayCollection();
         $this->skills = New ArrayCollection();
         $this->languages = New ArrayCollection();
+        $this->gifts = New ArrayCollection();
     }
 
 
@@ -734,5 +741,38 @@ class CharacterUsed
     public function removeLanguage(\PM\CharacterBundle\Entity\Language $language)
     {
         $this->languages->removeElement($language);
+    }
+
+    /**
+     * Add gifts
+     *
+     * @param \PM\GiftBundle\Entity\Gift $gift
+     * @return CharacterUsed
+     */
+    public function addGift(\PM\GiftBundle\Entity\Gift $gift)
+    {
+        $this->gifts[] = $gift;
+
+        return $this;
+    }
+
+    /**
+     * Remove gifts
+     *
+     * @param \PM\GiftBundle\Entity\Gift $gift
+     */
+    public function removeGift(\PM\GiftBundle\Entity\Gift $gift)
+    {
+        $this->gifts->removeElement($gift);
+    }
+
+    /**
+     * Get gifts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGifts()
+    {
+        return $this->gifts;
     }
 }

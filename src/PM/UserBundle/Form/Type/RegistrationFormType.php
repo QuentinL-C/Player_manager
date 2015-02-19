@@ -17,8 +17,14 @@ class RegistrationFormType extends BaseType
         
         $builder
             // -- Champs Utilisateur :
-            ->add('name',               'text',         array('required' => true))
-            ->add('firstname',          'text',         array('required' => true))
+            ->add('name',               'text',         array(  'required' => true))
+            ->add('firstname',          'text',         array(  'required' => true))
+            ->add('roles',              'collection',   array(  'type' => 'radio',
+                                                                'options' => array( 
+                                                                    'label' => false,
+                                                                    'choices' => array(
+                                                                            'ROLE_ADMIN' => 'Admin',
+                                                                            'ROLE_USER' => 'Utilisateur'))))
         ;
     }
     

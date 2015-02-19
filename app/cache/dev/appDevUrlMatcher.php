@@ -168,6 +168,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'assetic.controller:render',  'name' => '15c11b6',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_15c11b6',);
             }
 
+            // _assetic_4c14cca
+            if ($pathinfo === '/js/4c14cca.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '4c14cca',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_4c14cca',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/_')) {
@@ -271,6 +276,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/administration')) {
+            if (0 === strpos($pathinfo, '/administration/dons')) {
+                // pm_gift_administration_homepage
+                if ($pathinfo === '/administration/dons') {
+                    return array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::indexAction',  '_route' => 'pm_gift_administration_homepage',);
+                }
+
+                // pm_gift_administration_insert
+                if ($pathinfo === '/administration/dons/insertion') {
+                    return array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::registerAction',  '_route' => 'pm_gift_administration_insert',);
+                }
+
+                // pm_gift_administration_list
+                if ($pathinfo === '/administration/dons/liste') {
+                    return array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::listAction',  '_route' => 'pm_gift_administration_list',);
+                }
+
+                // pm_gift_administration_view
+                if (0 === strpos($pathinfo, '/administration/dons/vue') && preg_match('#^/administration/dons/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_gift_administration_view')), array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::viewAction',));
+                }
+
+                // pm_gift_administration_edit
+                if (0 === strpos($pathinfo, '/administration/dons/editer') && preg_match('#^/administration/dons/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_gift_administration_edit')), array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::editAction',));
+                }
+
+                // pm_gift_administration_delete
+                if (0 === strpos($pathinfo, '/administration/dons/supprimer') && preg_match('#^/administration/dons/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_gift_administration_delete')), array (  '_controller' => 'PM\\GiftBundle\\Controller\\GiftController::deleteAction',));
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/administration/armes/types')) {
                 // pm_weapontype_administration_homepage
                 if ($pathinfo === '/administration/armes/types') {

@@ -12,5 +12,15 @@
             <dt>Adresse mail :</dt>
             <dd>{{ user.email }}</dd>
         </dl>
+        <dl class="dl-horizontal">
+            <dt>Roles :</dt>
+            <dd>
+                <ul>
+                {% for role in user.roles %}
+                    <li>{{role}}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+        </dl>
     </fieldset>
 </div>

@@ -26,6 +26,7 @@
       <parameter key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</parameter>
       <parameter key="PMMonsterBundle">PM\MonsterBundle\PMMonsterBundle</parameter>
       <parameter key="PMWeaponBundle">PM\WeaponBundle\PMWeaponBundle</parameter>
+      <parameter key="PMGiftBundle">PM\GiftBundle\PMGiftBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -464,6 +465,7 @@
       <parameter>FOSUserBundle</parameter>
       <parameter>PMMonsterBundle</parameter>
       <parameter>PMWeaponBundle</parameter>
+      <parameter>PMGiftBundle</parameter>
     </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -1917,7 +1919,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54e5a175297a7</argument>
+            <argument>54e6512fdf454</argument>
           </service>
         </argument>
       </argument>
@@ -2053,6 +2055,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_USER</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/administration</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2258,7 +2271,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54e5a175297a7</argument>
+            <argument>54e6512fdf454</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2289,6 +2302,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_USER</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/administration</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2478,6 +2502,7 @@
               <argument>FOSUserBundle</argument>
               <argument>PMMonsterBundle</argument>
               <argument>PMWeaponBundle</argument>
+              <argument>PMGiftBundle</argument>
             </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
@@ -2805,6 +2830,33 @@
       </call>
       <call method="addResource">
         <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>PMGiftBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/app/Resources/PMGiftBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>PMGiftBundle</argument>
+                  <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
             <tag name="assetic.templating.twig"/>
             <tag name="assetic.formula_resource" loader="twig"/>
@@ -2980,6 +3032,7 @@
               <argument key="PMWelcomeBundle">PM\WelcomeBundle\Entity</argument>
               <argument key="PMMonsterBundle">PM\MonsterBundle\Entity</argument>
               <argument key="PMWeaponBundle">PM\WeaponBundle\Entity</argument>
+              <argument key="PMGiftBundle">PM\GiftBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -3005,6 +3058,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3021,6 +3075,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3037,6 +3092,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3053,6 +3109,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3069,6 +3126,7 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3085,10 +3143,28 @@
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
                         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>PM\WeaponBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GameBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/CharacterBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/UserBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/WelcomeBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/MonsterBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Entity</argument>
+                        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>PM\GiftBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3360,6 +3436,7 @@
         <argument key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</argument>
         <argument key="PMMonsterBundle">PM\MonsterBundle\PMMonsterBundle</argument>
         <argument key="PMWeaponBundle">PM\WeaponBundle\PMWeaponBundle</argument>
+        <argument key="PMGiftBundle">PM\GiftBundle\PMGiftBundle</argument>
         <argument key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</argument>
         <argument key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</argument>
         <argument key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</argument>
@@ -3407,6 +3484,10 @@
       <argument type="service" id="security.context"/>
     </service>
     <service id="pm_weapon.weapontypeaction" class="PM\MonsterBundle\Service\weaponTypeAction">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="pm_gift.giftaction" class="PM\GiftBundle\Service\giftAction">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.context"/>
     </service>
@@ -3794,6 +3875,10 @@
       <call method="addPath">
         <argument>/Users/karlpineau/Sites/player_manager/src/PM/WeaponBundle/Resources/views</argument>
         <argument>PMWeapon</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/karlpineau/Sites/player_manager/src/PM/GiftBundle/Resources/views</argument>
+        <argument>PMGift</argument>
       </call>
       <call method="addPath">
         <argument>/Users/karlpineau/Sites/player_manager/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

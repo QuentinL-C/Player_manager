@@ -19,6 +19,12 @@ class ProfileFormType extends BaseType
             // -- Champs Utilisateur :
             ->add('name',               'text',         array('required' => true))
             ->add('firstname',          'text',         array('required' => true))
+            ->add('roles',              'collection',   array(  'type' => 'choice',
+                                                                'options' => array( 
+                                                                    'label' => false,
+                                                                    'choices' => array(
+                                                                            'ROLE_ADMIN' => 'Admin',
+                                                                            'ROLE_USER' => 'Utilisateur'))))
         ;
     }
     

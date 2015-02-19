@@ -61,6 +61,12 @@ class Monster
     private $description;
 
     /**
+     * @ORM\OneToOne(targetEntity="PM\WelcomeBundle\Entity\DiceForm", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $hpForm;
+
+    /**
      * @var integer
      * @Assert\NotBlank()
      *
@@ -167,6 +173,12 @@ class Monster
      * @ORM\Column(name="powerfullFactor", type="smallint", nullable=false, options={"default" = 0})
      */
     private $powerfullFactor;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PM\GiftBundle\Entity\Gift")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $gifts;
 
     /**
      * @ORM\ManyToMany(targetEntity="PM\CharacterBundle\Entity\Language")
@@ -782,5 +794,61 @@ class Monster
     public function getEnvironment()
     {
         return $this->environment;
+    }
+
+    /**
+     * Set hpForm
+     *
+     * @param \PM\WelcomeBundle\Entity\DiceForm $hpForm
+     * @return Monster
+     */
+    public function setHpForm(\PM\WelcomeBundle\Entity\DiceForm $hpForm)
+    {
+        $this->hpForm = $hpForm;
+
+        return $this;
+    }
+
+    /**
+     * Get hpForm
+     *
+     * @return \PM\WelcomeBundle\Entity\DiceForm 
+     */
+    public function getHpForm()
+    {
+        return $this->hpForm;
+    }
+
+    /**
+     * Add gifts
+     *
+     * @param \PM\GiftBundle\Entity\Gift $gift
+     * @return Monster
+     */
+    public function addGift(\PM\GiftBundle\Entity\Gift $gift)
+    {
+        $this->gifts[] = $gift;
+
+        return $this;
+    }
+
+    /**
+     * Remove gifts
+     *
+     * @param \PM\GiftBundle\Entity\Gift $gift
+     */
+    public function removeGift(\PM\GiftBundle\Entity\Gift $gift)
+    {
+        $this->gifts->removeElement($gift);
+    }
+
+    /**
+     * Get gifts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGifts()
+    {
+        return $this->gifts;
     }
 }

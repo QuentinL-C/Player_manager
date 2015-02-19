@@ -7,6 +7,7 @@
         {{ form_errors(form) }}
         {{ form_errors(form.name) }}
         {{ form_errors(form.firstname) }}
+        {{ form_errors(form.roles) }}
         {{ form_errors(form.email) }}
         {{ form_errors(form.username) }}
         {{ form_errors(form.plainPassword.first) }}
@@ -55,6 +56,17 @@
             </div>
         </div>
     </fieldset> 
+
+    <fieldset>
+        <legend>Droits :</legend>
+        
+        <div class="form-group">
+            {{ form_label(form.roles, "Droits :", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
     {{ form_rest(form) }}
     <center><input type="submit" class="btn btn-default" /></center>
 </form>

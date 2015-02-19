@@ -1,0 +1,14 @@
+{# src/PM/CharacterBundle/Resources/views/CharacterUsed/view_gifts.html.twig #}
+<table class="table table-bordered">
+    <caption>Dons :</caption>
+    <tr>
+        <th>#</th>
+        <th>Don</th>
+    </tr>
+    {% for gift in characterUsed.gifts %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td><a href="{{path('pm_gift_administration_view', {'slug': gift.slug})}}">{{gift.name}}</a></td>
+        </tr>
+    {% endfor %}
+</table>

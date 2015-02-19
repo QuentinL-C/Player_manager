@@ -52,6 +52,13 @@ class CharacterUsedRegisterType extends AbstractType
                                                             'required' => false,
                                                             'empty_value' => 'Langues',
                                                             'empty_data'  => null))
+            ->add('gifts',              'entity',   array(  'class' => 'PMGiftBundle:Gift',
+                                                            'property'    => 'name',
+                                                            'expanded' => false,
+                                                            'multiple' => true,
+                                                            'required' => false,
+                                                            'empty_value' => 'Dons',
+                                                            'empty_data'  => null))
         ;
     }
     

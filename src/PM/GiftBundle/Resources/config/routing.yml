@@ -1,0 +1,30 @@
+# -- Gift -- #
+pm_gift_administration_homepage:
+    path:     /administration/dons
+    defaults: { _controller: PMGiftBundle:Gift:index }
+
+pm_gift_administration_insert:
+    path:     /administration/dons/insertion
+    defaults: { _controller: PMGiftBundle:Gift:register }
+
+pm_gift_administration_list:
+    path:     /administration/dons/liste
+    defaults: { _controller: PMGiftBundle:Gift:list }
+    
+pm_gift_administration_view:
+    path:     /administration/dons/vue/{slug}
+    defaults: { _controller: PMGiftBundle:Gift:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_gift_administration_edit:
+    path:     /administration/dons/editer/{slug}
+    defaults: { _controller: PMGiftBundle:Gift:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_gift_administration_delete:
+    path:     /administration/dons/supprimer/{slug}
+    defaults: { _controller: PMGiftBundle:Gift:delete }
+    requirements:
+        slug:  \S{0,255}

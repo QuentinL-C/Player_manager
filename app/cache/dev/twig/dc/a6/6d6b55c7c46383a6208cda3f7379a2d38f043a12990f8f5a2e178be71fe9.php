@@ -150,10 +150,18 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
         echo "\">Gestion des Modes de déplacement</a><br />
             </div>
             <div class=\"well\">
-                <h2>Armes :</h2>
+                <h2>Dons :</h2>
 
                 <a href=\"";
         // line 57
+        echo $this->env->getExtension('routing')->getPath("pm_gift_administration_homepage");
+        echo "\">Gestion des Dons</a><br />
+            </div>
+            <div class=\"well\">
+                <h2>Armes :</h2>
+
+                <a href=\"";
+        // line 62
         echo $this->env->getExtension('routing')->getPath("pm_weapontype_administration_homepage");
         echo "\">Gestion des Types d'Arme</a><br />
             </div>
@@ -162,7 +170,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 ";
     }
 
-    // line 63
+    // line 68
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -179,6 +187,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  166 => 63,  157 => 57,  149 => 52,  145 => 51,  141 => 50,  137 => 49,  133 => 48,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  93 => 35,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  174 => 68,  165 => 62,  157 => 57,  149 => 52,  145 => 51,  141 => 50,  137 => 49,  133 => 48,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  93 => 35,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

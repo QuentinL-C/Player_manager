@@ -8,6 +8,7 @@
         {{ form_errors(form.name) }}
         {{ form_errors(form.firstname) }}
         {{ form_errors(form.username) }}
+        {{ form_errors(form.roles) }}
         {{ form_errors(form.current_password) }}
         {{ form_errors(form.email) }}
     </div>
@@ -45,6 +46,17 @@
             {{ form_label(form.current_password, "Mot de passe :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
             <div class="col-md-6">
                 {{ form_widget(form.current_password, {'attr': {'placeholder': 'Mot de Passe', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Droits :</legend>
+        
+        <div class="form-group">
+            {{ form_label(form.roles, "Droits :", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
     </fieldset>

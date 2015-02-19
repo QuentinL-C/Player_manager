@@ -38,7 +38,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [PMWelcomeBundle, PMUserBundle, PMGameBundle, PMCharacterBundle, FOSUserBundle, PMMonsterBundle, PMWeaponBundle]
+    bundles:        [PMWelcomeBundle, PMUserBundle, PMGameBundle, PMCharacterBundle, FOSUserBundle, PMMonsterBundle, PMWeaponBundle, PMGiftBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

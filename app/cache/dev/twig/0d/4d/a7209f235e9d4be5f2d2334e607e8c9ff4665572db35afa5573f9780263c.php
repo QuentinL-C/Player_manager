@@ -35,6 +35,28 @@ class __TwigTemplate_0d4da7209f235e9d4be5f2d2334e607e8c9ff4665572db35afa5573f978
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "email", array()), "html", null, true);
         echo "</dd>
         </dl>
+        <dl class=\"dl-horizontal\">
+            <dt>Roles :</dt>
+            <dd>
+                <ul>
+                ";
+        // line 19
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "roles", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
+            // line 20
+            echo "                    <li>";
+            echo twig_escape_filter($this->env, $context["role"], "html", null, true);
+            echo "</li>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 22
+        echo "                </ul>
+            </dd>
+        </dl>
     </fieldset>
 </div>";
     }
@@ -51,6 +73,6 @@ class __TwigTemplate_0d4da7209f235e9d4be5f2d2334e607e8c9ff4665572db35afa5573f978
 
     public function getDebugInfo()
     {
-        return array (  35 => 13,  28 => 9,  19 => 2,);
+        return array (  57 => 22,  48 => 20,  44 => 19,  35 => 13,  28 => 9,  19 => 2,);
     }
 }
