@@ -24,14 +24,14 @@ class Dice
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="DiceType", type="smallint")
+     * @ORM\ManyToOne(targetEntity="PM\WelcomeBundle\Entity\DiceType")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $diceType;
 
     /**
      * @var integer
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="DiceResult", type="smallint")
      */
@@ -50,9 +50,9 @@ class Dice
     private $characterUsed;
 
     /**
-    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
     protected $createUser;
 
     /**
@@ -64,9 +64,9 @@ class Dice
     protected $createDate;
 
     /**
-    * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
-    * @ORM\JoinColumn(nullable=true)
-    */
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
     protected $updateUser;
 
     /**

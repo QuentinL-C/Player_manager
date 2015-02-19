@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PM\CharacterBundle\Entity\Skill;
 use PM\CharacterBundle\Form\SkillRegisterType;
 use PM\CharacterBundle\Form\SkillEditType;
-use PM\CharacterBundle\Entity\CharacterSkill;
 
 class SkillController extends Controller
 {
@@ -29,23 +28,16 @@ class SkillController extends Controller
                 
                 if ($form->isValid()) {
                     $em = $this->getDoctrine()->getManager();
-                    // -- On crée un CharacterSkill pour chaque Personnage
-                    $repositorySkill = $em->getRepository('PMCharacterBundle:CharacterUsed');
-                    $characterUseds = $repositorySkill->findAll();
-                    foreach ($characterUseds as $characterUsed) {
-                        $characterSkill = new CharacterSkill;
-                        $characterSkill->setCreateUser($current_user);
-                        $characterSkill->setCharacterUsed($characterUsed);
-                        $characterSkill->setSkill($skill);
-                        $characterSkill->setRanks(0);
-                        $em->persist($characterSkill);
-                    }
                     $em->persist($skill);
-                    
                     $em->flush();
                     
+                    // -- Gestion des CharacterSkill et des MonsterSkill
+                    $skillAction = $this->container->get('pm_character.skillaction');
+                    $skillAction->getSkillforCharacters($skill);
+                    $skillAction->getSkillforMonsters($skill);
+                    
+                    // -- Affichage du nouveau Skill
                     $this->get('session')->getFlashBag()->add('notice', 'Félicitations, la compétence a bien été créée.' );
-           
                     return $this->redirect($this->generateUrl('pm_skill_administration_view', array('slug' => $skill->getSlug())));
                 }
             }
@@ -127,8 +119,8 @@ class SkillController extends Controller
           throw $this->createNotFoundException('Compétence : [slug='.$slug.'] inexistante.');
         }
         
-        $deleteSkill = $this->container->get('pm_character.deleteskill');
-        $deleteSkill->deleteSkill($skill);
+        $skillAction = $this->container->get('pm_character.skillaction');
+        $skillAction->deleteSkill($skill);
              
         $this->get('session')->getFlashBag()->add('notice', 'Votre compétence a bien été supprimée.' );
         return $this->forward('PMCharacterBundle:Skill:list');

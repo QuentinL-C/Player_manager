@@ -1,3 +1,7 @@
+pm_weapon:
+    resource: "@PMWeaponBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pm_monster:
     resource: "@PMMonsterBundle/Resources/config/routing.yml"
     prefix:   /

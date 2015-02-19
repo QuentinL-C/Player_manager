@@ -1,11 +1,11 @@
 <?php
 
-namespace PM\CharacterBundle\Service;
+namespace PM\WeaponBundle\Service;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\SecurityContext;
 
-class deleteSkill 
+class weaponTypeAction 
 {
     protected $em;
     protected $security;
@@ -16,14 +16,14 @@ class deleteSkill
         $this->security = $security_context;
     }
     
-    public function deleteSkill($skill)
+    public function deleteWeaponType($weapontype)
     {
-        /* A supprimer avec une compétence :
-         *  -> Skill : Entité competence
+        /* A supprimer avec un weapontype :
+         *  -> WeaponType : Entité WeaponType
          *  -> A voir pour le reste
          */
         
-        $this->em->remove($skill);
+        $this->em->remove($weapontype);
         $this->em->flush();
     }
 }

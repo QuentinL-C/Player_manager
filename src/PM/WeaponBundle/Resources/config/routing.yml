@@ -1,0 +1,30 @@
+# -- WeaponType -- #
+pm_weapontype_administration_homepage:
+    path:     /administration/armes/types
+    defaults: { _controller: PMWeaponBundle:WeaponType:index }
+
+pm_weapontype_administration_insert:
+    path:     /administration/armes/types/insertion
+    defaults: { _controller: PMWeaponBundle:WeaponType:register }
+
+pm_weapontype_administration_list:
+    path:     /administration/armes/types/liste
+    defaults: { _controller: PMWeaponBundle:WeaponType:list }
+    
+pm_weapontype_administration_view:
+    path:     /administration/armes/types/vue/{slug}
+    defaults: { _controller: PMWeaponBundle:WeaponType:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_weapontype_administration_edit:
+    path:     /administration/armes/types/editer/{slug}
+    defaults: { _controller: PMWeaponBundle:WeaponType:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_weapontype_administration_delete:
+    path:     /administration/armes/types/supprimer/{slug}
+    defaults: { _controller: PMWeaponBundle:WeaponType:delete }
+    requirements:
+        slug:  \S{0,255}

@@ -1,0 +1,4 @@
+services:
+    pm_weapon.weapontypeaction:
+        class: PM\MonsterBundle\Service\weaponTypeAction
+        arguments: [ "@doctrine.orm.entity_manager", "@security.context"]

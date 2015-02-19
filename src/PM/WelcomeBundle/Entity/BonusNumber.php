@@ -3,6 +3,8 @@
 namespace PM\WelcomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * BonusNumber
@@ -22,11 +24,57 @@ class BonusNumber
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="PM\WelcomeBundle\Entity\DiceForm", inversedBy="diceEntities")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $diceForm;
+
+    /**
      * @var integer
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="value", type="integer")
      */
     private $value;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $createUser;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="createDate", type="datetime", nullable=false)
+     */
+    protected $createDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PM\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $updateUser;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updateDate", type="datetime", nullable=true)
+     */
+    protected $updateDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updateComment", type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le commentaire ne doit pas dépasser {{ limit }} caractères."
+     * )
+     */
+    protected $updateComment;
 
 
     /**
@@ -60,5 +108,143 @@ class BonusNumber
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set createDate
+     *
+     * @param \DateTime $createDate
+     * @return BonusNumber
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+
+    /**
+     * Set updateDate
+     *
+     * @param \DateTime $updateDate
+     * @return BonusNumber
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updateDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateDate()
+    {
+        return $this->updateDate;
+    }
+
+    /**
+     * Set updateComment
+     *
+     * @param string $updateComment
+     * @return BonusNumber
+     */
+    public function setUpdateComment($updateComment)
+    {
+        $this->updateComment = $updateComment;
+
+        return $this;
+    }
+
+    /**
+     * Get updateComment
+     *
+     * @return string 
+     */
+    public function getUpdateComment()
+    {
+        return $this->updateComment;
+    }
+
+    /**
+     * Set diceForm
+     *
+     * @param \PM\WelcomeBundle\Entity\DiceForm $diceForm
+     * @return BonusNumber
+     */
+    public function setDiceForm(\PM\WelcomeBundle\Entity\DiceForm $diceForm)
+    {
+        $this->diceForm = $diceForm;
+
+        return $this;
+    }
+
+    /**
+     * Get diceForm
+     *
+     * @return \PM\WelcomeBundle\Entity\DiceForm 
+     */
+    public function getDiceForm()
+    {
+        return $this->diceForm;
+    }
+
+    /**
+     * Set createUser
+     *
+     * @param \PM\UserBundle\Entity\User $createUser
+     * @return BonusNumber
+     */
+    public function setCreateUser(\PM\UserBundle\Entity\User $createUser)
+    {
+        $this->createUser = $createUser;
+
+        return $this;
+    }
+
+    /**
+     * Get createUser
+     *
+     * @return \PM\UserBundle\Entity\User 
+     */
+    public function getCreateUser()
+    {
+        return $this->createUser;
+    }
+
+    /**
+     * Set updateUser
+     *
+     * @param \PM\UserBundle\Entity\User $updateUser
+     * @return BonusNumber
+     */
+    public function setUpdateUser(\PM\UserBundle\Entity\User $updateUser = null)
+    {
+        $this->updateUser = $updateUser;
+
+        return $this;
+    }
+
+    /**
+     * Get updateUser
+     *
+     * @return \PM\UserBundle\Entity\User 
+     */
+    public function getUpdateUser()
+    {
+        return $this->updateUser;
     }
 }

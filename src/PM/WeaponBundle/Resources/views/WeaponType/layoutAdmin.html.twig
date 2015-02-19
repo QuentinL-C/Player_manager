@@ -1,0 +1,22 @@
+{# src/PM/WeaponBundle/Resources/views/WeaponType/layoutAdmin.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Types d'Arme - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="#">Armes</a></li>
+    <li><a href="{{ path('pm_weapontype_administration_homepage') }}">Types</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

@@ -35,8 +35,8 @@ services:
         class: PM\CharacterBundle\Service\deleteRace
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
         
-    pm_character.deleteskill:
-        class: PM\CharacterBundle\Service\deleteSkill
+    pm_character.skillaction:
+        class: PM\CharacterBundle\Service\skillAction
         arguments: [ "@doctrine.orm.entity_manager", "@security.context"]
         
     pm_character.deletesize:
