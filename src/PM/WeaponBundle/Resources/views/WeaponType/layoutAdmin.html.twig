@@ -12,7 +12,7 @@
     
 {% block breadcrumb %}
     {{ parent() }}
-    <li><a href="#">Armes</a></li>
+    <li><a href="{{ path('pm_weapon_administration_homepage') }}">Armes</a></li>
     <li><a href="{{ path('pm_weapontype_administration_homepage') }}">Types</a></li>
 {% endblock %}
 

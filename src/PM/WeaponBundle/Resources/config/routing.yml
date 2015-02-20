@@ -28,3 +28,34 @@ pm_weapontype_administration_delete:
     defaults: { _controller: PMWeaponBundle:WeaponType:delete }
     requirements:
         slug:  \S{0,255}
+
+# -- Weapon -- #
+pm_weapon_administration_homepage:
+    path:     /administration/armes
+    defaults: { _controller: PMWeaponBundle:Weapon:index }
+
+pm_weapon_administration_insert:
+    path:     /administration/armes/insertion
+    defaults: { _controller: PMWeaponBundle:Weapon:register }
+
+pm_weapon_administration_list:
+    path:     /administration/armes/liste
+    defaults: { _controller: PMWeaponBundle:Weapon:list }
+    
+pm_weapon_administration_view:
+    path:     /administration/armes/vue/{slug}
+    defaults: { _controller: PMWeaponBundle:Weapon:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_weapon_administration_edit:
+    path:     /administration/armes/editer/{slug}
+    defaults: { _controller: PMWeaponBundle:Weapon:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_weapon_administration_delete:
+    path:     /administration/armes/supprimer/{slug}
+    defaults: { _controller: PMWeaponBundle:Weapon:delete }
+    requirements:
+        slug:  \S{0,255}

@@ -309,35 +309,68 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/administration/armes/types')) {
-                // pm_weapontype_administration_homepage
-                if ($pathinfo === '/administration/armes/types') {
-                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::indexAction',  '_route' => 'pm_weapontype_administration_homepage',);
+            if (0 === strpos($pathinfo, '/administration/armes')) {
+                if (0 === strpos($pathinfo, '/administration/armes/types')) {
+                    // pm_weapontype_administration_homepage
+                    if ($pathinfo === '/administration/armes/types') {
+                        return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::indexAction',  '_route' => 'pm_weapontype_administration_homepage',);
+                    }
+
+                    // pm_weapontype_administration_insert
+                    if ($pathinfo === '/administration/armes/types/insertion') {
+                        return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::registerAction',  '_route' => 'pm_weapontype_administration_insert',);
+                    }
+
+                    // pm_weapontype_administration_list
+                    if ($pathinfo === '/administration/armes/types/liste') {
+                        return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::listAction',  '_route' => 'pm_weapontype_administration_list',);
+                    }
+
+                    // pm_weapontype_administration_view
+                    if (0 === strpos($pathinfo, '/administration/armes/types/vue') && preg_match('#^/administration/armes/types/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_view')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::viewAction',));
+                    }
+
+                    // pm_weapontype_administration_edit
+                    if (0 === strpos($pathinfo, '/administration/armes/types/editer') && preg_match('#^/administration/armes/types/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_edit')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::editAction',));
+                    }
+
+                    // pm_weapontype_administration_delete
+                    if (0 === strpos($pathinfo, '/administration/armes/types/supprimer') && preg_match('#^/administration/armes/types/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_delete')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::deleteAction',));
+                    }
+
                 }
 
-                // pm_weapontype_administration_insert
-                if ($pathinfo === '/administration/armes/types/insertion') {
-                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::registerAction',  '_route' => 'pm_weapontype_administration_insert',);
+                // pm_weapon_administration_homepage
+                if ($pathinfo === '/administration/armes') {
+                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::indexAction',  '_route' => 'pm_weapon_administration_homepage',);
                 }
 
-                // pm_weapontype_administration_list
-                if ($pathinfo === '/administration/armes/types/liste') {
-                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::listAction',  '_route' => 'pm_weapontype_administration_list',);
+                // pm_weapon_administration_insert
+                if ($pathinfo === '/administration/armes/insertion') {
+                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::registerAction',  '_route' => 'pm_weapon_administration_insert',);
                 }
 
-                // pm_weapontype_administration_view
-                if (0 === strpos($pathinfo, '/administration/armes/types/vue') && preg_match('#^/administration/armes/types/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_view')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::viewAction',));
+                // pm_weapon_administration_list
+                if ($pathinfo === '/administration/armes/liste') {
+                    return array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::listAction',  '_route' => 'pm_weapon_administration_list',);
                 }
 
-                // pm_weapontype_administration_edit
-                if (0 === strpos($pathinfo, '/administration/armes/types/editer') && preg_match('#^/administration/armes/types/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_edit')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::editAction',));
+                // pm_weapon_administration_view
+                if (0 === strpos($pathinfo, '/administration/armes/vue') && preg_match('#^/administration/armes/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapon_administration_view')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::viewAction',));
                 }
 
-                // pm_weapontype_administration_delete
-                if (0 === strpos($pathinfo, '/administration/armes/types/supprimer') && preg_match('#^/administration/armes/types/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapontype_administration_delete')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponTypeController::deleteAction',));
+                // pm_weapon_administration_edit
+                if (0 === strpos($pathinfo, '/administration/armes/editer') && preg_match('#^/administration/armes/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapon_administration_edit')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::editAction',));
+                }
+
+                // pm_weapon_administration_delete
+                if (0 === strpos($pathinfo, '/administration/armes/supprimer') && preg_match('#^/administration/armes/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_weapon_administration_delete')), array (  '_controller' => 'PM\\WeaponBundle\\Controller\\WeaponController::deleteAction',));
                 }
 
             }

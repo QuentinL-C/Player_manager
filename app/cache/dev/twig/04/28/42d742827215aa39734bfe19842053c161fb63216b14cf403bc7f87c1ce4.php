@@ -61,7 +61,10 @@ class __TwigTemplate_042842d742827215aa39734bfe19842053c161fb63216b14cf403bc7f87
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
-    <li><a href=\"#\">Armes</a></li>
+    <li><a href=\"";
+        // line 15
+        echo $this->env->getExtension('routing')->getPath("pm_weapon_administration_homepage");
+        echo "\">Armes</a></li>
     <li><a href=\"";
         // line 16
         echo $this->env->getExtension('routing')->getPath("pm_weapontype_administration_homepage");
@@ -95,6 +98,6 @@ class __TwigTemplate_042842d742827215aa39734bfe19842053c161fb63216b14cf403bc7f87
 
     public function getDebugInfo()
     {
-        return array (  83 => 21,  76 => 20,  73 => 19,  67 => 16,  61 => 14,  58 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  86 => 21,  79 => 20,  76 => 19,  70 => 16,  66 => 15,  61 => 14,  58 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

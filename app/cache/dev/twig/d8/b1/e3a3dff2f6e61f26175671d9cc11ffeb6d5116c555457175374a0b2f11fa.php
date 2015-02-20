@@ -64,7 +64,7 @@ class __TwigTemplate_d8b1e3a3dff2f6e61f26175671d9cc11ffeb6d5116c555457175374a0b2
     <li><a href=\"";
         // line 15
         echo $this->env->getExtension('routing')->getPath("pm_help_public_homepage");
-        echo "\">Donjons&Dragons</a></li>
+        echo "\">Donjons & Dragons</a></li>
     <li><a href=\"";
         // line 16
         echo $this->env->getExtension('routing')->getPath("pm_ability_public_homepage");
