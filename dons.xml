@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Created from PDF via Acrobat SaveAsXML -->
+<!-- Mapping Table version: 28-February-2003 -->
+<TaggedPDF-doc>
+    <?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+    <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.2-c001 63.139439, 2010/09/27-13:37:26        ">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:Description rdf:about=""
+                             xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+                <xmp:ModifyDate>2004-10-06T05:34:10+02:00</xmp:ModifyDate>
+                <xmp:CreateDate>2004-10-06T05:33:37+02:00</xmp:CreateDate>
+                <xmp:MetadataDate>2004-10-06T05:34:10+02:00</xmp:MetadataDate>
+            </rdf:Description>
+            <rdf:Description rdf:about=""
+                             xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/">
+                <xmpMM:DocumentID>uuid:7bb45f62-916a-44e9-8a61-90dab1b065f2</xmpMM:DocumentID>
+                <xmpMM:InstanceID>uuid:8617a697-8d76-a64c-b0e7-040cbb5e2fd4</xmpMM:InstanceID>
+            </rdf:Description>
+            <rdf:Description rdf:about=""
+                             xmlns:dc="http://purl.org/dc/elements/1.1/">
+                <dc:format>xml</dc:format>
+            </rdf:Description>
+        </rdf:RDF>
+    </x:xmpmeta>
+                                                                                                    
+                                 
+    <?xpacket end="w"?>
+    <?xpacket end='r'?>
+    <don>
+        <nom>Affinité magique</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests d’Art de la magie et d’Utilisation d’objet magique</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Amélioration des créatures convoquées</nom>
+        <requiere>
+            <autre>École renforcée (invocation)</autre>
+        </requiere>
+        <effet>Les créatures convoquées ont +4 en FOR et CON</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Arme de prédilection</nom>
+        <requiere>
+            <autre>Maniement de l’arme choisie</autre>
+            <bba>1</bba>
+        </requiere>
+        <effet>Bonus de +1 sur les jets d’attaque avec l’arme choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Arme de prédilection supérieure</nom>
+        <requiere>
+            <donRequis precision="même arme">Arme de prédilection</donRequis>
+            <classdnd niveau="8" >guerrier</classdnd>
+        </requiere>
+        <effet>Bonus de +1 sur les jets d’attaque avec l’arme choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Spécialisation martiale</nom>
+        <requiere>
+            <donRequis precision="même arme">Arme de prédilection</donRequis>
+            <classdnd niveau="4" >guerrier</classdnd>
+        </requiere>
+        <effet>Bonus de +2 sur les jets de dégâts avec l’arme choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Spécialisation martiale supérieure</nom>
+        <requiere>
+            <donRequis precision="même arme">Arme de prédilection</donRequis>
+            <donRequis precision="même arme">Arme de prédilection supérieur</donRequis>
+            <donRequis precision="même arme">Spécialisation martiale</donRequis>
+            <classdnd niveau="12" >guerrier</classdnd>
+        </requiere>
+        <effet>Bonus de +2 sur les jets de dégâts avec l’arme choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Arme en main</nom>
+        <requiere>
+            <bba>1</bba>
+        </requiere>
+        <effet>Dégainer une arme est une action libre</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Arme naturelle supérieure</nom>
+        <requiere>
+            <caracteristiqueMonstre>Arme naturelle</caracteristiqueMonstre>
+            <bba>4</bba>
+        </requiere>
+        <effet>Augmente d’une catégorie de taille une des armes naturelles</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Armure naturelle supérieure</nom>
+        <requiere>
+            <caracteristiqueMonstre>Armure naturelle</caracteristiqueMonstre>
+            <caracteristique valeur="13">Constitution</caracteristique>
+        </requiere>
+        <effet>Le bonus d’armure naturelle augmente de +1</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Athlétisme</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests d’escalade et de Natation</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Attaque en finesse</nom>
+        <requiere>
+            <bba>1</bba>
+        </requiere>
+        <effet>Permet d’appliquer le bonus de DEX (plutôt que de FOR) sur les jets d’attaque de certaines armes</effet>
+        <livre>MJ </livre>
+    </don>
+    <don>
+        <nom>Attaque en puissance</nom>
+        <requiere>
+            <caracteristique valeur="13">Force</caracteristique>
+        </requiere>
+        <effet>Permet d’échanger un malus à l’attaque contre un bonus aux dégâts</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Enchaînement</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+        </requiere>
+        <effet>Offre une attaque supplémentaire lorsqu’on abat un adversaire</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Succession d’enchaînements</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+            <donRequis>Enchaînement</donRequis>
+            <bba>4</bba>
+        </requiere>
+        <effet>Aucune limite au nombre d’enchaînement par round</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science de la bousculade</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+        </requiere>
+        <effet>Bonus de +4 sur les tentatives de bousculade; pas d'attaque d'opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du renversement</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+        </requiere>
+        <effet>Bonus de +4 sur les tentatives de renversement; pas d’attaque d’opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science de la Destruction</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+        </requiere>
+        <effet>Bonus de +4 sur les tentatives de destruction; pas d’attaque d’opportunité&#13;￼</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Coup fabuleux</nom>
+        <requiere>
+            <donRequis>Attaque en puissance</donRequis>
+            <donRequis>Science de la bousculade</donRequis>
+            <caracteristique valeur="25">Force</caracteristique>
+            <taille>G ou supérieure</taille>
+        </requiere>
+        <effet>Les adversaires plus petits sont projetés et mis à terre</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Attaque en vol</nom>
+        <requiere>
+            <caracteristiqueMonstre>Vitesse de déplacement en vol</caracteristiqueMonstre>
+        </requiere>
+        <effet>Peut attaquer sans se poser</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Attaque spéciale renforcée</nom>
+        <requiere>
+            <caracteristiqueMonstre>Attaque spéciale</caracteristiqueMonstre>
+        </requiere>
+        <effet>Le DD d’une attaque spéciale est augmenté de +2</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Attaques multiples</nom>
+        <requiere>
+            <autre>Au moins trois attaques naturelles</autre>
+        </requiere>
+        <effet>Les attaques secondaires ont un malus réduit à -2</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Attaques réflexes</nom>
+        <requiere></requiere>
+        <effet>Permet de porter plus d’une attaque d’opportunité pas round</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Autonome</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Premiers secours et de Survie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Capture</nom>
+        <requiere>
+            <taille>TG ou supérieure</taille>
+        </requiere>
+        <effet>Peut agripper et retenir les adversaires de taille inférieure dans sa gueule ou ses griffes</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Combat à deux armes</nom>
+        <requiere>
+            <caracteristique valeur="15">Dextérité</caracteristique>
+        </requiere>
+        <effet>Réduit de 2 points les malus du combat à deux armes</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Défense à deux armes</nom>
+        <requiere>
+            <donRequis>Combat à deux armes</donRequis>
+        </requiere>
+        <effet>L’arme secondaire octroie un bonus de bouclier de +1 à la CA</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du combat à deux armes</nom>
+        <requiere>
+            <donRequis>Combat à deux armes</donRequis>
+            <caracteristique valeur="17">Dextérité</caracteristique>
+            <bba>6</bba>
+        </requiere>
+        <effet>Permet une deuxième attaque avec l’arme secondaire</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maîtrise du combat à deux armes</nom>
+        <requiere>
+            <donRequis>Combat à deux armes</donRequis>
+            <donRequis>Science du combat à deux armes</donRequis>
+            <caracteristique valeur="19">Dextérité</caracteristique>
+            <bba>11</bba>
+        </requiere>
+        <effet>Permet une troisième attaque avec l’arme secondaire</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Combat à plusieurs armes</nom>
+        <requiere>
+            <autre>Au moins trois mains</autre>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+        </requiere>
+        <effet>Peut se servir d’une arme dans chaque main avec un malus réduit</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Combat en aveugle</nom>
+        <requiere></requiere>
+        <effet>Deux chances de passer un camouflage</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Combat monté</nom>
+        <requiere>
+            <competence niveau="1">Équitation</competence>
+        </requiere>
+        <effet>Permet d’annuler un coup sur sa monture grâce à un test MJ d’équitation</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Attaque au galop</nom>
+        <requiere>
+            <donRequis>Combat monté</donRequis>
+        </requiere>
+        <effet>Permet de se déplacer avant et après une charge montée</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Charge dévastatrice</nom>
+        <requiere>
+            <donRequis>Combat monté</donRequis>
+            <donRequis>Attaque au galop</donRequis>
+        </requiere>
+        <effet>Double les dégâts d’une charge montée</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Piétinement</nom>
+        <requiere>
+            <donRequis>Combat monté</donRequis>
+        </requiere>
+        <effet>Le défenseur ne peut choisir d’éviter un renversement</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir monté</nom>
+        <requiere>
+            <donRequis>Combat monté</donRequis>
+        </requiere>
+        <effet>Réduit de moitié les malus sur le tir monté</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Course</nom>
+        <requiere></requiere>
+        <effet>Permet de courir à cinq fois sa vitesse de déplacement; bonus de +4 sur les Saut avec élan</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Discret</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Déplacement silencieux et de Discrétion&#13;</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Dispense de composantes matérielles</nom>
+        <requiere></requiere>
+        <effet>Permet de lancer ses sorts sans composante matérielle</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Doigts de fée</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests d’Escamotage et de Maîtrise des cordes</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>École renforcée</nom>
+        <requiere></requiere>
+        <effet>Bonus de +1 aux DD des jets de sauvegarde contre les sorts de l’école choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>École supérieure</nom>
+        <requiere>
+            <autre>École renforcée (même école)</autre>
+        </requiere>
+        <effet>Bonus de +1 aux DD des jets de sauvegarde contre les sorts de MJ l’école choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Efficacité des sorts accrue</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de niveau de lanceur de sorts pour passer une RM</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Efficacité des sorts supérieure</nom>
+        <requiere>
+            <donRequis>Efficacité des sorts accrue</donRequis>
+        </requiere>
+        <effet>Bonus de +2 sur les tests de niveau de lanceur de sorts pour passer une RM</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Emprise sur les morts vivants</nom>
+        <requiere></requiere>
+        <effet>4 tentatives de renvoi ou d’intimidation supplémentaires par jour</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Endurance</nom>
+        <requiere></requiere>
+        <effet>Bonus de +4 sur certains tests et jets de sauvegarde</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Dur à cuire</nom>
+        <requiere>
+            <donRequis>Endurance</donRequis>
+        </requiere>
+        <effet>Permet de rester conscient entre -1 et -9 pv</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Esquive</nom>
+        <requiere>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+        </requiere>
+        <effet>Bonus d’esquive de +1 contre un seul adversaire</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Souplesse du serpent</nom>
+        <requiere>
+            <donRequis>Esquive</donRequis>
+        </requiere>
+        <effet>Bonus d’esquive de +4 contre certaines attaques d’opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Attaque éclair</nom>
+        <requiere>
+            <donRequis>Souplesse du serpent</donRequis>
+            <bba>4</bba>
+        </requiere>
+        <effet>Permet de se déplacer avant et après une attaque au corps à corps</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Expertise du combat</nom>
+        <requiere>
+            <caracteristique valeur="13">Intelligence</caracteristique>
+        </requiere>
+        <effet>Permet d’échanger un malus à l’attaque contre un bonus à la CA</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Attaque en rotation</nom>
+        <requiere>
+            <donRequis>Expertise du combat</donRequis>
+            <donRequis>Esquive</donRequis>
+            <donRequis>Attaque éclair</donRequis>
+            <donRequis>Souplesse du serpent</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+            <bba>4</bba>
+        </requiere>
+        <effet>Permet une attaque au corps à corps contre tous les ennemis à portée</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science de la feinte</nom>
+        <requiere>
+            <donRequis>Expertise du combat</donRequis>
+        </requiere>
+        <effet>Permet d’effectuer une feinte par une action de mouvement</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du croc-en-jambe</nom>
+        <requiere>
+            <donRequis>Expertise du combat</donRequis>
+        </requiere>
+        <effet>Bonus de +4 sur les tentatives de croc-en-jambe; pas d’attaque d’opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du désarmement</nom>
+        <requiere>
+            <donRequis>Expertise du combat</donRequis>
+        </requiere>
+        <effet>Bonus de +4 sur les tentatives de désarmement; pas d’attaque d’opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Extension de pouvoir magique</nom>
+        <requiere>
+            <niveauLanceurSort>6 ou plus pour le pouvoir concerné</niveauLanceurSort>
+        </requiere>
+        <effet>Améliore un pouvoir magique de la créature</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Fin limier</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Fouille et de Renseignement</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Fourberie</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Contrefaçon et de Déguisement</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Fraternité animale</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Dressage et d’Équitation</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Funambule</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests d’Équilibre et d’Évasion</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Incantation animale</nom>
+        <requiere>
+            <autre>Aptitude de forme animale</autre>
+            <caracteristique valeur="13">Sagesse</caracteristique>
+        </requiere>
+        <effet>Permet de lancer des sorts sous forme animale</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Magie de guerre</nom>
+        <requiere></requiere>
+        <effet>Bonus de +4 sur les tests de Concentration lors d’une incantation sur la défensive</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maîtrise des sorts</nom>
+        <requiere>
+            <classdnd niveau="1">Magicien</classdnd>
+        </requiere>
+        <effet>Permet de préparer les sorts choisis sans grimoire</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maniement d’une arme de guerre</nom>
+        <requiere></requiere>
+        <effet>Annule le malus à l’attaque pour l’arme de guerre choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maniement d’une arme exotique</nom>
+        <requiere>
+            <bba>1</bba>
+        </requiere>
+        <effet>Annule le malus à l’attaque pour l’arme exotique choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maniement des armes courantes</nom>
+        <requiere></requiere>
+        <effet>Annule le malus à l’attaque pour toutes les armes courantes</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Maniement des boucliers</nom>
+        <requiere></requiere>
+        <effet>Annule le malus d’armure sur les jets d’attaque</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du coup de bouclier</nom>
+        <requiere>
+            <donRequis>Maniement des boucliers</donRequis>
+        </requiere>
+        <effet>Un bouclier utilisé pour attaquer conserve son bonus à la CA</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Méticuleux</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests d’Évaluation et de Décryptage</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Négociation</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Diplomatie et de Psychologie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Persuasion</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Bluff et de Persuasion</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Pistage</nom>
+        <requiere></requiere>
+        <effet>Permet d’utiliser Survie pour pister</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Port des armures légères</nom>
+        <requiere></requiere>
+        <effet>Annule le malus d’armure sur les jets d’attaque</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Port des armures intermédiaires</nom>
+        <requiere>
+            <donRequis>Port des armures légères</donRequis>
+        </requiere>
+        <effet>Annule le malus d’armure sur les jets d’attaque</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Port des armures lourdes</nom>
+        <requiere>
+            <donRequis>Port des armures intermédiaires</donRequis>
+        </requiere>
+        <effet>Annule le malus d’armure sur les jets d’attaque</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Pouvoir magique rapide</nom>
+        <requiere>
+            <niveauLanceurSort>10 ou plus pour le pouvoir concerné</niveauLanceurSort>
+        </requiere>
+        <effet>Le pouvoir choisi devient comme un pouvoir magique à incantation rapide</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Prestige</nom>
+        <requiere>
+            <niveauPersonnage>6</niveauPersonnage>
+        </requiere>
+        <effet>Attire des compagnons d’armes et des suivants</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Rechargement rapide</nom>
+        <requiere>
+            <autre>Maniement de l’arbalète choisie</autre>
+        </requiere>
+        <effet>Recharger l’arbalète choisie est plus rapide</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Réflexes surhumains</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les jets de Réflexes</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Robustesse</nom>
+        <requiere></requiere>
+        <effet>Gagne + 3 points de vie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Savoir-faire mécanique</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Crochetage et de Désamorçage/Sabotage</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science de l’initiative</nom>
+        <requiere></requiere>
+        <effet>Bonus de +4 sur les tests d’initiative</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du combat à mains nues</nom>
+        <requiere></requiere>
+        <effet>Permet d’être considéré armé même à mains nues</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Coup étourdissant</nom>
+        <requiere>
+            <donRequis>Science du combat à mains nues</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+            <caracteristique valeur="13">Sagesse</caracteristique>
+            <bba>8</bba>
+        </requiere>
+        <effet>Permet d’étourdir lors d’attaques à mains nues</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Parade de projectiles</nom>
+        <requiere>
+            <donRequis>Science du combat à mains nues</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+        </requiere>
+        <effet>Permet de parer une attaque à distance par round</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Interception de projectiles</nom>
+        <requiere>
+            <donRequis>Parade de projectiles</donRequis>
+            <donRequis>Science du combat à mains nues</donRequis>
+            <caracteristique valeur="15">Dextérité</caracteristique>
+        </requiere>
+        <effet>Permet d’attraper les projectiles parés</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science de la lutte</nom>
+        <requiere>
+            <donRequis>Science du combat à mains nues</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+        </requiere>
+        <effet>Bonus de +4 sur les tests de lutte; pas d’attaque d’opportunité</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du contresort</nom>
+        <requiere></requiere>
+        <effet>Transforme tout sort de la même école en contresort</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du critique</nom>
+        <requiere>
+            <autre>Maniement de l’arme choisie</autre>
+            <bba>8</bba>
+        </requiere>
+        <effet>Double la zone critique possible de l’arme</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du renvoi</nom>
+        <requiere>
+            <autre>Aptitude de renvoi ou d’intimidation de créatures</autre>
+        </requiere>
+        <effet>Bonus de +1 au niveau pour le renvoi ou l’intimidation</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Talent</nom>
+        <requiere></requiere>
+        <effet>Bonus de +3 sur les tests de la compétence choisie</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir à bout portant</nom>
+        <requiere></requiere>
+        <effet>Bonus de +1 sur les jets d’attaque à distance et les jets de dégâts à 9 mètres ou moins</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir de loin</nom>
+        <requiere>
+            <donRequis>Tir à bout portant</donRequis>
+        </requiere>
+        <effet>Augmente le facteur de portée de 50% ou 100%</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir de précision</nom>
+        <requiere>
+            <donRequis>Tir à bout portant</donRequis>
+        </requiere>
+        <effet>Annule le malus de -4 lors d’un tir dans un corps à corps</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Science du tir de précision</nom>
+        <requiere>
+            <donRequis>Tir de précision</donRequis>
+            <donRequis>Tir à bout portant</donRequis>
+            <caracteristique valeur="19">Dextérité</caracteristique>
+            <bba>11</bba>
+        </requiere>
+        <effet>Les attaques à distance ignorent tout abri ou camouflage s’il n’est pas total</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir en mouvement</nom>
+        <requiere>
+            <donRequis>Tir à bout portant</donRequis>
+            <donRequis>Esquive</donRequis>
+            <donRequis>Souplesse du serpent</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+            <bba>4</bba>
+        </requiere>
+        <effet>Permet de se déplacer avant et après une attaque à distance</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Tir rapide</nom>
+        <requiere>
+            <donRequis>Tir à bout portant</donRequis>
+            <caracteristique valeur="13">Dextérité</caracteristique>
+        </requiere>
+        <effet>Une attaque à distance supplémentaire par round</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Feu nourri</nom>
+        <requiere>
+            <donRequis>Tir à bout portant</donRequis>
+            <donRequis>Tir rapide</donRequis>
+            <caracteristique valeur="17">Dextérité</caracteristique>
+            <bba>6</bba>
+        </requiere>
+        <effet>Permet de tirer deux flèches ou plus simultanément</effet>
+    </don>
+    <don>
+        <nom>Vigilance</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de Détection et de Perception auditive</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Vigueur surhumaine</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les jets de Vigueur</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Virage sur l’aile</nom>
+        <requiere>
+            <caracteristiqueMonstre>Vitesse de déplacement en vol</caracteristiqueMonstre>
+        </requiere>
+        <effet>Peut rapidement changer de direction en vol</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Vol stationnaire</nom>
+        <requiere>
+            <caracteristiqueMonstre>Vitesse de déplacement en vol</caracteristiqueMonstre>
+        </requiere>
+        <effet>Peut s’immobiliser dans les airs</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Volonté de fer</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les jets de Volonté</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Voltigeur</nom>
+        <requiere></requiere>
+        <effet>Bonus de +2 sur les tests de d’acrobatie et de Saut</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création d’anneaux magiques</nom>
+        <requiere>
+            <niveauLanceurSort>12</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des anneaux magiques</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création d’armes et armures magiques</nom>
+        <requiere>
+            <niveauLanceurSort>5</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des armes, des boucliers et des armures magiques</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création d’objets merveilleux</nom>
+        <requiere>
+            <niveauLanceurSort>3</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des objets merveilleux</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création de créature artificielle</nom>
+        <requiere>
+            <donRequis>Création d’armes et armures magiques</donRequis>
+            <donRequis>Création d’objets merveilleux</donRequis>
+        </requiere>
+        <effet>Capable de créer des golems et autres automates magiques qui obéissent aux ordres</effet>
+        <livre>MM</livre>
+    </don>
+    <don>
+        <nom>Création de baguettes magiques</nom>
+        <requiere>
+            <niveauLanceurSort>5</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des baguettes magiques</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création de bâtons magiques</nom>
+        <requiere>
+            <niveauLanceurSort>12</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des bâtons magiques</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Création de sceptres magiques</nom>
+        <requiere>
+            <niveauLanceurSort>9</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des sceptres magiques</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Écriture de parchemins</nom>
+        <requiere>
+            <niveauLanceurSort>1</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des parchemins</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Préparation de potions</nom>
+        <requiere>
+            <niveauLanceurSort>6</niveauLanceurSort>
+        </requiere>
+        <effet>Permet de fabriquer des potions</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Augmentation d’intensité</nom>
+        <requiere></requiere>
+        <effet>Augment le niveau effectif du sort</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Extension d’effet</nom>
+        <requiere></requiere>
+        <effet>Augmente les variables numériques et aléatoires du sort de 50%</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Extension de durée</nom>
+        <requiere></requiere>
+        <effet>Double la durée du sort</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Extension de portée</nom>
+        <requiere></requiere>
+        <effet>Double la portée du sort</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Extension de zone d’effet</nom>
+        <requiere></requiere>
+        <effet>Double les dimensions de la zone d’effet du sort</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Incantation rapide</nom>
+        <requiere></requiere>
+        <effet>Lancer le sort est une action libre</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Incantation silencieuse</nom>
+        <requiere></requiere>
+        <effet>Permet de lancer le sort sans composante verbale</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Incantation statique</nom>
+        <requiere></requiere>
+        <effet>Permet de lancer le sort sans composante gestuelle</effet>
+        <livre>MJ</livre>
+    </don>
+    <don>
+        <nom>Quintessence des sorts</nom>
+        <requiere></requiere>
+        <effet>Maximise les variables numériques et aléatoires du sort</effet>
+        <livre>MJ</livre>
+    </don>
+</TaggedPDF-doc>

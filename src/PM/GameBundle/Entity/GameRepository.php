@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
+    public function findMyGamesByCharacter($user)
+    {
+      $query = $this->_em->createQuery('SELECT g FROM PMGameBundle:Game g JOIN g.characters c WHERE c.user = :user');
+      $query->setParameter('user', $user);
+      $results = $query->getResult();
+
+      return $results;
+    }
+    
+    public function findMyGamesByGameMaster($user)
+    {
+      $query = $this->_em->createQuery('SELECT g FROM PMGameBundle:Game g JOIN g.gameMasters u WHERE u = :user');
+      $query->setParameter('user', $user);
+      $results = $query->getResult();
+
+      return $results;
+    }
 }

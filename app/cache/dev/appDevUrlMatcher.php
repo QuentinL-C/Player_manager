@@ -54,39 +54,60 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/js/1f60180')) {
-                // _assetic_1f60180
-                if ($pathinfo === '/js/1f60180.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_1f60180',);
+            // _assetic_c9d1fb9
+            if ($pathinfo === '/js/c9d1fb9.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'c9d1fb9',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_c9d1fb9',);
+            }
+
+            if (0 === strpos($pathinfo, '/js/1')) {
+                if (0 === strpos($pathinfo, '/js/138d01c')) {
+                    // _assetic_138d01c
+                    if ($pathinfo === '/js/138d01c.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '138d01c',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_138d01c',);
+                    }
+
+                    // _assetic_138d01c_0
+                    if ($pathinfo === '/js/138d01c_main_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '138d01c',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_138d01c_0',);
+                    }
+
                 }
 
-                if (0 === strpos($pathinfo, '/js/1f60180_part_1_')) {
-                    // _assetic_1f60180_0
-                    if ($pathinfo === '/js/1f60180_part_1_characterUsedAddSkill_1.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
+                if (0 === strpos($pathinfo, '/js/1f60180')) {
+                    // _assetic_1f60180
+                    if ($pathinfo === '/js/1f60180.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_1f60180',);
                     }
 
-                    if (0 === strpos($pathinfo, '/js/1f60180_part_1_edit')) {
-                        // _assetic_1f60180_1
-                        if ($pathinfo === '/js/1f60180_part_1_editBAB_2.js') {
-                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_1f60180_1',);
+                    if (0 === strpos($pathinfo, '/js/1f60180_part_1_')) {
+                        // _assetic_1f60180_0
+                        if ($pathinfo === '/js/1f60180_part_1_characterUsedAddSkill_1.js') {
+                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_1f60180_0',);
                         }
 
-                        // _assetic_1f60180_2
-                        if ($pathinfo === '/js/1f60180_part_1_editCharacterUsed_3.js') {
-                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_1f60180_2',);
+                        if (0 === strpos($pathinfo, '/js/1f60180_part_1_edit')) {
+                            // _assetic_1f60180_1
+                            if ($pathinfo === '/js/1f60180_part_1_editBAB_2.js') {
+                                return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_1f60180_1',);
+                            }
+
+                            // _assetic_1f60180_2
+                            if ($pathinfo === '/js/1f60180_part_1_editCharacterUsed_3.js') {
+                                return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_1f60180_2',);
+                            }
+
+                            // _assetic_1f60180_3
+                            if ($pathinfo === '/js/1f60180_part_1_editST_4.js') {
+                                return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 3,  '_format' => 'js',  '_route' => '_assetic_1f60180_3',);
+                            }
+
                         }
 
-                        // _assetic_1f60180_3
-                        if ($pathinfo === '/js/1f60180_part_1_editST_4.js') {
-                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 3,  '_format' => 'js',  '_route' => '_assetic_1f60180_3',);
+                        // _assetic_1f60180_4
+                        if ($pathinfo === '/js/1f60180_part_1_registerCharacterUsed_5.js') {
+                            return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 4,  '_format' => 'js',  '_route' => '_assetic_1f60180_4',);
                         }
 
-                    }
-
-                    // _assetic_1f60180_4
-                    if ($pathinfo === '/js/1f60180_part_1_registerCharacterUsed_5.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '1f60180',  'pos' => 4,  '_format' => 'js',  '_route' => '_assetic_1f60180_4',);
                     }
 
                 }
@@ -1084,9 +1105,55 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // pm_game_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_homepage')), array (  '_controller' => 'PM\\GameBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/administration/parties')) {
+            // pm_game_administration_homepage
+            if ($pathinfo === '/administration/parties') {
+                return array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::indexAction',  '_route' => 'pm_game_administration_homepage',);
+            }
+
+            // pm_game_administration_insert
+            if ($pathinfo === '/administration/parties/insertion') {
+                return array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::registerAction',  '_route' => 'pm_game_administration_insert',);
+            }
+
+            // pm_game_administration_list
+            if ($pathinfo === '/administration/parties/liste') {
+                return array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::listAction',  '_route' => 'pm_game_administration_list',);
+            }
+
+            // pm_game_administration_view
+            if (0 === strpos($pathinfo, '/administration/parties/vue') && preg_match('#^/administration/parties/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_administration_view')), array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::viewAction',));
+            }
+
+            // pm_game_administration_edit
+            if (0 === strpos($pathinfo, '/administration/parties/editer') && preg_match('#^/administration/parties/editer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_administration_edit')), array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::editAction',));
+            }
+
+            // pm_game_administration_delete
+            if (0 === strpos($pathinfo, '/administration/parties/supprimer') && preg_match('#^/administration/parties/supprimer/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_administration_delete')), array (  '_controller' => 'PM\\GameBundle\\Controller\\GameController::deleteAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/mes-parties')) {
+            // pm_game_public_homepage
+            if ($pathinfo === '/mes-parties') {
+                return array (  '_controller' => 'PM\\GameBundle\\Controller\\GamePublicController::indexAction',  '_route' => 'pm_game_public_homepage',);
+            }
+
+            // pm_game_public_view
+            if (0 === strpos($pathinfo, '/mes-parties/vue') && preg_match('#^/mes\\-parties/vue/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_game_public_view')), array (  '_controller' => 'PM\\GameBundle\\Controller\\GamePublicController::viewAction',));
+            }
+
+        }
+
+        // pm_player_public_homepage
+        if (0 === strpos($pathinfo, '/jeu') && preg_match('#^/jeu/(?P<slug>\\S{0,255})$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'pm_player_public_homepage')), array (  '_controller' => 'PM\\GameBundle\\Controller\\PlayerController::indexAction',));
         }
 
         if (0 === strpos($pathinfo, '/a')) {

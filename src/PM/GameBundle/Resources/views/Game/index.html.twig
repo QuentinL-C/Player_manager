@@ -1,0 +1,36 @@
+{# src/PM/GameBundle/Resources/views/Game/index.html.twig #}
+ 
+{% extends "PMGameBundle:Game:layoutAdmin.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %} 
+    
+{% block h1 %}
+    Gestion des Parties :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Accueil</li>
+{% endblock %}    
+    
+{% block PM_body %}
+<div class="row">
+    <section class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert col-lg-7 alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div class="well">
+            <h2>Gestion des Parties</h2>
+            <ul>
+                <li><a href="{{ path('pm_game_administration_insert') }}">Ajouter une Partie</a></li>
+                <li><a href="{{ path('pm_game_administration_list') }}">Liste des Parties</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}

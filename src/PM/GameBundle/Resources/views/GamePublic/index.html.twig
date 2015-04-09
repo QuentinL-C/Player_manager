@@ -1,0 +1,81 @@
+{# src/PM/GameBundle/Resources/views/GamePublic/index.html.twig #}
+ 
+{% extends "PMGameBundle:GamePublic:layoutPublic.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %} 
+    
+{% block h1 %}
+    Mes Parties :
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">Accueil</li>
+{% endblock %}    
+    
+{% block PM_body %}
+<div class="row">
+    <section class="col-lg-12">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert col-lg-7 alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        {% for game in listGames %}
+            {% if loop.first == true %}
+                <div class="row">{% endif %}
+                {% set character = pm_game_gameaction.setCharacter(game, app.user) %}
+                <div class="col-md-3 well">
+                    <h2 class="text-right">{{ game.name }}</h2>
+                    <div class="text-right"><a href="{{path('pm_game_public_view', {'slug': game.slug})}}">Fiche descriptive</a></div>
+                    <br />
+                    
+                    <!-- Ici, nécessite de prendre en compte : En ligne / Hors ligne / Rejoindre / Inactive -->
+                    {% if game.active == false %}
+                        <div class="alert alert-danger" role="alert">Partie inactive.</div>
+                    {% endif %}
+                    <br />
+                    <div class="text-center"><a role="button" class="btn btn-danger btn-lg" href="{{path('pm_player_public_homepage', {'slug': game.slug})}}">Lancer</a></div>
+                </div>
+            {% if loop.index is divisible by(4) %}
+                </div>
+                {% if loop.last == false %}<div class="row">{% endif %}
+            {% elseif loop.last == true %}</div><hr />
+            {% endif %}
+        {% endfor %}
+        
+        {% for game in listGames %}
+            {% if loop.first == true %}<div class="row">{% endif %}
+                {% set character = pm_game_gameaction.setCharacter(game, app.user) %}
+                <div class="col-md-3 well">
+                    <h2 class="text-right">{{ game.name }}</h2>
+                    <div class="text-right"><a href="{{path('pm_game_public_view', {'slug': game.slug})}}">Fiche descriptive</a></div>
+                    <br />
+                    <dl class="dl-horizontal">
+                        <dt>Mon <abbr title="Personnage Joueur" >P.J.</abbr> :</dt>
+                        <dd><a href="{{path('pm_characterused_public_view', {'slug': character.slug})}}">{{character.name}}</a></dd>
+                        <dt>Niveau :</dt>
+                        <dd>{{pm_character_characteruseddnd.getGlobalLevel(character)}}</dd>
+                    </dl>
+                    
+                    <!-- Ici, nécessite de prendre en compte : En ligne / Hors ligne / Rejoindre / Inactive -->
+                    {% if game.active == false %}
+                        <div class="alert alert-danger" role="alert">Partie inactive.</div>
+                    {% else %}
+                        <div class="text-center"><a role="button" class="btn btn-success btn-lg" href="{{path('pm_player_public_homepage', {'slug': game.slug})}}">Rejoindre</a></div>
+                    {% endif %}
+                </div>
+            {% if loop.index is divisible by(4) %}
+                </div>
+                {% if loop.last == false %}<div class="row">{% endif %}
+            {% elseif loop.last == true %}</div>
+            {% endif %}
+        {% else %}
+            <div class="alert alert-warning" role="alert">Oups ... Vous ne semblez participer à aucune partie.</div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

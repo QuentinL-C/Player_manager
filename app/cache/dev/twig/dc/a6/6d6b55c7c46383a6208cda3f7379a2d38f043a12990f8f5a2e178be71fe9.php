@@ -81,7 +81,11 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
             </div>
             <div class=\"well\">
                 <h2>Parties :</h2>
-                A venir.
+                
+                <a href=\"";
+        // line 29
+        echo $this->env->getExtension('routing')->getPath("pm_game_administration_homepage");
+        echo "\">Gestion des Parties</a><br />
             </div>
         </div>
         <div class=\"col-md-6\">
@@ -89,39 +93,39 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
                 <h2>Personnages :</h2>
 
                 <a href=\"";
-        // line 35
+        // line 36
         echo $this->env->getExtension('routing')->getPath("pm_ability_administration_homepage");
         echo "\">Gestion des Caractéristiques</a><br />
                 <a href=\"";
-        // line 36
+        // line 37
         echo $this->env->getExtension('routing')->getPath("pm_characterused_administration_homepage");
         echo "\">Gestion des Personnages</a><br />
                 <a href=\"";
-        // line 37
+        // line 38
         echo $this->env->getExtension('routing')->getPath("pm_alignment_administration_homepage");
         echo "\">Gestion des Alignements</a><br />
                 <a href=\"";
-        // line 38
+        // line 39
         echo $this->env->getExtension('routing')->getPath("pm_classdnd_administration_homepage");
         echo "\">Gestion des Classes</a><br />
                 <a href=\"";
-        // line 39
+        // line 40
         echo $this->env->getExtension('routing')->getPath("pm_race_administration_homepage");
         echo "\">Gestion des Races</a><br />
                 <a href=\"";
-        // line 40
+        // line 41
         echo $this->env->getExtension('routing')->getPath("pm_language_administration_homepage");
         echo "\">Gestion des Langues</a><br />
                 <a href=\"";
-        // line 41
+        // line 42
         echo $this->env->getExtension('routing')->getPath("pm_skill_administration_homepage");
         echo "\">Gestion des Compétences</a><br />
                 <a href=\"";
-        // line 42
+        // line 43
         echo $this->env->getExtension('routing')->getPath("pm_size_administration_homepage");
         echo "\">Gestion des Tailles</a><br />
                 <a href=\"";
-        // line 43
+        // line 44
         echo $this->env->getExtension('routing')->getPath("pm_level_administration_homepage");
         echo "\">Gestion des Niveaux</a>
             </div>
@@ -129,23 +133,23 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
                 <h2>Monstres :</h2>
 
                 <a href=\"";
-        // line 48
+        // line 49
         echo $this->env->getExtension('routing')->getPath("pm_monster_administration_homepage");
         echo "\">Gestion des Monstres</a><br />
                 <a href=\"";
-        // line 49
+        // line 50
         echo $this->env->getExtension('routing')->getPath("pm_environment_administration_homepage");
         echo "\">Gestion des Environnements</a><br />
                 <a href=\"";
-        // line 50
+        // line 51
         echo $this->env->getExtension('routing')->getPath("pm_monstertype_administration_homepage");
         echo "\">Gestion des Types de monstre</a><br />
                 <a href=\"";
-        // line 51
+        // line 52
         echo $this->env->getExtension('routing')->getPath("pm_monstersubtype_administration_homepage");
         echo "\">Gestion des Sous-Types de monstre</a><br />
                 <a href=\"";
-        // line 52
+        // line 53
         echo $this->env->getExtension('routing')->getPath("pm_speedspecial_administration_homepage");
         echo "\">Gestion des Modes de déplacement</a><br />
             </div>
@@ -153,7 +157,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
                 <h2>Dons :</h2>
 
                 <a href=\"";
-        // line 57
+        // line 58
         echo $this->env->getExtension('routing')->getPath("pm_gift_administration_homepage");
         echo "\">Gestion des Dons</a><br />
             </div>
@@ -161,11 +165,11 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
                 <h2>Armes :</h2>
                 
                 <a href=\"";
-        // line 62
+        // line 63
         echo $this->env->getExtension('routing')->getPath("pm_weapon_administration_homepage");
         echo "\">Gestion des Armes</a><br />
                 <a href=\"";
-        // line 63
+        // line 64
         echo $this->env->getExtension('routing')->getPath("pm_weapontype_administration_homepage");
         echo "\">Gestion des Types d'Arme</a><br />
             </div>
@@ -174,7 +178,7 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 ";
     }
 
-    // line 69
+    // line 70
     public function block_javascripts_block($context, array $blocks = array())
     {
     }
@@ -191,6 +195,6 @@ class __TwigTemplate_dca66d6b55c7c46383a6208cda3f7379a2d38f043a12990f8f5a2e178be
 
     public function getDebugInfo()
     {
-        return array (  178 => 69,  169 => 63,  165 => 62,  157 => 57,  149 => 52,  145 => 51,  141 => 50,  137 => 49,  133 => 48,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  93 => 35,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
+        return array (  182 => 70,  173 => 64,  169 => 63,  161 => 58,  153 => 53,  149 => 52,  145 => 51,  141 => 50,  137 => 49,  129 => 44,  125 => 43,  121 => 42,  117 => 41,  113 => 40,  109 => 39,  105 => 38,  101 => 37,  97 => 36,  87 => 29,  79 => 24,  72 => 19,  69 => 18,  64 => 15,  61 => 14,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

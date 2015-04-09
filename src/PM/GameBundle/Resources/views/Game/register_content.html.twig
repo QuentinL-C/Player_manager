@@ -1,0 +1,108 @@
+{# src/PM/GameBundle/Resources/views/Game/register_content.html.twig #}
+
+<form class="form-horizontal" method="post" {{ form_enctype(form) }} role="form">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error">
+        <strong>Votre formulaire contient les erreurs suivantes :</strong>
+        {{ form_errors(form) }}
+        {{ form_errors(form.name) }}
+        {{ form_errors(form.synopsis) }}
+        {{ form_errors(form.importChara) }}
+        {{ form_errors(form.lvlMin) }}
+        {{ form_errors(form.lvlMax) }}
+        {{ form_errors(form.wealthFactor) }}
+        {{ form_errors(form.active) }}
+        {{ form_errors(form.gameMasters) }}
+        {{ form_errors(form.characters) }}
+        {{ form_errors(form.openRaces) }}
+        {{ form_errors(form.openClasses) }}
+    </div>
+    <br />
+    {% endif %}
+
+    <fieldset>
+        <legend>Partie :</legend>
+
+        <div class="form-group">
+            {{ form_label(form.name, "Nom :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Nom de votre Partie', 'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-md-3 control-label">
+                <span class="glyphicon glyphicon-question-sign" style="cursor: pointer;" data-content="Le synopsis de votre Partie sera utilisé comme texte descriptif de cette dernière sur sa page publique, accessible à tous." data-toggle="popover" data-container="body" data-original-title="Synopsis" ></span>
+                {{ form_label(form.synopsis, "Synopsis :", {'label_attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="col-md-9">
+                {{ form_widget(form.synopsis, {'attr': {'class': 'form-control', 'rows': '9'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.importChara, "Importation de personnage ?", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.importChara) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.lvlMin, "Niveau minimum :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.lvlMin, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.lvlMax, "Niveau maximum :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.lvlMax, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.wealthFactor, "Facteur de richesse :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.wealthFactor, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.active, "Partie active ?", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.active) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.gameMasters, "Maitres du Jeu :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.gameMasters, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.characters, "Personnages :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.characters, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.openRaces, "Races ouvertes :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.openRaces, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.openClasses, "Classes ouvertes :", {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form.openClasses, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_rest(form) }}
+    <center><input type="submit" class="btn btn-default" /></center>
+</form>

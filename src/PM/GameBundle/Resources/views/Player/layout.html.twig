@@ -1,0 +1,16 @@
+{# src/PM/GameBundle/Resources/views/Player/layout.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutPublic.html.twig" %}
+
+{% block title %}
+    Parties - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

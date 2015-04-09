@@ -177,6 +177,7 @@ class appDevDebugProjectContainer extends Container
             'pm_character.deleterace' => 'getPmCharacter_DeleteraceService',
             'pm_character.deletesize' => 'getPmCharacter_DeletesizeService',
             'pm_character.skillaction' => 'getPmCharacter_SkillactionService',
+            'pm_game.gameaction' => 'getPmGame_GameactionService',
             'pm_gift.giftaction' => 'getPmGift_GiftactionService',
             'pm_monster.environmentaction' => 'getPmMonster_EnvironmentactionService',
             'pm_monster.monsteraction' => 'getPmMonster_MonsteractionService',
@@ -2279,6 +2280,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'pm_game.gameaction' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \PM\GameBundle\Service\gameAction A PM\GameBundle\Service\gameAction instance.
+     */
+    protected function getPmGame_GameactionService()
+    {
+        return $this->services['pm_game.gameaction'] = new \PM\GameBundle\Service\gameAction($this->get('doctrine.orm.default_entity_manager'), $this->get('security.context'));
+    }
+
+    /**
      * Gets the 'pm_gift.giftaction' service.
      *
      * This service is shared.
@@ -2723,7 +2737,7 @@ class appDevDebugProjectContainer extends Container
         $q = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $l, 'main', $o, $p, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, NULL);
         $q->setRememberMeServices($m);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $n, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $m, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54e6eee8556f6', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $n, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $m, $g, $a, $d, true), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '54fb2c2ac2a04', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3849,6 +3863,8 @@ class appDevDebugProjectContainer extends Container
         $instance->addGlobal('project_name', 'Player Manager');
         $instance->addGlobal('pm_character_characterusedskill', $this->get('pm_character.characterusedskill'));
         $instance->addGlobal('pm_character_characterusedability', $this->get('pm_character.characterusedability'));
+        $instance->addGlobal('pm_character_characteruseddnd', $this->get('pm_character.characteruseddnd'));
+        $instance->addGlobal('pm_game_gameaction', $this->get('pm_game.gameaction'));
 
         return $instance;
     }
@@ -4228,7 +4244,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54e6eee8556f6')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54fb2c2ac2a04')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

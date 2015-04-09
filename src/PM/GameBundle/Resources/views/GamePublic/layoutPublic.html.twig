@@ -1,0 +1,21 @@
+{# src/PM/WelcomeBundle/Resources/views/GamePublic/layout.html.twig #}
+ 
+{% extends "PMWelcomeBundle::layoutPublic.html.twig" %}
+
+{% block title %}
+    Mes Parties - {{ parent() }}
+{% endblock %}
+
+{% block follow %}
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+    
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('pm_game_public_homepage') }}">Mes Parties</a></li>
+{% endblock %}
+
+{% block body %}
+    {% block PM_body %}
+    {% endblock %}
+{% endblock %}

@@ -1,3 +1,48 @@
-pm_game_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: PMGameBundle:Default:index }
+# -- Game -- #
+pm_game_administration_homepage:
+    path:     /administration/parties
+    defaults: { _controller: PMGameBundle:Game:index }
+
+pm_game_administration_insert:
+    path:     /administration/parties/insertion
+    defaults: { _controller: PMGameBundle:Game:register }
+
+pm_game_administration_list:
+    path:     /administration/parties/liste
+    defaults: { _controller: PMGameBundle:Game:list }
+    
+pm_game_administration_view:
+    path:     /administration/parties/vue/{slug}
+    defaults: { _controller: PMGameBundle:Game:view }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_game_administration_edit:
+    path:     /administration/parties/editer/{slug}
+    defaults: { _controller: PMGameBundle:Game:edit }
+    requirements:
+        slug:  \S{0,255}
+    
+pm_game_administration_delete:
+    path:     /administration/parties/supprimer/{slug}
+    defaults: { _controller: PMGameBundle:Game:delete }
+    requirements:
+        slug:  \S{0,255}
+
+# -- GamePublic -- #
+pm_game_public_homepage:
+    path:     /mes-parties
+    defaults: { _controller: PMGameBundle:GamePublic:index }
+    
+pm_game_public_view:
+    path:     /mes-parties/vue/{slug}
+    defaults: { _controller: PMGameBundle:GamePublic:view }
+    requirements:
+        slug:  \S{0,255}
+
+# -- Player -- #
+pm_player_public_homepage:
+    path:     /jeu/{slug}
+    defaults: { _controller: PMGameBundle:Player:index }
+    requirements:
+        slug:  \S{0,255}

@@ -96,7 +96,10 @@ class __TwigTemplate_7eb4990a38c8fef8991b2ad789c3d00fdd9b74996ee88c330544a72748b
         <h2>Mes parties</h2>
         
         <ul>
-            <li>A venir</li>
+            <li><a href=\"";
+        // line 34
+        echo $this->env->getExtension('routing')->getPath("pm_game_public_homepage");
+        echo "\">Accéder à mes parties</a></li>
         </ul>
     </div>
 </div>
@@ -120,6 +123,6 @@ class __TwigTemplate_7eb4990a38c8fef8991b2ad789c3d00fdd9b74996ee88c330544a72748b
 
     public function getDebugInfo()
     {
-        return array (  107 => 40,  91 => 27,  84 => 22,  81 => 21,  74 => 18,  71 => 17,  64 => 14,  61 => 13,  54 => 10,  51 => 9,  44 => 6,  41 => 5,  11 => 3,);
+        return array (  110 => 40,  101 => 34,  91 => 27,  84 => 22,  81 => 21,  74 => 18,  71 => 17,  64 => 14,  61 => 13,  54 => 10,  51 => 9,  44 => 6,  41 => 5,  11 => 3,);
     }
 }

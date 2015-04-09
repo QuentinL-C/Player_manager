@@ -1,7 +1,7 @@
 {# app/Resources/views/layout.html.twig #}
  
 <!DOCTYPE html>
-<html>
+<html {% if app.request.get('_route') == 'pm_player_public_homepage' %}style="height: 100%;"{% endif %}>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  
@@ -23,7 +23,8 @@
         {% endblock %}
     </head>
  
-    <body>
+    <body {% if app.request.get('_route') == 'pm_player_public_homepage' %}style="height: 90%;"{% endif %}>
+        {% if app.request.get('_route') != 'pm_player_public_homepage' %}
         <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <nav class="container">
                 <div class="navbar-header">
@@ -51,30 +52,35 @@
                 </div>
             </nav>
         </header>
+        {% else %}
+            {% block nav_extends %}{% endblock %}
+        {% endif %}
             
-        <div class="container">
-            <br /><br />
-            <div class="page-header">
-                <div class="pull-right">{% block h1_extend %}{% endblock %}</div>
-                <h1>{% block h1 %}{% endblock %}</h1>
-            </div>
+        <div class="container" style="margin-top: 50px; {% if app.request.get('_route') == 'pm_player_public_homepage' %}height: 100%;{% endif %}">
+            {% if app.request.get('_route') != 'pm_player_public_homepage' %}
+                <div class="page-header">
+                    <div class="pull-right">{% block h1_extend %}{% endblock %}</div>
+                    <h1>{% block h1 %}{% endblock %}</h1>
+                </div>
 
-            <ol class="breadcrumb">
-            {% block breadcrumb %}
-                <li>{% if app.request.get('_route') != 'pm_welcome_homepage' and app.request.get('_route') != 'pm_welcome_index' %}<a href="{{ path('pm_welcome_homepage') }}">Accueil</a>{% else %}Accueil{% endif %}</li>
-            {% endblock %}
-            </ol>
-        
-            {% block body %}
-            {% endblock %}
+                <ol class="breadcrumb">
+                    {% block breadcrumb %}
+                        <li>{% if app.request.get('_route') != 'pm_welcome_homepage' and app.request.get('_route') != 'pm_welcome_index' %}<a href="{{ path('pm_welcome_homepage') }}">Accueil</a>{% else %}Accueil{% endif %}</li>
+                    {% endblock %}
+                </ol>
+            {% endif %}
+            
+            {% block body %}{% endblock %}
         </div>
-        <br />
-        <hr />
-        <footer class="footer">
-            <div class="container">
-                <p class="pull-right"><a href="#">Top</a></p>
-            </div>
-        </footer>
+        {% if app.request.get('_route') != 'pm_player_public_homepage' %}
+            <br />
+            <hr />
+            <footer class="footer">
+                <div class="container">
+                    <p class="pull-right"><a href="#">Top</a></p>
+                </div>
+            </footer>
+        {% endif %}
             
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         

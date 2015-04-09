@@ -33,6 +33,8 @@ twig:
         project_name: "Player Manager"
         pm_character_characterusedskill: "@pm_character.characterusedskill"
         pm_character_characterusedability: "@pm_character.characterusedability"
+        pm_character_characteruseddnd: "@pm_character.characteruseddnd"
+        pm_game_gameaction: "@pm_game.gameaction"
 
 # Assetic Configuration
 assetic:
