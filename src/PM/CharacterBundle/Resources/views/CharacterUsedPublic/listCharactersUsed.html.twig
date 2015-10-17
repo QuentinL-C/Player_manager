@@ -24,23 +24,7 @@
             </div>
         {% endfor %}
         
-        <table class="table table-striped" style="width: 100%">
-            <caption>Liste de mes Personnages</caption>
-            <tr>
-                <th style="max-width: 30px;">#</th>
-                <th style="text-align: left;">Nom</th>
-            </tr>
-            {% for characterused in listCharactersUsed %}
-                <tr>
-                    <td style="text-align: left;">{{ loop.index }}</td>
-                    <td style="text-align: left;"><a href="{{ path('pm_characterused_public_view', { 'slug' : characterused.slug} ) }}">{{ characterused.name }}</a></td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5" style="text-align: center; font-weight: bold;">Oups ... Aucun personnage connu.</td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% include 'PMCharacterBundle:CharacterUsedPublic:listCharacterUsed_content.html.twig' %}
     </section>
 </div>
 {% endblock %}

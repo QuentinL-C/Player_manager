@@ -67,7 +67,7 @@ class ProfileController extends BaseController
         $formFactory = $this->get('fos_user.profile.form.factory');
 
         $form = $formFactory->createForm();
-        $form->setData($user);
+        $form->setData($user)->remove('current_password', 'username');
 
         $form->handleRequest($request);
 

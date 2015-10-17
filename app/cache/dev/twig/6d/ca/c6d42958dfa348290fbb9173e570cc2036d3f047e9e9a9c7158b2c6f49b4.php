@@ -20,6 +20,7 @@ class __TwigTemplate_6dcac6d42958dfa348290fbb9173e570cc2036d3f047e9e9a9c7158b2c6
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'h1' => array($this, 'block_h1'),
+            'h1_extend' => array($this, 'block_h1_extend'),
             'breadcrumb' => array($this, 'block_breadcrumb'),
             'PM_body' => array($this, 'block_PM_body'),
         );
@@ -58,35 +59,61 @@ class __TwigTemplate_6dcac6d42958dfa348290fbb9173e570cc2036d3f047e9e9a9c7158b2c6
     }
 
     // line 13
-    public function block_breadcrumb($context, array $blocks = array())
+    public function block_h1_extend($context, array $blocks = array())
     {
         // line 14
+        echo "    ";
+        if (((isset($context["isMJ"]) ? $context["isMJ"] : $this->getContext($context, "isMJ")) == true)) {
+            // line 15
+            echo "        <a class=\"btn btn-lg btn-warning\" href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_player_public_homepage", array("slug" => $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "slug", array()))), "html", null, true);
+            echo "\" >Lancer</a>
+        <a class=\"btn btn-lg btn-primary\" href=\"";
+            // line 16
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_game_administration_edit", array("slug" => $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "slug", array()))), "html", null, true);
+            echo "\" >Modifier</a>
+        <a class=\"btn btn-lg btn-danger main-JS-delete\" href=\"";
+            // line 17
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_game_administration_delete", array("slug" => $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "slug", array()))), "html", null, true);
+            echo "\" >Supprimer</a>
+    ";
+        } elseif ((        // line 18
+(isset($context["isCharacter"]) ? $context["isCharacter"] : $this->getContext($context, "isCharacter")) == true)) {
+            echo "<strong>Joueur</strong>
+    ";
+        }
+    }
+
+    // line 22
+    public function block_breadcrumb($context, array $blocks = array())
+    {
+        // line 23
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
     <li class=\"active\">";
-        // line 15
+        // line 24
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "name", array()), "html", null, true);
         echo "</li>
     <li class=\"active\">Voir</li>
 ";
     }
 
-    // line 19
+    // line 28
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 20
+        // line 29
         echo "<div class=\"row\">
     <section id=\"content\" class=\"col-lg-12\">
         ";
-        // line 22
+        // line 31
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 23
+            // line 32
             echo "            <div class=\"alert alert-success\">
                 ";
-            // line 24
+            // line 33
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -95,173 +122,26 @@ class __TwigTemplate_6dcac6d42958dfa348290fbb9173e570cc2036d3f047e9e9a9c7158b2c6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
+        // line 36
         echo "        
-        <div class=\"row\">
-            <div class=\"col-md-6\">
-                ";
-        // line 30
-        if ( !twig_test_empty($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "synopsis", array()))) {
-            // line 31
-            echo "                    <div class=\"well\">
-                        <h2>Synopsis</h2>
-                        ";
-            // line 33
-            echo $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "synopsis", array());
-            echo "
-                    </div>
-                ";
-        } else {
-            // line 36
-            echo "                    <div class=\"alert alert-warning\" role=\"alert\">Aucun synopsis fourni pour cette partie.</div>
-                ";
-        }
+        
+        ";
         // line 38
-        echo "            </div>
-            <div class=\"col-md-6\">
-                <h2>Informations :</h2>
-                <ul>
-                    <li>Partie active : ";
+        if (((isset($context["isMJ"]) ? $context["isMJ"] : $this->getContext($context, "isMJ")) == true)) {
+            $this->env->loadTemplate("PMGameBundle:GamePublic:viewMJ.html.twig")->display($context);
+            // line 39
+            echo "        ";
+        } elseif (((isset($context["isCharacter"]) ? $context["isCharacter"] : $this->getContext($context, "isCharacter")) == true)) {
+            $this->env->loadTemplate("PMGameBundle:GamePublic:viewPlayer.html.twig")->display($context);
+            // line 40
+            echo "        ";
+        } else {
+            $this->env->loadTemplate("PMGameBundle:GamePublic:viewPublic.html.twig")->display($context);
+            // line 41
+            echo "        ";
+        }
         // line 42
-        if (($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "active", array()) == true)) {
-            echo "Oui";
-        } else {
-            echo "Non";
-        }
-        echo "</li>
-                    <li>Import de personnage : ";
-        // line 43
-        if (($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "importChara", array()) == true)) {
-            echo "Oui";
-        } else {
-            echo "Non";
-        }
-        echo "</li>
-                    <li>Niveau minimum : ";
-        // line 44
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "lvlMin", array()), "html", null, true);
-        echo "</li>
-                    <li>Niveau maximum : ";
-        // line 45
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "lvlMax", array()), "html", null, true);
-        echo "</li>
-                    <li>Facteur de richesse : ";
-        // line 46
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "wealthFactor", array()), "html", null, true);
-        echo "</li>
-                    <li>Races :</li>
-                    <ul>
-                        ";
-        // line 49
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "openRaces", array()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["race"]) {
-            // line 50
-            echo "                            <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_race_public_view", array("slug" => $this->getAttribute($context["race"], "slug", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["race"], "name", array()), "html", null, true);
-            echo "</a></li>
-                        ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 52
-            echo "                            <li>Aucune race ouverte ...</li>
-                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['race'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
-        echo "                    </ul>
-                    <li>Classes :</li>
-                    <ul>
-                        ";
-        // line 57
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "openClasses", array()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["class"]) {
-            // line 58
-            echo "                            <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_classdnd_public_view", array("slug" => $this->getAttribute($context["class"], "slug", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["class"], "name", array()), "html", null, true);
-            echo "</a></li>
-                        ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 60
-            echo "                            <li>Aucune classe ouverte ...</li>
-                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
-        echo "                    </ul>
-                    <li>Maitres du Jeu :</li>
-                    <ul>
-                        ";
-        // line 65
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "gameMasters", array()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 66
-            echo "                            <li><a href=\"mailto:";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "email", array()), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "username", array()), "html", null, true);
-            echo "</a></li>
-                        ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 68
-            echo "                            <li>Aucun Maitre du Jeu connu ...</li>
-                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
-        echo "                    </ul>
-                </ul>
-                <br />
-                <h2>Liste des Personnages :</h2>
-                <ul>
-                    ";
-        // line 75
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["game"]) ? $context["game"] : $this->getContext($context, "game")), "characters", array()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["character"]) {
-            // line 76
-            echo "                        <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_public_view", array("slug" => $this->getAttribute($context["character"], "slug", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["character"], "name", array()), "html", null, true);
-            echo "</a></li>
-                    ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 78
-            echo "                        <li>Aucun personnage ne participe à la partie ...</li>
-                    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['character'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 80
-        echo "                </ul>
-            </div>
-        </div>
-    </section>
+        echo "    </section>
 </div>
 ";
     }
@@ -278,6 +158,6 @@ class __TwigTemplate_6dcac6d42958dfa348290fbb9173e570cc2036d3f047e9e9a9c7158b2c6
 
     public function getDebugInfo()
     {
-        return array (  261 => 80,  254 => 78,  244 => 76,  239 => 75,  232 => 70,  225 => 68,  215 => 66,  210 => 65,  205 => 62,  198 => 60,  188 => 58,  183 => 57,  178 => 54,  171 => 52,  161 => 50,  156 => 49,  150 => 46,  146 => 45,  142 => 44,  134 => 43,  126 => 42,  120 => 38,  116 => 36,  110 => 33,  106 => 31,  104 => 30,  99 => 27,  90 => 24,  87 => 23,  83 => 22,  79 => 20,  76 => 19,  69 => 15,  64 => 14,  61 => 13,  54 => 10,  51 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  144 => 42,  141 => 41,  137 => 40,  133 => 39,  130 => 38,  126 => 36,  117 => 33,  114 => 32,  110 => 31,  106 => 29,  103 => 28,  96 => 24,  91 => 23,  88 => 22,  81 => 18,  77 => 17,  73 => 16,  68 => 15,  65 => 14,  62 => 13,  55 => 10,  52 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

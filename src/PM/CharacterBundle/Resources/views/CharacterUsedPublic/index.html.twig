@@ -9,6 +9,10 @@
 {% block h1 %}
     Mes Personnages :
 {% endblock %}
+    
+{% block h1_extend %}
+    <a class="btn btn-lg btn-primary" href="{{ path('pm_characterused_public_insert') }}" >Nouveau</a>
+{% endblock %}
 
 {% block breadcrumb %}
     {{ parent() }}
@@ -24,13 +28,7 @@
             </div>
         {% endfor %}
         
-        <div class="well">
-            <h2>Mes Personnages</h2>
-            <ul>
-                <li><a href="{{ path('pm_characterused_public_insert') }}">Nouveau Personnage</a></li>
-                <li><a href="{{ path('pm_characterused_public_list') }}">Liste de mes Personnages</a></li>
-            </ul>
-        </div>
+        {{ render(controller('PMCharacterBundle:CharacterUsedPublic:listContent')) }}
     </section>
 </div>
 {% endblock %}

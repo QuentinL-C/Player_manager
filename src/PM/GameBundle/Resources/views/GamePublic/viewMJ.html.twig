@@ -1,0 +1,75 @@
+{# src/PM/GameBundle/Resources/views/GamePublic/viewMJ.html.twig #}
+ 
+<div class="row">
+    <div class="col-md-6">
+        {% if game.synopsis is not empty %}
+            <div class="well">
+                <h2>Synopsis</h2>
+                {{ game.synopsis|raw }}
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">Aucun synopsis fourni pour cette partie.</div>
+        {% endif %}
+        <br />
+        <h2>Avancé de la partie :</h2>
+        <p>A définir</p>
+    </div>
+    <div class="col-md-6">
+        <h2>Paramètres :</h2>
+        <ul>
+            <li>Partie active : {% if game.active == true %}Oui{% else %}Non{% endif %}</li>
+            <li>Import de personnage : {% if game.importChara == true %}Oui{% else %}Non{% endif %}</li>
+            <li>Niveau minimum : {{game.lvlMin}}</li>
+            <li>Niveau maximum : {{game.lvlMax}}</li>
+            <li>Facteur de richesse : {{game.wealthFactor}}</li>
+            <li>Races :</li>
+            <ul>
+                {% for race in game.openRaces %}
+                    <li><a href="{{path('pm_race_public_view', {'slug' : race.slug})}}">{{race.name}}</a></li>
+                {% else %}
+                    <li>Aucune race ouverte ...</li>
+                {% endfor %}
+            </ul>
+            <li>Classes :</li>
+            <ul>
+                {% for class in game.openClasses %}
+                    <li><a href="{{path('pm_classdnd_public_view', {'slug' : class.slug})}}">{{class.name}}</a></li>
+                {% else %}
+                    <li>Aucune classe ouverte ...</li>
+                {% endfor %}
+            </ul>
+            <li>Maitres du Jeu :</li>
+            <ul>
+                {% for user in game.gameMasters %}
+                    <li><a href="mailto:{{user.email}}">{{user.username}}</a></li>
+                {% else %}
+                    <li>Aucun Maitre du Jeu connu ...</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Personnages :</h2>
+        
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="UserTab">
+                {% for character in game.characters %}
+                    <li role="presentation" class="active"><a href="#{{character.slug}}" aria-controls="{{character.slug}}" role="tab" data-toggle="tab">{{character.name}}</a></li>
+                {% endfor %}
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                {% for character in game.characters %}
+                    <div role="tabpanel" class="tab-pane active" id="{{character.slug}}">
+                        <br />
+                        {{ render(controller('PMCharacterBundle:CharacterUsedPublic:viewContent', { 'slug' : character.slug })) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

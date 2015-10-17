@@ -37,6 +37,7 @@
                     {% if game.active == false %}
                         <div class="alert alert-danger" role="alert">Partie inactive.</div>
                     {% endif %}
+                    <div class="text-center"><strong>M.J.</strong></div>
                     <br />
                     <div class="text-center"><a role="button" class="btn btn-danger btn-lg" href="{{path('pm_player_public_homepage', {'slug': game.slug})}}">Lancer</a></div>
                 </div>

@@ -9,6 +9,15 @@
 {% block h1 %}
     {{ game.name }} :
 {% endblock %}
+    
+{% block h1_extend %}
+    {% if isMJ == true %}
+        <a class="btn btn-lg btn-warning" href="{{path('pm_player_public_homepage', {'slug': game.slug})}}" >Lancer</a>
+        <a class="btn btn-lg btn-primary" href="{{ path('pm_game_administration_edit', {'slug': game.slug}) }}" >Modifier</a>
+        <a class="btn btn-lg btn-danger main-JS-delete" href="{{ path('pm_game_administration_delete', {'slug': game.slug}) }}" >Supprimer</a>
+    {% elseif isCharacter == true%}<strong>Joueur</strong>
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumb %}
     {{ parent() }}
@@ -25,61 +34,11 @@
             </div>
         {% endfor %}
         
-        <div class="row">
-            <div class="col-md-6">
-                {% if game.synopsis is not empty %}
-                    <div class="well">
-                        <h2>Synopsis</h2>
-                        {{ game.synopsis|raw }}
-                    </div>
-                {% else %}
-                    <div class="alert alert-warning" role="alert">Aucun synopsis fourni pour cette partie.</div>
-                {% endif %}
-            </div>
-            <div class="col-md-6">
-                <h2>Informations :</h2>
-                <ul>
-                    <li>Partie active : {% if game.active == true %}Oui{% else %}Non{% endif %}</li>
-                    <li>Import de personnage : {% if game.importChara == true %}Oui{% else %}Non{% endif %}</li>
-                    <li>Niveau minimum : {{game.lvlMin}}</li>
-                    <li>Niveau maximum : {{game.lvlMax}}</li>
-                    <li>Facteur de richesse : {{game.wealthFactor}}</li>
-                    <li>Races :</li>
-                    <ul>
-                        {% for race in game.openRaces %}
-                            <li><a href="{{path('pm_race_public_view', {'slug' : race.slug})}}">{{race.name}}</a></li>
-                        {% else %}
-                            <li>Aucune race ouverte ...</li>
-                        {% endfor %}
-                    </ul>
-                    <li>Classes :</li>
-                    <ul>
-                        {% for class in game.openClasses %}
-                            <li><a href="{{path('pm_classdnd_public_view', {'slug' : class.slug})}}">{{class.name}}</a></li>
-                        {% else %}
-                            <li>Aucune classe ouverte ...</li>
-                        {% endfor %}
-                    </ul>
-                    <li>Maitres du Jeu :</li>
-                    <ul>
-                        {% for user in game.gameMasters %}
-                            <li><a href="mailto:{{user.email}}">{{user.username}}</a></li>
-                        {% else %}
-                            <li>Aucun Maitre du Jeu connu ...</li>
-                        {% endfor %}
-                    </ul>
-                </ul>
-                <br />
-                <h2>Liste des Personnages :</h2>
-                <ul>
-                    {% for character in game.characters %}
-                        <li><a href="{{path('pm_characterused_public_view', {'slug' : character.slug})}}">{{character.name}}</a></li>
-                    {% else %}
-                        <li>Aucun personnage ne participe à la partie ...</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+        
+        {% if isMJ == true %}{% include 'PMGameBundle:GamePublic:viewMJ.html.twig' %}
+        {% elseif isCharacter == true%}{% include 'PMGameBundle:GamePublic:viewPlayer.html.twig' %}
+        {% else %}{% include 'PMGameBundle:GamePublic:viewPublic.html.twig' %}
+        {% endif %}
     </section>
 </div>
 {% endblock %}

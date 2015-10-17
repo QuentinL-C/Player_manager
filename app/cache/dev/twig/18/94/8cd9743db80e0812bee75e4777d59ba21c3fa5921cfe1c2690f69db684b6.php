@@ -137,29 +137,30 @@ class __TwigTemplate_18948cd9743db80e0812bee75e4777d59ba21c3fa5921cfe1c2690f69db
                     ";
             }
             // line 40
-            echo "                    <br />
+            echo "                    <div class=\"text-center\"><strong>M.J.</strong></div>
+                    <br />
                     <div class=\"text-center\"><a role=\"button\" class=\"btn btn-danger btn-lg\" href=\"";
-            // line 41
+            // line 42
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_player_public_homepage", array("slug" => $this->getAttribute($context["game"], "slug", array()))), "html", null, true);
             echo "\">Lancer</a></div>
                 </div>
             ";
-            // line 43
+            // line 44
             if ((0 == $this->getAttribute($context["loop"], "index", array()) % 4)) {
-                // line 44
+                // line 45
                 echo "                </div>
                 ";
-                // line 45
+                // line 46
                 if (($this->getAttribute($context["loop"], "last", array()) == false)) {
                     echo "<div class=\"row\">";
                 }
-                // line 46
+                // line 47
                 echo "            ";
             } elseif (($this->getAttribute($context["loop"], "last", array()) == true)) {
                 echo "</div><hr />
             ";
             }
-            // line 48
+            // line 49
             echo "        ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -173,10 +174,10 @@ class __TwigTemplate_18948cd9743db80e0812bee75e4777d59ba21c3fa5921cfe1c2690f69db
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['game'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 49
+        // line 50
         echo "        
         ";
-        // line 50
+        // line 51
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listGames"]) ? $context["listGames"] : $this->getContext($context, "listGames")));
         $context['_iterated'] = false;
@@ -194,73 +195,73 @@ class __TwigTemplate_18948cd9743db80e0812bee75e4777d59ba21c3fa5921cfe1c2690f69db
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["game"]) {
-            // line 51
+            // line 52
             echo "            ";
             if (($this->getAttribute($context["loop"], "first", array()) == true)) {
                 echo "<div class=\"row\">";
             }
-            // line 52
+            // line 53
             echo "                ";
             $context["character"] = $this->getAttribute((isset($context["pm_game_gameaction"]) ? $context["pm_game_gameaction"] : $this->getContext($context, "pm_game_gameaction")), "setCharacter", array(0 => $context["game"], 1 => $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array())), "method");
-            // line 53
+            // line 54
             echo "                <div class=\"col-md-3 well\">
                     <h2 class=\"text-right\">";
-            // line 54
+            // line 55
             echo twig_escape_filter($this->env, $this->getAttribute($context["game"], "name", array()), "html", null, true);
             echo "</h2>
                     <div class=\"text-right\"><a href=\"";
-            // line 55
+            // line 56
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_game_public_view", array("slug" => $this->getAttribute($context["game"], "slug", array()))), "html", null, true);
             echo "\">Fiche descriptive</a></div>
                     <br />
                     <dl class=\"dl-horizontal\">
                         <dt>Mon <abbr title=\"Personnage Joueur\" >P.J.</abbr> :</dt>
                         <dd><a href=\"";
-            // line 59
+            // line 60
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_characterused_public_view", array("slug" => $this->getAttribute((isset($context["character"]) ? $context["character"] : $this->getContext($context, "character")), "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["character"]) ? $context["character"] : $this->getContext($context, "character")), "name", array()), "html", null, true);
             echo "</a></dd>
                         <dt>Niveau :</dt>
                         <dd>";
-            // line 61
+            // line 62
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pm_character_characteruseddnd"]) ? $context["pm_character_characteruseddnd"] : $this->getContext($context, "pm_character_characteruseddnd")), "getGlobalLevel", array(0 => (isset($context["character"]) ? $context["character"] : $this->getContext($context, "character"))), "method"), "html", null, true);
             echo "</dd>
                     </dl>
                     
                     <!-- Ici, nécessite de prendre en compte : En ligne / Hors ligne / Rejoindre / Inactive -->
                     ";
-            // line 65
+            // line 66
             if (($this->getAttribute($context["game"], "active", array()) == false)) {
-                // line 66
+                // line 67
                 echo "                        <div class=\"alert alert-danger\" role=\"alert\">Partie inactive.</div>
                     ";
             } else {
-                // line 68
+                // line 69
                 echo "                        <div class=\"text-center\"><a role=\"button\" class=\"btn btn-success btn-lg\" href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("pm_player_public_homepage", array("slug" => $this->getAttribute($context["game"], "slug", array()))), "html", null, true);
                 echo "\">Rejoindre</a></div>
                     ";
             }
-            // line 70
+            // line 71
             echo "                </div>
             ";
-            // line 71
+            // line 72
             if ((0 == $this->getAttribute($context["loop"], "index", array()) % 4)) {
-                // line 72
+                // line 73
                 echo "                </div>
                 ";
-                // line 73
+                // line 74
                 if (($this->getAttribute($context["loop"], "last", array()) == false)) {
                     echo "<div class=\"row\">";
                 }
-                // line 74
+                // line 75
                 echo "            ";
             } elseif (($this->getAttribute($context["loop"], "last", array()) == true)) {
                 echo "</div>
             ";
             }
-            // line 76
+            // line 77
             echo "        ";
             $context['_iterated'] = true;
             ++$context['loop']['index0'];
@@ -273,14 +274,14 @@ class __TwigTemplate_18948cd9743db80e0812bee75e4777d59ba21c3fa5921cfe1c2690f69db
             }
         }
         if (!$context['_iterated']) {
-            // line 77
+            // line 78
             echo "            <div class=\"alert alert-warning\" role=\"alert\">Oups ... Vous ne semblez participer à aucune partie.</div>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['game'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
+        // line 80
         echo "    </section>
 </div>
 ";
@@ -298,6 +299,6 @@ class __TwigTemplate_18948cd9743db80e0812bee75e4777d59ba21c3fa5921cfe1c2690f69db
 
     public function getDebugInfo()
     {
-        return array (  284 => 79,  277 => 77,  264 => 76,  258 => 74,  254 => 73,  251 => 72,  249 => 71,  246 => 70,  240 => 68,  236 => 66,  234 => 65,  227 => 61,  220 => 59,  213 => 55,  209 => 54,  206 => 53,  203 => 52,  198 => 51,  180 => 50,  177 => 49,  163 => 48,  157 => 46,  153 => 45,  150 => 44,  148 => 43,  143 => 41,  140 => 40,  136 => 38,  134 => 37,  127 => 33,  123 => 32,  120 => 31,  117 => 30,  114 => 29,  111 => 28,  94 => 27,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  285 => 80,  278 => 78,  265 => 77,  259 => 75,  255 => 74,  252 => 73,  250 => 72,  247 => 71,  241 => 69,  237 => 67,  235 => 66,  228 => 62,  221 => 60,  214 => 56,  210 => 55,  207 => 54,  204 => 53,  199 => 52,  181 => 51,  178 => 50,  164 => 49,  158 => 47,  154 => 46,  151 => 45,  149 => 44,  144 => 42,  140 => 40,  136 => 38,  134 => 37,  127 => 33,  123 => 32,  120 => 31,  117 => 30,  114 => 29,  111 => 28,  94 => 27,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
     }
 }

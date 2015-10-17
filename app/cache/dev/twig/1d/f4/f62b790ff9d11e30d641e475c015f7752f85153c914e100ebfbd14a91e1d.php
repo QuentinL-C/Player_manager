@@ -20,6 +20,7 @@ class __TwigTemplate_1df4f62b790ff9d11e30d641e475c015f7752f85153c914e100ebfbd14a
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'h1' => array($this, 'block_h1'),
+            'h1_extend' => array($this, 'block_h1_extend'),
             'breadcrumb' => array($this, 'block_breadcrumb'),
             'PM_body' => array($this, 'block_PM_body'),
         );
@@ -54,9 +55,19 @@ class __TwigTemplate_1df4f62b790ff9d11e30d641e475c015f7752f85153c914e100ebfbd14a
     }
 
     // line 13
-    public function block_breadcrumb($context, array $blocks = array())
+    public function block_h1_extend($context, array $blocks = array())
     {
         // line 14
+        echo "    <a class=\"btn btn-lg btn-primary\" href=\"";
+        echo $this->env->getExtension('routing')->getPath("pm_characterused_public_insert");
+        echo "\" >Nouveau</a>
+";
+    }
+
+    // line 17
+    public function block_breadcrumb($context, array $blocks = array())
+    {
+        // line 18
         echo "    ";
         $this->displayParentBlock("breadcrumb", $context, $blocks);
         echo "
@@ -64,21 +75,21 @@ class __TwigTemplate_1df4f62b790ff9d11e30d641e475c015f7752f85153c914e100ebfbd14a
 ";
     }
 
-    // line 18
+    // line 22
     public function block_PM_body($context, array $blocks = array())
     {
-        // line 19
+        // line 23
         echo "<div class=\"row\">
     <section class=\"col-lg-12\">
         ";
-        // line 21
+        // line 25
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 22
+            // line 26
             echo "            <div class=\"alert col-lg-7 alert-success\">
                 ";
-            // line 23
+            // line 27
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -87,21 +98,12 @@ class __TwigTemplate_1df4f62b790ff9d11e30d641e475c015f7752f85153c914e100ebfbd14a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 26
-        echo "        
-        <div class=\"well\">
-            <h2>Mes Personnages</h2>
-            <ul>
-                <li><a href=\"";
         // line 30
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_public_insert");
-        echo "\">Nouveau Personnage</a></li>
-                <li><a href=\"";
+        echo "        
+        ";
         // line 31
-        echo $this->env->getExtension('routing')->getPath("pm_characterused_public_list");
-        echo "\">Liste de mes Personnages</a></li>
-            </ul>
-        </div>
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("PMCharacterBundle:CharacterUsedPublic:listContent"));
+        echo "
     </section>
 </div>
 ";
@@ -119,6 +121,6 @@ class __TwigTemplate_1df4f62b790ff9d11e30d641e475c015f7752f85153c914e100ebfbd14a
 
     public function getDebugInfo()
     {
-        return array (  101 => 31,  97 => 30,  91 => 26,  82 => 23,  79 => 22,  75 => 21,  71 => 19,  68 => 18,  60 => 14,  57 => 13,  52 => 10,  49 => 9,  42 => 6,  39 => 5,  11 => 3,);
+        return array (  105 => 31,  102 => 30,  93 => 27,  90 => 26,  86 => 25,  82 => 23,  79 => 22,  71 => 18,  68 => 17,  61 => 14,  58 => 13,  53 => 10,  50 => 9,  43 => 6,  40 => 5,  11 => 3,);
     }
 }

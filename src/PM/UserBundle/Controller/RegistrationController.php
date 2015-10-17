@@ -21,9 +21,6 @@ class RegistrationController extends BaseController
         //----------------------------------------------------------------------
         // -- Définition des variables :
         //----------------------------------------------------------------------
-        $nbUtilisateurs = $this->container->get('Doctrine')->getManager()
-                               ->getRepository('PMUserBundle:User')
-                               ->findAll();
         $current_user = $this->getUser();
         //----------------------------------------------------------------------
 

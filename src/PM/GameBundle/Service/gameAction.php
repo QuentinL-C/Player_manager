@@ -41,4 +41,36 @@ class gameAction
             }
         }
     }
+    
+    public function isMJ($game, $user)
+    {
+        /*
+         * Fonction retournant true si l'utilisateur est GM de la partie
+         */
+        $boolean = false;
+        foreach ($game->getGameMasters() as $gameMaster) {
+            if($gameMaster == $user)
+            {
+                $boolean = true;
+                return $boolean;
+                break;
+            }
+        }
+    }
+    
+    public function isPlayer($game, $user)
+    {
+        /*
+         * Fonction retournant true si l'utilisateur est joueur de la partie
+         */
+        $boolean = false;
+        foreach ($game->getCharacters() as $character) {
+            if($character->getUser() == $user)
+            {
+                $boolean = true;
+                return $boolean;
+                break;
+            }
+        }
+    }
 }
